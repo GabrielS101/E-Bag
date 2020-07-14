@@ -132,12 +132,12 @@ bot.on('message', msg=>{
 
 bot.on('message', msg=>{
     if(msg.content === "How To Evolve Whitesnake Into C-moon"){
-        msg.channel.send('__To Evolve Whitesnake Into C-Moon You Must Do These Steps:__ *On Move 8 Green Baby will appear. Roll a 1-10 dice to determine whether green baby will take interest in you or not. If you roll a prime number he will, if you roll a non prime number he will not. *Once Green Baby takes interest in you you will not be able to move for the next turn. *If you survive the turn and win the game, your Whitesnake will evolve into C-Moon.');
+        msg.channel.send('**__To Evolve Whitesnake Into C-Moon You Must Do These Steps:__** *On Move 8 Green Baby will appear. Roll a 1-10 dice to determine whether green baby will take interest in you or not. If you roll a prime number he will, if you roll a non prime number he will not. *Once Green Baby takes interest in you you will not be able to move for the next turn. *If you survive the turn and win the game, your Whitesnake will evolve into C-Moon.');
     }
 })
 
 bot.on('message', msg=>{
     if(msg.content === "C-Moon Stats"){
-        msg.channel.send('**C-Moon**. Health - 800 Punch - 60. **Heart Invert** - 200 - 6 turn cooldown. **Gravity Change** - 4 Turn Wait/Cooldown - Dodge Opponents Attack. **Minor Time Acceleration** - 5 Turn Wait/Cooldown - Add a 1x to your next move. **Gravity Shift** - 5 Turn Wait/Cooldown - Stun opponent for 2 turns. **Gravitational Wall Slam** - 150 - 4 Turn Cooldown. **Gravitational Force Field** - 4 Turn Wait/Cooldown - Block Your Opponents Next Attack. **Passive:** Gravitational Bending: Your attacks cannot be dodged but can be blocked.');
+        msg.channel.send('**C-Moon**. Health - 800. Punch - 60. **Heart Invert** - 200 - 6 turn cooldown. **Gravity Change** - 4 Turn Wait/Cooldown - Dodge Opponents Attack. **Minor Time Acceleration** - 5 Turn Wait/Cooldown - Add a 1x to your next move. **Gravity Shift** - 5 Turn Wait/Cooldown - Stun opponent for 2 turns. **Gravitational Wall Slam** - 150 - 4 Turn Cooldown. **Gravitational Force Field** - 4 Turn Wait/Cooldown - Block Your Opponents Next Attack. **Passive:** Gravitational Bending: Your attacks cannot be dodged but can be blocked.');
     }
 })
