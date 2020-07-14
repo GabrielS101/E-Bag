@@ -141,5 +141,3 @@ bot.on('message', msg=>{
         msg.channel.send('**C-Moon**. Health - 800 Punch - 60. **Heart Invert** - 200 - 6 turn cooldown. **Gravity Change** - 4 Turn Wait/Cooldown - Dodge Opponents Attack. **Minor Time Acceleration** - 5 Turn Wait/Cooldown - Add a 1x to your next move. **Gravity Shift** - 5 Turn Wait/Cooldown - Stun opponent for 2 turns. **Gravitational Wall Slam** - 150 - 4 Turn Cooldown. **Gravitational Force Field** - 4 Turn Wait/Cooldown - Block Your Opponents Next Attack. **Passive:** Gravitational Bending: Your attacks cannot be dodged but can be blocked.');
     }
 })
-
-bot.login(token); 
