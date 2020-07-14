@@ -4,6 +4,8 @@ const ms = require('ms');
 
 bot.login(process.env.token);
 
+const token = ('NzE3NDYzOTI1ODA4OTU1NTMz.XtatEA.BsXICBwVwsgrV2fYXman1_ubYFA');
+
 var PREFIX = 'e-';
 
 var PREFIX = 'E-';
