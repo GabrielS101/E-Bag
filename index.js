@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
 
-const token = ('process.env.token');
+const token = ('NzE3NDYzOTI1ODA4OTU1NTMz.XtatEA.BsXICBwVwsgrV2fYXman1_ubYFA');
 
 var PREFIX = 'e-';
 
