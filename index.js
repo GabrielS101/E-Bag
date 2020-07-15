@@ -29,7 +29,7 @@ bot.on('message', message=>{
         case 'Pong':
             message.channel.send('Ping')
             break;
-        case 'Spam':
+        case 'spam':
             message.channel.send('No')
             break;
         case 'invite':
