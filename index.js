@@ -78,6 +78,22 @@ bot.on('message', message=>{
             .setColor(0x34a857)
             message.channel.send(CMoon);
          break;  
+         case 'TheWorld:AlternateUniverse':  
+         const TheWorldAlternateUniverse = new Discord.MessageEmbed()             
+         .setTitle('The World: Alternate Universe')
+         .addField('Health', '800.')
+         .addField('Punch', '50.')
+         .addField("MUDA MUDA", " 100x3 - 5 turn cooldown.")
+         .addField("Match Toss", '50x4 - 4 turn cooldown.')
+         .addField("Oil Bomb", '200 - 6 turn cooldown - this skill can be activate after using match toss after you use oil can.')
+         .addField("Heavy Kick", '150 - 4 turn cooldown.')
+         .addField("Knives", '50x3 - 3 turn cooldown.')
+         .addField("Oil Can", 'Stuns opponent for 1 turn - 5 turn cooldown.')
+         .addField("ZA WARUDO", 'Stuns Enemy for 2 turns - 8 turn cooldown/wait')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/0/0f/THE_WORLD.PNG/revision/latest?cb=20160414121752')
+         .setColor(0xcca516)
+         message.channel.send(TheWorldAlternateUniverse);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
