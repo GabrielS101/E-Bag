@@ -28,7 +28,7 @@ bot.on('message', message=>{
             .addField("Bulb Throw", '100x2 - 3 Turn Cooldown.')
             .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided die, if u roll under 5 then the damage goes to you.')
             .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
-            .setColor(0xbd5b9c)
+            .setColor(0x753c62)
             message.channel.send(embed);
          break;
 
