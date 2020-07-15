@@ -51,14 +51,29 @@ bot.on('message', message=>{
             .addField('Punch', '70.')
             .addField("Stand Steal", "3 turn wait - 5 turn cooldown - Stuns Opponent for 1 turn.")
             .addField("Sleep", '2 turn wait - 5 turn cooldown - Stuns Opponent for 2 turn.')
-            .addField("Gun", 'Gun - 150 - 3 Turn Cooldown.')
+            .addField("Gun", '150 - 3 Turn Cooldown.')
             .addField("Powerfull Punch", '130 - 3 Turn Cooldown.')
             .addField("Remote Controlled Mode", '5 Turn Wait/Cooldown - Makes You Invincible for 1 turn.')
             .addField("Illusion", '4 Turn Cooldown - Roll a 1-10 dice. If you roll a 4 or Lower than take 100 damage. If you roll 5 or higher deal 100 damage.')
             .addField("Plankton Heal", '5 Turn Cooldown - Heal 100 Health.')
             .setColor(0xb5b3b3)
             message.channel.send(Whitesnake);
-         break;         
+         break;        
+         case 'C-Moon':  
+            const CMoon = new Discord.MessageEmbed()             
+            .setTitle('C-Moon')
+            .addField('Health', '800.')
+            .addField('Punch', '60.')
+            .addField("Heart Invert", "200 - 6 turn cooldown.")
+            .addField("Gravity Change", '4 Turn Wait/Cooldown - Dodge Opponents Attack.')
+            .addField("Minor Time Acceleration", '5 Turn Wait/Cooldown - Add a 1x to your next move.')
+            .addField("Gravity Shift", '5 Turn Wait/Cooldown - Stun opponent for 2 turns.')
+            .addField("Gravitational Wall Slam", '150 - 4 Turn Cooldown.')
+            .addField("Gravitational Force Field", '4 Turn Wait/Cooldown - Block Your Opponents Next Attack.')
+            .addField("Passive - Gravitational Bending", 'Gravitational Bending: Your attacks cannot be dodged but can be blocked.')
+            .setColor(0x34a857)
+            message.channel.send(CMoon);
+         break;  
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
