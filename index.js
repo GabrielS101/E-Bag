@@ -26,12 +26,24 @@ bot.on('message', message=>{
             .addField("Wreckless Punch", '150 - 3 Turn Cooldown.')
             .addField("Bulb Breaker", '100x3 - 4 Turn Cooldown.')
             .addField("Bulb Throw", '100x2 - 3 Turn Cooldown.')
-            .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided die, if u roll under 5 then the damage goes to you.')
+            .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided dice, if u roll under 5 then the damage goes to you.')
             .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
             .setColor(0x753c62)
             message.channel.send(embed);
          break;
-
+         case 'StrayCat':
+            const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
+            .setTitle('Purple Haze Distortion')
+            .addField('Health', '700,')
+            .addField('Punch', '20.')
+            .addField("Air Cannon", "100x2 - 4 Turn Cooldown.")
+            .addField("Air Bubble Barrage", '5x50 - 4 Turn Cooldown.')
+            .addField("Bubble Blast", '100x3 - 5 Turn Cooldown.')
+            .addField("Air shield", '5 Turn Cooldown - Block An Attack.')
+            .addField("Bubble Trap", '5 Turn Cooldown - Stun The Enemy For One Turn.')
+            .setColor(0xd41961)
+            message.channel.send(embed);
+         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
