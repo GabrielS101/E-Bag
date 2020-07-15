@@ -18,7 +18,7 @@ bot.on('message', message=>{
 
     switch(args[0]){
         case 'embed':
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix
             .setTitle('User Information')
             .addField('Player Name', message.author.username)
             .addField('Discord Version', Discord.version)
