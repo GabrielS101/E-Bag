@@ -18,7 +18,7 @@ bot.on('message', message=>{
 
     switch(args[0]){
         case 'PurpleHazeDistortion':
-            const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
+            const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
             .addField('Health', '800,')
             .addField('Punch', '50.')
@@ -29,10 +29,11 @@ bot.on('message', message=>{
             .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided dice, if u roll under 5 then the damage goes to you.')
             .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
             .setColor(0x753c62)
-            message.channel.send(embed);
+            message.channel.send(PurpleHazeDistortion);
          break;
-         case 'StrayCat':              
-             setTitle('Stray Cat')
+         case 'StrayCat':  
+            const StrayCat = new Discord.MessageEmbed()             
+            .setTitle('Stray Cat')
             .addField('Health', '700,')
             .addField('Punch', '20.')
             .addField("Air Cannon", "100x2 - 4 Turn Cooldown.")
@@ -41,7 +42,7 @@ bot.on('message', message=>{
             .addField("Air shield", '5 Turn Cooldown - Block An Attack.')
             .addField("Bubble Trap", '5 Turn Cooldown - Stun The Enemy For One Turn.')
             .setColor(0xd41961)
-            message.channel.send(embed);
+            message.channel.send(StrayCat);
          break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
