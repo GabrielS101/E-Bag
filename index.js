@@ -17,7 +17,7 @@ bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0]){
-        case 'Purple Haze Distortion':
+        case 'PurpleHazeDistortion':
             const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Stand Info')
             .addField('Health', '800')
