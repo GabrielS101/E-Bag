@@ -29,8 +29,10 @@ bot.on('message', message=>{
         case 'Pong':
             message.channel.send('Ping')
             break;
-        case 'everyone':
-            message.channel.send('@everyone')
+        case 'spam':
+            message.channel.send('no')
+        case 'Spam':
+            message.channel.send('No')
             break;
         case 'invite':
             if(args[1] === 'server'){
