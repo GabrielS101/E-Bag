@@ -58,7 +58,7 @@ bot.on('message', message=>{
             .addField("Remote Controlled Mode", '5 Turn Wait/Cooldown - Makes You Invincible for 1 turn.')
             .addField("Illusion", '4 Turn Cooldown - Roll a 1-10 dice. If you roll a 4 or Lower than take 100 damage. If you roll 5 or higher deal 100 damage.')
             .addField("Plankton Heal", '5 Turn Cooldown - Heal 100 Health.')
-            .addImage('https://i.pinimg.com/originals/75/54/f1/7554f1083f8c38f03aba491f50367b31.png')
+            .setImage('https://i.pinimg.com/originals/75/54/f1/7554f1083f8c38f03aba491f50367b31.png')
             .setColor(0xb5b3b3)
             message.channel.send(Whitesnake);
          break;        
@@ -74,7 +74,7 @@ bot.on('message', message=>{
             .addField("Gravitational Wall Slam", '150 - 4 Turn Cooldown.')
             .addField("Gravitational Force Field", '4 Turn Wait/Cooldown - Block Your Opponents Next Attack.')
             .addField("Passive - Gravitational Bending", 'Your attacks cannot be dodged but can be blocked.')
-            .addImage('https://vignette.wikia.nocookie.net/jjba/images/e/e6/C-Moon.png/revision/latest?cb=20190914150927')
+            .setImage('https://vignette.wikia.nocookie.net/jjba/images/e/e6/C-Moon.png/revision/latest?cb=20190914150927')
             .setColor(0x34a857)
             message.channel.send(CMoon);
          break;  
