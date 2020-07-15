@@ -19,7 +19,7 @@ bot.on('message', message=>{
             const embed = new Discord.RichEmbed()
             .setTitle('User Information')
             .addField('Player Name', message.author.username)
-            .addField('Version', Discord.version)
+            .addField('Version', 'version 1.0.1')
             .addField("Current Server", message.guild.name)
             .setColor(0xFF0000)
             message.channel.sendEmbed(embed);
