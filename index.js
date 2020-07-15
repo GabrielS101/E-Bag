@@ -35,18 +35,18 @@ bot.on('message', message=>{
         case 'invite':
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
-        case 'Stand':
-            if(args[1] === 'C-Moon'){
-                message.channel.send('**C-Moon**. Health - 800. Punch - 60. **Heart Invert** - 200 - 6 turn cooldown. **Gravity Change** - 4 Turn Wait/Cooldown - Dodge Opponents Attack. **Minor Time Acceleration** - 5 Turn Wait/Cooldown - Add a 1x to your next move. **Gravity Shift** - 5 Turn Wait/Cooldown - Stun opponent for 2 turns. **Gravitational Wall Slam** - 150 - 4 Turn Cooldown. **Gravitational Force Field** - 4 Turn Wait/Cooldown - Block Your Opponents Next Attack. **Passive:** Gravitational Bending: Your attacks cannot be dodged but can be blocked.')}
-        case 'Stand':
-            if(args[1] === 'Whitesnake'){
-                message.channel.send('**Whitesnake**. Health - 70. Punch - 70. **Stand Steal** - 3 turn wait - 5 turn cooldown - Stuns Opponent for 1 turn. **Sleep**  - 2 turn wait - 5 turn cooldown - Stuns Opponent for 2 turn. Gun - 150 - 3 Turn Cooldown. **Powerfull Punch** - 130 - 3 Turn Cooldown. **Remote Controlled Mode** - 5 Turn Wait/Cooldown - Makes You Invincible for 1 turn. **Illusion** - 4 Turn Cooldown - Roll a 1-10 dice. If you roll a 4 or Lower than take 100 damage. If you roll 5 or higher deal 100 damage. **Plankton Heal** - 5 Turn Cooldown - Heal 100 Health')}
-        case 'Stand':
-            if(args[1] === 'Purple Haze Distortion'){
-                 message.channel.send('**Purple Haze Distortion**. Health - 800. Punch - 50. **Smoke Shot** - 50x5  - 4 turn cooldown. **Wreckless Punch** - 150 - 3 turn cooldown. **Bulb Breaker** - 100x3 - 4 turn cooldown. **Bulb Throw** - 100x2 - 3 turn cooldown. **Virus Cloud** - 100x4 - 5 turn cooldown - roll a 10 sided die, if u roll under 5 then the damage goes to you. **Aimless Barrage** - 100x3 - 5 turn cooldown. **The Final Stand** - 200x3 - 10 turn cooldown - break a bulb in your mouth and blow it at your opponent and roll out of 10 if you roll under 5 you take 100 damage. **Raging Virus** - And x1 on all your abilities - 5 turn wait')} 
-          case 'invite':
+        case 'invite':
              if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
+        case 'Stats':
+             if(args[1] === 'C-Moon'){
+                message.channel.send('**C-Moon**. Health - 800. Punch - 60. **Heart Invert** - 200 - 6 turn cooldown. **Gravity Change** - 4 Turn Wait/Cooldown - Dodge Opponents Attack. **Minor Time Acceleration** - 5 Turn Wait/Cooldown - Add a 1x to your next move. **Gravity Shift** - 5 Turn Wait/Cooldown - Stun opponent for 2 turns. **Gravitational Wall Slam** - 150 - 4 Turn Cooldown. **Gravitational Force Field** - 4 Turn Wait/Cooldown - Block Your Opponents Next Attack. **Passive:** Gravitational Bending: Your attacks cannot be dodged but can be blocked.')}
+         case 'Stats':
+             if(args[1] === 'Whitesnake'){
+                   message.channel.send('**Whitesnake**. Health - 70. Punch - 70. **Stand Steal** - 3 turn wait - 5 turn cooldown - Stuns Opponent for 1 turn. **Sleep**  - 2 turn wait - 5 turn cooldown - Stuns Opponent for 2 turn. Gun - 150 - 3 Turn Cooldown. **Powerfull Punch** - 130 - 3 Turn Cooldown. **Remote Controlled Mode** - 5 Turn Wait/Cooldown - Makes You Invincible for 1 turn. **Illusion** - 4 Turn Cooldown - Roll a 1-10 dice. If you roll a 4 or Lower than take 100 damage. If you roll 5 or higher deal 100 damage. **Plankton Heal** - 5 Turn Cooldown - Heal 100 Health')}
+         case 'Stats':
+              if(args[1] === 'Purple Haze Distortion'){
+                   message.channel.send('**Purple Haze Distortion**. Health - 800. Punch - 50. **Smoke Shot** - 50x5  - 4 turn cooldown. **Wreckless Punch** - 150 - 3 turn cooldown. **Bulb Breaker** - 100x3 - 4 turn cooldown. **Bulb Throw** - 100x2 - 3 turn cooldown. **Virus Cloud** - 100x4 - 5 turn cooldown - roll a 10 sided die, if u roll under 5 then the damage goes to you. **Aimless Barrage** - 100x3 - 5 turn cooldown. **The Final Stand** - 200x3 - 10 turn cooldown - break a bulb in your mouth and blow it at your opponent and roll out of 10 if you roll under 5 you take 100 damage. **Raging Virus** - And x1 on all your abilities - 5 turn wait')} 
          } 
 })
 
