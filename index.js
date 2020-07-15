@@ -34,7 +34,7 @@ bot.on('message', message=>{
          case 'StrayCat':  
             const StrayCat = new Discord.MessageEmbed()             
             .setTitle('Stray Cat')
-            .addField('Health', '700,')
+            .addField('Health', '700.')
             .addField('Punch', '20.')
             .addField("Air Cannon", "100x2 - 4 Turn Cooldown.")
             .addField("Air Bubble Barrage", '5x50 - 4 Turn Cooldown.')
