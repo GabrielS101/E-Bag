@@ -28,6 +28,7 @@ bot.on('message', message=>{
             .addField("Bulb Throw", '100x2 - 3 Turn Cooldown.')
             .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided dice, if u roll under 5 then the damage goes to you.')
             .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
+            .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/6c/Purple_Haze_Distortion.png/revision/latest?cb=20160417072947')
             .setColor(0x753c62)
             message.channel.send(PurpleHazeDistortion);
          break;
