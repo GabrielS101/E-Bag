@@ -42,6 +42,7 @@ bot.on('message', message=>{
             .addField("Bubble Blast", '100x3 - 5 Turn Cooldown.')
             .addField("Air shield", '5 Turn Cooldown - Block An Attack.')
             .addField("Bubble Trap", '5 Turn Cooldown - Stun The Enemy For One Turn.')
+            .setImage("https://vignette.wikia.nocookie.net/jjba/images/5/58/Stray_Cat.png/revision/latest?cb=20160417072845")
             .setColor(0xd41961)
             message.channel.send(StrayCat);
          break;
