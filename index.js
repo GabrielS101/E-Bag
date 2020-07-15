@@ -70,7 +70,7 @@ bot.on('message', message=>{
             .addField("Gravity Shift", '5 Turn Wait/Cooldown - Stun opponent for 2 turns.')
             .addField("Gravitational Wall Slam", '150 - 4 Turn Cooldown.')
             .addField("Gravitational Force Field", '4 Turn Wait/Cooldown - Block Your Opponents Next Attack.')
-            .addField("Passive - Gravitational Bending", 'Gravitational Bending: Your attacks cannot be dodged but can be blocked.')
+            .addField("Passive - Gravitational Bending", 'Your attacks cannot be dodged but can be blocked.')
             .setColor(0x34a857)
             message.channel.send(CMoon);
          break;  
