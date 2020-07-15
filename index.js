@@ -22,7 +22,7 @@ bot.on('message', message=>{
             .addField('Version', Discord.version)
             .addField("Current Server", message.guild.name)
             .setColor(0xFF0000)
-            message.channel.sendEmbed(Discord.MessageEmbed);
+            message.channel.sendEmbed(embed);
          break;
 
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
