@@ -18,7 +18,7 @@ bot.on('message', message=>{
 
     switch(args[0]){
         case 'PurpleHazeDistortion':
-            const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
+            var embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
             .addField('Health', '800,')
             .addField('Punch', '50.')
@@ -32,7 +32,7 @@ bot.on('message', message=>{
             message.channel.send(embed);
          break;
          case 'StrayCat':
-            const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
+            var embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
             .addField('Health', '700,')
             .addField('Punch', '20.')
