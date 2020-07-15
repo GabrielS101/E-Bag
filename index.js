@@ -21,7 +21,7 @@ bot.on('message', message=>{
             const embed = new Discord.MessageEmbed()
             .setTitle('User Information')
             .addField('Player Name', message.author.username)
-            .addField('Version', version)
+            .addField('Version', Discord.version)
             .addField("Current Server", message.guild.name)
             .setColor(0xFF0000)
             message.channel.send(embed);
