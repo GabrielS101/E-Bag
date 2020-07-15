@@ -20,7 +20,7 @@ bot.on('message', message=>{
         case 'embed':
             const embed = new Discord.RichEmbed()
             .addField('Player Name', message.author.username);
-            message.channel.sendEmbed(Embed);
+            message.channel.sendEmbed(embed);
          break;
 
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
