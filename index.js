@@ -42,6 +42,9 @@ bot.on('message', message=>{
         case 'Spam':
             message.channel.send('No')
             break;
+        case 'spam':
+            message.channel.send('no')
+            break;
         case 'invite':
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
