@@ -129,6 +129,6 @@ bot.on('message', msg=>{
 
 bot.on('message', msg=>{
     if(msg.content === "How To Evolve Whitesnake Into C-Moon"){
-        msg.channel.send('**__To Evolve Whitesnake Into C-Moon You Must Do These Steps:__**                   *On Move 8 Green Baby will appear. Roll a 1-10 dice to determine whether green baby will take interest in you or not. If you roll a prime number he will, if you roll a non prime number he will not.                  *Once Green Baby takes interest in you you will not be able to move for the next turn.                *If you survive the turn and win the game, your Whitesnake will evolve into C-Moon.');
+        msg.channel.send('> **__To Evolve Whitesnake Into C-Moon You Must Do These Steps:__** > *On Move 8 Green Baby will appear. Roll a 1-10 dice to determine whether green baby will take interest in you or not. If you roll a prime number he will, if you roll a non prime number he will not. > *Once Green Baby takes interest in you you will not be able to move for the next turn. > *If you survive the turn and win the game, your Whitesnake will evolve into C-Moon.');
     }
 })
