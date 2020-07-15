@@ -32,7 +32,7 @@ bot.on('message', message=>{
             message.channel.send(embed);
          break;
          case 'StrayCat':              
-            .setTitle('Purple Haze Distortion')
+             setTitle('Purple Haze Distortion')
             .addField('Health', '700,')
             .addField('Punch', '20.')
             .addField("Air Cannon", "100x2 - 4 Turn Cooldown.")
