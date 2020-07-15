@@ -17,6 +17,12 @@ bot.on('message', message=>{
     let args = message.content. substring(PREFIX.length).split(" ");
 
     switch(args[0]){
+        case 'embed':
+            const embed = new Discord.RichEmbed()
+            .addField('Purple Haze Distortion', message.author.username);
+            message.channel.sendEmbed(embed);
+            break;
+
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
