@@ -19,7 +19,7 @@ bot.on('message', message=>{
     switch(args[0]){
         case 'embed':
             const embed = new Discord.RichEmbed()
-            .addField('Purple Haze Distortion', message.author.username);
+            .addField('Player Name', message.author.username);
             message.channel.sendEmbed(embed);
             break;
 
