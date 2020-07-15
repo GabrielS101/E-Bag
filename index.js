@@ -19,15 +19,15 @@ bot.on('message', message=>{
     switch(args[0]){
         case 'PurpleHazeDistortion':
             const embed = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
-            .setTitle('Stand Info')
-            .addField('Health', '800')
-            .addField('Punch', '50')
-            .addField("Smoke Shot", "50x4 - 4 Turn Cooldown")
-            .addField("Wreckless Punch", '150 - 3 Turn Cooldown')
-            .addField("Bulb Breaker", '100x3 - 4 Turn Cooldown')
-            .addField("Bulb Throw", '100x2 - 3 Turn Cooldown')
+            .setTitle('Purple Haze Distortion')
+            .addField('Health', '800,')
+            .addField('Punch', '50.')
+            .addField("Smoke Shot", "50x4 - 4 Turn Cooldown.")
+            .addField("Wreckless Punch", '150 - 3 Turn Cooldown.')
+            .addField("Bulb Breaker", '100x3 - 4 Turn Cooldown.')
+            .addField("Bulb Throw", '100x2 - 3 Turn Cooldown.')
             .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided die, if u roll under 5 then the damage goes to you.')
-            .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait')
+            .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
             .setColor(0xbd5b9c)
             message.channel.send(embed);
          break;
