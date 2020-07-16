@@ -120,7 +120,7 @@ bot.on('message', message=>{
          .addField("Get On Horse", '65×2 - 3 Turn cooldown. (You get on your horse.)')
          .addField("Horse Kick", '90 - 4 turn cooldown. (You get on your horse.)')
          .addField("Passive", 'After 8 turns, you lose this stand for the rest of the battle and instead get the spin moves. Once the battle ends you will get ballbreaker back. You cannot get tusk while you lost ballbreaker and have spin back.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/69/Ball_breaker_png_by_mazhaa_dbsdthd-fullview.png/revision/latest/top-crop/width/220/height/220?cb=20191205051645')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/63/Ballbreakerasb.png/revision/latest?cb=20130812154811')
          .setColor(0x11d92c)
          message.channel.send(BallBreaker);
         break;
