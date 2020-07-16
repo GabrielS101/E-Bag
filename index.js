@@ -183,6 +183,23 @@ bot.on('message', message=>{
          .setImage('https://i.ya-webdesign.com/images/jojo-coco-juambo-png-manga-10.png')
          .setColor(0xdba81d)
          .setFooter("This Stand Is An Admin Exclusive.")
+         case 'TheHand':  
+         const TheHand = new Discord.MessageEmbed()             
+         .setTitle('The Hand')
+         .addField('Health', '700.')
+         .addField('Punch', '60.')
+         .addField("Barrage", "120x4 - 6 turn cooldown.")
+         .addField("Za Hando", '150x2 - 5 turn cooldown.')
+         .addField("Oi Josuke", ' 5 Turn Wait/Cooldown - Heal 150 Health.')
+         .addField("Delete Space", 'Dodge An Attack - 6 turn cooldown.')
+         .addField("Get Over Here", '100x3 - 4 turn cooldown - Your Opponent Cannot Dodge Your Next Attack.')
+         .addField("Rapid Kick", '130 - 2 turn cooldown.')
+         .addField("Shoot The Flower Pots Foward", '50x? - 6 Turn Wait/Cooldown - Roll a 10 sided dice to determine how many dice to roll.')
+         .addField("Passive- Im Not Very Smart", '(Every Turn) After calculating damage, roll a 10 sided dice. If you roll less than a 6, deal 25% of the damage you did to your opponent to yourself.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/ab/TheHand_ASB.jpg/revision/latest?cb=20151119233602')
+         .setColor(0x2d6bcf)
+         message.channel.send(TheHand);
+        break;
          message.channel.send(MrPresident);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
