@@ -196,7 +196,7 @@ bot.on('message', message=>{
          .addField("Rapid Kick", '130 - 2 turn cooldown.')
          .addField("Shoot The Flower Pots Foward", '50x? - 6 Turn Wait/Cooldown - Roll a 10 sided dice to determine how many dice to roll.')
          .addField("Passive- Im Not Very Smart", '(Every Turn) After calculating damage, roll a 10 sided dice. If you roll less than a 6, deal 25% of the damage you did to your opponent to yourself.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/46/The_Hand_Anime.png/revision/latest?cb=20160429212824')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/b/bb/The_Hand_Key_Art.png/revision/latest/top-crop/width/300/height/300?cb=20160515054927')
          .setColor(0x2d6bcf)
          message.channel.send(TheHand);
         break;
