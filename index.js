@@ -124,6 +124,21 @@ bot.on('message', message=>{
          .setColor(0x11d92c)
          message.channel.send(BallBreaker);
         break;
+        case 'CrazyDiamond':  
+         const CrazyDiamond = new Discord.MessageEmbed()             
+         .setTitle('Crazy Diamond')
+         .addField('Health', '720.')
+         .addField('Punch', '50.')
+         .addField("DORA Barrage", "100x4 - 5 turn cooldown.")
+         .addField("Restore", 'Heals 100 health (only team battles) - 6 turn cooldown.')
+         .addField("Head Kick", '150 - 3 turn cooldown')
+         .addField("Auto Shot Glass", '150 -  3 turn cooldown.')
+         .addField("Blood Slash", '200 - 5 turn cooldown - takes away 100 everytime used.')
+         .addField("Rage", 'next time the enemy hits you, you can activate rage mode and do ¼ more damage for 3 turns - 5 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/44/CrazyDiamond_ASB.png/revision/latest?cb=20130123210557')
+         .setColor(0x11d92c)
+         message.channel.send(CrazyDiamond);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
