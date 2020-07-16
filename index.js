@@ -1,15 +1,12 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
-const ytdl = require("ytdl-core");
 
 bot.login(process.env.token);
 
 var PREFIX = 'e-';
 
 var PREFIX = 'E-';
-
-var servers = {};
 
 bot.on('ready', () =>{
     console.log('E-bag is Online!');
@@ -150,46 +147,7 @@ bot.on('message', message=>{
                 message.channel.send('https://discord.gg/pRXmQUr')}
         case 'invite':
              if(args[1] === 'server'){
-                message.channel.send('https://discord.gg/pRXmQUr')} 
-        case 'play':
-            
-             function play(connection, message){
-                 var server = servers[message.guild.id];
-
-                 server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))
-
-                 server.queue.shift();
-
-                 server.dispatcher.on("end", function(){
-                     if(server.queue[0]){
-                         play(connection, message);
-                     }else {
-                         connection.disconnet();
-                     }
-                 });
-             }
-             
-             if(!args[1]){
-                 message.channel.send('No Link Provided');
-                 return;
-             }
-             if(!message.member.voiceChannel){
-                 message.channel.send('You Must Be In A Voice Channel To Play Songs');
-                 return;
-             }
-        
-             if(!servers[message.guild.id]) servers[message.guild.id] = {
-                 queue: []
-             }
-
-             var server = servers[messgae.guild.id];
-
-             server.queue.push(args[1]);
-
-             if(!message.member.voice.connection) message.member.voiceChannel.join.()then(function(connection){
-                 play(connection, message);
-             })
-        break;
+                message.channel.send('https://discord.gg/pRXmQUr')}
          } 
 })
 
