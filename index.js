@@ -136,7 +136,7 @@ bot.on('message', message=>{
          .addField("Blood Slash", '200 - 5 turn cooldown - takes away 100 everytime used.')
          .addField("Rage", 'next time the enemy hits you, you can activate rage mode and do ¼ more damage for 3 turns - 5 turn cooldown.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/44/CrazyDiamond_ASB.png/revision/latest?cb=20130123210557')
-         .setColor(0x11d92c)
+         .setColor(0xde2f83)
          message.channel.send(CrazyDiamond);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
