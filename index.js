@@ -180,7 +180,7 @@ bot.on('message', message=>{
          .addField("Max Defense", 'Every damage done to you in the last 3 turns heals you - 5 turn wait/cooldown.')
          .addField("Turtle Evolution", 'All Attacks do 25% less damage and all your attacks do 50% more damage - 5 turn wait.')
          .addField("Passive", 'All attacks do 50% less damage.')
-         .setImage('https://static.jojowiki.com/images/thumb/9/98/latest/20191015213522/Coco_jumbo_Infobox_Anime.png/270px-Coco_jumbo_Infobox_Anime.png')
+         .setImage('https://i.ya-webdesign.com/images/jojo-coco-juambo-png-manga-10.png')
          .setColor(0xdba81d)
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
