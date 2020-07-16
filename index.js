@@ -135,7 +135,7 @@ bot.on('message', message=>{
          .addField("Auto Shot Glass", '150 -  3 turn cooldown.')
          .addField("Blood Slash", '200 - 5 turn cooldown - takes away 100 everytime used.')
          .addField("Rage", 'Next time the enemy hits you, you can activate rage mode and do ¼ more damage for 3 turns - 5 turn cooldown.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/44/CrazyDiamond_ASB.png/revision/latest?cb=20130123210557')
+         .setImage('https://i.pinimg.com/originals/27/4d/01/274d01fdcf3fe582ab3e52f55e6ce100.jpg')
          .setColor(0xde2f83)
          message.channel.send(CrazyDiamond);
         break;
