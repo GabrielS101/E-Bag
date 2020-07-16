@@ -78,7 +78,7 @@ bot.on('message', message=>{
             .setColor(0x34a857)
             message.channel.send(CMoon);
          break;  
-         case 'TheWorld:AlternateUniverse':  
+         case 'TWAU':  
          const TheWorldAlternateUniverse = new Discord.MessageEmbed()             
          .setTitle('The World: Alternate Universe')
          .addField('Health', '800.')
@@ -108,6 +108,21 @@ bot.on('message', message=>{
          .setImage('https://www.pngkit.com/png/full/384-3849802_silverchariot-jojo-manga-silver-chariot.png')
          .setColor(0x9398c2)
          message.channel.send(SilverChariot);
+        break;
+        case 'BallBreaker':  
+         const BallBreaker = new Discord.MessageEmbed()             
+         .setTitle('Ball Breaker')
+         .addField('Health', '700.')
+         .addField('Punch', '60.')
+         .addField("Teleport Through Barrier", "90x2 - 6 Turn Cooldown. Cannot be cancelled or blocked.")
+         .addField("Aging Increase", '50x3 - 5 Turn Wait- 2 Turn Cooldown. This Ability is only once per Game. Increases amount of damage you do to the opponent by 25% for the rest of game and decreases the amount of damage your opponent does by 25% for the rest of the game.')
+         .addField("Horse Kick Golden Rotation", '75x3 - 4 Turn Cooldown (Deal 100 Damage to Yourself But Negate Your Opponents Attack. This Move Always Goes First. You must be on your horse to use this move before using this move otherwise this move deals no damage.)')
+         .addField("Get On Horse", '80x2 - 2 Turn Cooldown - Stun Them For One Turn.')
+         .addField("Armor Ejection", '6 Turn Cooldown/Wait - Remove Your Armor For Two Turns Making You Deal 25% More Damage But You Also Take An Additional 25% Damage.')
+         .addField("Armor Block", '3 Turn Cooldown - Block an attack. Cannot be activated if armor is currently off.')
+         .setImage('https://www.pngkit.com/png/full/384-3849802_silverchariot-jojo-manga-silver-chariot.png')
+         .setColor(0x9398c2)
+         message.channel.send(BallBreaker);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
