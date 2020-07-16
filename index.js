@@ -183,6 +183,8 @@ bot.on('message', message=>{
          .setImage('https://i.ya-webdesign.com/images/jojo-coco-juambo-png-manga-10.png')
          .setColor(0xdba81d)
          .setFooter("This Stand Is An Admin Exclusive.")
+         message.channel.send(MrPresident);
+         break;
          case 'TheHand':  
          const TheHand = new Discord.MessageEmbed()             
          .setTitle('The Hand')
@@ -200,7 +202,22 @@ bot.on('message', message=>{
          .setColor(0x2d6bcf)
          message.channel.send(TheHand);
         break;
-         message.channel.send(MrPresident);
+        case 'HermitPurple':  
+         const HermitPurple = new Discord.MessageEmbed()             
+         .setTitle('Hermit Purple')
+         .addField('Health', '750.')
+         .addField('Punch', '40.')
+         .addField("Vine Grab", "50x5 - 4 turn cooldown.")
+         .addField("Multi Vine Punch", '50x4 - 3 turn cooldown.')
+         .addField("Vine Armor", '150 - 5 turn cooldown - Activate when getting hit.')
+         .addField("NIGERUNDAYO", 'Dodge An Attack - 5 turn cooldown.')
+         .addField("Hamon Infusion", 'Activate hamon which allows you to get hamon infusion and abilitys + your abilitys get -1 cooldown - 5 turn wait.')
+         .addField("Hamon Vine Armor", '100x3 - 4 turn cooldown - Makes an attack do half damage.')
+         .addField("Hamon Overdrive", '100x4 - 7 turn cooldown.')
+         .addField("Grapple Throw", '200 - 5 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c1/JoestarStandManga.jpg/revision/latest/scale-to-width-down/340?cb=20180527041410')
+         .setColor(0x912390)
+         message.channel.send(HermitPurple);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
