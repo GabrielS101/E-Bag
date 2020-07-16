@@ -219,6 +219,22 @@ bot.on('message', message=>{
          .setColor(0x912390)
          message.channel.send(HermitPurple);
         break;
+        case 'WhiteAlbum':  
+         const WhiteAlbum = new Discord.MessageEmbed()             
+         .setTitle('White Album')
+         .addField('Health', '900.')
+         .addField('Punch', '30.')
+         .addField("Freezing Punch", "150 - 3 turn cooldown.")
+         .addField("Flash Freeze", '60x3 - 3 turn cooldown.')
+         .addField("Ice Armor Barrage", '100x3 - 5 turn cooldown - reduce the damage of attacks by 25 for the next 2 turns.')
+         .addField("Gently Weeps", ' Stuns the enemy for two turns and unlocks new moves.')
+         .addField("Ice Deflection", 'if the damage is under 150 deflect it back - 5 turn cooldown.')
+         .addField("Ice Spears", '100x3 - 4 turn cooldown.')
+         .addField("Sub Zero", '200x2 - 5 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/d/da/WhiteAlbum.png/revision/latest?cb=20150523161426')
+         .setColor(0x5dc0de)
+         message.channel.send(WhiteAlbum);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
