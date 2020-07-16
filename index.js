@@ -95,7 +95,7 @@ bot.on('message', message=>{
          message.channel.send(TheWorldAlternateUniverse);
         break;
         case 'SilverChariot':  
-         const TheWorldAlternateUniverse = new Discord.MessageEmbed()             
+         const SilverChariot = new Discord.MessageEmbed()             
          .setTitle('Silver Chariot')
          .addField('Health', '750.')
          .addField('Punch', '50.')
@@ -107,7 +107,7 @@ bot.on('message', message=>{
          .addField("Armor Block", '3 Turn Cooldown - Block an attack. Cannot be activated if armor is currently off.')
          .setImage('https://www.pngkit.com/png/full/384-3849802_silverchariot-jojo-manga-silver-chariot.png')
          .setColor(0x9398c2)
-         message.channel.send(TheWorldAlternateUniverse);
+         message.channel.send(SilverChariot);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
