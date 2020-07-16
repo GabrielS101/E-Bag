@@ -154,7 +154,7 @@ bot.on('message', message=>{
          .addField("Iron Heal", '4 Turn Wait/Cooldown - Heal 200 Health.')
          .addField("Razors In Throat", '50×6 - 6 Turn Cooldown - 4 Turn Wait - Cannot be dodged or blocked.')
          .addField("Nails In Throat", '70×4 - 6 Turn Cooldown - 4 Turn Wait - Cannot be dodged or blocked.')
-         .addField("Assassins Resolve", '4 Turn Wait Cooldown - Add an extra 1x to your next attack. Does not stack with Summon Iron From Earth.')
+         .addField("Assassins Resolve", '4 Turn Wait/Cooldown - Add an extra 1x to your next attack. Does not stack with Summon Iron From Earth.')
          .addField("I Must Know Your Identidy", 'Can Only Be Used Against Characters Whose Attacks Involve Their Identity - Can Only Be Used Once Per Game - Any attack involving the opponents identity can no longer be used by the opponent.')
          .addField("Passive - Magnetism", 'Your attacks cannot be dodged.')
          .addField("2nd Passive - Eat The Frog", 'Every Time you use Iron Manipulation, your opponent can roll a 10 sided dice (your opponent must say they want to use Eat The Frog or this does not activate), if they roll a number lower than 6 than nothing happens and the effect continues as normal. If they roll higher than a 5 than they take damage as normal but you using Iron Manipulation successfully does not count this turn towards the 3 successful uses of Iron Manipulation needed to deal 50 extra damage per turn.')
