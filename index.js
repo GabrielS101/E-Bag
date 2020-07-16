@@ -186,7 +186,7 @@ bot.on('message', message=>{
 
              server.queue.push(args[1]);
 
-             if(!message.member.voiceConnection) message.member.voiceChannel.join.()then(function(connection){
+             if(!message.member.voice.connection) message.member.voiceChannel.join.()then(function(connection){
                  play(connection, message);
              })
         break;
