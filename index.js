@@ -265,6 +265,21 @@ bot.on('message', message=>{
          .setColor(0xffd30f)
          message.channel.send(HeavensDoor);
         break;
+        case 'Enigma':  
+        const Enigma = new Discord.MessageEmbed()             
+        .setTitle('Enigma')
+        .addField('Health', '700.')
+        .addField('Punch', '30.')
+        .addField("Paper Trap", "150 - 5 turn cooldown - Stuns for 1 turn.")
+        .addField("Fire Release", '50x4 - 3 turn cooldown.')
+        .addField("Electric Current", '50x3 - 3 turn cooldown.')
+        .addField("Paper Landmine", '200 - 5 turn cooldown - Use this to cancel an oppponents attack and roll for damage.')
+        .addField("Summon Wall", 'Opponents attack does half damage - 4 turn cooldown.')
+        .addField("Multi Rock Throw", '50x5 - 3 turn cooldown.')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/a7/Enigma_profile.png/revision/latest?cb=20140820154706')
+        .setColor(0xa653c9)
+        message.channel.send(Enigma);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
