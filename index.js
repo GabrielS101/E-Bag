@@ -181,7 +181,7 @@ bot.on('message', message=>{
          .addField("Max Defense", 'Every damage done to you in the last 3 turns heals you - 5 turn wait/cooldown.')
          .addField("Turtle Evolution", '8 Turn Cooldown - 5 Turn Wait - Opponent Attacks do 25% less damage and all your attacks do 50% more damage for the next 3 turns.')
          .addField("Passive: Turtle Shell", 'Opponents attacks do 50% less damage.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/2/25/Presidential_suite_powa.gif/revision/latest?cb=20190111193804')
+         .setImage('https://cdn.discordapp.com/attachments/717483024522018838/733755211495243846/president.gif')
          .setColor(0xdba81d)
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
