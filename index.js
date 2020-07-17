@@ -251,6 +251,20 @@ bot.on('message', message=>{
          .setColor(0xa4ebeb)
          message.channel.send(SoftAndWet);
         break;
+        case 'HeavensDoor':  
+         const HeavensDoor = new Discord.MessageEmbed()             
+         .setTitle('Heavens Door')
+         .addField('Health', '650.')
+         .addField('Punch', '30.')
+         .addField("Pencil Rush", "20x4.")
+         .addField("Push Back", '30x3 -2 Turn Cooldown - Deals Small Damage.')
+         .addField("Rip Out Pages", '100x2 - 3 Turn Cooldown- Deals Good Damage For A Relatively Short Cooldown .')
+         .addField("Blind Command", '5 Turn Cooldown - Stuns The Player For 1 Turn.')
+         .addField("Heal", '6 Turn Cooldown - Heals Half Of Your Maximum Health.')
+         .setImage('https://static.jojowiki.com/images/thumb/d/de/latest/20191228045732/Heaven%27s_Door_Infobox_Manga.png/270px-Heaven%27s_Door_Infobox_Manga.png')
+         .setColor(0xffd30f)
+         message.channel.send(HeavensDoor);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
