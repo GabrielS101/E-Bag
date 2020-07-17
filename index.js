@@ -142,7 +142,7 @@ bot.on('message', message=>{
         case 'Metallica':  
          const Metallica = new Discord.MessageEmbed()             
          .setTitle('Metallica')
-         .addField('Health', '700.')
+         .addField('Health', '800.')
          .addField('Nail', '70.')
          .addField("Invisibility", "3 Turn Cooldown - Dodge Your Opponents Next Attack.")
          .addField("Stand Manipulation", '4 Turn Wait/Cooldown - This turn you do no damage but next turn your opponent loses their turn and instead you use your opponents punch attack against them plus whatever buffs they have.')
@@ -234,6 +234,22 @@ bot.on('message', message=>{
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/d/da/WhiteAlbum.png/revision/latest?cb=20150523161426')
          .setColor(0x5dc0de)
          message.channel.send(WhiteAlbum);
+        break;
+        case 'SoftAndWet':  
+         const SoftAndWet = new Discord.MessageEmbed()             
+         .setTitle('Soft And Wet')
+         .addField('Health', '750.')
+         .addField('Punch', '50.')
+         .addField("Bubble Blast", "50x4 - 3 turn cooldown.")
+         .addField("Friction Steal", '150 - 5 turn cooldown - Activate when your opponent attacks, their attack misses and you roll for damage.')
+         .addField("Bubble Ball", 'Stops an attack - 5 turn cooldown.')
+         .addField("Bubble Trap", '150 - 5 turn cooldown - Stuns enemy for two turns.')
+         .addField("ORA Barrage", '100x3 - 5 turn cooldown.')
+         .addField("Bubble Residue", '50x4 - 5 turn cooldown - You can only activate this skill when doing a skill with bubble in its name.')
+         .addField("Damage Steal", 'Does the same damage as you/your oppenents last attack - 5 turn cooldown/wait.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/9/9a/S%26WManga.png/revision/latest/top-crop/width/360/height/450?cb=20190504142401')
+         .setColor(0xa4ebeb)
+         message.channel.send(SoftAndWet);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
