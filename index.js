@@ -152,8 +152,9 @@ bot.on('message', message=>{
          .addField("Summon Iron From Earth", '4 Turn Wait/Cooldown - Add an extra 1x to your next attack. Does not stack with Assassins Resolve.')
          .addField("Scissors In Throat", '130 - 4 Turn Cooldown - Cannot be dodged or blocked.')
          .addField("Iron Heal", '4 Turn Wait/Cooldown - Heal 200 Health.')
+         .addField("Iron Steal" , '5 Turn Cooldown - 200 - However much damage this attack does to the opponent, heal that much health back.')
          .addField("Razors In Throat", '50×6 - 6 Turn Cooldown - 4 Turn Wait - Cannot be dodged or blocked.')
-         .addField("Nails In Throat", '70×4 - 6 Turn Cooldown - 4 Turn Wait - Cannot be dodged or blocked.')
+         .addField("Nails In Face", '70×4 - 6 Turn Cooldown - 4 Turn Wait - Cannot be dodged or blocked.')
          .addField("Assassins Resolve", '4 Turn Wait/Cooldown - Add an extra 1x to your next attack. Does not stack with Summon Iron From Earth.')
          .addField("I Must Know Your Identidy", 'Can Only Be Used Against Characters Whose Attacks Involve Their Identity - Can Only Be Used Once Per Game - Any attack involving the opponents identity can no longer be used by the opponent.')
          .addField("Passive - Magnetism", 'Your attacks cannot be dodged.')
@@ -180,10 +181,24 @@ bot.on('message', message=>{
          .addField("Max Defense", 'Every damage done to you in the last 3 turns heals you - 5 turn wait/cooldown.')
          .addField("Turtle Evolution", '8 Turn Cooldown - 5 Turn Wait - Opponent Attacks do 25% less damage and all your attacks do 50% more damage for the next 3 turns.')
          .addField("Passive: Turtle Shell", 'Opponents attacks do 50% less damage.')
-         .setImage('https://i.ya-webdesign.com/images/jojo-coco-juambo-png-manga-10.png')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/2/25/Presidential_suite_powa.gif/revision/latest?cb=20190111193804')
          .setColor(0xdba81d)
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
+         break;
+         case 'HeyYa':  
+         const HeyYa = new Discord.MessageEmbed()             
+         .setTitle('Hey Ya')
+         .addField('Health', '900.')
+         .addField('Bad Luck', '70.')
+         .addField("Advice", "4 Turn Cooldown - Roll a 10 sided dice to determine what you get. 1-3 Heal 200 Health. 4-6 Deal 100 extra damage for the next 3 turns. 7-9 Deal 100 Damage. 10 Everything.")
+         .addField("Cheer", 'Add a 1x to your next attack.')
+         .addField("Talk", '4 Turn Cooldown - Roll a 10 sided dice to determine what you get. 1-3 Stun opponent for 1 turn. 4-6 Dodge opponents next attack. Block opponent for the next turn. 10 Everything (The stunning, blocking, and dodging would happen on turn at a time not all on one turn.)')
+         .addField("Passive: Bad Luck", 'After choosing what move to do, roll a 10 dice to determine what unlucky event shall happen to ur opponent. 1-3 They fall on spikes: roll 4 80 sided dice to determine damage. 4-6 A horse kicks them with both legs: roll 2 130 sided dice to determine damage. 7-9 They accidently tripped and fell on their spine: Roll 1 150 sided dice and your opponent is stunned next turn. 10 Everything. (Cannot be blocked, negated, or dodged and if a ability or passive negates this passive than that passive or ability gets negated.).')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/59/HeyYacolor.png/revision/latest?cb=20171023172341')
+         .setColor(0xe0d499)
+         .setFooter("This Stand Is An Event Exclusive.")
+         message.channel.send(HeyYa);
          break;
          case 'TheHand':  
          const TheHand = new Discord.MessageEmbed()             
