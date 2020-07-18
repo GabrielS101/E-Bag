@@ -356,6 +356,24 @@ bot.on('message', message=>{
         .setColor(0x737d76)
         message.channel.send(WheelOfFortune);
        break;
+       case 'HangedMan':  
+        const HangedMan = new Discord.MessageEmbed()             
+        .setTitle('Hanged Man')
+        .addField('Health', '650.')
+        .addField('Stab', '50.')
+        .addField("Enter Mirror", "3 turn cooldown (Once the mirror breaks or Once you leave) - Become invincible until your opponent deals 200 damage total to the mirror. Instead of taking damage when your opponent attacks, the mirror you are currently in breaks once it  takes a total of 200 health and you are forced outside the mirror world. If you are still in the mirror when it breaks than you get stunned for 1 turn.")
+        .addField("Leave Mirror", 'You leave the mirror.')
+        .addField("Mirror Stab", '130 - 4 Turn Cooldown - Can only be used while inside a mirror.')
+        .addField("Mirror Backstab", '150 - 4 Turn Cooldown - Can only be used while inside a mirror.')
+        .addField("Emperor Assistance", '100x3 - 4 Turn Cooldown/Wait..')
+        .addField("Speed Of Light Escape", 'Dodge your opponents next attack.')
+        .addField("Water Sheild", '4 Turn Cooldown - Dodge your opponents next attack.')
+        .addField("2 Right Hands Choke", '70 - 4 Turn Cooldown. Stun your opponent for 1 turn.')
+        .addField("Passive", 'While outside of the mirror, your opponent does 25% more damage.')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/ca/HangedMan.png/revision/latest?cb=20140807085623')
+        .setColor(0x98cad4)
+        message.channel.send(HangedMan);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
