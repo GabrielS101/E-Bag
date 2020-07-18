@@ -494,7 +494,7 @@ bot.on('message', message=>{
          .addField("Rotation Barrage", '100x3 - 4 Turn Cooldown .')
          .addField("Rotation Fingernail Shotgun", '80x3 - 2 Turn Cooldown.')
          .addField("Spinning Nail Shot", '100x2 - 5 Turn Cooldown - Stun The Player For 2 Turns.')
-         .addField("Fingernail Glide", '4 Turn Cooldown - Dodge An Attack')
+         .addField("Fingernail Glide", '4 Turn Cooldown - Dodge an attack.')
          .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct4);
