@@ -465,12 +465,25 @@ bot.on('message', message=>{
          .addField('Health', '700.')
          .addField('Punch', '20.')
          .addField("Fingernail Shot", '50x2 - 3 Turn Cooldown - Each Turn It’s Not Used Is +5 Damage To What it’s rolled when using it. (First Round Doesnt Count).')
-         .addField("Fingernail Shotgun", '100x3 - Turn Cooldown .')
+         .addField("Fingernail Shotgun", '100x3 - Turn Cooldown.')
          .addField("Spinning Punch", '50x3 - 3 Turn Cooldown.')
          .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct2);
+        break;
+        case 'TuskAct3':  
+         const TuskAct2 = new Discord.MessageEmbed()             
+         .setTitle('Tusk Act 3')
+         .addField('Health', '750.')
+         .addField('Punch', '20.')
+         .addField("Fingernail Cannon", '100x3 - 6 Turn Cooldown.')
+         .addField("Fingernail Shotgun", '50x3 - 3 Turn Cooldown .')
+         .addField("Spacial Wormhole", '100x2 - 4 Turn Cooldown.')
+         .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
+         .setColor(0xe01fa0)
+         message.channel.send(TuskAct3);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
