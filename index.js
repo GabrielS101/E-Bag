@@ -309,6 +309,22 @@ bot.on('message', message=>{
         .setColor(0xa653c9)
         message.channel.send(Enigma);
        break;
+       case 'StickyFingers':  
+         const StickyFingers = new Discord.MessageEmbed()             
+         .setTitle('Sticky Fingers')
+         .addField('Health', '650.')
+         .addField('Punch', '80.')
+         .addField("Arm Throw", "150 - 4 turn cooldown.")
+         .addField("Ari Barrage", '100x2 - 5 turn cooldown.')
+         .addField("Zipper Grab", '6 Turn Cooldown - Stops enemy’s attack and stuns them for one turn (Only works if you go second.)')
+         .addField("Limb Punch", '130 - 5 turn cooldown - enemy does 50% of their normal damage for the next turn.')
+         .addField("Extended Heavy", '135 -3 turn cooldown .')
+         .addField("Arrivederci", '200 - 6 turn cooldown.')
+         .addField("Passive: My Will Is Greater Than Yours", 'When defeated revive yourself and gain 100 hp (Can only be used once per game.)')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/d/dd/StickyFingers.png/revision/latest?cb=20150428184345')
+         .setColor(0x2f52c4)
+         message.channel.send(StickyFingers);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
