@@ -365,7 +365,7 @@ bot.on('message', message=>{
         .addField("Leave Mirror", 'You leave the mirror.')
         .addField("Mirror Stab", '130 - 4 Turn Cooldown - Can only be used while inside a mirror.')
         .addField("Mirror Backstab", '150 - 4 Turn Cooldown - Can only be used while inside a mirror.')
-        .addField("Emperor Assistance", '100x3 - 4 Turn Cooldown/Wait..')
+        .addField("Emperor Assistance", '100x3 - 4 Turn Cooldown/Wait.')
         .addField("Speed Of Light Escape", 'Dodge your opponents next attack.')
         .addField("Water Sheild", '4 Turn Cooldown - Dodge your opponents next attack.')
         .addField("2 Right Hands Choke", '70 - 4 Turn Cooldown. Stun your opponent for 1 turn.')
@@ -529,6 +529,23 @@ bot.on('message', message=>{
          .setColor(0xdfe8e1)
          message.channel.send(MadeInHeaven);
         break;
+        case 'KillerQueen(Part4)':  
+        const KillerQueenPart4 = new Discord.MessageEmbed()             
+        .setTitle('Killer Queen (Part 4)')
+        .addField('Health', '600.')
+        .addField('Punch', '70.')
+        .addField("Killer Queen's First Bomb", "130 - 4 turn cooldown - Can only be used if punch was used the turn before.")
+        .addField("Killer Queen's Second Bomb: Sheer Heart Attack", '150 - 5 Turn Cooldown - Roll Damage for this attack for 2 turns. You can only activate if you used Remove Hand last turn.')
+        .addField("Remove Hand", '5 Turn Cooldown - 3 Turn Wait- Take 50 Damage but dodge your opponents next attack.')
+        .addField("Killer Queen's Third Bomb: Bites The Dust", '8 Turn Wait - Can Only Be Used Once Per Game - Roll a 10 sided dice. If you roll an number greater than 8 you successfully activated Bites The Dust and gain 300 health .')
+        .addField("Change Identity", '4 Turn Cooldown/Wait - Dodge Your Next Opponents Attack.')
+        .addField("Killer Queen has already touched the doorknob", '5 Turn Wait - Can Only Be Used Once Per Game - If your opponent dodged your attack last turn, deal a guaranteed 150 damage to them.')
+        .addField("Stray Cat Air Bomb", '130 - 4 Turn Cooldown - Cannot be Dodged.')
+        .addField("Killer Instinct", '5 Turn Wait/Cooldown - Add a extra 1x to your next attack. Cannot be used with Bites The Dust, My Name Is Kira Yoshikage, or Sheer Heart Attack.')
+        .setImage('https://media.discordapp.net/attachments/731415895682973696/733556309991096381/270px-Killer_Queen_Infobox_Manga.png')
+        .setColor(0xe84fa6)
+        message.channel.send(KillerQueenPart4);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
