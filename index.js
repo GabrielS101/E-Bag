@@ -417,6 +417,20 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesAct1);
         break;
+        case 'EchoesAct2':  
+         const EchoesAct2 = new Discord.MessageEmbed()             
+         .setTitle('Echoes Act 2')
+         .addField('Health', '750.')
+         .addField('Punch', '20.')
+         .addField("Boing Sound", "150 - 4 turn cooldown.")
+         .addField("Boom Sound", '150 - 4 turn cooldown.')
+         .addField("Woosh Sound", '150 - 4 turn cooldown.')
+         .addField("Sizzle Sound", '60x4 - 4 turn cooldown.')
+         .addField("Heal Ball", 'Heals 100 health - 5 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/55/Echoes_Act2_color.png/revision/latest/scale-to-width-down/340?cb=20160326105114')
+         .setColor(0x4be33d)
+         message.channel.send(EchoesAct2);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
