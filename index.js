@@ -325,6 +325,22 @@ bot.on('message', message=>{
          .setColor(0x2f52c4)
          message.channel.send(StickyFingers);
         break;
+        case 'SPTW':  
+         const StarPlatinumTheWorld = new Discord.MessageEmbed()             
+         .setTitle('Star Platinum: The World')
+         .addField('Health', '800.')
+         .addField('Punch', '80.')
+         .addField("Swift Ora Barrage", "100x3 - 5 Turn Cooldown .")
+         .addField("Ora Barrage Finishing Blow", '170 - 5 Turn Cooldown.')
+         .addField("Swift Ora Strike", '100x2 - 4 Turn Cooldown.')
+         .addField("Bearing Shot", '100 - 2 Turn Cooldown.')
+         .addField("Timestop", '10 Turn Cooldown - Stun The Enemy For Two Turns.')
+         .addField("Timestop Dash", '80x2 -Teleport Behind The Player Allowing You to Go First Next Turn. this can be used only in ts.')
+         .addField("Enraged Move", 'You can activate when under 200 health - Gain 100 health, every attack you do add 1/4 of its damage.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/0/06/Star_Platinum_The_World.png/revision/latest/top-crop/width/360/height/450?cb=20150610162343')
+         .setColor(0xa3369c)
+         message.channel.send(StarPlatinumTheWorld);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
