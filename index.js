@@ -622,8 +622,8 @@ bot.on('message', message=>{
     let args = message.content. substring(PREFIX.length).split(" ");
 
     switch(args[0]){
-        case 'oof':                         //this command is if you want the bot to use prefix and ping.
-            message.reply('oof')
+        case 'Mr.President':                         //this command is if you want the bot to use prefix and ping.
+            message.reply('Turtle Overwrite will never be added')
         break;
     }
 })
