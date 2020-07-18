@@ -432,7 +432,7 @@ bot.on('message', message=>{
          message.channel.send(EchoesAct2);
         break;
         case 'EchoesAct3':  
-         const EchoesAct2 = new Discord.MessageEmbed()             
+         const EchoesAct3 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 3')
          .addField('Health', '800.')
          .addField('Punch', '30.')
