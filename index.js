@@ -341,6 +341,21 @@ bot.on('message', message=>{
          .setColor(0xa3369c)
          message.channel.send(StarPlatinumTheWorld);
         break;
+        case 'WheelOfFortune':  
+        const WheelOfFortune = new Discord.MessageEmbed()             
+        .setTitle('Wheel Of Fortune')
+        .addField('Health', '700.')
+        .addField('Trample', '50.')
+        .addField("Pressurized Trample", "130 - 4 Turn Cooldown.")
+        .addField("Spiked Wheels", '50x4 - 3 Turn Cooldown.')
+        .addField("Gasoline Bullets", '130x2 - 6 Turn Cooldown .')
+        .addField("Drive Away", '4 Turn Cooldown - Dodge Opponents Next Attack..')
+        .addField("Suprise!", '150 - 6 Turn Cooldown - (Can Only Be Used If Gasoline Bullets Were Used Last Turn) Deal a Burning Damage To The Enemy For Two Turns. 30 Damage Every Round.')
+        .addField("Armor Harden", '6 Turn Cooldown - 5 Turn Wait - Reduce The Damage You Take By 25% And Deal 25% More Damage For The Next 2 Turns (Doesn’t Apply To Suprise! 30 extra damage per round but does apply to the initial Suprise! 150).')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/60/Wheel_of_Fortune.png/revision/latest?cb=20150617143316')
+        .setColor(0x737d76)
+        message.channel.send(WheelOfFortune);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
