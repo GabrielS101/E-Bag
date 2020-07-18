@@ -445,6 +445,20 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesAct3);
         break;
+        case 'TuskAct1':  
+         const TuskAct1 = new Discord.MessageEmbed()             
+         .setTitle('Tusk Act 1')
+         .addField('Health', '650.')
+         .addField('Punch', '20.')
+         .addField("Sharp Punch", "100x2 - 3 Turn Cooldown.")
+         .addField("Fingernail Shot", '50x3 - 2 Turn Cooldown.')
+         .addField("Fingernail Bullet", '50x2 - 4 Turn Cooldown Stun The Enemy Oncen.')
+         .addField("Fingernail Glide", '4 Turn Cooldown - Dodge An Attack.')
+         .addField("Spin Charge", '')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
+         .setColor(0xe01fa0)
+         message.channel.send(TuskAct1);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
