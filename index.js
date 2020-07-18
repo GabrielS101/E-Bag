@@ -431,6 +431,20 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesAct2);
         break;
+        case 'EchoesAct3':  
+         const EchoesAct2 = new Discord.MessageEmbed()             
+         .setTitle('Echoes Act 3')
+         .addField('Health', '800.')
+         .addField('Punch', '30.')
+         .addField("Heavy Barrage", "100x3 - 5 turn cooldown - stuns the enemy after next turn.")
+         .addField("Three Freeze", '100x4 - 5 turn cooldown - stuns for 2 turns.')
+         .addField("Rock Drop", '200 - 5 turn cooldown.')
+         .addField("Body Drop", '80x4 - 4 turn cooldown - Stuns enemy for 1 turn.')
+         .addField("Dropping Uppercut", '150 - 3 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c3/Echoes_Act3_color.png/revision/latest/scale-to-width-down/340?cb=20160423150540')
+         .setColor(0x4be33d)
+         message.channel.send(EchoesAct3);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
