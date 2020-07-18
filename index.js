@@ -374,6 +374,22 @@ bot.on('message', message=>{
         .setColor(0x98cad4)
         message.channel.send(HangedMan);
        break;
+       case 'TheFool':  
+        const TheFool = new Discord.MessageEmbed()             
+        .setTitle('The Fool')
+        .addField('Health', '850.')
+        .addField('Claw', '40.')
+        .addField("Stand Bullets", "50x4 - 3 turn cooldown.")
+        .addField("Sand Clone", 'Copy the opponents last move - cooldown depends on the other persons move cooldown.')
+        .addField("Sand Shield", 'Protects you from all attacks - 5 turn cooldown.')
+        .addField("Shield Blast", '150 - 5 turn cooldown - This skill can be activated the same turn as sand shield.')
+        .addField("Sand Drill", '150 - 4 turn cooldown.')
+        .addField("The Fool Double Swipe", '6 Turn Cooldown - 5 Turn Wait - Reduce The Damage You Take By 25% And Deal 25% More Damage For The Next 2 Turns (Doesn’t Apply To Suprise! 30 extra damage per round but does apply to the initial Suprise! 150)100x2 - 4 turn cooldown.')
+        .addField("Transform", 'Transform The Fool into a certain mode depending on what number you roll.1-4 defense mode all your opponents attack does 50 less damage, 6-10 attack mode all your attacks get x1, 5 Power Mode get both modes buffs - 5 turn wait (this can be used once per game.)')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c9/TheFool.png/revision/latest?cb=20160416043816')
+        .setColor(0xe6e339)
+        message.channel.send(TheFool);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
