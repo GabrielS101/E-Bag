@@ -473,7 +473,7 @@ bot.on('message', message=>{
          message.channel.send(TuskAct2);
         break;
         case 'TuskAct3':  
-         const TuskAct2 = new Discord.MessageEmbed()             
+         const TuskAct3 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 3')
          .addField('Health', '750.')
          .addField('Punch', '20.')
