@@ -390,6 +390,20 @@ bot.on('message', message=>{
         .setColor(0xe6e339)
         message.channel.send(TheFool);
        break;
+       case 'EchoesEgg':  
+         const HeavensDoor = new Discord.MessageEmbed()             
+         .setTitle('Echoes Egg')
+         .addField('Health', '700.')
+         .addField('Stumble', '20.')
+         .addField("Egg Toss", "100 - 3 turn cooldown.")
+         .addField("Egg Hatch", '3 turn cooldown.')
+         .addField("Egg Roll", '100 - 3 turn cooldown.')
+         .addField("Fear Toss", '130 - 3 turn cooldown.')
+         .addField("Shell Harden", 'Opponent does 50% less damage - 3 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/1/16/Echoes_0.png/revision/latest/top-crop/width/220/height/220?cb=20160423065016')
+         .setColor(0x4be33d)
+         message.channel.send(HeavensDoor);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
@@ -491,11 +505,5 @@ bot.on('message', msg=>{
 bot.on('message', msg=>{
     if(msg.content === "I, Giorno Giovanna, have a dream"){
         msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
-    }
-})
-
-bot.on('message', msg=>{
-    if(msg.content === "How To Evolve Whitesnake Into C-Moon"){
-        msg.channel.send('**__To Evolve Whitesnake Into C-Moon You Must Do These Steps:__** *On Move 8 Green Baby will appear. Roll a 1-10 dice to determine whether green baby will take interest in you or not. If you roll a prime number he will, if you roll a non prime number he will not. *Once Green Baby takes interest in you you will not be able to move for the next turn. *If you survive the turn and win the game, your Whitesnake will evolve into C-Moon.');
     }
 })
