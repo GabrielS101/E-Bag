@@ -522,7 +522,7 @@ bot.on('message', message=>{
          .addField("Infinite Speed Escape", '5 Turn Wait/Cooldown - Dodge your opponents attack this turn (even if that move normally wouldnt be able to be doged. This can also negate stuns.)')
          .addField("Infinite Speed Rush", '100x4 - 5 Turn Cooldown.')
          .addField("Speedy Powerfull Punch", '130 - 3 Turn Cooldown.')
-         .addField("Breakinf Horse Kicks", '150x2 - 4 Turn Cooldown.')
+         .addField("Breaking Horse Kicks", '150x2 - 4 Turn Cooldown.')
          .addField("Passive: Infinite Speed", 'This Stand always goes first unless it is fighting another Made In Heaven in which case the high or low dice roll method shall be used to determine the order of moves.')
          .addField("2nd Passive", 'Can move in Timestop But Not OH TimeStop.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/fb/Made_in_Heaven_2.png/revision/latest/top-crop/width/360/height/450?cb=20191205005203')
@@ -546,6 +546,21 @@ bot.on('message', message=>{
         .setColor(0xe84fa6)
         message.channel.send(KillerQueenPart4);
        break;
+       case 'MagiciansRed':  
+         const MagiciansRed = new Discord.MessageEmbed()             
+         .setTitle('Magicians Red')
+         .addField('Health', '800.')
+         .addField('Punch', '50.')
+         .addField("Red Bind", '135 - 6 Turn Cooldown - Your opponent is stunned for 1 turn.')
+         .addField("Crossfire Hurricane", '80x3 - 3 Turn Cooldown.')
+         .addField("Fire Shot", '60x5 - 5 Turn Cooldown.')
+         .addField("Flaming Kick", '120 - 5 turn cooldown - allows your next two moves to have burn.')
+         .addField("Burn", '0 - 8 Turn Cooldown - Your opponent takes 50 additional damage every turn for the next 3 turns.')
+         .addField("Passive", 'Flames cannot miss. Can only be blocked.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/e/e4/Magicians_red_c177.png/revision/latest?cb=20140816190048')
+         .setColor(0xe85c35)
+         message.channel.send(MagiciansRed);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
