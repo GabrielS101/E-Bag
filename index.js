@@ -200,6 +200,28 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(HeyYa);
          break;
+         case 'D4c:LT':  
+         const D4CLT = new Discord.MessageEmbed()             
+         .setTitle('Dirty Deeds Done Dirt Cheap: Love Train')
+         .addField('Health', '900.')
+         .addField('Punch', '80.')
+         .addField("Enter Love Train", " 7 Turn Cooldown - 5 Turn Wait - For the next 2 turns you are invincible. Any Damage your opponent does to you while inside Love Train get reflected to them instead (except for certain attacks.) You cannot attack while inside Lovetrain.")
+         .addField("Misfortune Redirect", '4 Turn Cooldown - Can Only Be Used While Inside Love Train - Instead of reflecting your opponents damage back at them this turn, the damage gets negated and you heal however much damage he would have done to you.')
+         .addField("D4C Clone Summon", '6 Turn Cooldown - Double the amount of damage you do for the next 3 turns.')
+         .addField("D4C Rush", '50x6 - 5 Turn Cooldown.')
+         .addField("Gun Shots", '100x2 - 3 Turn Cooldown.')
+         .addField("D4C Chop", '200 - 4 Turn Cooldown.')
+         .addField("Who Shot Jhonny Joestar?", '100x3 - 4 Turn Cooldown - Your opponent gets stunned next turn.')
+         .addField("Send To Alternate Dimension", '4 Turn Cooldown - Stun your opponent next turn and puts you in a alternate dimension.')
+         .addField("Meet Your Alternate Dimension Self", '6 Turn Cooldown - 300 - Can Only Be Used If in a alternate dimension.')
+         .addField("Dojyaa", '4 Turn Cooldown - Dodge opponents next attack.')
+         .addField("Passive: Take The First Napkin", 'Take The First Napkin - This Stand always goes first unless it fights another stand with a "always goes first" ability. Than the high or low method will be used to decide order of moves.')
+         .addField("2nd Passive: Clone Replacement", 'Once Per Game - When you die, get revived with 300 health left.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/b/b6/Valentine_Powered.JPG/revision/latest?cb=20150419073227')
+         .setColor(0xdbd035)
+         .setFooter("This Stand Is An Event Exclusive.")
+         message.channel.send(D4CLT);
+         break;
          case 'HierophantGreen':  
          const HierophantGreen = new Discord.MessageEmbed()             
          .setTitle('Hierophant Green')
