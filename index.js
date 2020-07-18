@@ -404,6 +404,19 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesEgg);
         break;
+        case 'EchoesAct1':  
+         const EchoesAct1 = new Discord.MessageEmbed()             
+         .setTitle('Echoes Act 1')
+         .addField('Health', '700.')
+         .addField('Punch', '20.')
+         .addField("Fire Works", "60x4 - 4 turn cooldown.")
+         .addField("Screeching Iron", '130 - 4 turn cooldown.')
+         .addField("White Noise", '130 - 4 turn cooldown.')
+         .addField("Clock Ticking", '50x4 - 3 turn cooldown.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/Echoes_Act1_color.png/revision/latest/scale-to-width-down/340?cb=20140818160319')
+         .setColor(0x4be33d)
+         message.channel.send(EchoesAct1);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
