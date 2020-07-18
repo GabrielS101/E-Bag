@@ -526,7 +526,7 @@ bot.on('message', message=>{
          .addField("Passive: Infinite Speed", 'This Stand always goes first unless it is fighting another Made In Heaven in which case the high or low dice roll method shall be used to determine the order of moves.')
          .addField("2nd Passive", 'Can move in Timestop But Not OH TimeStop.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/fb/Made_in_Heaven_2.png/revision/latest/top-crop/width/360/height/450?cb=20191205005203')
-         .setColor(0xffffff)
+         .setColor(0xdfe8e1)
          message.channel.send(MadeInHeaven);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
