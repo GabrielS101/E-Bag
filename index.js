@@ -513,6 +513,22 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(Spin);
         break;
+        case 'MadeInHeaven':  
+         const MadeInHeaven = new Discord.MessageEmbed()             
+         .setTitle('Made In Heaven')
+         .addField('Health', '800.')
+         .addField('Punch', '80.')
+         .addField("Universe Reset", 'Do 25% of your opponents total health - 8 turn cooldown/8 turn wait.')
+         .addField("Infinite Speed Escape", '5 Turn Wait/Cooldown - Dodge your opponents attack this turn (even if that move normally wouldnt be able to be doged. This can also negate stuns.)')
+         .addField("Infinite Speed Rush", '100x4 - 5 Turn Cooldown.')
+         .addField("Speedy Powerfull Punch", '130 - 3 Turn Cooldown.')
+         .addField("Breakinf Horse Kicks", '150x2 - 4 Turn Cooldown.')
+         .addField("Passive: Infinite Speed", 'This Stand always goes first unless it is fighting another Made In Heaven in which case the high or low dice roll method shall be used to determine the order of moves.')
+         .addField("2nd Passive", 'Can move in Timestop But Not OH TimeStop.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/fb/Made_in_Heaven_2.png/revision/latest/top-crop/width/360/height/450?cb=20191205005203')
+         .setColor(0xffffff)
+         message.channel.send(MadeInHeaven);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
