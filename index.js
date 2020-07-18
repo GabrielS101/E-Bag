@@ -194,11 +194,25 @@ bot.on('message', message=>{
          .addField("Advice", "4 Turn Cooldown - Roll a 10 sided dice to determine what you get. 1-3 Heal 200 Health. 4-6 Deal 100 extra damage for the next 3 turns. 7-9 Deal 100 Damage. 10 Everything.")
          .addField("Cheer", 'Add a 1x to your next attack.')
          .addField("Talk", '4 Turn Cooldown - Roll a 10 sided dice to determine what you get. 1-3 Stun opponent for 1 turn. 4-6 Dodge opponents next attack. Block opponent for the next turn. 10 Everything (The stunning, blocking, and dodging would happen on turn at a time not all on one turn.)')
-         .addField("Passive: Bad Luck", 'After choosing what move to do, roll a 10 dice to determine what unlucky event shall happen to ur opponent. 1-3 They fall on spikes: roll 4 80 sided dice to determine damage. 4-6 A horse kicks them with both legs: roll 2 130 sided dice to determine damage. 7-9 They accidently tripped and fell on their spine: Roll 1 150 sided dice and your opponent is stunned next turn. 10 Everything. (Cannot be blocked, negated, or dodged and if a ability or passive negates this passive than that passive or ability gets negated.).')
+         .addField("Passive: Bad Luck", 'After choosing what move to do, roll a 10 dice to determine what unlucky event shall happen to ur opponent. 1-3 They fall on spikes: roll 4 80 sided dice to determine damage. 4-6 A horse kicks them with both legs: roll 2 130 sided dice to determine damage. 7-9 They accidently tripped and fell on their spine: Roll 1 150 sided dice and your opponent is stunned next turn. 10 Everything. (Cannot be blocked, negated, or dodged and if a ability or passive negates this passive than that passive or ability gets negated.)')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/59/HeyYacolor.png/revision/latest?cb=20171023172341')
          .setColor(0xe0d499)
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(HeyYa);
+         break;
+         case 'HierophantGreen':  
+         const HierophantGreen = new Discord.MessageEmbed()             
+         .setTitle('Hierophant Green')
+         .addField('Health', '700.')
+         .addField('Punch', '30.')
+         .addField("Emerald Splash", "40x5 - 3 Turn Cooldown.")
+         .addField("20 Meter Emerald Splash", '160x2 - 8 Turn Cooldown .')
+         .addField("Hierophant Barrier", '100x2 - 8 Turn Cooldown.')
+         .addField("Heavy Punch", '40x3 - 3 Turn Cooldown.')
+         .addField("Stand Control", '8 Turn Cooldown - Reduce A Hits Damage By 50%.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/f0/Hierophantgreen.jpg/revision/latest/zoom-crop/width/320/height/320?cb=20140807131114')
+         .setColor(0x32a852)
+         message.channel.send(HierophantGreen);
          break;
          case 'TheHand':  
          const TheHand = new Discord.MessageEmbed()             
