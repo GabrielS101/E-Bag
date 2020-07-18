@@ -337,7 +337,7 @@ bot.on('message', message=>{
          .addField("Timestop", '10 Turn Cooldown - Stun The Enemy For Two Turns.')
          .addField("Timestop Dash", '80x2 -Teleport Behind The Player Allowing You to Go First Next Turn. this can be used only in ts.')
          .addField("Enraged Move", 'You can activate when under 200 health - Gain 100 health, every attack you do add 1/4 of its damage.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/0/06/Star_Platinum_The_World.png/revision/latest/top-crop/width/360/height/450?cb=20150610162343')
+         .setImage('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/754292bb-cfb5-4ec8-bc3a-8abfa012cfcc/dd705o3-a49cdf59-fe37-4165-9de0-be297283f1be.png/v1/fill/w_1280,h_1251,strp/star_platinum__part_4__by_vegito5001_dd705o3-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU0MjkyYmItY2ZiNS00ZWM4LWJjM2EtOGFiZmEwMTJjZmNjXC9kZDcwNW8zLWE0OWNkZjU5LWZlMzctNDE2NS05ZGUwLWJlMjk3MjgzZjFiZS5wbmciLCJoZWlnaHQiOiI8PTEyNTEiLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC83NTQyOTJiYi1jZmI1LTRlYzgtYmMzYS04YWJmYTAxMmNmY2NcL3ZlZ2l0bzUwMDEtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.pmqZfO8PnWqySW_cSGtvZiM-TNm9fsiwm4GejUlFG3w')
          .setColor(0xa3369c)
          message.channel.send(StarPlatinumTheWorld);
         break;
