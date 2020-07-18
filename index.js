@@ -391,7 +391,7 @@ bot.on('message', message=>{
         message.channel.send(TheFool);
        break;
        case 'EchoesEgg':  
-         const HeavensDoor = new Discord.MessageEmbed()             
+         const EchoesEgg = new Discord.MessageEmbed()             
          .setTitle('Echoes Egg')
          .addField('Health', '700.')
          .addField('Stumble', '20.')
@@ -402,7 +402,7 @@ bot.on('message', message=>{
          .addField("Shell Harden", 'Opponent does 50% less damage - 3 turn cooldown.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/1/16/Echoes_0.png/revision/latest/top-crop/width/220/height/220?cb=20160423065016')
          .setColor(0x4be33d)
-         message.channel.send(HeavensDoor);
+         message.channel.send(EchoesEgg);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
