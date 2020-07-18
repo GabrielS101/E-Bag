@@ -180,7 +180,6 @@ bot.on('message', message=>{
          .addField("So Its The Same Type Of Stand", '5 Turn Wait - Copy one of your opponents move and ignore its wait. This move will be replaced with what move you choose.')
          .addField("Max Defense", 'Every damage done to you in the last 3 turns heals you - 5 turn wait/cooldown.')
          .addField("Turtle Evolution", '8 Turn Cooldown - 5 Turn Wait - Opponent Attacks do 25% less damage and all your attacks do 50% more damage for the next 3 turns.')
-         .addField("Turtle Overwrite", 'Sike you thought nigga. This shit aint ever gonna be added')
          .addField("Passive: Turtle Shell", 'Opponents attacks do 50% less damage.')
          .setImage('https://cdn.discordapp.com/attachments/717483024522018838/733755211495243846/president.gif')
          .setColor(0xdba81d)
