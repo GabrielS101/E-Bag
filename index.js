@@ -478,12 +478,26 @@ bot.on('message', message=>{
          .addField('Health', '750.')
          .addField('Punch', '20.')
          .addField("Fingernail Cannon", '100x3 - 6 Turn Cooldown.')
-         .addField("Fingernail Shotgun", '50x3 - 3 Turn Cooldown .')
+         .addField("Fingernail Shotgun", '50x3 - 3 Turn Cooldown.')
          .addField("Spacial Wormhole", '100x2 - 4 Turn Cooldown.')
          .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct3);
+        break;
+        case 'TuskAct4':  
+         const TuskAct4 = new Discord.MessageEmbed()             
+         .setTitle('Tusk Act 4')
+         .addField('Health', '800.')
+         .addField('Punch', '30.')
+         .addField("Rotation Punch", '100x2 - 4 Turn Cooldown.')
+         .addField("Rotation Barrage", '100x3 - 4 Turn Cooldown .')
+         .addField("Rotation Fingernail Shotgun", '80x3 - 2 Turn Cooldown.')
+         .addField("Spinning Nail Shot", '100x2 - 5 Turn Cooldown - Stun The Player For 2 Turns.')
+         .addField("Fingernail Glide", '4 Turn Cooldown - Dodge An Attack')
+         .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
+         .setColor(0xe01fa0)
+         message.channel.send(TuskAct4);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
