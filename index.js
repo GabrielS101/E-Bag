@@ -454,7 +454,7 @@ bot.on('message', message=>{
          .addField("Fingernail Shot", '50x3 - 2 Turn Cooldown.')
          .addField("Fingernail Bullet", '50x2 - 4 Turn Cooldown Stun The Enemy Oncen.')
          .addField("Fingernail Glide", '4 Turn Cooldown - Dodge An Attack.')
-         .addField("Spin Charge", '')
+         .addField("Spin Charge",)
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct1);
