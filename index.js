@@ -175,7 +175,7 @@ bot.on('message', message=>{
          .addField("Key Shake", '200 - 4 turn cooldown - Can only be used while inside the room.')
          .addField("Key Throw", '300 - 5 turn cooldown - Can only be used while inside the room.')
          .addField("Room Flood", '5 Turn Cooldown - Stuns enemy for an extra 2 turns in the room - Can only be used while inside the room.')
-         .addField("Turtle Snap", '4 Turn Cooldown - 250.')
+         .addField("Turtle Snap", '250 - 4 Turn Cooldown.')
          .addField("Stored Items", '3 Turn Wait - 7 Turn Cooldown - Roll a 10 sided die depending on what you get is what item you use - Roll 1-3 Food, Gain 200 health back. Roll 4-6 Turtle Head Gear, all attack do 100 more damage for the next 3 turns. Roll 5-9 Taser, do 100 damage to your opponent. Roll 10 Choose what you get (only one.)')
          .addField("So Its The Same Type Of Stand", '5 Turn Wait - Copy one of your opponents move and ignore its wait. This move will be replaced with what move you choose.')
          .addField("Max Defense", 'Every damage done to you in the last 3 turns heals you - 5 turn wait/cooldown.')
