@@ -170,7 +170,7 @@ bot.on('message', message=>{
          .addField('Health', '1000.')
          .addField('Bite', '60.')
          .addField("Shell Spin", "4 Turn Cooldown - 80x6.")
-         .addField("Key Capture", '6 Turn Cooldown - 3 Turn Wait - Cancel an opponents move and stun them for 1 turn.')
+         .addField("Key Capture", '5 Turn Cooldown - 3 Turn Wait - Cancel an opponents move and stun them for 1 turn.')
          .addField("Enter Room", '3 Turn Cooldown - Dodges your opponents next attack.')
          .addField("Key Shake", '200 - 4 turn cooldown - Can only be used while inside the room.')
          .addField("Key Throw", '300 - 5 turn cooldown - Can only be used while inside the room.')
