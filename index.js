@@ -214,7 +214,7 @@ bot.on('message', message=>{
          .addField("Who Shot Jhonny Joestar?", '100x3 - 4 Turn Cooldown - Your opponent gets stunned next turn.')
          .addField("Send To Alternate Dimension", '4 Turn Cooldown - Stun your opponent next turn and puts you in a alternate dimension.')
          .addField("Meet Your Alternate Dimension Self", '6 Turn Cooldown - 300 - Can Only Be Used If in a alternate dimension.')
-         .addField("Dojyaa", '4 Turn Cooldown - Dodge opponents next attack.')
+         .addField("Dojyan", '4 Turn Cooldown - Dodge opponents next attack.')
          .addField("Passive: Take The First Napkin", 'Take The First Napkin - This Stand always goes first unless it fights another stand with a "always goes first" ability. Than the high or low method will be used to decide order of moves.')
          .addField("2nd Passive: Clone Replacement", 'Once Per Game - When you die, get revived with 300 health left.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/b/b6/Valentine_Powered.JPG/revision/latest?cb=20150419073227')
