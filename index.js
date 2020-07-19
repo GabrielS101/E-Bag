@@ -611,7 +611,7 @@ bot.on('message', message=>{
 })
 
 bot.on('message', msg=>{
-    if(msg.content === "Add Turtle Overwrite"){
+    if(msg.content === "Turtle Overwrite"){
         msg.reply('You are gay');       //this command is if you want the bot to ping you when responding.
     }
 })
@@ -621,8 +621,8 @@ bot.on('message', message=>{
     let args = message.content. substring(PREFIX.length).split(" ");
 
     switch(args[0]){
-        case 'Mr.President':                         //this command is if you want the bot to use prefix and ping.
-            message.reply('Turtle Overwrite will never be added')
+        case 'Oof':                         //this command is if you want the bot to use prefix and ping.
+            message.reply('O o f')
         break;
     }
 })
