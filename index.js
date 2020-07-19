@@ -200,7 +200,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(HeyYa);
          break;
-         case 'D4c:LT':  
+         case 'D4C:LT':  
          const D4CLT = new Discord.MessageEmbed()             
          .setTitle('Dirty Deeds Done Dirt Cheap: Love Train')
          .addField('Health', '900.')
