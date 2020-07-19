@@ -553,7 +553,7 @@ bot.on('message', message=>{
          .setColor(0xdfe8e1)
          message.channel.send(MadeInHeaven);
         break;
-        case 'KillerQueen(Part4)':  
+        case 'KillerQueen':  
         const KillerQueenPart4 = new Discord.MessageEmbed()             
         .setTitle('Killer Queen (Part 4)')
         .addField('Health', '600.')
