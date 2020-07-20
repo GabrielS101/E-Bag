@@ -603,6 +603,9 @@ bot.on('message', message=>{
         case 'spam':
             message.channel.send('no')
             break;
+        case 'Mom':
+            message.channel.send('I Love You Mom')
+            break;
         case 'invite':
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
