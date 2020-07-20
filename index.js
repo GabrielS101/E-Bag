@@ -186,6 +186,29 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
          break;
+         case 'THTW':  
+         const TheHandTheWorld = new Discord.MessageEmbed()             
+         .setTitle('The Hand: The World')
+         .addField('Health', '900.')
+         .addField('Punch', '80.')
+         .addField("Timestop", "5 Turn Cooldown - Stun your opponent for the next 2 turns.")
+         .addField("Erase Space", '4 Turn Cooldown - Your next attack is guaranteed to hit.')
+         .addField("Knife Throw", '50x6 - 6 Turn Cooldown.')
+         .addField("Erase Body Part", '150 - 5 Turn Cooldown.')
+         .addField("Stand Rush", '80x4 - 5 Turn Cooldown.')
+         .addField("Timestop Dodge", '4 Turn Cooldown - Dodge your opponents next attack.')
+         .addField("Kick", '200 - 5 Turn Cooldown.')
+         .addField("Road Roller", '250 - 6 Turn Cooldown - Roll a 10 sided dice, if you roll a odd number deal an extra 50 damage to your opponent. If you roll a even number than the attack goes on as normal.')
+         .addField("Oi Josuke", '5 Turn Cooldown - Heal 200 Health.')
+         .addField("Tonio Assist", '5 Turn Cooldown - Add an extra 1x to your attacks for the next 2 turns.')
+         .addField("Koichi Assist: 3 Freeze", '4 Turn Cooldown - Stun your opponent for 1 turn.')
+         .addField("Jotaro Assist: Star Platinum The World", '8 Turn Wait - 80x6 - Can Only Be Used Once Per Game - If this move is used during Timestop than extend the amount of turns your opponent is stunned by 1.')
+         .addField("Passive: Too Dumb To Die", 'Can Only Be Used Once Per Game - When you die, get revived with 300 health left.')
+         .setImage('https://media.discordapp.net/attachments/717270887870758942/734657866442604574/egvbdzgqonv21.jpg?width=991&height=662')
+         .setColor(0x2d6bcf)
+         .setFooter("This Stand Is An Admin Exclusive.")
+         message.channel.send(TheHandTheWorld);
+         break;
          case 'HeyYa':  
          const HeyYa = new Discord.MessageEmbed()             
          .setTitle('Hey Ya')
