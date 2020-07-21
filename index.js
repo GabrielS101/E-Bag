@@ -206,6 +206,7 @@ bot.on('message', message=>{
          .addField("Passive: Too Dumb To Die", 'Can Only Be Used Once Per Game - When you die, get revived with 300 health left.')
          .setImage('https://media.discordapp.net/attachments/717270887870758942/734657866442604574/egvbdzgqonv21.jpg?width=991&height=662')
          .setColor(0x2d6bcf)
+         .setFooter("This Stand Is A Fusion Stand.")
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(TheHandTheWorld);
          break;
