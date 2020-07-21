@@ -142,6 +142,7 @@ bot.on('message', message=>{
         case 'Metallica':  
          const Metallica = new Discord.MessageEmbed()             
          .setTitle('Metallica')
+         .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
          .addField('Health', '800.')
          .addField('Nail', '70.')
          .addField("Invisibility", "3 Turn Cooldown - Dodge Your Opponents Next Attack.")
@@ -167,6 +168,7 @@ bot.on('message', message=>{
         case 'Mr.President':  
          const MrPresident = new Discord.MessageEmbed()             
          .setTitle('Mr.President')
+         .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
          .addField('Health', '1000.')
          .addField('Bite', '60.')
          .addField("Shell Spin", "4 Turn Cooldown - 80x6.")
