@@ -608,6 +608,23 @@ bot.on('message', message=>{
          .setColor(0xe85c35)
          message.channel.send(MagiciansRed);
         break;
+        case 'TowerOfGray':  
+         const TowerOfGray = new Discord.MessageEmbed()             
+         .setTitle('Tower Of Gray')
+         .addField('Health', '700.')
+         .addField('Bite', '50.')
+         .addField("Poisonous Blood", "80 - 5 Turn Cooldown - Deal 50 extra damage for the next 2 Turns.")
+         .addField("Rip Out Tongue", '150 - 4 Turn Wait/Cooldown - Your opponent can no longer use assist moves.')
+         .addField("Countless Bites", '50x6 - 5 Turn Cooldown.')
+         .addField("Extreme Speed", '50x6 - 5 Turn Cooldown.4 Turn Cooldown - Dodge your opponents next attack.')
+         .addField("Massacre Written In Blood", '6 Turn Cooldown - Can Only Be Used If Rip Out Tongue Was Used Last Turn - Add an extra 1x to your attacks for the next 3 turns.')
+         .addField("Hidden User", '4 Turn Cooldown - Dodge your opponents next attack.')
+         .addField("Closed Space", '5 Turn Cooldown - Deal 25% more damage for the next 2 turns.')
+         .addField('Passive: Extremely Small Bug', "Before rolling for damage, your opponent must roll a 10 sided dice. If they roll less than a 6 than their attack gets dodged that turn. If they roll above a 5 than they do 50% more damage this turn.")
+         .setImage('https://media.discordapp.net/attachments/731415895682973696/734995563002462218/image0.png?width=673&height=662')
+         .setColor(0x536f96)
+         message.channel.send(TowerOfGray);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
