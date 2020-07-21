@@ -641,7 +641,7 @@ bot.on('message', message=>{
         .addField("Madly In Love", '7 Turn Cooldown - Your opponent cannot dodge your attacks for the next 3 turns.')
         .addField("Passive: Hair Abuse", 'After Turn 15, you do 50% less damage.')
         .setImage('https://cdn.discordapp.com/attachments/732140300272795710/735003884778553415/350.png')
-        .setColor(0x212121)
+        .setColor(0x999797)
         message.channel.send(LoveDeluxe);
        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
