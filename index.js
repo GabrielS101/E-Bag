@@ -625,6 +625,25 @@ bot.on('message', message=>{
          .setColor(0x536f96)
          message.channel.send(TowerOfGray);
         break;
+        case 'LoveDeluxe':  
+        const LoveDeluxe = new Discord.MessageEmbed()             
+        .setTitle('Hanged Man')
+        .addField('Health', '700.')
+        .addField('Hair Slap', '50.')
+        .addField("Bind", "130 - 5 turn cooldown - Stun your opponent for their next turn.")
+        .addField("Hair Shot", '100 - 3 turn cooldown.')
+        .addField("Hair Shield", '4 turn cooldown - Block your opponents next attack.')
+        .addField("Launch", '150 - 5 turn cooldown.')
+        .addField("Hair Whips", '100x4 - 5 turn cooldown.')
+        .addField("Hair Suffocate", '200 - 6 Turn Cooldown.')
+        .addField("Cinderella Assist: Beautify", '5 Turn Cooldown - Cannot Be Used During Uglify Cooldown - Your opponent does 25% less damage for the next 2 turns.')
+        .addField("Cinderella Assist: Uglify", '5 - Turn Cooldown - Cannot Be Used During Beautify Cooldown - Your opponent gets stunned for their next turn.')
+        .addField("Madly In Love", '7 Turn Cooldown - Your opponent cannot dodge your attacks for the next 3 turns.')
+        .addField("Passive: Hair Abuse", 'After Turn 15, you do 50% less damage.')
+        .setImage('https://cdn.discordapp.com/attachments/732140300272795710/735003884778553415/350.png')
+        .setColor(0x404040)
+        message.channel.send(LoveDeluxe);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
