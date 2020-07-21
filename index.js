@@ -189,6 +189,7 @@ bot.on('message', message=>{
          case 'THTW':  
          const TheHandTheWorld = new Discord.MessageEmbed()             
          .setTitle('The Hand: The World')
+         .setDescription("This Stand Is A Fusion Between The Hand And The World")
          .addField('Health', '900.')
          .addField('Punch', '80.')
          .addField("Timestop", "5 Turn Cooldown - Stun your opponent for the next 2 turns.")
