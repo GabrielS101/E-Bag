@@ -757,8 +757,8 @@ bot.on('message', message=>{
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
         case 'invite':
-             if(args[1] === 'server'){
-                message.channel.send('https://discord.gg/pRXmQUr')}
+             if(args[1] === 'bot'){
+                message.channel.send('https://discordapp.com/oauth2/authorize?client_id=717463925808955533&scope=bot&permissions=8')}
          } 
 })
 
