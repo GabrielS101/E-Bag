@@ -663,6 +663,22 @@ bot.on('message', message=>{
          .setColor(0x489cd4)
          message.channel.send(Geb);
         break;
+        case 'RHCP':  
+         const RedHotChiliPepper = new Discord.MessageEmbed()             
+         .setTitle('Red Hot Chili Pepper')
+         .addField('Health', '750.')
+         .addField('Punch', '50.')
+         .addField("Stand Barrage", '100x3 - 5 turn cooldown.')
+         .addField("Overcharge", 'Increase the damage of all your attacks by ¼ for 2 turns - 5 turn cooldown.')
+         .addField("Electric Transfer", 'Dodge an Attack - 4 turn cooldown.')
+         .addField("Discharge", '200 - 4 turn cooldown.')
+         .addField("Electricity Absorb", 'Heal 100 health - 5 turn cooldown.')
+         .addField("Blinding Light", 'Blinding Light - Stun your opponent for 1 turn - 4 turn cooldown.')
+         .addField("Shock", '150 - 4 turn cooldown.')
+         .setImage('https://media.discordapp.net/attachments/731415895682973696/735325387084791898/350.png')
+         .setColor(0xe8e046)
+         message.channel.send(RedHotChiliPepper);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
