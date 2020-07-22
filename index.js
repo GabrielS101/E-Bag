@@ -700,6 +700,9 @@ bot.on('message', message=>{
         case 'Mom':
             message.channel.send('I Love You Mom')
             break;
+        case 'R.I.P':
+            message.channel.send('<@490386470369230851> Will Be Missed :sob:')
+            break;
         case 'Clue1':
             message.channel.send("Not Available Yet.")
             break;
