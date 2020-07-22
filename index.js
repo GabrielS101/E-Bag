@@ -673,11 +673,27 @@ bot.on('message', message=>{
          .addField("Electric Transfer", 'Dodge an Attack - 4 turn cooldown.')
          .addField("Discharge", '200 - 4 turn cooldown.')
          .addField("Electricity Absorb", 'Heal 100 health - 5 turn cooldown.')
-         .addField("Blinding Light", 'Blinding Light - Stun your opponent for 1 turn - 4 turn cooldown.')
+         .addField("Blinding Light", 'Stun your opponent for 1 turn - 4 turn cooldown.')
          .addField("Shock", '150 - 4 turn cooldown.')
          .setImage('https://media.discordapp.net/attachments/731415895682973696/735325387084791898/350.png')
          .setColor(0xe8e046)
          message.channel.send(RedHotChiliPepper);
+        break;
+        case 'MoodyBlues':  
+         const MoodyBlues = new Discord.MessageEmbed()             
+         .setTitle('Moody Blues')
+         .addField('Health', '700.')
+         .addField('Punch', '50.')
+         .addField("Playback", '5 Turn Cooldown/Wait - Whatever attack your opponent did last turn to you, you do now to your opponent (reroll for damage).')
+         .addField("Stand Barrage", '50x4 - 4 Turn Cooldown.')
+         .addField("Half Stand Half User", 'Take 50% less damage for the next 2 turns - 5 turn cooldown.')
+         .addField("Timer Start", '4 Turn Cooldown/Wait - Start The Timer.')
+         .addField("Timer Rewind", '5 Turn Cooldown/Wait Choose an attack that was done after you started the timer and do the same amount of damage you took from that attack to the opponent. This automatically stops the timer.')
+         .addField("I Will Use My Stand To Solve The Mystery", 'Add an extra 1x to your next attack (including Playback attacks).')
+         .addField("Passive: Shut Up Giorno", 'Your opponent can not use healing moves.')
+         .setImage('https://i.pinimg.com/564x/f4/ed/93/f4ed93901c1aac2136e37d00268c5fc9.jpg')
+         .setColor(0x9d03fc)
+         message.channel.send(MoodyBlues);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
