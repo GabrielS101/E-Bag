@@ -647,6 +647,22 @@ bot.on('message', message=>{
         .setColor(0x999797)
         message.channel.send(LoveDeluxe);
        break;
+       case 'Geb':  
+         const Geb = new Discord.MessageEmbed()             
+         .setTitle('Geb')
+         .addField('Health', '700.')
+         .addField('Scratch', '25.')
+         .addField("Neck Detachment", '150 - 5 Turn Cooldown - Stun The Player For One Turn.')
+         .addField("200 Water Palms", '50x4 - 3 Turn Cooldown.')
+         .addField("Water Blast", '50x3 - 3 Turn Cooldown.')
+         .addField("Hardened Claws", '100x2 - 5 Turn Cooldown .')
+         .addField("Water Bullets", '70x4 - 4 Turn Cooldown.')
+         .addField("Water Aphorism", '4 Turn Cooldown - Dodge An Attack.')
+         .addField("Absorb Shield", '6 Turn Cooldown - Dodge An Attack And Reflect Half Of The Damage From The Attack Back Onto The Enemy.')
+         .setImage('https://media.discordapp.net/attachments/731415895682973696/735319514690093186/image0.png?width=522&height=679')
+         .setColor(0x489cd4)
+         message.channel.send(Geb);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
@@ -681,7 +697,7 @@ bot.on('message', message=>{
             message.channel.send("This Stand was based off a quote from a silly game. The man named okuyasu, who does not have a brain, said this stand thinking it would work in some wierd way. But to his sad realization it would do no such thing, made the answer so so clear that a bell it might ring.")
             break;
         case 'Clue5':
-            message.channel.send("Four simple letters all in capitalization hold the key. To showing the answer of what all this could be.")
+            message.channel.send("Three simple letters all in capitalization hold the key. To showing the answer of what all this could be.")
         case 'invite':
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
