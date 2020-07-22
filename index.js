@@ -692,7 +692,7 @@ bot.on('message', message=>{
          .addField("I Will Use My Stand To Solve The Mystery", 'Add an extra 1x to your next attack (including Playback attacks).')
          .addField("Passive: Shut Up Giorno", 'Your opponent can not use healing moves.')
          .setImage('https://i.pinimg.com/564x/f4/ed/93/f4ed93901c1aac2136e37d00268c5fc9.jpg')
-         .setColor(0x9d03fc)
+         .setColor(0x564bab)
          message.channel.send(MoodyBlues);
         break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
