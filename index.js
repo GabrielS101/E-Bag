@@ -668,6 +668,20 @@ bot.on('message', message=>{
         case 'Mom':
             message.channel.send('I Love You Mom')
             break;
+        case 'Clue1':
+            message.channel.send("So you wish to find the secret but do not dismay. This clue is ment to help but also may delay. This Stand is never shown and is not canon at all. But one of the two components knows how to stop it all.")
+            break;
+        case 'Clue2':
+            message.channel.send("You still have not discovered the name of the stand? Well let us see, if there can be, a way to lend a hand.")
+            break;
+        case 'Clue3':
+            message.channel.send("The command, for the stand, which requires a hand does not match the name. But do not dismay or stop wanting to play for the command is just a short way. Just think of jotaro and how his stand was changed to fit the bots commands to help with the game.")
+            break;
+        case 'Clue4':
+            message.channel.send("This Stand was based off a quote from a silly game. The man named okuyasu, who does not have a brain, said this stand thinking it would work in some wierd way. But to his sad realization it would do no such thing, made the answer so so clear that a bell it might ring.")
+            break;
+        case 'Clue5':
+            message.channel.send("Four simple letters all in capitalization hold the key. To showing the answer of what all this could be.")
         case 'invite':
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
