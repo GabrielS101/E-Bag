@@ -630,7 +630,7 @@ bot.on('message', message=>{
         break;
         case 'LoveDeluxe':  
         const LoveDeluxe = new Discord.MessageEmbed()             
-        .setTitle('Hanged Man')
+        .setTitle('Love Deluxe')
         .addField('Health', '700.')
         .addField('Hair Slap', '50.')
         .addField("Bind", "130 - 5 turn cooldown - Stun your opponent for their next turn.")
@@ -695,6 +695,26 @@ bot.on('message', message=>{
          .setColor(0x564bab)
          message.channel.send(MoodyBlues);
         break;
+        case 'GoldExperience':  
+        const GoldExperience = new Discord.MessageEmbed()             
+        .setTitle('Gold Experience')
+        .addField('Health', '750.')
+        .addField('MUDA', '50.')
+        .addField("MUDA Barrage", "50x4 - 4 turn cooldown.")
+        .addField("Life Imbue", 'Heal 100 health - 4 turn cooldown.')
+        .addField("Tracking Fly", 'The enemy cannot dodge for 3 turns - 6 turn cooldown.')
+        .addField("Tree", '8 turn cooldown - 6 turn wait - Dodge your opponents next attack and reflect it back at them, dealing 1.5x the damage they would have done to you.')
+        .addField("Consciousness Acceleration", '5 Turn Cooldown - 100 - Can Only Be Used If Punch Was Used Last Turn - Stun the opponent for 1 turn.')
+        .addField("7 Page MUDA", '80x7 - 6 turn cooldown - 6 turn wait - Can Only Be Used If Did You Really Think You’d Be That Lucky? Was Used Last Turn.')
+        .addField("Did You Really Think You’d Be That Lucky?", '6 Turn Cooldown - 5 Turn Wait - Your opponent cannot dodge or block your next attack.')
+        .addField("Life Create", '7 Turn Cooldown - 5 Turn Wait - Roll a 10 sided dice to determine which animal gets made. Roll a 1-3 to get a Snake, roll a 150 sided dice for damage. Roll a 4-6 to get a Wolf, roll a 200 sided dice for damage. Roll a 7-9 to get a Lion, roll a 250 sided dice for damage. Roll a 10 to get a Shark, roll a 300 sided dice for damage.')
+        .addField("Mista Assist: Sex Pistols", '50x6 - 5 Turn Cooldown.')
+        .addField("Revival", 'Can Only Be Used In 2v2s - Can Only Be Used Once Per Game - This ability only works if activated the same turn your teammate dies, revive them with 200 health left.')
+        .addField("Passive: Piano", 'When you have less than 200 health, your damage output gets increased by 50%.')
+        .setImage('https://media.discordapp.net/attachments/731415895682973696/735432435193479188/Z.png')
+        .setColor(0xded82f)
+        message.channel.send(GoldExperience);
+       break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
