@@ -250,7 +250,7 @@ bot.on('message', message=>{
          break;
          case 'Kiss':  
          const Kiss = new Discord.MessageEmbed()             
-         .setTitle('Dirty Deeds Done Dirt Cheap: Love Train')
+         .setTitle('Kiss')
          .setDescription("This Stand Is The Exclusive Property Of <@678443627046895623>")
          .addField('Health', '800.')
          .addField('Punch', '70.')
