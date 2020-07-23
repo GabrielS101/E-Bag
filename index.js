@@ -190,7 +190,7 @@ bot.on('message', message=>{
          break;
          case 'OceanMan':  
          const OceanMan = new Discord.MessageEmbed()             
-         .setTitle('OceanMan')
+         .setTitle('Ocean Man')
          .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
          .addField('Health', '850.')
          .addField('Punch', '50.')
