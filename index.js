@@ -756,11 +756,11 @@ bot.on('message', message=>{
         case 'Mom':
             message.channel.send('I Love You Mom')
             break;
-        case 'invite':
-            if(args[1] === 'server'){
+        case 'Invite':
+            if(args[1] === 'Server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
-        case 'invite':
-             if(args[1] === 'bot'){
+        case 'Invite':
+             if(args[1] === 'Bot'){
                 message.channel.send('https://discordapp.com/oauth2/authorize?client_id=717463925808955533&scope=bot&permissions=8')}
          } 
 })
