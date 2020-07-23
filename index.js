@@ -205,7 +205,7 @@ bot.on('message', message=>{
          .addField("Rising Tides", '130 - 3 turn cooldown - Every time this move is used the number of sides that the dice that is rolled for damage has is raised by 10.')
          .addField("Passive: A Ocean Full Of Miracles", 'Block your opponents passives, stuns, and extra damage for the next 2 turns - Activates when healed.')
          .addField("2nd Passive: Great Waves", 'User and Allies gain x1 For the next turn - Activates when the user takes over 200 damage.')
-         .setImage('https://cdn.discordapp.com/attachments/732140300272795710/735773802872438805/ocean_man_1.png')
+         .setImage('https://media.discordapp.net/attachments/732140300272795710/735964966779224084/37BBE20D-B97C-4C02-80DA-237FC5F71046-removebg-preview.png')
          .setColor(0x4b4eab)
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(OceanMan);
