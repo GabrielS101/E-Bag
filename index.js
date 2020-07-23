@@ -574,7 +574,7 @@ bot.on('message', message=>{
          .addField("Throw Knives", '50x6 - 5 Turn Cooldown.')
          .addField("Know The Future", 'Can Only Be Used Once Per Game - Can Only Be Used If Universe Reset Was Used Last Turn - Dodge your opponents attacks for the next 3 turns.')
          .addField("Speed Up Time", 'Speed Up Time - 3 Turn Wait - 4 Turn Cooldown - Dodge your opponents next attack - This Move Can Still Be Activated During Stuns - If this move is activated during Timestop, lower how many turns that Timestop will Stun you for to only 1 (this one).')
-         .addField("Passive: Infinite Speed", 'This Stand always goes first unless it is fighting another stand that always goes first in which case the high or low dice roll method shall be used to determine the order of moves.')
+         .addField("Passive: Infinite Speed", 'This stand always goes first unless it is fighting another stand that always goes first in which case the high or low dice roll method shall be used to determine the order of moves.')
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/fb/Made_in_Heaven_2.png/revision/latest/top-crop/width/360/height/450?cb=20191205005203')
          .setColor(0xdfe8e1)
          message.channel.send(MadeInHeaven);
