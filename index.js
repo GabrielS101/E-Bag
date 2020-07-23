@@ -130,7 +130,7 @@ bot.on('message', message=>{
          .addField('Health', '720.')
          .addField('Punch', '50.')
          .addField("DORA Barrage", "100x4 - 5 turn cooldown.")
-         .addField("Restore", 'Heals 100 health (only team battles) - 6 turn cooldown.')
+         .addField("Restore", 'Can Only Be Used In 2v2s - Heal 100 of your teammates health - 5 turn cooldown.')
          .addField("Head Kick", '150 - 3 turn cooldown.')
          .addField("Auto Shot Glass", '150 -  3 turn cooldown.')
          .addField("Blood Slash", '200 - 5 turn cooldown - takes away 100 everytime used.')
