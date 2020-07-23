@@ -188,6 +188,28 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
          break;
+         case 'OceanMan':  
+         const OceanMan = new Discord.MessageEmbed()             
+         .setTitle('OceanMan')
+         .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
+         .addField('Health', '850.')
+         .addField('Punch', '50.')
+         .addField("Calming Waves", "5 Turn Cooldown/Wait - Heal 200 Health.")
+         .addField("Take Me By The Hand", '200 - 4 Turn Cooldown.')
+         .addField("Water Of Amazement", '5 Turn Cooldown/Wait - All your opponents moves on cooldown gets reset.')
+         .addField("Mirror Of Water", '4 Turn Cooldown - Reflect your opponents next attack back at them.')
+         .addField("Another Way Of Peace", '5 Turn Cooldown - 3 Turn Wait - Opponents Heal 100 Heath but get stunned for two turns.')
+         .addField("Lead Me To The Land", '5 Turn Cooldown - 3 Turn Wait - Block your opponents next attack.')
+         .addField("Soak The Land", '200 - 4 turn cooldown/wait - Stun your opponent for 1 turn.')
+         .addField("Spiraling Whirlpool", '100x4 - 5 turn cooldown.')
+         .addField("Rising Tides", '130 - 3 turn cooldown - Every time this move is used the number of sides that the dice that is rolled for damage has is raised by 10.')
+         .addField("Passive: A Ocean Full Of Miracles", 'Block your opponents passives, stuns, and extra damage for the next 2 turns - Activates when healed.')
+         .addField("2nd Passive: Great Waves", 'User and Allies gain x1 For the next turn - Activates when the user takes over 200 damage.')
+         .setImage('https://cdn.discordapp.com/attachments/732140300272795710/735773802872438805/ocean_man_1.png')
+         .setColor(0x4b4eab)
+         .setFooter("This Stand Is An Admin Exclusive.")
+         message.channel.send(OceanMan);
+         break;
          case 'THTW':  
          const TheHandTheWorld = new Discord.MessageEmbed()             
          .setTitle('The Hand: The World')
