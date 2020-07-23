@@ -248,6 +248,26 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(D4CLT);
          break;
+         case 'Kiss':  
+         const Kiss = new Discord.MessageEmbed()             
+         .setTitle('Dirty Deeds Done Dirt Cheap: Love Train')
+         .setDescription("This Stand Is The Exclusive Property Of <@678443627046895623>")
+         .addField('Health', '800.')
+         .addField('Punch', '70.')
+         .addField("Place Sticker", "6 Turn Cooldown - Choose Whether It Will Affect The Opponent Or You - Can Only Have 1 Sticker At A Time - Place a sticker on the target of your choosing and double the amount of damage the person the sticker is on does for the next 3 turns or until the sticker is removed (whichever happens first).")
+         .addField("Rip Off Sticker", '6 Turn Cooldown - 300 - Cannot Be Used Unless Place Sticker Was Used In The Last 3 Turns - Damage Will Only Be Dealt If Sticker Was Placed On Opponent - Remove the sticker.')
+         .addField("Stand Rush", '100x4 - 5 Turn Cooldown.')
+         .addField("Revenge Is For Settling Your Score With Your Own Destiny", 'Add an extra 1x to your attacks for the next 2 turns (including Rip Off Sticker).')
+         .addField("Foo Fighters Assist: Plankton Heal", '4 Turn Cooldown - Heal 150 Health.')
+         .addField("Jolyne Assist: Spring Trap", '5 Turn Cooldown - Stun your opponent for 2 turns.')
+         .addField("Jotaro Assist: Star Platinum The World", 'Stop time and stun your opponent for 2 turns.')
+         .addField("Sticker Trap", '200 - 5 Turn Cooldown - Can Only Be Used If Your Opponent Dodged Your Last Attack.')
+         .addField("Get Revenge For Gloria", '6 Turn Cooldown - Your opponent cannot dodge your attacks for the next 3 turns.')
+         .setImage('https://static.jojowiki.com/images/thumb/7/77/latest/20191015213732/Kiss_Infobox_Manga.png/270px-Kiss_Infobox_Manga.png')
+         .setColor(0xdb9523)
+         .setFooter("This Stand Is An Event Exclusive.")
+         message.channel.send(Kiss);
+         break;
          case 'HierophantGreen':  
          const HierophantGreen = new Discord.MessageEmbed()             
          .setTitle('Hierophant Green')
