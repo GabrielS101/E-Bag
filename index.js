@@ -739,20 +739,35 @@ bot.on('message', message=>{
         case 'R.I.P':
             message.channel.send('<@490386470369230851> Will Be Missed :sob:')
             break;
+        case 'Question1':
+            message.channel.send("What was the one crime Ceaser Zepelli canonically had not committed yet?")
+            break;
         case 'Clue1':
-            message.channel.send("Not Available Yet.")
+            message.channel.send("O.J. Simpson's carrer was ruined because he went to court for this.")
+            break;
+        case 'Question2':
+            message.channel.send("What number president is Funny Valentine?")
             break;
         case 'Clue2':
-            message.channel.send("Not Available Yet.")
+            message.channel.send("In reality it was Benjamin Harrison.")
+            break;
+        case 'Question3':
+            message.channel.send("How old does Mikitaka say he is?")
             break;
         case 'Clue3':
-            message.channel.send("Not Available Yet.")
+            message.channel.send("If you add together the first 2 digits and mutiply the result by the first digit, you get the third digit.")
+            break;
+        case 'Question4':
+            message.channel.send("What is the name of the pilot in Aerosmith?")
             break;
         case 'Clue4':
-            message.channel.send("Not Available Yet.")
+            message.channel.send("The pilots name and the stands name are very similar.")
+            break;
+        case 'Question5':
+             message.channel.send("What is the name of the manga Rohan wrote?")
             break;
         case 'Clue5':
-            message.channel.send("Not Available Yet.")
+             message.channel.send("First a color, then a adjective, then a gender.")
         case 'invite':
             if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
