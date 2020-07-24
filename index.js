@@ -7,8 +7,6 @@ bot.on('ready', () =>{
 
 bot.login(process.env.token);
 
-const PREFIX = 'E-'
-
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
