@@ -64,6 +64,11 @@ bot.on('message', message=>{
             .addField('39', "Emperor.")
             message.channel.send(PublicStands2);
         break;
+        case 'Win':
+        const Win = new Discord.MessageEmbed()
+        addField('You Win')
+        message.channel.send(Win);
+        break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
