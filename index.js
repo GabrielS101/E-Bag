@@ -14,9 +14,9 @@ bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0]){
-        case 'PublicStands':
-            const PublicStands = new Discord.MessageEmbed()
-            .setTitle('Public Stands')
+        case 'PublicStands1':
+            const PublicStands1 = new Discord.MessageEmbed()
+            .setTitle('Public Stands 1')
             .setDescription('39 Total Public Stands.')
             .addField('1', "Purple Haze Distortion.")
             .addField('2', "Hermit Purple.")
@@ -43,6 +43,11 @@ bot.on('message', message=>{
             .addField('23', "Whitesnake.")
             .addField('24', "C-Moon.")
             .addField('25', "Made In Heaven.")
+            message.channel.send(PublicStands1);
+        break;
+        case 'PublicStands2':
+            const PublicStands2 = new Discord.MessageEmbed()
+            .setTitle('Public Stands 2')
             .addField('26', "Stray Cat.")
             .addField('27', "Crazy Diamond.")
             .addField('28', "The Hand.")
@@ -57,7 +62,7 @@ bot.on('message', message=>{
             .addField('37', "Gold Experience.")
             .addField('38', "Sex Pistols.")
             .addField('39', "Emperor.")
-            message.channel.send(PublicStands);
+            message.channel.send(PublicStands2);
         break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
