@@ -71,13 +71,13 @@ bot.on('message', message=>{
                         case emoji.NEXT_PAGE:
                             {
                                 //Edit embed here (Next page)
-                                embedMessage.reactions.get(emoji.PREV_PAGE).remove(message.author)
+                                embedMessage.reactions.get(HermitPurple).remove(message.author)
                                 break;
                             }
                         case emoji.PREV_PAGE:
                             {
                                 //Edit embed here (Previous page)
-                                embedMessage.reactions.get(emoji.PREV_PAGE).remove(message.author)
+                                embedMessage.reactions.get(HeavensDoor).remove(message.author)
                                 break;
                             }
                     };
