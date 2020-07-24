@@ -306,7 +306,7 @@ bot.on('message', message=>{
          .setImage('https://media.discordapp.net/attachments/717270887870758942/736025367873323028/921A1536-35C0-4331-A2FD-BDBFE0F43CA9-removebg-preview.png')
          .setColor(0xded82f)
          .setFooter("This Stand Is An Event Exclusive.")
-         message.channel.send(Kiss);
+         message.channel.send(FrogExperience);
          break;
          case 'ForbiddenFruit':  
          const ForbiddenFruit = new Discord.MessageEmbed()             
