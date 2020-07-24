@@ -7,7 +7,9 @@ bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
 
-const PREFIX = 'E-'
+var PREFIX = 'E-'
+
+var PREFIX = 'e-'
 
 bot.on('message', message=>{
 
