@@ -11,8 +11,6 @@ bot.login(process.env.token);
 
 bot.on('message', message=>{
 
-    let args = message.content.slice(PREFIX.length).split(" ");
-
     exports.run = (client, message, args, tools) => {
         let pages = ['Page 1.', 'Page 2.', 'Page 3'];
         let page = 1;
@@ -49,7 +47,10 @@ bot.on('message', message=>{
                 })
     
     }
-        
+    
+
+    let args = message.content.slice(PREFIX.length).split(" ");
+
     switch(args[0]){
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
