@@ -5,15 +5,65 @@ bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
 
-const PREFIX = 'E-'
-
 bot.login(process.env.token);
+
+const PREFIX ='E-'
 
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0]){
+        case 'PublicStands1':
+            const PublicStands1 = new Discord.MessageEmbed()
+            .setTitle('Public Stands 1')
+            .setDescription('39 Total Public Stands.')
+            .addField('1', "Purple Haze Distortion.")
+            .addField('2', "Hermit Purple.")
+            .addField('3', "White Album.")
+            .addField('4', "Heavens Door.")
+            .addField('5', "Soft And Wet.")
+            .addField('6', "Hierophant Green.")
+            .addField('7', "Enigma.")
+            .addField('8', "Sticky Fingers.")
+            .addField('9', "Star Platinum: The World.")
+            .addField('10', "Echoes Egg.")
+            .addField('11', "Echoes Act 1.")
+            .addField('12', "Echoes Act 2.")
+            .addField('13', "Echoes Act 3.")
+            .addField('14', "Tusk Act 1.")
+            .addField('15', "Tusk Act 2.")
+            .addField('16', "Tusk Act 3.")
+            .addField('17', "Tusk Act 4.")
+            .addField('18', "Spin.")
+            .addField('19', "Silver Chariot.")
+            .addField('20', "The Fool.")
+            .addField('21', "Ball Breaker.")
+            .addField('22', "The World: Alternate Universe.")
+            .addField('23', "Whitesnake.")
+            .addField('24', "C-Moon.")
+            .addField('25', "Made In Heaven.")
+            message.channel.send(PublicStands1);
+        break;
+        case 'PublicStands2':
+            const PublicStands2 = new Discord.MessageEmbed()
+            .setTitle('Public Stands 2')
+            .addField('26', "Stray Cat.")
+            .addField('27', "Crazy Diamond.")
+            .addField('28', "The Hand.")
+            .addField('29', "Killer Queen.")
+            .addField('30', "Wheel Of Fortune.")
+            .addField('31', "Hanged Man.")
+            .addField('32', "Tower Of Gray.")
+            .addField('33', "Love Deluxe.")
+            .addField('34', "Geb.")
+            .addField('35', "Red Hot Chili Pepper.")
+            .addField('36', "Moody Blues.")
+            .addField('37', "Gold Experience.")
+            .addField('38', "Sex Pistols.")
+            .addField('39', "Emperor.")
+            message.channel.send(PublicStands2);
+        break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
