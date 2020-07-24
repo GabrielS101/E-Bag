@@ -7,44 +7,73 @@ bot.on('ready', () =>{
 
 bot.login(process.env.token);
 
+exports.run = (client, message, args, tools) => {
+    let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
+    let page = 1;
+            const PublicStands1 = new Discord.MessageEmbed()
+            .setTitle('Public Stands 1')
+            .setDescription(pages[page-1])
+            .addField('1', "Purple Haze Distortion.")
+            .addField('2', "Hermit Purple.")
+            .addField('3', "White Album.")
+            .addField('4', "Heavens Door.")
+            .addField('5', "Soft And Wet.")
+            .addField('6', "Hierophant Green.")
+            .addField('7', "Enigma.")
+            .addField('8', "Sticky Fingers.")
+            .addField('9', "Star Platinum: The World.")
+            .addField('10', "Echoes Egg.")
+            .addField('11', "Echoes Act 1.")
+            .addField('12', "Echoes Act 2.")
+            .addField('13', "Echoes Act 3.")
+            .addField('14', "Tusk Act 1.")
+            .addField('15', "Tusk Act 2.")
+            .addField('16', "Tusk Act 3.")
+            .addField('17', "Tusk Act 4.")
+            .addField('18', "Spin.")
+            .addField('19', "Silver Chariot.")
+            .addField('20', "The Fool.")
+            .addField('21', "Ball Breaker.")
+            .addField('22', "The World: Alternate Universe.")
+            .addField('23', "Whitesnake.")
+            .addField('24', "C-Moon.")
+            .addField('25', "Made In Heaven.")
+            
+            message.channel.send(PublicStands1).then(msg => {
+                msg.react('◀️').then( r => {
+                    msg.react('▶️')
+
+                    const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀️' && user.id === message.author.id;
+                    const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶️' && user.id === message.author.id;
+
+                    const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 });
+                    const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
+
+                    backwards.on('collect', r => {
+                        if (page === 1) return;
+                        page--;
+                        embed.SetDescription(pages[page-1]);
+                        embed.setFooter(`Page ${page} of ${pages.length}`);
+                        message.edit(PublicStands1)
+                    })
+
+                    forwards.on('collect', r => {
+                        if (page === pages.lenght) return;
+                        page++;
+                        embed.SetDescription(pages[page-1]);
+                        embed.setFooter(`Page ${page} of ${pages.length}`);
+                        message.edit(PublicStands1)
+                    })
+                })
+            })
+
+}
+
 const PREFIX ='E-'
 
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
-
-    exports.run = (client, message, args, tools) => {
-        let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
-        let page = 1;
-                message.channel.send(PublicStands).then(msg => {
-                    msg.react('◀️').then( r => {
-                        msg.react('▶️')
-    
-                        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀️' && user.id === message.author.id;
-                        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶️' && user.id === message.author.id;
-    
-                        const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 });
-                        const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
-    
-                        backwards.on('collect', r => {
-                            if (page === 1) return;
-                            page--;
-                            embed.SetDescription(pages[page-1]);
-                            embed.setFooter(`Page ${page} of ${pages.length}`);
-                            message.edit(PublicStands)
-                        })
-    
-                        forwards.on('collect', r => {
-                            if (page === pages.lenght) return;
-                            page++;
-                            embed.SetDescription(pages[page-1]);
-                            embed.setFooter(`Page ${page} of ${pages.length}`);
-                            message.edit(PublicStands1)
-                        })
-                    })
-                })
-    
-    }
 
     switch(args[0]){
         case 'PublicStands1':
