@@ -9,7 +9,7 @@ bot.login(process.env.token);
 
 const PREFIX ='E-'
 
-message.channel.send({embed})
+message.channel.send({PublicStands})
     .then(async embedMessage => {
         await embedMessage.react('◀')
         await embedMessage.react('▶')
