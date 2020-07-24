@@ -8,7 +8,7 @@ bot.on('ready', () =>{
 bot.login(process.env.token);
 
 exports.run = (client, message, args, tools) => {
-    let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
+    let pages = ['Page 1.', 'Page 2.', 'Page 3'];
     let page = 1;
             const embed = new Discord.MessageEmbed
             .setColor(0xffffff)
