@@ -282,11 +282,29 @@ bot.on('message', message=>{
          .addField("Revenge Is For Settling Your Score With Your Own Destiny", 'Add an extra 1x to your attacks for the next 2 turns (including Rip Off Sticker).')
          .addField("Foo Fighters Assist: Plankton Heal", '4 Turn Cooldown - Heal 150 Health.')
          .addField("Jolyne Assist: Spring Trap", '5 Turn Cooldown - Stun your opponent for 2 turns.')
-         .addField("Jotaro Assist: Star Platinum The World", 'Stop time and stun your opponent for 2 turns.')
+         .addField("Jotaro Assist: Star Platinum The World", '5 Turn Cooldown - Stop time and stun your opponent for 2 turns.')
          .addField("Sticker Trap", '200 - 5 Turn Cooldown - Can Only Be Used If Your Opponent Dodged Your Last Attack.')
          .addField("Get Revenge For Gloria", '6 Turn Cooldown - Your opponent cannot dodge your attacks for the next 3 turns.')
          .setImage('https://static.jojowiki.com/images/thumb/7/77/latest/20191015213732/Kiss_Infobox_Manga.png/270px-Kiss_Infobox_Manga.png')
          .setColor(0xdb9523)
+         .setFooter("This Stand Is An Event Exclusive.")
+         message.channel.send(Kiss);
+         break;
+         case 'FrogExperience':  
+         const FrogExperience = new Discord.MessageEmbed()             
+         .setTitle('Frog Experience')
+         .addField('Health', '750.')
+         .addField('Punch', '70.')
+         .addField("Frog Barrage", "100x4 - 5 turn cooldown - stuns opponent for 1 turn.")
+         .addField("Life Imbue", '5 Turn Cooldown/Wait - Heal 150 health.')
+         .addField("Tongue Snipe", '150 - 3 turn cooldown.')
+         .addField("Sappling", '5 turn cooldown/5 turn wait - Deflect you opponents attack doing 50% more damage.')
+         .addField("Consciousness Jump", '5 Turn Cooldown - Stun you opponent for 1 turn.')
+         .addField("Frog Creation", '50x6 - 4 turn cooldown.')
+         .addField("7 Page Muda", '70x7 - 10 turn cooldown/wait.')
+         .addField("Passive: Frog", 'You Cannot Be Stunned.')
+         .setImage('https://media.discordapp.net/attachments/717270887870758942/736025367873323028/921A1536-35C0-4331-A2FD-BDBFE0F43CA9-removebg-preview.png')
+         .setColor(0xded82f)
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(Kiss);
          break;
