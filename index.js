@@ -15,7 +15,7 @@ bot.on('message', message=>{
 
     switch(args[0]){
         case 'PublicStands':
-            const PublicStands = new Discord.Message.Embed()
+            const PublicStands = new Discord.MessageEmbed()
             .setTitle('Public Stands')
             .setDescription('39 Total Public Stands.')
             .setField('1', "Purple Haze Distortion.")
