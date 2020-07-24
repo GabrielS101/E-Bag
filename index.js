@@ -66,6 +66,7 @@ bot.on('message', message=>{
         break;
         case 'Win':
         const Win = new Discord.MessageEmbed()
+        setTitle('Win')
         addField('You Win')
         message.channel.send(Win);
         break;
