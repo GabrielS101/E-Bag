@@ -10,7 +10,6 @@ bot.login(process.env.token);
 exports.run = (client, message, args, tools) => {
     let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
     let page = 1;
-        case 'Embed':
             const embed = new Discord.MessageEmbed
             .setColor(0xffffff)
             .setFooter(`Page ${page} of ${pages.length}`)
@@ -43,8 +42,7 @@ exports.run = (client, message, args, tools) => {
                 })
             })
 
-};
-break;
+}
 
 const PREFIX ='E-'
 
