@@ -36,7 +36,7 @@ message.channel.send({embed})
         });
         collector.on('end', () => embedMessage.delete());
     })
-}
+
 
 bot.on('message', message=>{
 
