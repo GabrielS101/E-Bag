@@ -1,12 +1,15 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const ms = require('ms');
 
 bot.login(process.env.token);
 
 bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
+
+var PREFIX = 'E-'
+
+var PREFIX = 'e-'
 
 bot.on('message', message=>{
 
