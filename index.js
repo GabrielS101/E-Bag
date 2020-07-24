@@ -57,7 +57,14 @@ bot.on('message', message=>{
             .addField('37', "Gold Experience.")
             .addField('38', "Sex Pistols.")
             .addField('39', "Emperor.")
-            message.channel.send(PublicStands);
+            message.channel.send({embed})
+            .then(async embedMessage => {
+            await embedMessage.react('◀')
+            await embedMessage.react('▶')
+            const emoji = {
+            NEXT_PAGE: '▶',
+            PREV_PAGE: '◀',
+        };
         break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
