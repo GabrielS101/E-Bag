@@ -280,7 +280,7 @@ bot.on('message', message=>{
          .addField("Stand Rush", '100x4 - 5 Turn Cooldown.')
          .addField("Revenge Is For Settling Your Score With Your Own Destiny", 'Add an extra 1x to your attacks for the next 2 turns (including Rip Off Sticker).')
          .addField("Foo Fighters Assist: Plankton Heal", '4 Turn Cooldown - Heal 150 Health.')
-         .addField("Jolyne Assist: Spring Trap", '5 Turn Cooldown - Stun your opponent for 2 turns.')
+         .addField("Jolyne Assist: Spring Trap", '200 - 5 Turn Cooldown.')
          .addField("Jotaro Assist: Star Platinum The World", '5 Turn Cooldown - Stop time and stun your opponent for 2 turns.')
          .addField("Sticker Trap", '200 - 5 Turn Cooldown - Can Only Be Used If Your Opponent Dodged Your Last Attack.')
          .addField("Get Revenge For Gloria", '6 Turn Cooldown - Your opponent cannot dodge your attacks for the next 3 turns.')
