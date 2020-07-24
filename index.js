@@ -7,6 +7,8 @@ bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
 
+bot.login(token);
+
 var PREFIX = 'E-'
 
 var PREFIX = 'e-'
