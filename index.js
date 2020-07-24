@@ -819,7 +819,7 @@ bot.on('message', message=>{
                 message.channel.send('https://discord.gg/pRXmQUr')}
         case 'Invite':
              if(args[1] === 'Bot'){
-                message.channel.send('https://discordapp.com/oauth2/authorize?client_id=717463925808955533&scope=bot&permissions=8')}
+                message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')}
          } 
 })
 
