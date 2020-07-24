@@ -7,44 +7,44 @@ bot.on('ready', () =>{
 
 bot.login(process.env.token);
 
-exports.run = (client, message, args, tools) => {
-    let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
-    let page = 1;
-            message.channel.send(PublicStands).then(msg => {
-                msg.react('◀️').then( r => {
-                    msg.react('▶️')
-
-                    const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀️' && user.id === message.author.id;
-                    const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶️' && user.id === message.author.id;
-
-                    const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 });
-                    const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
-
-                    backwards.on('collect', r => {
-                        if (page === 1) return;
-                        page--;
-                        embed.SetDescription(pages[page-1]);
-                        embed.setFooter(`Page ${page} of ${pages.length}`);
-                        message.edit(PublicStands)
-                    })
-
-                    forwards.on('collect', r => {
-                        if (page === pages.lenght) return;
-                        page++;
-                        embed.SetDescription(pages[page-1]);
-                        embed.setFooter(`Page ${page} of ${pages.length}`);
-                        message.edit(PublicStands1)
-                    })
-                })
-            })
-
-}
-
 const PREFIX ='E-'
 
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
+
+    exports.run = (client, message, args, tools) => {
+        let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
+        let page = 1;
+                message.channel.send(PublicStands).then(msg => {
+                    msg.react('◀️').then( r => {
+                        msg.react('▶️')
+    
+                        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀️' && user.id === message.author.id;
+                        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶️' && user.id === message.author.id;
+    
+                        const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 });
+                        const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
+    
+                        backwards.on('collect', r => {
+                            if (page === 1) return;
+                            page--;
+                            embed.SetDescription(pages[page-1]);
+                            embed.setFooter(`Page ${page} of ${pages.length}`);
+                            message.edit(PublicStands)
+                        })
+    
+                        forwards.on('collect', r => {
+                            if (page === pages.lenght) return;
+                            page++;
+                            embed.SetDescription(pages[page-1]);
+                            embed.setFooter(`Page ${page} of ${pages.length}`);
+                            message.edit(PublicStands1)
+                        })
+                    })
+                })
+    
+    }
 
     switch(args[0]){
         case 'PublicStands1':
