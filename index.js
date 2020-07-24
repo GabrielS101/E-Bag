@@ -44,6 +44,7 @@ bot.on('message', message=>{
             .addField('24', "C-Moon.")
             .addField('25', "Made In Heaven.")
             message.channel.send(PublicStands1);
+            message.channel.send(PublicStands2);
         break;
         case 'PublicStands2':
             const PublicStands2 = new Discord.MessageEmbed()
