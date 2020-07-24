@@ -290,6 +290,23 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(Kiss);
          break;
+         case 'ForbiddenFruit':  
+         const ForbiddenFruit = new Discord.MessageEmbed()             
+         .setTitle('Forbidden Fruit')
+         .addField('Health', '800.')
+         .addField('Punch', '50.')
+         .addField("Chemical Cleaning", "5 turn cooldown - Negate the ability of your opponents previous attack.")
+         .addField("TidePod Barrage", '100x3 - 5 turn cooldown - Add an extra 1x to your next attack.')
+         .addField("TidePod Shot", '200 - 4 turn cooldown.')
+         .addField("Safety Lock", '4 turn cooldown - Block your opponents next attack.')
+         .addField("TidePod Pop", '200 - 5 turn cooldown - 3 Turn Wait - Stuns your opponent for 1 turn.')
+         .addField("Toxic Sludge", '80x3 - 4 turn cooldown.')
+         .addField("Passive: Posioning", 'Activates When Your Health Goes Below 200 - All of your attacks do 25% more damage.')
+         .setImage('https://media.discordapp.net/attachments/732140300272795710/735964003163045888/image0.png')
+         .setColor(0x713ce6)
+         .setFooter("This Stand Is An Event Exclusive.")
+         message.channel.send(ForbiddenFruit);
+         break;
          case 'HierophantGreen':  
          const HierophantGreen = new Discord.MessageEmbed()             
          .setTitle('Hierophant Green')
