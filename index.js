@@ -4,8 +4,6 @@ const ms = require('ms');
 
 bot.login(process.env.token);
 
-const PREFIX = 'E-';
-
 bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
