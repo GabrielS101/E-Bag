@@ -7,6 +7,8 @@ bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
 
+const PREFIX = 'E-'
+
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
