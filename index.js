@@ -791,6 +791,21 @@ bot.on('message', message=>{
         .setColor(0xded82f)
         message.channel.send(GoldExperience);
        break;
+       case 'Emperor':  
+         const Emperor = new Discord.MessageEmbed()             
+         .setTitle('Emperor')
+         .addField('Health', '700.')
+         .addField('Bullet', '40.')
+         .addField("HeavyWeight Shot", '150 - 4 Turn Cooldown.')
+         .addField("Rapid Bullets", '70x3 -4 Turn Cooldown - Stun the opponent for 1 turn.')
+         .addField("Rapid Fire", '50x3 - 3 Turn Cooldown.')
+         .addField("Homing Bullet", '120 - Prevents The Enemy From Dodging.')
+         .addField("Escape", '3 Turn Wait - Heal 100 Health - Can Only Use Once Per Game - Can Only Be Used When Your Health Goes Below 300.')
+         .addField("Hanged Mans Help", 'Can Only Be Used Once Your Health Goes Below 400 - Can Only Be Used Once Per Game - Your attacks do 25% more damage for the next 3 turns.')
+         .setImage('https://vignette.wikia.nocookie.net/jjba/images/9/9b/HolHorseSummonsEmperor.png/revision/latest?cb=20190413180647')
+         .setColor(0x827c7c)
+         message.channel.send(Emperor);
+        break;
         case 'ping':                         //this command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
