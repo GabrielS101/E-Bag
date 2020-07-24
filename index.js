@@ -10,7 +10,7 @@ bot.login(process.env.token);
 exports.run = (client, message, args, tools) => {
     let pages = ['1: Purple Haze Distortion.', '2: Hermit Purple.', '3: White Album.'];
     let page = 1;
-            message.channel.send(PublicStands1).then(msg => {
+            message.channel.send(PublicStands).then(msg => {
                 msg.react('◀️').then( r => {
                     msg.react('▶️')
 
@@ -25,7 +25,7 @@ exports.run = (client, message, args, tools) => {
                         page--;
                         embed.SetDescription(pages[page-1]);
                         embed.setFooter(`Page ${page} of ${pages.length}`);
-                        message.edit(PublicStands1)
+                        message.edit(PublicStands)
                     })
 
                     forwards.on('collect', r => {
