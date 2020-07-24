@@ -11,7 +11,6 @@ var PREFIX = 'E-'
 
 var PREFIX = 'e-'
 
-
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
