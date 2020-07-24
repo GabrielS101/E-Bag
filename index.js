@@ -5,6 +5,8 @@ bot.on('ready', () =>{
     console.log('E-bag is Online!');
 })
 
+const PREFIX = 'E-'
+
 bot.login(process.env.token);
 
 exports.run = (client, message, args, tools) => {
