@@ -57,35 +57,7 @@ bot.on('message', message=>{
             .addField('37', "Gold Experience.")
             .addField('38', "Sex Pistols.")
             .addField('39', "Emperor.")
-            message.channel.send({PublicStands})
-            .then(async embedMessage => {
-                await embedMessage.react('◀')
-                await embedMessage.react('▶')
-                const emoji = {
-                    NEXT_PAGE: '▶',
-                    PREV_PAGE: '◀',
-                }
-                const collector = new Discord.ReactionCollector(embedMessage, (reaction, user) => Object.values(emoji).includes(reaction.emoji.name) && !user.bot, {});
-                collector.on('collect', (reaction) => {
-                    switch (reaction.emoji.name) {
-                        case emoji.NEXT_PAGE:
-                            {
-                                //Edit embed here (Next page)
-                                message.channel.send({HermitPurple})
-                                embedMessage.reactions.get(emoji.PREV_PAGE).remove(message.author)
-                                break;
-                            }
-                        case emoji.PREV_PAGE:
-                            {
-                                //Edit embed here (Previous page)
-                                message.channel.send({HeavensDoor})
-                                embedMessage.reactions.get(emoji.PREV_PAGE).remove(message.author)
-                                break;
-                            }
-                    };
-                });
-                collector.on('end', () => embedMessage.delete());
-            })
+            message.channel.send(PublicStands);
         break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
