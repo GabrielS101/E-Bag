@@ -791,6 +791,22 @@ bot.on('message', message=>{
         .setColor(0xded82f)
         message.channel.send(GoldExperience);
        break;
+       case 'SexPistols':  
+         const SexPistols = new Discord.MessageEmbed()             
+         .setTitle('Sex Pistols')
+         .addField('Health', '650.')
+         .addField('Bullet', '40.')
+         .addField("Rapid Fire", '50x6 - 4 turn cooldown.')
+         .addField("Giorno Assist: Gold Experience", '50x4 - 3 turn cooldown.')
+         .addField("Rebound Shot", '60x2 - 4 turn cooldown.')
+         .addField("Torture Dance", '5 turn cooldown - Heal 100 Health.')
+         .addField("Yeehaw!", '120 - 4 turn cooldown.')
+         .addField("Narancia Assist: Aerosmith", '60x3 - 4 turn cooldown.')
+         .addField("Passive: Unlucky 4", 'On turn 4, you will always miss your attack.')
+         .setImage('https://cdn.discordapp.com/attachments/731415895682973696/735748501820014622/350.png')
+         .setColor(0xded82f)
+         message.channel.send(SexPistols);
+        break;
        case 'Emperor':  
          const Emperor = new Discord.MessageEmbed()             
          .setTitle('Emperor')
