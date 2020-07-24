@@ -822,8 +822,8 @@ bot.on('message', message=>{
 })
 
 bot.on('message', msg=>{
-    if(msg.content === "Turtle Overwrite"){
-        msg.reply('You are gay');       //this command is if you want the bot to ping you when responding.
+    if(msg.content === "Oof"){
+        msg.reply('O o f');       //this command is if you want the bot to ping you when responding.
     }
 })
 
