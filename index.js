@@ -67,6 +67,7 @@ bot.on('message', message=>{
         case 'EventStands':
             const EventStands = new Discord.MessageEmbed()
             .setTitle('Event Stands')
+            .setDescription('5 Total Event Stands.')
             .addField('1', "Hey Ya.")
             .addField('2', "Dirty Deeds Done Dirt Cheap: Love Train.")
             .addField('3', "Kiss (This Stand Is The Exclusive Property Of <@678443627046895623>).")
@@ -77,6 +78,7 @@ bot.on('message', message=>{
         case 'AdminStands':
             const AdminStands = new Discord.MessageEmbed()
             .setTitle('Admin Stands')
+            .setDescription('4 Total Admin Stands.')
             .addField('1', "Metallica (This Stand Is The Exclusive Property Of <@340100783901245441>).")
             .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
             .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
