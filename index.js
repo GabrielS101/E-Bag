@@ -64,6 +64,25 @@ bot.on('message', message=>{
             .addField('39', "Emperor.")
             message.channel.send(PublicStands2);
         break;
+        case 'EventStands':
+            const EventStands = new Discord.MessageEmbed()
+            .setTitle('Event Stands')
+            .addField('1', "Hey Ya.")
+            .addField('2', "Dirty Deeds Done Dirt Cheap: Love Train.")
+            .addField('3', "Kiss (This Stand Is The Exclusive Property Of <@678443627046895623>).")
+            .addField('4', "Forbidden Fruit.")
+            .addField('5', "Frog Experience.")
+            message.channel.send(EventStands);
+        break;
+        case 'AdminStands':
+            const AdminStands = new Discord.MessageEmbed()
+            .setTitle('Admin Stands')
+            .addField('1', "Metallica (This Stand Is The Exclusive Property Of <@340100783901245441>).")
+            .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
+            .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
+            .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@502242566272581662>).")
+            message.channel.send(AdminStands);
+        break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
