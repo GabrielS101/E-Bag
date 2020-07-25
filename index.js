@@ -296,7 +296,7 @@ bot.on('message', message=>{
          .addField("Tonio Assist", '5 Turn Cooldown - Add an extra 1x to your attacks for the next 2 turns.')
          .addField("Koichi Assist: 3 Freeze", '4 Turn Cooldown - Stun your opponent for 1 turn.')
          .addField("Jotaro Assist: Star Platinum The World", '8 Turn Wait - 80x6 - Can Only Be Used Once Per Game - If this move is used during Timestop than extend the amount of turns your opponent is stunned by 1.')
-         .addField("Passive: Too Dumb To Die", 'Can Only Be Used Once Per Game - When you die, get revived with 300 health left.')
+         .addField("Passive: Too Dumb To Die", 'Can Only Be Used Once Per Game - When you die, get revived with 200 health left.')
          .setImage('https://media.discordapp.net/attachments/717270887870758942/734657866442604574/egvbdzgqonv21.jpg?width=991&height=662')
          .setColor(0x2d6bcf)
          .setFooter("This Stand Is An Admin Exclusive.")
