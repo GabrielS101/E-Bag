@@ -43,7 +43,7 @@ bot.on('message', message=>{
             .addField('23', "Whitesnake.")
             .addField('24', "C-Moon.")
             .addField('25', "Made In Heaven.")
-            message.channel.send(PublicStands2);
+            message.channel.send(PublicStands1);
         break;
         case 'PublicStands2':
             const PublicStands2 = new Discord.MessageEmbed()
@@ -62,7 +62,7 @@ bot.on('message', message=>{
             .addField('37', "Gold Experience.")
             .addField('38', "Sex Pistols.")
             .addField('39', "Emperor.")
-            message.channel.send(PublicStands1);
+            message.channel.send(PublicStands2);
         break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
