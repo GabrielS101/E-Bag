@@ -32,8 +32,6 @@ bot.on('message', message=>{
                 } else{
                     message.reply("Member Not Found In This Server")
                 }
-            } else{
-                message.reply("Member Not Found In This Server");
             }
        break;
         case 'PublicStands1':
