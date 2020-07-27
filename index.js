@@ -36,9 +36,6 @@ bot.on('message', message=>{
        break;
        case 'ban':
             if(!args[1]) message.channel.send('No Member Specified')
-
-            const user = message.mentions.members.first();
-
             if(user){
                 const member = message.guild.member(user);
 
