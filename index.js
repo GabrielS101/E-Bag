@@ -17,7 +17,7 @@ bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
     switch(args[0]){
         case 'kick':
-            if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Admin Role Can Use This Command')
+            if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
             .then(message => message.delete({timeout: 2000}));
             if(!args[1]) message.channel.send('No Member Specified')
             var user = message.mentions.members.first();
@@ -36,7 +36,7 @@ bot.on('message', message=>{
             }
        break;
        case 'ban':
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Admin Role Can Use This Command')
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
             .then(message => message.delete({timeout: 2000}));
             if(!args[1]) message.channel.send('No Member Specified')
             var user = message.mentions.members.first();
