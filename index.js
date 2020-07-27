@@ -17,10 +17,10 @@ bot.on('message', message=>{
         case 'kick':
             if(!args[1]) message.channel.send('No Member Specified')
 
-            const user = channel.mentions.user.first();
+            const user = Discord.GuildChannel.mentions.user.first();
 
             if(user){
-                const member = message.mentions.members.first();
+                const member = member.guild.member(user);
 
                 if(member){
                     member.kick('You have been kicked').then(() =>{
