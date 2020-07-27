@@ -17,7 +17,7 @@ bot.on('message', message=>{
         case 'kick':
             if(!args[1]) message.channel.send('No Member Specified')
 
-            const user = member.guild.member(user);
+            const user = message.mentions.members.first();
 
             if(user){
                 const member = message.guild.member(user);
