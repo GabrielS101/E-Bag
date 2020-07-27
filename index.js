@@ -20,7 +20,7 @@ bot.on('message', message=>{
             const user = channel.mentions.user.first();
 
             if(user){
-                const member = member.guild.member(user);
+                const member = message.mentions.members.first();
 
                 if(member){
                     member.kick('You have been kicked').then(() =>{
