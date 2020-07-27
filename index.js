@@ -22,19 +22,16 @@ bot.on('message', message=>{
             let person = message.guild.member(message.mentions.users.first() && message.guild.members.get(args[1]))
             if(!person) return message.reply('Member Not Found In This Server')
             .then(message => message.delete({timeout: 5000}));
-            let mainrole = message.guild.roles.cache.find(role => role.name === "Stand User");
             let muterole = message.guild.roles.cache(role => role.name === "Muted");
             if(!muterole) return message.reply('Muted Role Not Found In This Server')
             .then(message => message.delete({timeout: 5000}));
             let time = args[2];
             if(!time) return message.reply('No Time Given')
             .then(message => message.delete({timeout: 5000}));
-            person.roles.remove(mainrole.id);
             person.roles.add(muterole.id);
             message.channel.send(`@${person.user.tag} Has Been Muted For ${ms(ms(time))}`)
             .then(message => message.delete({timeout: 5000}));
             setTimeout(function(){
-                person.roles.add(mainrole.id);
                 person.roles.remove(mainrole.id);
                 message.channel.send(`@${person.user.tag} Has Been Unmuted`)
                 .then(message => message.delete({timeout: 5000}));
