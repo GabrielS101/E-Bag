@@ -20,18 +20,22 @@ bot.on('message', message=>{
             if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
             .then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
+            .then(message => message.delete({timeout: 5000}));
             var user = message.mentions.members.first();
             if(user){
                 var member = message.guild.member(user);
                 if(member){
                     member.kick('You have been kicked').then(() =>{
-                        message.reply('Succesfully Kicked Member');
+                        message.reply('Succesfully Kicked Member')
+                        .then(message => message.delete({timeout: 5000}));
                     }).catch(err =>{
-                        message.reply('Unable To Kick Member');
+                        message.reply('Unable To Kick Member')
+                        .then(message => message.delete({timeout: 5000}));
                         console.log(err);
                     });
                 } else{
                     message.reply("Member Not Found In This Server")
+                    .then(message => message.delete({timeout: 5000}));
                 }
             }
        break;
@@ -39,18 +43,22 @@ bot.on('message', message=>{
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
             .then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
+            .then(message => message.delete({timeout: 5000}));
             var user = message.mentions.members.first();
             if(user){
                 var member = message.guild.member(user);
                 if(member){
                     member.ban({reason: 'Banned'}).then(() =>{
-                        message.reply('Succesfully Banned Member');
+                        message.reply('Succesfully Banned Member')
+                        .then(message => message.delete({timeout: 5000}));
                     }).catch(err =>{
-                        message.reply('Unable To Ban Member');
+                        message.reply('Unable To Ban Member')
+                        .then(message => message.delete({timeout: 5000}));
                         console.log(err);
                     });
                 } else{
                     message.reply("Member Not Found In This Server")
+                    .then(message => message.delete({timeout: 5000}));
                 }
             }
        break;
