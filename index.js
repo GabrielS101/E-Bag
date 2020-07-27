@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const ms = require('ms');
 
 bot.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -12,66 +13,81 @@ bot.login(process.env.token);
 
 const PREFIX ="E-"
 
-bot.on('message', message=>{
+module.exports.run = async (bot, message, args) => {
 
-    module.exports = {
-        name: "mute",
-        description: "Mutes a player for an amount of time.",
-        execute(message, args){
-    
-            // MS is used for the time function. You can install it by typing "npm install ms".
-            const ms = require('ms');
-    
-            // This defines member as the first person that get's mentioned in the message.
-            let member = message.guild.member(message.mentions.users.first());
-    
-            // If there is no member defined this will say that it could not find anyone by that name.
-            if(!member) return message.channel.send("I couldn't find a user by that name.");
-    
-            // This defines the main role and the muted role (this works from a config file, so you need to replace
-            // botconfig.memberrole and botconfig.mutedrole with the names of the roles.)
-            let mainrole = message.guild.roles.cache.find(role => role.name === botconfig.memberrole);
-            let muterole = message.guild.roles.cache.find(role => role.name === botconfig.mutedrole);
-    
-            // If either role is missing it will send a reply to the user trying to mute someone.
-            if(!muterole) return message.reply("Couldn't find the mute role.")
-            if(!mainrole) return message.reply("Couldn't find the default / member role.")
-    
-            // This makes it so that the second argument is the time.
-            let time = args[2];
-    
-            // If you didn't specify a time in the second argument:
-            if(!time) {
-    
-                // Reply with this message.
-                message.reply("You need to specify a time in the second argument!");
-                
-                // Stop.
-                return;
-            }
-    
-            // Remove the main role and adds the muted role.
-            member.roles.remove(mainrole.id);
-            member.roles.add(muterole.id);
-    
-            // Sends a message mentioning the person who got muted and how long they are muted for.
-            message.channel.send(`<@${member.user.id}> has now been muted for ${ms(ms(time))}`);
-    
-            // This is the time function. When the time is done:
-            setTimeout(function() {
-    
-                // Add the main role back and remove the muted role.
-                member.roles.add(mainrole.id);
-                member.roles.remove(muterole.id);
-    
-                // Sends a message mentioning the person saying that they have been unmuted.
-                message.channel.send(`<@${member.user.id}> has been unmuted.`)
-                
-            }, ms(time));
-    
-        }
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You have insufficient permissions to execute this command.");
+    let muteUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!muteUser) return message.channel.send("Couldn't find user | **Usage:** `>mute @user <time> <reason>`");
+    if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send(":clown: You tried. :clown:");
+    let reason = args.slice(2).join(" ");
+    if(!reason) return message.channel.send("Specify a reason | **Usage:** `>mute @user <time> <reason>`");
+  
+    let muterole = message.guild.roles.find(r => r.name === "Muted")
+    if(!muterole){
+      try{
+        muterole = await message.guild.createRole({
+          name: "Muted",
+          color: "#5c5c5c",
+          permissions:[]
+        });
+  
+        message.guild.channels.forEach(async (channel, id) => {
+          await channel.overwritePermissions(muterole, {
+            SEND_MESSAGES: false,
+            ADD_REACTIONS: false
+          });
+        });
+        
+      }catch(e){
+        console.log(e.stack);
+      }
     }
+    let length = args[1];
+    if(!length) return message.channel.send("**Usage:** `>mute @user <time> <reason>`");
+    message.delete().catch();
+  
+    let muteLogEmbed = new Discord.RichEmbed()
+    .setAuthor(`Punishment | ${muteUser.user.tag} | Mute`, muteUser.user.displayAvatarURL)
+    .setDescription(`**Target:** ${muteUser}\n \n**Issued By:** ${message.author}\n \n**Issued Reason:** ${reason}\n \n**Issued Duration:** ${length}\n \n**Issued In:** ${message.channel}`)
+    .setColor("#e74c3c")
+    .setTimestamp()
+    .setFooter(`ID: ${muteUser.id}`)
+  
+    let channel = message.guild.channels.find(c => c.name === "modlogs");
+    if(!channel) return message.reply("Log channel not found.");
+    channel.send(muteLogEmbed).then(() => {
+      message.delete()
+      muteUser.send(`You've been **muted** in **${message.guild.name}** for reason: **${reason}**, and duration: **${length}**`).catch(err => console.log(err))
+      message.channel.send(`${muteUser} has been **muted** for **${length}**.`)
+  })
+  
+    await(muteUser.addRole(muterole.id));
+  
+    setTimeout(function(){
+      muteUser.removeRole(muterole.id);
+  
+      let unmuteLogEmbed = new Discord.RichEmbed()
+      .setAuthor(`Punishment | ${muteUser.user.tag} | Unmute`, muteUser.user.displayAvatarURL)
+      .setDescription(`**Target:** ${muteUser}\n \n**Removed By:** ${bot.user}\n \n**Issued Reason:** Expired/False\n \n**Issued In:** Console`)
+      .setColor("#e74c3c")
+      .setTimestamp()
+      .setFooter(`ID: ${muteUser.id}`)
+  
+      channel.send(unmuteLogEmbed).then(() => {
+        muteUser.send(`Your **mute** in **${message.guild.name}** has **expired**. You may now talk.`).catch(err => console.log(err))
+    })
+  ;
+  
+    }, ms(length));
+  
+  }
+  
+  module.exports.help = {
+    name: "mute"
+  }
 
+bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
     switch(args[0]){
         case 'kick':
