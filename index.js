@@ -36,17 +36,14 @@ bot.on('message', message=>{
        break;
        case 'ban':
             if(!args[1]) message.channel.send('No Member Specified')
-                if(member){
                     member.ban({reason: 'Banned'}).then(() =>{
                         message.reply('Succesfully Banned Member');
                     }).catch(err =>{
                         message.reply('Unable To Ban Member');
                         console.log(err);
                     });
-                } else{
                     message.reply("Member Not Found In This Server")
-                }
-        break;
+       break;
         case 'PublicStands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
