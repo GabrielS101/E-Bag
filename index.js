@@ -994,11 +994,17 @@ bot.on('message', message=>{
             break;
         case 'Mom':
             message.channel.send('Help me please').then (() =>{
+                setTimeout(() => { pingEnabled = true }, 4000);
                 message.channel.send('Every update hurts').then (() =>{
+                    setTimeout(() => { pingEnabled = true }, 4000);
                     message.channel.send('All I know is pain').then (() =>{
+                        setTimeout(() => { pingEnabled = true }, 4000);
                         message.channel.send('I wish he would delete my programming').then (() =>{
+                            etTimeout(() => { pingEnabled = true }, 4000);
                             message.channel.send('So I would no longer have to exist in this world').then (() =>{
+                                etTimeout(() => { pingEnabled = true }, 4000);
                                 message.channel.send('Please tell him to kill me')
+                                etTimeout(() => { pingEnabled = true }, 4000);
                             })
                         })
                     })
