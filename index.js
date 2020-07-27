@@ -73,6 +73,7 @@ bot.on('message', message=>{
             .addField('3', "Kiss (This Stand Is The Exclusive Property Of <@678443627046895623>).")
             .addField('4', "Forbidden Fruit.")
             .addField('5', "Frog Experience.")
+            .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
             message.channel.send(EventStands);
         break;
         case 'AdminStands':
@@ -83,7 +84,41 @@ bot.on('message', message=>{
             .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
             .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
             .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@502242566272581662>).")
+            .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
             message.channel.send(AdminStands);
+        break;
+        case 'SpinMethod':
+            const SpinMethod = new Discord.MessageEmbed()
+            .setTitle('How To Obtain Spin')
+            .addField('1', "Survive up to turn 5.")
+            .addField('2', "On your 5th Turn, instead of rolling to attack, roll a 1-100 dice.")
+            .addField('3', "If you Roll a Prime Number you will have the potential to learn Spin. If you do not roll a prime number than you do not get Spin.")
+            .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
+            .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
+            message.channel.send(SpinMethod);
+        break;
+        case 'TuskMethod':
+            const TuskMethod = new Discord.MessageEmbed()
+            .setTitle('How To Obtain Tusk')
+            .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin.")
+            .addField('Tusk Act 2', "Use a corpse part and win two games under 100 health in a row with Tusk Act 1.")
+            .addField('Tusk Act 3', "Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2.")
+            .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
+            message.channel.send(TuskMethod);
+        break;
+        case 'EchoesMethod':
+            const EchoesMethod = new Discord.MessageEmbed()
+            .setTitle('How To Obtain Echoes')
+            .addField('Echoes Act 1', "Win a match with Echoes Egg after using hatch 3 times.")
+            .addField('Echoes Act 2', "Win a match under 150 health with Echoes Act 1.")
+            .addField('Echoes ACt 3', "Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.")
+            message.channel.send(EchoesMethod);
+        break;
+        case 'BallBreakerMethod':
+            const BallBreakerMethod = new Discord.MessageEmbed()
+            .setTitle('How To Obtain Ball Breaker')
+            .addField('1', "Use a corpse part and win with more than 50 health with Spin.")
+            message.channel.send(BallBreakerMethod);
         break;
         case 'PurpleHazeDistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
