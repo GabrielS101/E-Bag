@@ -17,7 +17,7 @@ bot.on('message', message=>{
         case 'kick':
             if(!args[1]) message.channel.send('No Member Specified')
 
-            const user = Discord.Channel.mentions.first();
+            const user = Discord.Channel.mentions();
 
             if(user){
                 const member = member.guild.member(user);
@@ -35,7 +35,7 @@ bot.on('message', message=>{
             } else{
                 message.reply("Member Not Found In This Server");
             }
-        break;
+       break;
         case 'PublicStands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
