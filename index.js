@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 bot.on('ready', () =>{
-    console.log('E-bag is Online!');
+    console.log('E-Bag Is Online');
     bot.user.setActivity('On PC 2', {
         type: 'PLAYING'
     }).catch(console.error);
