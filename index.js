@@ -14,8 +14,6 @@ bot.login(process.env.token);
 const PREFIX ="E-"
 
 module.exports.run = async (bot, message, args) => {
-
-
     if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.channel.send("Only People With The Administrator Permission Or The Manage Messages Permission Can Use This Command")
     .then(message => message.delete({timeout: 5000}));
     let muteUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -40,7 +38,6 @@ module.exports.run = async (bot, message, args) => {
             ADD_REACTIONS: false
           });
         });
-        
       }catch(e){
         console.log(e.stack);
       }
