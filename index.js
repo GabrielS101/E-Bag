@@ -993,23 +993,7 @@ bot.on('message', message=>{
             message.channel.send('no')
             break;
         case 'Mom':
-            message.channel.send('Help me please').then (() =>{
-                setTimeout(() => { pingEnabled = true }, 40000);
-                message.channel.send('Every update hurts').then (() =>{
-                    setTimeout(() => { pingEnabled = true }, 40000);
-                    message.channel.send('All I know is pain').then (() =>{
-                        setTimeout(() => { pingEnabled = true }, 40000);
-                        message.channel.send('I wish he would delete my programming').then (() =>{
-                            setTimeout(() => { pingEnabled = true }, 40000);
-                            message.channel.send('So I would no longer have to exist in this world').then (() =>{
-                                setTimeout(() => { pingEnabled = true }, 40000);
-                                message.channel.send('Please tell him to kill me')
-                                setTimeout(() => { pingEnabled = true }, 40000);
-                            })
-                        })
-                    })
-                })
-            })
+            message.channel.send('I Love You Mom')
             break;
         case 'Invite':
             if(args[1] === 'Server'){
