@@ -14,6 +14,28 @@ bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0]){
+        case 'kick':
+            if(!args[1]) message.channel.send('No Member Specified')
+
+            const user = channel.mentions.user.first();
+
+            if(user){
+                const member = member.guild.member(user);
+
+                if(member){
+                    member.kick('You have been kicked').then(() =>{
+                        message.reply(`Succesfully kicked ${user.tag}`);
+                    }).catch(err =>{
+                        message.reply('Unable To Kick Member');
+                        console.log(err);
+                    });
+                } else{
+                    message.reply("Member Not Found In This Server")
+                }
+            } else{
+                message.reply("Member Not Found In This Server");
+            }
+        break;
         case 'PublicStands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
