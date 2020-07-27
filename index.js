@@ -15,16 +15,14 @@ const PREFIX ='E-'
 bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
-
     switch(args[0]){
         case 'kick':
+            if(!message.member.roles.find(r => r.name === "Admin")) return message.channel.send('Only People With The Admin Role Can Use This Command')
+            .then(msg => msg.delete(5000));
             if(!args[1]) message.channel.send('No Member Specified')
-
             var user = message.mentions.members.first();
-
             if(user){
                 var member = message.guild.member(user);
-
                 if(member){
                     member.kick('You have been kicked').then(() =>{
                         message.reply('Succesfully Kicked Member');
@@ -38,13 +36,12 @@ bot.on('message', message=>{
             }
        break;
        case 'ban':
+            if(!message.member.roles.find(r => r.name === "Admin")) return message.channel.send('Only People With The Admin Role Can Use This Command')
+            .then(msg => msg.delete(5000));
             if(!args[1]) message.channel.send('No Member Specified')
-
             var user = message.mentions.members.first();
-
             if(user){
                 var member = message.guild.member(user);
-
                 if(member){
                     member.ban({reason: 'Banned'}).then(() =>{
                         message.reply('Succesfully Banned Member');
