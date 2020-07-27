@@ -16,12 +16,12 @@ const PREFIX ="E-"
 module.exports.run = async (bot, message, args) => {
 
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You have insufficient permissions to execute this command.");
+    if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.channel.send("Only People With The Administrator Permission Or The Manage Messages Permission Can Use This Command");
     let muteUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!muteUser) return message.channel.send("Couldn't find user | **Usage:** `>mute @user <time> <reason>`");
-    if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send(":clown: You tried. :clown:");
+    if(!muteUser) return message.channel.send("Member Not Found In This Server | **Usage:** `>mute @user <time> <reason>`");
+    if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Member Can Not Be Muted");
     let reason = args.slice(2).join(" ");
-    if(!reason) return message.channel.send("Specify a reason | **Usage:** `>mute @user <time> <reason>`");
+    if(!reason) return message.channel.send("Reason Not Specified | **Usage:** `>mute @user <time> <reason>`");
   
     let muterole = message.guild.roles.find(r => r.name === "Muted")
     if(!muterole){
@@ -55,11 +55,11 @@ module.exports.run = async (bot, message, args) => {
     .setFooter(`ID: ${muteUser.id}`)
   
     let channel = message.guild.channels.find(c => c.name === "modlogs");
-    if(!channel) return message.reply("Log channel not found.");
+    if(!channel) return message.reply("Log Channel Mot Found");
     channel.send(muteLogEmbed).then(() => {
       message.delete()
-      muteUser.send(`You've been **muted** in **${message.guild.name}** for reason: **${reason}**, and duration: **${length}**`).catch(err => console.log(err))
-      message.channel.send(`${muteUser} has been **muted** for **${length}**.`)
+      muteUser.send(`You Have Been Muted in ${message.guild.name} For Reason ${reason} And Duration ${length}`).catch(err => console.log(err))
+      message.channel.send(`${muteUser} Has Been Muted For ${length}`)
   })
   
     await(muteUser.addRole(muterole.id));
@@ -75,7 +75,7 @@ module.exports.run = async (bot, message, args) => {
       .setFooter(`ID: ${muteUser.id}`)
   
       channel.send(unmuteLogEmbed).then(() => {
-        muteUser.send(`Your **mute** in **${message.guild.name}** has **expired**. You may now talk.`).catch(err => console.log(err))
+        muteUser.send(`${muteUser} Has Been Unmuted`).catch(err => console.log(err))
     })
   ;
   
@@ -99,7 +99,7 @@ bot.on('message', message=>{
             if(user){
                 var member = message.guild.member(user);
                 if(member){
-                    member.kick('You have been kicked').then(() =>{
+                    member.kick('You Have Been Kicked').then(() =>{
                         message.reply('Succesfully Kicked Member')
                         .then(message => message.delete({timeout: 5000}));
                     }).catch(err =>{
