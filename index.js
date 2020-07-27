@@ -24,7 +24,6 @@ bot.on('message', message=>{
             .then(message => message.delete({timeout: 5000}));
             let mainrole = message.guild.roles.cache.find(role => role.name === "Member");
             let muterole = message.guild.roles.cache(role => role.name === "Muted");
-            if(!mainrole) return message.reply('Member Role Not Found In This Server')
             if(!muterole) return message.reply('Muted Role Not Found In This Server')
             .then(message => message.delete({timeout: 5000}));
             let time = args[2];
