@@ -11,7 +11,8 @@ bot.on('ready', () =>{
 
 bot.login(process.env.token);
 
-const PREFIX ="E-"
+var PREFIX ='e-'
+var PREFIX ='E-'
 
 module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.channel.send("Only People With The Administrator Permission Or The Manage Messages Permission Can Use This Command")
