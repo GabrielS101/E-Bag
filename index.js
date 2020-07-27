@@ -3,6 +3,9 @@ const bot = new Discord.Client();
 
 bot.on('ready', () =>{
     console.log('E-bag is Online!');
+    bot.user.setActivity('On PC 2', {
+        type: 'PLAYING'
+    }).catch(console.error);
 })
 
 bot.login(process.env.token);
