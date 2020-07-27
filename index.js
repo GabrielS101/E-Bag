@@ -20,7 +20,7 @@ bot.on('message', message=>{
             const user = message.mentions.members.first();
 
             if(user){
-                const member = message.guild.member(user);
+                var member = message.guild.member(user);
 
                 if(member){
                     member.kick('You have been kicked').then(() =>{
@@ -37,7 +37,7 @@ bot.on('message', message=>{
        case 'ban':
             if(!args[1]) message.channel.send('No Member Specified')
             if(user){
-                const member = message.guild.member(user);
+                var member = message.guild.member(user);
 
                 if(member){
                     member.ban({reason: 'Banned'}).then(() =>{
