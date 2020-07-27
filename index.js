@@ -36,9 +36,6 @@ bot.on('message', message=>{
        break;
        case 'ban':
             if(!args[1]) message.channel.send('No Member Specified')
-            if(user){
-                const member = message.guild.member(user);
-
                 if(member){
                     member.ban({reason: 'Banned'}).then(() =>{
                         message.reply('Succesfully Banned Member');
@@ -49,8 +46,7 @@ bot.on('message', message=>{
                 } else{
                     message.reply("Member Not Found In This Server")
                 }
-            }
-       break;
+        break;
         case 'PublicStands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
