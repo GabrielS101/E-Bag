@@ -24,7 +24,7 @@ bot.on('message', message=>{
 
                 if(member){
                     member.kick('You have been kicked').then(() =>{
-                        message.reply(`Succesfully kicked ${user.tag}`);
+                        message.reply('Succesfully kicked Member');
                     }).catch(err =>{
                         message.reply('Unable To Kick Member');
                         console.log(err);
