@@ -974,12 +974,12 @@ bot.on('message', message=>{
          .setColor(0x827c7c)
          message.channel.send(Emperor);
         break;
-        case 'ping':                         //this command is if you want the bot to use prefix and no ping.
+        case 'ping':                         //This command is if you want the bot to use prefix and no ping.
             message.channel.send('pong')
             break; 
         case 'Ping':
             message.channel.send('Pong')
-            break;                              //keep adding cases and breaks to add on to the command.
+            break;
         case 'pong':
             message.channel.send('ping')
             break;
