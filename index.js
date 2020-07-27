@@ -18,6 +18,7 @@ bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
     switch(args[0]){
         case 'mute':
+            if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_ROLES" , explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Manage Roles Permission Can Use This Command')
             let person = message.guild.member(message.mentions.users.first() && message.guild.members.get(args[1]))
             if(!person) return message.reply('Member Not Found In This Server')
             .then(message => message.delete({timeout: 5000}));
@@ -40,7 +41,7 @@ bot.on('message', message=>{
             }, ms(time));
         break;
         case 'kick':
-            if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
+            if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command')
             .then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
@@ -63,7 +64,7 @@ bot.on('message', message=>{
             }
        break;
        case 'ban':
-        if(!message.member.hasPermission("ADMINISTRATOR" && "BAN_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
+        if(!message.member.hasPermission("ADMINISTRATOR" && "BAN_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Ban Members Permission Can Use This Command')
             .then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
