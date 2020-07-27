@@ -1,83 +1,23 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const ms = require('ms');
+
 bot.on('ready', () =>{
     console.log('E-Bag Is Now Online');
     bot.user.setActivity('On PC 2', {
         type: 'PLAYING'
     }).catch(console.error);
 })
+
 bot.login(process.env.token);
-var PREFIX ='e-'
-var PREFIX ='E-'
-module.exports.run = async (bot, message, args) => {
-    if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.channel.send("Only People With The Administrator Permission Or The Manage Messages Permission Can Use This Command")
-    .then(message => message.delete({timeout: 5000}));
-    let muteUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!muteUser) return message.channel.send("Member Not Found In This Server | **Usage:** `>mute @user <time> <reason>`")
-    .then(message => message.delete({timeout: 5000}));
-    if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Member Can Not Be Muted")
-    .then(message => message.delete({timeout: 5000}));
-    let reason = args.slice(2).join(" ");
-    if(!reason) return message.channel.send("Reason Not Specified | **Usage:** `>mute @user <time> <reason>`")
-    .then(message => message.delete({timeout: 5000}));
-    let muterole = message.guild.roles.find(r => r.name === "Muted")
-    if(!muterole){
-      try{
-        muterole = await message.guild.createRole({
-          name: "Muted",
-          color: "#5c5c5c",
-          permissions:[]
-        });
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-          });
-        });
-      }catch(e){
-        console.log(e.stack);
-      }
-    }
-    let length = args[1];
-    if(!length) return message.channel.send("**Usage:** `>mute @user <time> <reason>`");
-    message.delete().catch();
-    let muteLogEmbed = new Discord.RichEmbed()
-    .setAuthor(`Punishment | ${muteUser.user.tag} | Mute`, muteUser.user.displayAvatarURL)
-    .setDescription(`**Target:** ${muteUser}\n \n**Issued By:** ${message.author}\n \n**Issued Reason:** ${reason}\n \n**Issued Duration:** ${length}\n \n**Issued In:** ${message.channel}`)
-    .setColor("#e74c3c")
-    .setTimestamp()
-    .setFooter(`ID: ${muteUser.id}`)
-    let channel = message.guild.channels.find(c => c.name === "modlogs");
-    if(!channel) return message.reply("Log Channel Mot Found");
-    channel.send(muteLogEmbed).then(() => {
-      message.delete()
-      muteUser.send(`You Have Been Muted in ${message.guild.name} For Reason ${reason} And Duration ${length}`).catch(err => console.log(err))
-      message.channel.send(`${muteUser} Has Been Muted For ${length}`)
-      .then(message => message.delete({timeout: 5000}));
-  })
-    await(muteUser.addRole(muterole.id));
-    setTimeout(function(){
-      muteUser.removeRole(muterole.id);
-      let unmuteLogEmbed = new Discord.RichEmbed()
-      .setAuthor(`Punishment | ${muteUser.user.tag} | Unmute`, muteUser.user.displayAvatarURL)
-      .setDescription(`**Target:** ${muteUser}\n \n**Removed By:** ${bot.user}\n \n**Issued Reason:** Expired/False\n \n**Issued In:** Console`)
-      .setColor("#e74c3c")
-      .setTimestamp()
-      .setFooter(`ID: ${muteUser.id}`)
-      channel.send(unmuteLogEmbed).then(() => {
-        muteUser.send(`${muteUser} Has Been Unmuted`).catch(err => console.log(err))
-        .then(message => message.delete({timeout: 5000}));
-    })
-  ;
-    }, ms(length));
-  }
-  module.exports.help = {
-    name: "mute"
-  }
+
+const PREFIX ="E-"
+
 bot.on('message', message=>{
+
     let args = message.content.slice(PREFIX.length).split(" ");
+
     switch(args[0]){
+
         case 'kick':
             if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command')
             .then(message => message.delete({timeout: 5000}));
@@ -87,7 +27,7 @@ bot.on('message', message=>{
             if(user){
                 var member = message.guild.member(user);
                 if(member){
-                    member.kick('You Have Been Kicked').then(() =>{
+                    member.kick('You have been kicked').then(() =>{
                         message.reply('Succesfully Kicked Member')
                         .then(message => message.delete({timeout: 5000}));
                     }).catch(err =>{
@@ -1065,64 +1005,78 @@ bot.on('message', message=>{
                 message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')}
          } 
 })
+
 bot.on('message', msg=>{
     if(msg.content === "Oof"){
         msg.reply('O o f');       //this command is if you want the bot to ping you without prefix when responding.
     }
 })
+
 bot.on('message', message=>{
+
     let args = message.content. substring(PREFIX.length).split(" ");
+
     switch(args[0]){
         case 'Oof':                         //this command is if you want the bot to use prefix and ping.
             message.reply('O o f')
         break;
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I, Giorno Giovanna, Have A Dream"){
         msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');       //this command is if you want no prefix and no ping.
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I Giorno Giovanna Have A Dream"){
         msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I, GIORNO GIOVANNA, HAVE A DREAM"){
         msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I GIORNO GIOVANNA HAVE A DREAM"){
         msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I giorno giovanna have a dream"){
         msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "i giorno giovanna have a dream"){
         msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I Giorno Giovanna have a dream"){
         msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I, giorno giovanna, have a dream"){
         msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "i, giorno giovanna, have a dream"){
         msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
     }
 })
+
 bot.on('message', msg=>{
     if(msg.content === "I, Giorno Giovanna, have a dream"){
         msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
