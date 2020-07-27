@@ -26,7 +26,6 @@ module.exports.run = async (bot, message, args) => {
     let reason = args.slice(2).join(" ");
     if(!reason) return message.channel.send("Reason Not Specified | **Usage:** `>mute @user <time> <reason>`")
     .then(message => message.delete({timeout: 5000}));
-  
     let muterole = message.guild.roles.find(r => r.name === "Muted")
     if(!muterole){
       try{
@@ -35,7 +34,6 @@ module.exports.run = async (bot, message, args) => {
           color: "#5c5c5c",
           permissions:[]
         });
-  
         message.guild.channels.forEach(async (channel, id) => {
           await channel.overwritePermissions(muterole, {
             SEND_MESSAGES: false,
@@ -50,14 +48,12 @@ module.exports.run = async (bot, message, args) => {
     let length = args[1];
     if(!length) return message.channel.send("**Usage:** `>mute @user <time> <reason>`");
     message.delete().catch();
-  
     let muteLogEmbed = new Discord.RichEmbed()
     .setAuthor(`Punishment | ${muteUser.user.tag} | Mute`, muteUser.user.displayAvatarURL)
     .setDescription(`**Target:** ${muteUser}\n \n**Issued By:** ${message.author}\n \n**Issued Reason:** ${reason}\n \n**Issued Duration:** ${length}\n \n**Issued In:** ${message.channel}`)
     .setColor("#e74c3c")
     .setTimestamp()
     .setFooter(`ID: ${muteUser.id}`)
-  
     let channel = message.guild.channels.find(c => c.name === "modlogs");
     if(!channel) return message.reply("Log Channel Mot Found");
     channel.send(muteLogEmbed).then(() => {
@@ -66,33 +62,25 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(`${muteUser} Has Been Muted For ${length}`)
       .then(message => message.delete({timeout: 5000}));
   })
-  
     await(muteUser.addRole(muterole.id));
-  
     setTimeout(function(){
       muteUser.removeRole(muterole.id);
-  
       let unmuteLogEmbed = new Discord.RichEmbed()
       .setAuthor(`Punishment | ${muteUser.user.tag} | Unmute`, muteUser.user.displayAvatarURL)
       .setDescription(`**Target:** ${muteUser}\n \n**Removed By:** ${bot.user}\n \n**Issued Reason:** Expired/False\n \n**Issued In:** Console`)
       .setColor("#e74c3c")
       .setTimestamp()
       .setFooter(`ID: ${muteUser.id}`)
-  
       channel.send(unmuteLogEmbed).then(() => {
         muteUser.send(`${muteUser} Has Been Unmuted`).catch(err => console.log(err))
         .then(message => message.delete({timeout: 5000}));
     })
   ;
-  
     }, ms(length));
-  
   }
-  
   module.exports.help = {
     name: "mute"
   }
-
 bot.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
     switch(args[0]){
