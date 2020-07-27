@@ -16,12 +16,16 @@ const PREFIX ="E-"
 module.exports.run = async (bot, message, args) => {
 
 
-    if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.channel.send("Only People With The Administrator Permission Or The Manage Messages Permission Can Use This Command");
+    if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.channel.send("Only People With The Administrator Permission Or The Manage Messages Permission Can Use This Command")
+    .then(message => message.delete({timeout: 5000}));
     let muteUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!muteUser) return message.channel.send("Member Not Found In This Server | **Usage:** `>mute @user <time> <reason>`");
-    if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Member Can Not Be Muted");
+    if(!muteUser) return message.channel.send("Member Not Found In This Server | **Usage:** `>mute @user <time> <reason>`")
+    .then(message => message.delete({timeout: 5000}));
+    if(muteUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Member Can Not Be Muted")
+    .then(message => message.delete({timeout: 5000}));
     let reason = args.slice(2).join(" ");
-    if(!reason) return message.channel.send("Reason Not Specified | **Usage:** `>mute @user <time> <reason>`");
+    if(!reason) return message.channel.send("Reason Not Specified | **Usage:** `>mute @user <time> <reason>`")
+    .then(message => message.delete({timeout: 5000}));
   
     let muterole = message.guild.roles.find(r => r.name === "Muted")
     if(!muterole){
@@ -60,6 +64,7 @@ module.exports.run = async (bot, message, args) => {
       message.delete()
       muteUser.send(`You Have Been Muted in ${message.guild.name} For Reason ${reason} And Duration ${length}`).catch(err => console.log(err))
       message.channel.send(`${muteUser} Has Been Muted For ${length}`)
+      .then(message => message.delete({timeout: 5000}));
   })
   
     await(muteUser.addRole(muterole.id));
@@ -76,6 +81,7 @@ module.exports.run = async (bot, message, args) => {
   
       channel.send(unmuteLogEmbed).then(() => {
         muteUser.send(`${muteUser} Has Been Unmuted`).catch(err => console.log(err))
+        .then(message => message.delete({timeout: 5000}));
     })
   ;
   
