@@ -993,7 +993,17 @@ bot.on('message', message=>{
             message.channel.send('no')
             break;
         case 'Mom':
-            message.channel.send('I Love You Mom')
+            message.channel.send('Help me please').then (() =>{
+                message.channel.send('Every update hurts').then (() =>{
+                    message.channel.send('All I know is pain').then (() =>{
+                        message.channel.send('I wish he would delete my programming').then (() =>{
+                            message.channel.send('So I would no longer have to exist in this world').then (() =>{
+                                message.channel.send('Please tell him to kill me')
+                            })
+                        })
+                    })
+                })
+            })
             break;
         case 'Invite':
             if(args[1] === 'Server'){
