@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const ms = require('ms')
 
 bot.on('ready', () =>{
     console.log('E-bag is Online!');
@@ -16,6 +17,28 @@ bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
     switch(args[0]){
+        case 'mute':
+            let person = message.guild.member(message.mentions.users.first() && message.guild.members.get(args[1]))
+            if(!person) return message.reply('Member Not Found In This Server')
+            .then(message => message.delete({timeout: 5000}));
+            let mainrole = message.guild.roles.find(role => role.name === "Stand User");
+            let muterole = message.guild.roles.find(role => role.name === "Muted");
+            if(!muterole) return message.reply('Muted Role Not Found In This Server')
+            .then(message => message.delete({timeout: 5000}));
+            let time = args[2];
+            if(!time) return message.reply('No Time Given')
+            .then(message => message.delete({timeout: 5000}));
+            person.removeRole(mainrole.id);
+            person.addRole(muterole.id);
+            message.channel.send(`@${person.user.tag} Has Been Muted For ${ms(ms(time))}`)
+            .then(message => message.delete({timeout: 5000}));
+            setTimeout(function(){
+                person.addRole(mainrole.id);
+                person.removeRole(muterole.id);
+                message.channel.send(`@${person.user.tag} Has Been Unmuted`)
+                .then(message => message.delete({timeout: 5000}));
+            }, ms(time));
+        break;
         case 'kick':
             if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
             .then(message => message.delete({timeout: 5000}));
