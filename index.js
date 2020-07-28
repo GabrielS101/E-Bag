@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (_bot, message, args) => {
 
     //!tempmute @user 1s/m/h/d
     if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command')
