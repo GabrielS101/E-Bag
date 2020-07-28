@@ -14,7 +14,7 @@ bot.login(process.env.token);
 const PREFIX = "E-"
 
 bot.on('message', message=> {
-    if(message.content.startsWith(PREFIX + mute)){
+    if(message.content.startsWith(PREFIX + 'mute')){
     let user = message.mentions.members.first();
     let role = message.guild.roles.find(r => r.name === Muted);
     if(!role) message.guild.createRole({name: Muted});
@@ -41,7 +41,7 @@ bot.on('message', message=> {
     });
     
     bot.on('message', message => {
-    if(message.content.startsWith(PREFIX + unmute)){
+    if(message.content.startsWith(PREFIX + 'unmute')){
     let user = message.mentions.users.first();
     
     let role = message.guild.roles.find(r => r.name === 'Muted');
