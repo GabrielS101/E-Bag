@@ -13,7 +13,7 @@ bot.login(process.env.token);
 
 const PREFIX = "E-"
 
-client.on(message, message => {
+bot.on('message', message=> {
     if(message.content.startsWith(prefix + mute)){
     let user = message.mentions.members.first();
     let role = message.guild.roles.find(r => r.name === Muted);
@@ -40,7 +40,7 @@ client.on(message, message => {
     }
     });
     
-    client.on(message, message => {
+    bot.on('message', message => {
     if(message.content.startsWith(prefix + unmute)){
     let user = message.mentions.users.first();
     
