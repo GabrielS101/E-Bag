@@ -2,6 +2,58 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
 
+module.exports.run = async (bot, message, args) => {
+
+    //!tempmute @user 1s/m/h/d
+    if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command')
+    .then(message => message.delete({timeout: 5000}));
+    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!tomute) return message.reply("Member Not Found In This Server")
+    .then(message => message.delete({timeout: 5000}));
+    if(tomute.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES")) return message.reply("Member Can Not Be Muted")
+    .then(message => message.delete({timeout: 5000}));
+    let muterole = message.guild.roles.find(muterole => muterole.name === "Muted");
+    //start of create role
+    if(!muterole){
+      try{
+        muterole = await message.guild.createRole({
+          name: "`Muted",
+          color: "#000000",
+          permissions:[]
+        })
+        message.guild.channels.forEach(async (channel, id) => {
+          await channel.overwritePermissions(muterole, {
+            SEND_MESSAGES: false,
+            ADD_REACTIONS: false
+          });
+        });
+      }catch(e){
+        console.log(e.stack);
+      }
+    }
+    //end of create role
+    let mutetime = args[1];
+    if(!mutetime) return message.reply("Time Not Specified")
+    .then(message => message.delete({timeout: 5000}));
+  
+    await(tomute.addRole(muterole.id));
+    message.reply(`<@${tomute.id}> Has Been Muted For ${ms(ms(mutetime))}`)
+    .then(message => message.delete({timeout: 5000}));
+  
+    setTimeout(function(){
+      tomute.removeRole(muterole.id);
+      message.channel.send(`<@${tomute.id}> Has Been Unmuted`)
+      .then(message => message.delete({timeout: 5000}));
+    }, ms(mutetime));
+  
+  
+  //end of module
+  }
+  
+  module.exports.help = {
+    name: "tempmute"
+  }
+
 bot.on('ready', () =>{
     console.log('E-Bag Is Now Online');
     bot.user.setActivity('On PC 2', {
@@ -12,47 +64,6 @@ bot.on('ready', () =>{
 bot.login(process.env.token);
 
 const PREFIX = "E-"
-
-bot.on('message', message=> {
-    if(message.content.startsWith(PREFIX + "mute")){
-    let user = message.mentions.members.first();
-    let role = message.guild.roles.find(r => r.name === Muted);
-    if(!role) message.guild.createRole({name: Muted});
-    if(user.bot){
-    return message.channel.send(`Unable To Mute ${user}`);
-    }
-    if(user.hasPermission("ADMINISTRATOR")) {
-    return message.channel.send(`Unable To Mute ${user}`);
-    }
-    
-    if(!user){
-        message.channel.send(`Member Not Specified`);
-    }
-    message.guild.channels.forEach(f => {
-        f.overwritePermissions(role, {
-            SEND_MESSAGES: false
-        });
-        user.addRole(role)
-        .catch(console.error);
-       
-    });
-     message.channel.send(`${user} Has Been Muted`);
-    }
-    });
-    
-    bot.on('message', message => {
-    if(message.content.startsWith(PREFIX + "unmute")){
-    let user = message.mentions.users.first();
-    
-    let role = message.guild.roles.find(r => r.name === 'Muted');
-    let ifHasRole = message.member.roles.find(role => role.name === 'Muted');
-    if(!ifHasRole){
-    return message.channel.send('Member Is Not Muted');
-    }
-    user.removeRole(role).then(message.channel.send(`Unmuted ${user}`));
-    
-    }
-    });
 
 bot.on('message', message=>{
 
