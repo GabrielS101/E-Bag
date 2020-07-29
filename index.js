@@ -66,7 +66,7 @@ bot.login(process.env.token);
 
 const PREFIX = "E-"
 
-pollEmbed(msg, title, options, timeout, emojiList, forceEndPollEmoji);
+pollEmbed(message, title, options, timeout, emojiList, forceEndPollEmoji);
 
 bot.on('message', message=>{
 
