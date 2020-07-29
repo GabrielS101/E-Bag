@@ -1050,6 +1050,9 @@ bot.on('message', message=>{
         case 'Mom':
             message.channel.send('I Love You Mom')
             break;
+        case 'bruh':
+          message.author.send("hurb")
+          break;
         case 'Invite':
             if(args[1] === 'Server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
