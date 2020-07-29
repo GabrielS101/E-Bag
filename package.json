@@ -9,7 +9,6 @@
   "author": "Gabriel Lou Leprzhitsky Shteynberg",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
     "ms": "^2.1.2"
   }
 }
