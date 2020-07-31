@@ -1,61 +1,5 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const ms = require('ms');
-
-// Loading global variables
-const helloResponses = ["Hello", "Hi", "Hi there"];
-
-module.exports.run = async (bot, message, args) => {
-
-    //!tempmute @user 1s/m/h/d
-    if(!message.member.hasPermission("ADMINISTRATOR" && "MANAGE_MESSAGES", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Manage Members Permission Can Use This Command')
-    .then(message => message.delete({timeout: 5000}));
-    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("Member Not Found In This Server")
-    .then(message => message.delete({timeout: 5000}));
-    if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("Member Can Not Be Muted")
-    .then(message => message.delete({timeout: 5000}));
-    let muterole = message.guild.roles.find(muterole => muterole.name === "Muted");
-    //start of create role
-    if(!muterole){
-      try{
-        muterole = await message.guild.createRole({
-          name: "Muted",
-          color: "#000000",
-          permissions:[]
-        })
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-          });
-        });
-      }catch(e){
-        console.log(e.stack);
-      }
-    }
-    //end of create role
-    let mutetime = args[1];
-    if(!mutetime) return message.reply("Time Not Specified")
-    .then(message => message.delete({timeout: 5000}));
-  
-    await(tomute.addRole(muterole.id));
-    message.reply(`<@${tomute.id}> Has Been Muted For ${ms(ms(mutetime))}`)
-    .then(message => message.delete({timeout: 5000}));
-  
-    setTimeout(function(){
-      tomute.removeRole(muterole.id);
-      message.channel.send(`<@${tomute.id}> Has Been Unmuted`)
-      .then(message => message.delete({timeout: 5000}));
-    }, ms(mutetime));
-  
-  
-  //end of module
-  }
-  
-  module.exports.help = {
-    name: "tempmute"
-  }
 
 bot.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -129,7 +73,7 @@ bot.on('message', message=>{
            .addField('Server Owner', message.guild.owner, true)
            message.channel.send(Info);
         break;
-        case 'Tutorial':
+        case 'tutorial':
             const Tutorial = new Discord.MessageEmbed()
             .setTitle('How To Play')
             .addField('Basic Rules', 'In order to start playing, you must do the turn bot command (.start @player1 v @player2) to choose who goes first, do a dice roll (!1d10), both players choosing either high or low. (Example: If you chose high, but the number is 4 and under, you go last) each player gets a move to attack, dodge, block, heal, or buff themselves every turn. This means you do not use .next unless all players have done an action if you use any buff that increases damage, do not put decimals. Round the damage.')
@@ -139,7 +83,7 @@ bot.on('message', message=>{
             .addField('Passives', 'Passives are abilities some stands can have that are always active. (Example: Moody Blues Passive, Shut Up Giorno makes your opponent unable to use healing moves.) All passives are different, and remember to read them closely.')
             message.channel.send(Tutorial);
         break;
-        case 'PublicStands1':
+        case 'publicstands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
             .setDescription('39 Total Public Stands.')
@@ -170,7 +114,7 @@ bot.on('message', message=>{
             .addField('25', "Made In Heaven.")
             message.channel.send(PublicStands1);
         break;
-        case 'PublicStands2':
+        case 'publicstands2':
             const PublicStands2 = new Discord.MessageEmbed()
             .setTitle('Public Stands 2')
             .addField('26', "Stray Cat.")
@@ -189,7 +133,7 @@ bot.on('message', message=>{
             .addField('39', "Emperor.")
             message.channel.send(PublicStands2);
         break;
-        case 'EventStands':
+        case 'eventstands':
             const EventStands = new Discord.MessageEmbed()
             .setTitle('Event Stands')
             .setDescription('5 Total Event Stands.')
@@ -201,7 +145,7 @@ bot.on('message', message=>{
             .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
             message.channel.send(EventStands);
         break;
-        case 'AdminStands':
+        case 'adminstands':
             const AdminStands = new Discord.MessageEmbed()
             .setTitle('Admin Stands')
             .setDescription('4 Total Admin Stands.')
@@ -212,7 +156,7 @@ bot.on('message', message=>{
             .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
             message.channel.send(AdminStands);
         break;
-        case 'SpinMethod':
+        case 'spinmethod':
             const SpinMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Spin')
             .addField('1', "Survive up to turn 5.")
@@ -222,7 +166,7 @@ bot.on('message', message=>{
             .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
             message.channel.send(SpinMethod);
         break;
-        case 'TuskMethod':
+        case 'tuskmethod':
             const TuskMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Tusk')
             .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
@@ -231,7 +175,7 @@ bot.on('message', message=>{
             .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
             message.channel.send(TuskMethod);
         break;
-        case 'EchoesMethod':
+        case 'echoesmethod':
             const EchoesMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Echoes')
             .addField('Echoes Act 1', "Win a match with Echoes Egg after using hatch 3 times.")
@@ -239,13 +183,13 @@ bot.on('message', message=>{
             .addField('Echoes ACt 3', "Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.")
             message.channel.send(EchoesMethod);
         break;
-        case 'BallBreakerMethod':
+        case 'ballbreakermethod':
             const BallBreakerMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Ball Breaker')
             .setDescription("Use a corpse part and win with more than 50 health with Spin.")
             message.channel.send(BallBreakerMethod);
         break;
-        case 'PurpleHazeDistortion':
+        case 'purplehazedistortion':
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
             .addField('Health', '800,')
@@ -261,7 +205,7 @@ bot.on('message', message=>{
             .setColor(0x753c62)
             message.channel.send(PurpleHazeDistortion);
          break;
-         case 'StrayCat':  
+         case 'straycat':  
             const StrayCat = new Discord.MessageEmbed()             
             .setTitle('Stray Cat')
             .addField('Health', '700.')
@@ -275,7 +219,7 @@ bot.on('message', message=>{
             .setColor(0xd41961)
             message.channel.send(StrayCat);
          break;
-         case 'Whitesnake':  
+         case 'whitesnake':  
             const Whitesnake = new Discord.MessageEmbed()             
             .setTitle('Whitesnake')
             .addField('Health', '700.')
@@ -291,7 +235,7 @@ bot.on('message', message=>{
             .setColor(0xb5b3b3)
             message.channel.send(Whitesnake);
          break;        
-         case 'C-Moon':  
+         case 'c-moon':  
             const CMoon = new Discord.MessageEmbed()             
             .setTitle('C-Moon')
             .addField('Health', '800.')
@@ -307,7 +251,7 @@ bot.on('message', message=>{
             .setColor(0x34a857)
             message.channel.send(CMoon);
          break;  
-         case 'TWAU':  
+         case 'twau':  
          const TheWorldAlternateUniverse = new Discord.MessageEmbed()             
          .setTitle('The World: Alternate Universe')
          .addField('Health', '800.')
@@ -323,7 +267,7 @@ bot.on('message', message=>{
          .setColor(0xcca516)
          message.channel.send(TheWorldAlternateUniverse);
         break;
-        case 'SilverChariot':  
+        case 'silverchariot':  
          const SilverChariot = new Discord.MessageEmbed()             
          .setTitle('Silver Chariot')
          .addField('Health', '750.')
@@ -338,7 +282,7 @@ bot.on('message', message=>{
          .setColor(0x9398c2)
          message.channel.send(SilverChariot);
         break;
-        case 'BallBreaker':  
+        case 'ballbreaker':  
          const BallBreaker = new Discord.MessageEmbed()             
          .setTitle('Ball Breaker')
          .addField('Health', '700.')
@@ -353,7 +297,7 @@ bot.on('message', message=>{
          .setColor(0x11d92c)
          message.channel.send(BallBreaker);
         break;
-        case 'CrazyDiamond':  
+        case 'crazydiamond':  
          const CrazyDiamond = new Discord.MessageEmbed()             
          .setTitle('Crazy Diamond')
          .addField('Health', '720.')
@@ -368,7 +312,7 @@ bot.on('message', message=>{
          .setColor(0xde2f83)
          message.channel.send(CrazyDiamond);
         break;
-        case 'Metallica':  
+        case 'metallica':  
          const Metallica = new Discord.MessageEmbed()             
          .setTitle('Metallica')
          .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
@@ -394,7 +338,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(Metallica);
         break;
-        case 'Mr.President':  
+        case 'mr.president':  
          const MrPresident = new Discord.MessageEmbed()             
          .setTitle('Mr.President')
          .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
@@ -417,7 +361,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
          break;
-         case 'OceanMan':  
+         case 'oceanman':  
          const OceanMan = new Discord.MessageEmbed()             
          .setTitle('Ocean Man')
          .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
@@ -439,7 +383,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(OceanMan);
          break;
-         case 'THTW':  
+         case 'thtw':  
          const TheHandTheWorld = new Discord.MessageEmbed()             
          .setTitle('The Hand: The World')
          .setDescription("This Stand Is The Exclusive Property Of <@502242566272581662>")
@@ -463,7 +407,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(TheHandTheWorld);
          break;
-         case 'HeyYa':  
+         case 'heyya':  
          const HeyYa = new Discord.MessageEmbed()             
          .setTitle('Hey Ya')
          .addField('Health', '900.')
@@ -477,7 +421,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(HeyYa);
          break;
-         case 'D4C:LT':  
+         case 'd4c:lt':  
          const D4CLT = new Discord.MessageEmbed()             
          .setTitle('Dirty Deeds Done Dirt Cheap: Love Train')
          .addField('Health', '900.')
@@ -499,7 +443,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(D4CLT);
          break;
-         case 'Kiss':  
+         case 'kiss':  
          const Kiss = new Discord.MessageEmbed()             
          .setTitle('Kiss')
          .setDescription("This Stand Is The Exclusive Property Of <@678443627046895623>")
@@ -518,7 +462,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(Kiss);
          break;
-         case 'FrogExperience':  
+         case 'frogexperience':  
          const FrogExperience = new Discord.MessageEmbed()             
          .setTitle('Frog Experience')
          .addField('Health', '750.')
@@ -536,7 +480,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(FrogExperience);
          break;
-         case 'ForbiddenFruit':  
+         case 'forbiddenfruit':  
          const ForbiddenFruit = new Discord.MessageEmbed()             
          .setTitle('Forbidden Fruit')
          .addField('Health', '800.')
@@ -553,7 +497,7 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(ForbiddenFruit);
          break;
-         case 'HierophantGreen':  
+         case 'hierophantgreen':  
          const HierophantGreen = new Discord.MessageEmbed()             
          .setTitle('Hierophant Green')
          .addField('Health', '700.')
@@ -567,7 +511,7 @@ bot.on('message', message=>{
          .setColor(0x32a852)
          message.channel.send(HierophantGreen);
          break;
-         case 'TheHand':  
+         case 'thehand':  
          const TheHand = new Discord.MessageEmbed()             
          .setTitle('The Hand')
          .addField('Health', '700.')
@@ -584,7 +528,7 @@ bot.on('message', message=>{
          .setColor(0x2d6bcf)
          message.channel.send(TheHand);
         break;
-        case 'HermitPurple':  
+        case 'hermitpurple':  
          const HermitPurple = new Discord.MessageEmbed()             
          .setTitle('Hermit Purple')
          .addField('Health', '750.')
@@ -601,7 +545,7 @@ bot.on('message', message=>{
          .setColor(0x912390)
          message.channel.send(HermitPurple);
         break;
-        case 'WhiteAlbum':  
+        case 'whitealbum':  
          const WhiteAlbum = new Discord.MessageEmbed()             
          .setTitle('White Album')
          .addField('Health', '900.')
@@ -617,7 +561,7 @@ bot.on('message', message=>{
          .setColor(0x5dc0de)
          message.channel.send(WhiteAlbum);
         break;
-        case 'SoftAndWet':  
+        case 'softandwet':  
          const SoftAndWet = new Discord.MessageEmbed()             
          .setTitle('Soft And Wet')
          .addField('Health', '750.')
@@ -633,7 +577,7 @@ bot.on('message', message=>{
          .setColor(0xa4ebeb)
          message.channel.send(SoftAndWet);
         break;
-        case 'HeavensDoor':  
+        case 'heavensdoor':  
          const HeavensDoor = new Discord.MessageEmbed()             
          .setTitle('Heavens Door')
          .addField('Health', '650.')
@@ -647,7 +591,7 @@ bot.on('message', message=>{
          .setColor(0xffd30f)
          message.channel.send(HeavensDoor);
         break;
-        case 'Enigma':  
+        case 'enigma':  
         const Enigma = new Discord.MessageEmbed()             
         .setTitle('Enigma')
         .addField('Health', '700.')
@@ -662,7 +606,7 @@ bot.on('message', message=>{
         .setColor(0xa653c9)
         message.channel.send(Enigma);
        break;
-       case 'StickyFingers':  
+       case 'stickyfingers':  
          const StickyFingers = new Discord.MessageEmbed()             
          .setTitle('Sticky Fingers')
          .addField('Health', '650.')
@@ -678,7 +622,7 @@ bot.on('message', message=>{
          .setColor(0x2f52c4)
          message.channel.send(StickyFingers);
         break;
-        case 'SPTW':  
+        case 'sptw':  
          const StarPlatinumTheWorld = new Discord.MessageEmbed()             
          .setTitle('Star Platinum: The World')
          .addField('Health', '800.')
@@ -694,7 +638,7 @@ bot.on('message', message=>{
          .setColor(0xa3369c)
          message.channel.send(StarPlatinumTheWorld);
         break;
-        case 'WheelOfFortune':  
+        case 'wheeloffortune':  
         const WheelOfFortune = new Discord.MessageEmbed()             
         .setTitle('Wheel Of Fortune')
         .addField('Health', '700.')
@@ -709,7 +653,7 @@ bot.on('message', message=>{
         .setColor(0x737d76)
         message.channel.send(WheelOfFortune);
        break;
-       case 'HangedMan':  
+       case 'hangedman':  
         const HangedMan = new Discord.MessageEmbed()             
         .setTitle('Hanged Man')
         .addField('Health', '650.')
@@ -727,7 +671,7 @@ bot.on('message', message=>{
         .setColor(0x98cad4)
         message.channel.send(HangedMan);
        break;
-       case 'TheFool':  
+       case 'thefool':  
         const TheFool = new Discord.MessageEmbed()             
         .setTitle('The Fool')
         .addField('Health', '850.')
@@ -743,7 +687,7 @@ bot.on('message', message=>{
         .setColor(0xe6e339)
         message.channel.send(TheFool);
        break;
-       case 'EchoesEgg':  
+       case 'echoesegg':  
          const EchoesEgg = new Discord.MessageEmbed()             
          .setTitle('Echoes Egg')
          .addField('Health', '700.')
@@ -757,7 +701,7 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesEgg);
         break;
-        case 'EchoesAct1':  
+        case 'echoesact1':  
          const EchoesAct1 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 1')
          .addField('Health', '700.')
@@ -770,7 +714,7 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesAct1);
         break;
-        case 'EchoesAct2':  
+        case 'echoesact2':  
          const EchoesAct2 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 2')
          .addField('Health', '750.')
@@ -784,7 +728,7 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesAct2);
         break;
-        case 'EchoesAct3':  
+        case 'echoesact3':  
          const EchoesAct3 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 3')
          .addField('Health', '800.')
@@ -798,7 +742,7 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(EchoesAct3);
         break;
-        case 'TuskAct1':  
+        case 'tuskact1':  
          const TuskAct1 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 1')
          .addField('Health', '650.')
@@ -812,7 +756,7 @@ bot.on('message', message=>{
          .setColor(0xe01fa0)
          message.channel.send(TuskAct1);
         break;
-        case 'TuskAct2':  
+        case 'tuskact2':  
          const TuskAct2 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 2')
          .addField('Health', '700.')
@@ -825,7 +769,7 @@ bot.on('message', message=>{
          .setColor(0xe01fa0)
          message.channel.send(TuskAct2);
         break;
-        case 'TuskAct3':  
+        case 'tuskact3':  
          const TuskAct3 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 3')
          .addField('Health', '750.')
@@ -838,7 +782,7 @@ bot.on('message', message=>{
          .setColor(0xe01fa0)
          message.channel.send(TuskAct3);
         break;
-        case 'TuskAct4':  
+        case 'tuskact4':  
          const TuskAct4 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 4')
          .addField('Health', '800.')
@@ -852,7 +796,7 @@ bot.on('message', message=>{
          .setColor(0xe01fa0)
          message.channel.send(TuskAct4);
         break;
-        case 'Spin':  
+        case 'spin':  
          const Spin = new Discord.MessageEmbed()             
          .setTitle('Spin')
          .addField('Health', '600.')
@@ -866,7 +810,7 @@ bot.on('message', message=>{
          .setColor(0x4be33d)
          message.channel.send(Spin);
         break;
-        case 'MadeInHeaven':  
+        case 'madeinheaven':  
          const MadeInHeaven = new Discord.MessageEmbed()             
          .setTitle('Made In Heaven')
          .addField('Health', '800.')
@@ -884,7 +828,7 @@ bot.on('message', message=>{
          .setColor(0xdfe8e1)
          message.channel.send(MadeInHeaven);
         break;
-        case 'KillerQueen':  
+        case 'killerqueen':  
         const KillerQueenPart4 = new Discord.MessageEmbed()             
         .setTitle('Killer Queen (Part 4)')
         .addField('Health', '600.')
@@ -901,7 +845,7 @@ bot.on('message', message=>{
         .setColor(0xe84fa6)
         message.channel.send(KillerQueenPart4);
        break;
-       case 'MagiciansRed':  
+       case 'magiciansred':  
          const MagiciansRed = new Discord.MessageEmbed()             
          .setTitle('Magicians Red')
          .addField('Health', '800.')
@@ -916,7 +860,7 @@ bot.on('message', message=>{
          .setColor(0xe85c35)
          message.channel.send(MagiciansRed);
         break;
-        case 'TowerOfGray':  
+        case 'towerofgray':  
          const TowerOfGray = new Discord.MessageEmbed()             
          .setTitle('Tower Of Gray')
          .addField('Health', '700.')
@@ -933,7 +877,7 @@ bot.on('message', message=>{
          .setColor(0x536f96)
          message.channel.send(TowerOfGray);
         break;
-        case 'LoveDeluxe':  
+        case 'lovedeluxe':  
         const LoveDeluxe = new Discord.MessageEmbed()             
         .setTitle('Love Deluxe')
         .addField('Health', '700.')
@@ -952,7 +896,7 @@ bot.on('message', message=>{
         .setColor(0x999797)
         message.channel.send(LoveDeluxe);
        break;
-       case 'Geb':  
+       case 'geb':  
          const Geb = new Discord.MessageEmbed()             
          .setTitle('Geb')
          .addField('Health', '700.')
@@ -968,7 +912,7 @@ bot.on('message', message=>{
          .setColor(0x489cd4)
          message.channel.send(Geb);
         break;
-        case 'RHCP':  
+        case 'rhcp':  
          const RedHotChiliPepper = new Discord.MessageEmbed()             
          .setTitle('Red Hot Chili Pepper')
          .addField('Health', '750.')
@@ -984,7 +928,7 @@ bot.on('message', message=>{
          .setColor(0xe8e046)
          message.channel.send(RedHotChiliPepper);
         break;
-        case 'MoodyBlues':  
+        case 'moodyblues':  
          const MoodyBlues = new Discord.MessageEmbed()             
          .setTitle('Moody Blues')
          .addField('Health', '700.')
@@ -1000,7 +944,7 @@ bot.on('message', message=>{
          .setColor(0x564bab)
          message.channel.send(MoodyBlues);
         break;
-        case 'GoldExperience':  
+        case 'goldexperience':  
         const GoldExperience = new Discord.MessageEmbed()             
         .setTitle('Gold Experience')
         .addField('Health', '750.')
@@ -1020,7 +964,7 @@ bot.on('message', message=>{
         .setColor(0xded82f)
         message.channel.send(GoldExperience);
        break;
-       case 'SexPistols':  
+       case 'sexpistols':  
          const SexPistols = new Discord.MessageEmbed()             
          .setTitle('Sex Pistols')
          .addField('Health', '650.')
@@ -1036,7 +980,7 @@ bot.on('message', message=>{
          .setColor(0xded82f)
          message.channel.send(SexPistols);
         break;
-       case 'Emperor':  
+       case 'emperor':  
          const Emperor = new Discord.MessageEmbed()             
          .setTitle('Emperor')
          .addField('Health', '700.')
@@ -1057,14 +1001,14 @@ bot.on('message', message=>{
         case 'pong':
             message.channel.send('Ping')
             break;
-        case 'Mom':
+        case 'mom':
             message.channel.send('I Love You Mom')
             break;
-        case 'Invite':
-            if(args[1] === 'Server'){
+        case 'invite':
+            if(args[1] === 'server'){
                 message.channel.send('https://discord.gg/pRXmQUr')}
-        case 'Invite':
-             if(args[1] === 'Bot'){
+        case 'invite':
+             if(args[1] === 'bot'){
                 message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')}
          } 
 })
@@ -1079,8 +1023,8 @@ bot.on('message', message=>{
 
     let args = message.content. substring(PREFIX.length).split(" ");
 
-    switch(args[0]){
-        case 'Oof':                         //this command is if you want the bot to use prefix and ping.
+    switch(args[0].toLowerCase()) {
+        case 'oof':                         //this command is if you want the bot to use prefix and ping.
             message.reply('O o f')
         break;
     }
