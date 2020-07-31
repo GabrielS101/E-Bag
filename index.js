@@ -127,7 +127,7 @@ bot.on('message', message=>{
            .addField('Current Server', message.guild.name, true)
            .addField('Server Owner', message.guild.owner, true)
            .addField('Server Icon', message.guild.icon, true) 
-           message.channel.send(UserInfo);
+           message.channel.send(Info);
         break;
         case 'Tutorial':
             const Tutorial = new Discord.MessageEmbed()
