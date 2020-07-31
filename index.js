@@ -2,6 +2,16 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
 
+let replies = ["reply 1", "reply 2", "reply 3"];
+// Random number from 0 to 2 for the array index
+let random = Math.floor(Math.random() * 3);
+
+// Send a random reply to a channel
+bot.sendMessage({
+    to: channelID,
+    message: replies[random]
+});
+
 module.exports.run = async (bot, message, args) => {
 
     //!tempmute @user 1s/m/h/d
