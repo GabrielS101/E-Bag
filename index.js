@@ -297,7 +297,7 @@ bot.on('message', message=>{
          .addField("Knives", '50x3 - 3 turn cooldown.')
          .addField("Oil Can", 'Stuns opponent for 1 turn - 5 turn cooldown.')
          .addField("ZA WARUDO", 'Stuns Enemy for 2 turns - 8 turn cooldown/wait')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/0/0f/THE_WORLD.PNG/revision/latest?cb=20160414121752')
+         .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSihQ5w_PA8IyVMLluuMuZF-FHWwV7dfsWF-A&usqp=CAU')
          .setColor(0xcca516)
          message.channel.send(TheWorldAlternateUniverse);
         break;
