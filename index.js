@@ -120,7 +120,7 @@ bot.on('message', message=>{
                 }
             }
        break;
-       case 'Info':
+       case 'info':
            const Info = new Discord.MessageEmbed()
            .setTitle('User Information')
            .addField('User Name', message.author.username, true)
