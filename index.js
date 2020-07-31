@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
 
+// Loading global variables
+const helloResponses = ["Hello", "Hi", "Hi there"];
+
 module.exports.run = async (bot, message, args) => {
 
     //!tempmute @user 1s/m/h/d
@@ -69,7 +72,7 @@ bot.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
-    switch(args[0]){
+    switch(args[0].toLowerCase()) {
 
         case 'kick':
             if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command')
