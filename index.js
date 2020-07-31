@@ -8,7 +8,7 @@ let random = Math.floor(Math.random() * 3);
 
 // Send a random reply to a channel
 bot.sendMessage({
-    to: channelID,
+    to: channel.id,
     message: replies[random]
 });
 
