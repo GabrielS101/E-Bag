@@ -122,11 +122,8 @@ bot.on('message', message=>{
            .setTitle('User Information')
            .addField('User Name', message.author.username, true)
            .addField('User Id', message.author.id, true)
-           .addField('User Image', message.author.avatar, true)
-           .addField('User Last Message', message.author.lastMessage, true)
            .addField('Current Server', message.guild.name, true)
            .addField('Server Owner', message.guild.owner, true)
-           .addField('Server Icon', message.guild.icon, true) 
            message.channel.send(Info);
         break;
         case 'Tutorial':
