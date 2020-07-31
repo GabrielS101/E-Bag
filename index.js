@@ -130,6 +130,12 @@ bot.on('message', message=>{
             const Tutorial = new Discord.MessageEmbed()
             .setTitle('How To Play')
             .addField('Basic Rules', 'In order to start playing, you must do the turn bot command (.start @player1 v @player2) to choose who goes first, do a dice roll (!1d10), both players choosing either high or low. (Example: If you chose high, but the number is 4 and under, you go last) each player gets a move to attack, dodge, block, heal, or buff themselves every turn. This means you do not use .next unless all players have done an action if you use any buff that increases damage, do not put decimals. Round the damage.')
+            .addField('How To Attack', 'In order to attack, you have to do the dice command that correlates to the move you want to use. Example (Punch says 50 damage, so the dice command would be !1d50. Same with other moves that have no dice multiplier.) Example 2 (Rapid Fire on Sex Pistols says 50x6 so the dice command would be !6d50. Same with other moves that have a dice multiplier.) Remember to look at any buffs that increase your damage to have a precise amount of damage.')
+            .addField('Special Actions', 'Dodging and blocking attacks result in the opponent using their attack, making it go on cooldown, but not taking any damage from it. Healing can heal yourself or any teammate (Unless the command says only yourself or only a teammate) Stunning makes your opponent unable to move, so they cannot attack, dodge, block, or heal.')
+            .addField('Waits And Cooldowns', 'If your attack is on cooldown, you are unable to use it unless the required amount turns has been passed. (Example: Rapid Fire on Sex Pistols has a 4 turn cooldown. If you use it on turn 1, 4 turns have to pass until you can use it again). Waits have you wait until the required amount of turns have passed until you can use the move. Example: 7 page MUDA has a 6 turn wait, so on turn 7 you can use the attack.')
+            .addField('Passives', 'Passives are abilities some stands can have that are always active. (Example: Moody Blues Passive, Shut Up Giorno makes your opponent unable to use healing moves.) All passives are different, and remember to read them closely.')
+            message.channel.send(Tutorial);
+        break;
         case 'PublicStands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
