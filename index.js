@@ -1052,13 +1052,10 @@ bot.on('message', message=>{
          message.channel.send(Emperor);
         break;
         case 'ping':                         //This command is if you want the bot to use prefix and no ping.
-            message.channel.send('pong')
+            message.channel.send('Pong')
             break; 
         case 'pong':
-            message.channel.send('ping')
-            break;
-        case 'spam':
-            message.channel.send('no')
+            message.channel.send('Ping')
             break;
         case 'Mom':
             message.channel.send('I Love You Mom')
