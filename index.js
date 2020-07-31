@@ -312,7 +312,7 @@ bot.on('message', message=>{
          .addField("Piercing Lunge", '80x2 - 2 Turn Cooldown - Stun Them For One Turn.')
          .addField("Armor Ejection", '6 Turn Cooldown/Wait - Remove Your Armor For Two Turns Making You Deal 25% More Damage But You Also Take An Additional 25% Damage.')
          .addField("Armor Block", '3 Turn Cooldown - Block an attack. Cannot be activated if armor is currently off.')
-         .setImage('https://www.pngkit.com/png/full/384-3849802_silverchariot-jojo-manga-silver-chariot.png')
+         .setImage('https://i.imgur.com/daQB3px.png')
          .setColor(0x9398c2)
          message.channel.send(SilverChariot);
         break;
@@ -541,7 +541,7 @@ bot.on('message', message=>{
          .addField("Hierophant Barrier", '100x2 - 8 Turn Cooldown.')
          .addField("Heavy Punch", '40x3 - 3 Turn Cooldown.')
          .addField("Stand Control", '8 Turn Cooldown - Reduce A Hits Damage By 50%.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/f0/Hierophantgreen.jpg/revision/latest/zoom-crop/width/320/height/320?cb=20140807131114')
+         .setImage('https://i.imgur.com/QEJsqf7.png')
          .setColor(0x32a852)
          message.channel.send(HierophantGreen);
          break;
@@ -575,7 +575,7 @@ bot.on('message', message=>{
          .addField("Hamon Vine Armor", '100x3 - 4 turn cooldown - Makes an attack do half damage.')
          .addField("Hamon Overdrive", '100x4 - 7 turn cooldown.')
          .addField("Grapple Throw", '200 - 5 turn cooldown.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c1/JoestarStandManga.jpg/revision/latest/scale-to-width-down/340?cb=20180527041410')
+         .setImage('https://images.shoutwiki.com/jojodiamondrecords/9/91/Tarot_TheHermit.png')
          .setColor(0x912390)
          message.channel.send(HermitPurple);
         break;
@@ -668,7 +668,7 @@ bot.on('message', message=>{
          .addField("Timestop", '10 Turn Cooldown - Stun The Enemy For Two Turns.')
          .addField("Timestop Dash", '80x2 -Teleport Behind The Player Allowing You to Go First Next Turn. this can be used only in ts.')
          .addField("Enraged Move", 'You can activate when under 200 health - Gain 100 health, every attack you do add 1/4 of its damage.')
-         .setImage('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/754292bb-cfb5-4ec8-bc3a-8abfa012cfcc/dd705o3-a49cdf59-fe37-4165-9de0-be297283f1be.png/v1/fill/w_1280,h_1251,strp/star_platinum__part_4__by_vegito5001_dd705o3-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNzU0MjkyYmItY2ZiNS00ZWM4LWJjM2EtOGFiZmEwMTJjZmNjXC9kZDcwNW8zLWE0OWNkZjU5LWZlMzctNDE2NS05ZGUwLWJlMjk3MjgzZjFiZS5wbmciLCJoZWlnaHQiOiI8PTEyNTEiLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC83NTQyOTJiYi1jZmI1LTRlYzgtYmMzYS04YWJmYTAxMmNmY2NcL3ZlZ2l0bzUwMDEtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.pmqZfO8PnWqySW_cSGtvZiM-TNm9fsiwm4GejUlFG3w')
+         .setImage('https://i.pinimg.com/564x/bb/59/d5/bb59d517ee99e4703ac60bf172d8f7a6.jpg')
          .setColor(0xa3369c)
          message.channel.send(StarPlatinumTheWorld);
         break;
@@ -683,7 +683,7 @@ bot.on('message', message=>{
         .addField("Drive Away", '4 Turn Cooldown - Dodge Opponents Next Attack..')
         .addField("Suprise!", '150 - 6 Turn Cooldown - (Can Only Be Used If Gasoline Bullets Were Used Last Turn) Deal a Burning Damage To The Enemy For Two Turns. 30 Damage Every Round.')
         .addField("Armor Harden", '6 Turn Cooldown - 5 Turn Wait - Reduce The Damage You Take By 25% And Deal 25% More Damage For The Next 2 Turns (Doesn’t Apply To Suprise! 30 extra damage per round but does apply to the initial Suprise! 150).')
-        .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/60/Wheel_of_Fortune.png/revision/latest?cb=20150617143316')
+        .setImage('https://i.pinimg.com/originals/98/be/96/98be962beb5da964cbc670ef18423dc4.jpg')
         .setColor(0x737d76)
         message.channel.send(WheelOfFortune);
        break;
@@ -701,7 +701,7 @@ bot.on('message', message=>{
         .addField("Water Sheild", '4 Turn Cooldown - Dodge your opponents next attack.')
         .addField("2 Right Hands Choke", '70 - 4 Turn Cooldown. Stun your opponent for 1 turn.')
         .addField("Passive", 'While outside of the mirror, your opponent does 25% more damage.')
-        .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/ca/HangedMan.png/revision/latest?cb=20140807085623')
+        .setImage('https://i.pinimg.com/originals/9c/ce/4a/9cce4acc44c3f9088d4915508f257f78.jpg')
         .setColor(0x98cad4)
         message.channel.send(HangedMan);
        break;
@@ -717,7 +717,7 @@ bot.on('message', message=>{
         .addField("Sand Drill", '150 - 4 turn cooldown.')
         .addField("The Fool Double Swipe", '100x2 - 6 Turn Cooldown - 5 Turn Wait - Reduce The Damage You Take By 25% And Deal 25% More Damage For The Next 2 Turns (Doesn’t Apply To Suprise! 30 extra damage per round but does apply to the initial Suprise! 150 damage).')
         .addField("Transform", 'Transform The Fool into a certain mode depending on what number you roll.1-4 defense mode all your opponents attack does 50 less damage, 6-10 attack mode all your attacks get x1, 5 Power Mode get both modes buffs - 5 turn wait (this can be used once per game.)')
-        .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c9/TheFool.png/revision/latest?cb=20160416043816')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/3/36/JoJo_Tarot_00_-_The_Fool.png/revision/latest/scale-to-width-down/340?cb=20150826093807')
         .setColor(0xe6e339)
         message.channel.send(TheFool);
        break;
@@ -890,7 +890,7 @@ bot.on('message', message=>{
          .addField("Flaming Kick", '120 - 5 turn cooldown - allows your next two moves to have burn.')
          .addField("Burn", '0 - 8 Turn Cooldown - Your opponent takes 50 additional damage every turn for the next 3 turns.')
          .addField("Passive", 'Flames cannot miss. Can only be blocked.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/e/e4/Magicians_red_c177.png/revision/latest?cb=20140816190048')
+         .setImage('https://i.pinimg.com/originals/19/1f/ff/191fffd235e41ba9e7cf2e19e3d0ae17.jpg')
          .setColor(0xe85c35)
          message.channel.send(MagiciansRed);
         break;
@@ -907,7 +907,7 @@ bot.on('message', message=>{
          .addField("Hidden User", '4 Turn Cooldown - Dodge your opponents next attack.')
          .addField("Closed Space", '5 Turn Cooldown - Deal 25% more damage for the next 2 turns.')
          .addField('Passive: Extremely Small Bug', "Before rolling for damage, your opponent must roll a 10 sided dice. If they roll less than a 6 than their attack gets dodged that turn. If they roll above a 5 than they do 50% more damage this turn.")
-         .setImage('https://media.discordapp.net/attachments/731415895682973696/734995563002462218/image0.png?width=673&height=662')
+         .setImage('https://i.pinimg.com/originals/90/60/b6/9060b6ffb86a08df38e411dda236bb79.jpg')
          .setColor(0x536f96)
          message.channel.send(TowerOfGray);
         break;
@@ -942,7 +942,7 @@ bot.on('message', message=>{
          .addField("Water Bullets", '70x4 - 4 Turn Cooldown.')
          .addField("Water Aphorism", '4 Turn Cooldown - Dodge An Attack.')
          .addField("Absorb Shield", '6 Turn Cooldown - Dodge An Attack And Reflect Half Of The Damage From The Attack Back Onto The Enemy.')
-         .setImage('https://media.discordapp.net/attachments/731415895682973696/735319514690093186/image0.png?width=522&height=679')
+         .setImage('https://static.jojowiki.com/images/thumb/4/4f/latest/20191015220131/GEB_Card.png/137px-GEB_Card.png')
          .setColor(0x489cd4)
          message.channel.send(Geb);
         break;
@@ -1024,8 +1024,8 @@ bot.on('message', message=>{
          .addField("Rapid Fire", '50x3 - 3 Turn Cooldown.')
          .addField("Homing Bullet", '120 - Prevents The Enemy From Dodging.')
          .addField("Escape", '3 Turn Wait - Heal 100 Health - Can Only Use Once Per Game - Can Only Be Used When Your Health Goes Below 300.')
-         .addField("Hanged Mans Help", 'Can Only Be Used Once Your Health Goes Below 400 - Can Only Be Used Once Per Game - Your attacks do 25% more damage for the next 3 turns.')
-         .setImage('https://vignette.wikia.nocookie.net/jjba/images/9/9b/HolHorseSummonsEmperor.png/revision/latest?cb=20190413180647')
+         .addField("Hanged Man Assist", 'Can Only Be Used Once Your Health Goes Below 400 - Can Only Be Used Once Per Game - Your attacks do 25% more damage for the next 3 turns.')
+         .setImage('https://i.pinimg.com/originals/5f/5e/e2/5f5ee2e47bad5ab77fc0ace627249211.jpg')
          .setColor(0x827c7c)
          message.channel.send(Emperor);
         break;
