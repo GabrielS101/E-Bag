@@ -117,6 +117,22 @@ bot.on('message', message=>{
                 }
             }
        break;
+       case 'Info':
+           const Info = new Discord.MessageEmbed()
+           .setTitle('User Information')
+           .addField('User Name', message.author.username, true)
+           .addField('User Id', message.author.id, true)
+           .addField('User Image', message.author.avatar, true)
+           .addField('User Last Message', message.author.lastMessage, true)
+           .addField('Current Server', message.guild.name, true)
+           .addField('Server Owner', message.guild.owner, true)
+           .addField('Server Icon', message.guild.icon, true) 
+           message.channel.send(UserInfo);
+        break;
+        case 'Tutorial':
+            const Tutorial = new Discord.MessageEmbed()
+            .setTitle('How To Play')
+            .addField('Basic Rules', 'In order to start playing, you must do the turn bot command (.start @player1 v @player2) to choose who goes first, do a dice roll (!1d10), both players choosing either high or low. (Example: If you chose high, but the number is 4 and under, you go last) each player gets a move to attack, dodge, block, heal, or buff themselves every turn. This means you do not use .next unless all players have done an action if you use any buff that increases damage, do not put decimals. Round the damage.')
         case 'PublicStands1':
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
