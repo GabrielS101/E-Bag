@@ -22,7 +22,7 @@ client.on('message', async message=>{
 
     switch(args[0].toLowerCase()) {
         case 'balance':
-        let person = message.mentions.user.first() || message.author
+        let person = message.mentions.person.first() || message.author
         let money = db.fetch(`money_${person.id}`)
         if (money === null) money = 0
         message.channel.send(`${person} You Have ${money} Dollars`)
