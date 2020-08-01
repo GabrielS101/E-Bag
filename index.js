@@ -20,7 +20,7 @@ client.on('message', async message=>{
 
     switch(args[0].toLowerCase()) {
         case 'covidall':
-        const data = await api.all()
+        const data = await Discord.APIMessage.all()
         const coronavirus = new Discord.MessageEmbed
         .setColor("Red")
         .addField("Cases", data.cases)
