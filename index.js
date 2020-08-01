@@ -9,7 +9,7 @@ bot.on('ready', () =>{
     }).catch(console.error);
 })
 
-client.on('message', async message => {
+bot.on('message', async message => {
     if(message.content === "e-meme"){
         const subReddits = ["dankmeme", "meme", "memes"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
