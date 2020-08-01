@@ -10,7 +10,7 @@ client.on('ready', () =>{
 })
 
 client.on('message', async message => {
-    if(message.content.toLowerCase === "e-meme"){
+    if(message.content === PREFIX + "meme"){
         const subReddits = ["dankmeme", "meme", "memes"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
