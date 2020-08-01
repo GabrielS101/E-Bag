@@ -3,6 +3,9 @@ const client = new Discord.Client();
 const randomPuppy = require('random-puppy');
 const covid = require('covidapi');
 const { countries } = require('covidapi');
+const { states } = require('covidapi');
+const { continents } = require('covidapi');
+const db = require('quickdb');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -53,9 +56,25 @@ client.on('message', async message=>{
         .addField("Cases In Critical Condition", countrydata.critical)
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
-       }break;
+       }else if(message.content.startsWith("e-covid")){
+        const statecovid = message.content.slice(PREFIX.length).split(' ')
+        const statedata = await covid.states({state: statecovid})
+        const statecoronavirus = new Discord.MessageEmbed()
+        .setTitle(`${statecovid[1]} Covid-19 Data`)
+        .setDescription("Data May Vary From Other Sources")
+        .setColor(0xe62012)
+        .addField("Tests", statedata.tests)
+        .addField("Cases Total", statedata.cases)
+        .addField("Cases Today", statedata.todayCases)
+        .addField("Deaths Total", statedata.deaths)
+        .addField("Deaths Today", statedata.todayDeaths)
+        .addField("Active Cases", statedata.active)
+        .addField("Cases In Critical Condition", statedata.critical)
+        .addField("Recovered", statedata.recovered)
+        message.channel.send(statecoronavirus)
+       }break; 
         case 'meme':
-        const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
+        const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "ShitPostCrusaders"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
         const img = await randomPuppy(random);
         const meme = new Discord.MessageEmbed()
