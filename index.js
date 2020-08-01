@@ -34,7 +34,9 @@ client.on('message', async message=>{
         .addField("Active Cases", data.active)
         .addField("Cases In Critical Condition", data.critical)
         .addField("Recovered", data.recovered)
+        .addField("Affected States", data.affectedStates)
         .addField("Affected Countries", data.affectedCountries)
+        .addField("Affected Continents", data.affectedContinents)
         message.channel.send(worldcoronavirus)
         }else if(message.content.startsWith("e-covid")){
         const countrycovid = message.content.slice(PREFIX.length).split(' ')
@@ -66,6 +68,21 @@ client.on('message', async message=>{
         .addField("Cases In Critical Condition", continentsdata.critical)
         .addField("Recovered", continentsdata.recovered)
         message.channel.send(continentscoronavirus)
+       }else if(message.content.startsWith("e-covid")){
+        const statescovid = message.content.slice(PREFIX.length).split(' ')
+        const statesdata = await covid.states({states: statescovid})
+        const statescoronavirus = new Discord.MessageEmbed()
+        .setTitle(`${statescovid[1]} Covid-19 Data`)
+        .setColor(0xe62012)
+        .addField("Tests", statesdata.tests)
+        .addField("Cases Total", statesdata.cases)
+        .addField("Cases Today", statesdata.todayCases)
+        .addField("Deaths Total", statesdata.deaths)
+        .addField("Deaths Today", statesdata.todayDeaths)
+        .addField("Active Cases", statesdata.active)
+        .addField("Cases In Critical Condition", statesdata.critical)
+        .addField("Recovered", statesdata.recovered)
+        message.channel.send(statescoronavirus)
        }break; 
         case 'meme':
         const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
