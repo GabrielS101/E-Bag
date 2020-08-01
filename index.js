@@ -21,7 +21,7 @@ client.on('message', async message=>{
 
     switch(args[0].toLowerCase()) {
         case 'covid':
-             if(args[1] === 'world'){
+        if(args[1] === 'world'){
         const data = await covid.all()
         const worldcoronavirus = new Discord.MessageEmbed()
         .setTitle("Worldwide Covid-19 Data")
