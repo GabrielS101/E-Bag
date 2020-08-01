@@ -3,8 +3,7 @@ const client = new Discord.Client();
 const randomPuppy = require('random-puppy');
 const covid = require('covidapi');
 const { countries } = require('covidapi');
-const { states } = require('covidapi');
-const { continents } = require('covidapi');
+const db = require('quick.db');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -22,6 +21,12 @@ client.on('message', async message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
+        case 'balance':
+        let user = message.mentions.user.first() || message.author
+        let money = db.fetch(`money_${user.id}`)
+        if (money === null) money = 0
+        message.channel.send(`${user} You Have ${money} Dollars`)
+        break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
