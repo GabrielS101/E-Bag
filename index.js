@@ -1,11 +1,27 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const randomPuppy = require('random-puppy');
 
 bot.on('ready', () =>{
     console.log('E-Bag Is Now Online');
     bot.user.setActivity('On PC 2', {
         type: 'PLAYING'
     }).catch(console.error);
+})
+
+client.on('message', async message => {
+    if(message.content === "e-meme"){
+        const subReddits = ["dankmeme", "meme", "memes"]
+        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+
+        const img = await randomPuppy(random);
+        const meme = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setImage(img)
+        .setTitle(`From /r/${random}`)
+        .setURL(`https://reddit.com/r/${random}`)
+        message.channel.send(meme)
+    }
 })
 
 bot.login(process.env.token);
