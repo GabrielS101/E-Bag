@@ -34,7 +34,7 @@ client.on('message', async message => {
         let amount = 500
         if (daily != null && timeout - (Date.now() - daily) > 0){
             let time = parsems(timeout - (Date.now() - daily));
-            message.channel.send(`You Already Claimed Your Daily Reward. Next Reward Availible In **${time.hours} Hours ${time.minutes} Minutes ${time.Seconds} Seconds**`)
+            message.channel.send(`You Already Claimed Your Daily Reward. Next Reward Availible In **${time.hours} Hours ${time.minutes} Minutes ${time.seconds} Seconds**`)
         }else {
             let dailyreward = new Discord.MessageEmbed()
             .setAuthor("Daily", message.author.displayAvatarURL)
