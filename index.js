@@ -54,7 +54,7 @@ client.on('message', async message => {
             message.channel.send(`You Already Worked. Please Come Back In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
        }else {
            let amountearned = Math.floor(Math.random() *500) + 1
-           let jobs = ["Assasin", "Gangster", "Marine Biologist", "SpeedWagon Foundation Employee", "Kame Yu Department Employee", "Manga Artist", "Fortune Teller", "Prison Guard", "The President", "Fruit Parlor Employee", "Priest"]
+           let jobs = ["Assasin", "Gangster", "Marine Biologist", "SpeedWagon Foundation Employee", "Kame Yu Department Employee", "Manga Artist", "Fortune Teller", "Prison Guard", "President", "Fruit Parlor Employee", "Priest"]
            let job = jobs[Math.floor(Math.random() *jobs.length)]
            let working = new Discord.MessageEmbed()
            .setAuthor(`${message.author.tag} Got Paid`, message.author.displayAvatarURL())
