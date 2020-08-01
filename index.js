@@ -30,6 +30,7 @@ client.on('message', async message=>{
         .addField("Deaths Total", data.deaths)
         .addField("Deaths Today", data.todayDeaths)
         .addField("Active Cases", data.active)
+        .addField("Cases In Critical Condition", data.critical)
         .addField("Recovered", data.recovered)
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
