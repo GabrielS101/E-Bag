@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const randomPuppy = require('random-puppy');
+const covid = require('covidapi');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -18,6 +19,15 @@ client.on('message', async message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
+        case 'covidall':
+        const data = await api.all()
+        const coronavirus = new Discord.MessageEmbed
+        .setColor("Red")
+        .addField("Cases", data.cases)
+        .addField("Deaths", data.deaths)
+        .addField("Recovered", data.recovered)
+        message.channel.send(coronavirus)
+        break;
         case 'meme':
         const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
