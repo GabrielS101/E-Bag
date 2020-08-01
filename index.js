@@ -66,7 +66,7 @@ client.on('message', async message=>{
         .addField("Deaths Total", statedata.deaths)
         .addField("Deaths Today", statedata.todayDeaths)
         .addField("Active Cases", statedata.active)
-        .addField("Cases In Critical Condition", countrydata.critical)
+        .addField("Cases In Critical Condition", statedata.critical)
         .addField("Recovered", statedata.recovered)
         message.channel.send(statecoronavirus) 
        }break; 
