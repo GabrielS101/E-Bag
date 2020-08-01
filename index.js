@@ -9,21 +9,6 @@ client.on('ready', () =>{
     }).catch(console.error);
 })
 
-client.on('message', async message => {
-    if(message.content === "e-meme"){
-        const subReddits = ["dankmeme", "meme", "memes"]
-        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
-
-        const img = await randomPuppy(random);
-        const meme = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setImage(img)
-        .setTitle(`From /r/${random}`)
-        .setURL(`https://reddit.com/r/${random}`)
-        message.channel.send(meme)
-    }
-})
-
 client.login(process.env.token);
 
 const PREFIX = "e-"
@@ -33,7 +18,18 @@ client.on('message', message=>{
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
+        case 'meme':
+            const subReddits = ["dankmeme", "meme", "memes"]
+        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
+        const img = await randomPuppy(random);
+        const meme = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setImage(img)
+        .setTitle(`From /r/${random}`)
+        .setURL(`https://reddit.com/r/${random}`)
+        message.channel.send(meme)
+        break;
         case 'kick':
             if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
