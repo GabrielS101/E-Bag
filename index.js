@@ -50,7 +50,6 @@ client.on('message', async message=>{
         .addField("Active Cases", countrydata.active)
         .addField("Cases In Critical Condition", countrydata.critical)
         .addField("Recovered", countrydata.recovered)
-        .addField("Affected Countries", countrydata.affectedCountries)
         message.channel.send(countrycoronavirus)
        }break;
         case 'meme':
