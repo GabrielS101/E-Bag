@@ -61,7 +61,7 @@ client.on('message', async message => {
 
            let working = new Discord.MessageEmbed()
            .setAuthor(`${message.author.tag} Got Paid`, message.author.displayAvatarURL())
-           .setDescription(`${message.author} Worked As A ${job} And Earned ${amountearned}`)
+           .setDescription(`${message.author} Worked As A ${job} And Earned ${amountearned} Dollars`)
            message.channel.send(working)
            db.add(`money_${message.author.id}`, amountearned)
            db.set(`worked_${message.author.id}`, Date.now())
