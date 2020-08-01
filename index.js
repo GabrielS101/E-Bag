@@ -4,6 +4,7 @@ const randomPuppy = require('random-puppy');
 const covid = require('covidapi');
 const { countries } = require('covidapi');
 const db = require('quick.db');
+const parsems = require('parse-ms');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -27,6 +28,24 @@ client.on('message', async message => {
         if (money === null) money = 0
         message.channel.send(`${user} You Have ${money} Dollars`)
         break;
+        case 'daily':
+        let daily = await db.fetch(`daily_${message.author.id}`);
+        let timeout = 86400000
+        let amount = 500
+        if (daily != null && timeout - (Date.now() - daily) > 0){
+            let time = parsems(timeout - (Date.now() - daily));
+            message.channel.send(`You Already Claimed Your Daily Reward. Next Reward Availible In **${time.hours} Hours ${time.minutes} Minutes ${time.Seconds} Seconds**`)
+        }else {
+            let dailyreward = new Discord.MessageEmbed()
+            .setAuthor("Daily", message.author.displayAvatarURL)
+            .setColor("GREEN")
+            .setDescription("**Daily Rewards**")
+            .addField("Collected", amount)
+            message.channel.send(dailyreward)
+
+            db.add(`money_${message.author.id}`, amount)
+            db.add(`daily_${message.author.id}`, Date.now())
+        }
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
