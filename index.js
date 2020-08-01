@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
-    bot.user.setActivity('On PC 2', {
+    client.user.setActivity('On PC 2', {
         type: 'PLAYING'
     }).catch(console.error);
 })
