@@ -19,8 +19,7 @@ client.on('message', async message=>{
 
     switch(args[0].toLowerCase()) {
         case 'meme':
-        setTimeout(5000);
-        const subReddits = ["dankmeme", "meme", "memes", "dankmemes"]
+        const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
         const img = await randomPuppy(random);
         const meme = new Discord.MessageEmbed()
