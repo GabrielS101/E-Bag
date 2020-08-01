@@ -60,7 +60,7 @@ client.on('message', async message => {
            let job = jobs[Math.floor(Math.random() *jobs.length)]
 
            let working = new Discord.MessageEmbed()
-           .setAuthor(`${message.author.tag} Got Paid`, displayAvatarURL())
+           .setAuthor(`${message.author.tag} Got Paid`, message.author.displayAvatarURL())
            .setDescription(`${message.author} Worked As A ${job} And Earned ${amountearned}`)
            message.channel.send(working)
            db.add(`money_${message.author.id}`, amountearned)
