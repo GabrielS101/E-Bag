@@ -22,6 +22,7 @@ client.on('message', async message=>{
         case 'covidall':
         const data = await covid.all()
         const coronavirus = new Discord.MessageEmbed()
+        .setTitle("Worldwide Covid-19 Data")
         .setColor(0xe62012)
         .addField("Cases", data.cases)
         .addField("Deaths", data.deaths)
