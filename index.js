@@ -36,7 +36,7 @@ client.on('message', async message=>{
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
         break;
-        case `covid${countrycovid[1]}`:
+        case `covid${countries}`:
         const countrycovid = message.content.slice(PREFIX.length).split(' ')
         const countrydata = await covid.countries({country: countrycovid})
         const countrycoronavirus = new Discord.MessageEmbed()
