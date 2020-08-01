@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const randomPuppy = require('random-puppy');
 
-bot.on('ready', () =>{
+client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
     bot.user.setActivity('On PC 2', {
         type: 'PLAYING'
     }).catch(console.error);
 })
 
-bot.on('message', async message => {
+client.on('message', async message => {
     if(message.content === "e-meme"){
         const subReddits = ["dankmeme", "meme", "memes"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
@@ -24,11 +24,11 @@ bot.on('message', async message => {
     }
 })
 
-bot.login(process.env.token);
+client.login(process.env.token);
 
 const PREFIX = "e-"
 
-bot.on('message', message=>{
+client.on('message', message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
@@ -1032,13 +1032,13 @@ bot.on('message', message=>{
          } 
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "Oof"){
         msg.reply('O o f');       //this command is if you want the bot to ping you without prefix when responding.
     }
 })
 
-bot.on('message', message=>{
+client.on('message', message=>{
 
     let args = message.content. substring(PREFIX.length).split(" ");
 
@@ -1049,61 +1049,61 @@ bot.on('message', message=>{
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I, Giorno Giovanna, Have A Dream"){
         msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');       //this command is if you want no prefix and no ping.
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I Giorno Giovanna Have A Dream"){
         msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I, GIORNO GIOVANNA, HAVE A DREAM"){
         msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I GIORNO GIOVANNA HAVE A DREAM"){
         msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I giorno giovanna have a dream"){
         msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "i giorno giovanna have a dream"){
         msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I Giorno Giovanna have a dream"){
         msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I, giorno giovanna, have a dream"){
         msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "i, giorno giovanna, have a dream"){
         msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
     }
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     if(msg.content === "I, Giorno Giovanna, have a dream"){
         msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
