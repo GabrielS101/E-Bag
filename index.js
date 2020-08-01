@@ -39,7 +39,7 @@ client.on('message', async message=>{
         .addField("Recovered", data.recovered)
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
-        }else if(message.content.startsWith("e-country")){
+        }else if(message.content.startsWith("e-covid")){
         const countrycovid = message.content.slice(PREFIX.length).split(' ')
         const countrydata = await covid.countries({country: countrycovid})
         const countrycoronavirus = new Discord.MessageEmbed()
@@ -55,7 +55,7 @@ client.on('message', async message=>{
         .addField("Cases In Critical Condition", countrydata.critical)
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
-       }else if(message.content.startsWith("e-state")){
+       }else if(message.content.startsWith("e-covid")){
         const statecovid = message.content.slice(PREFIX.length).split(' ')
         const statedata = await covid.states({state: statecovid})
         const statecoronavirus = new Discord.MessageEmbed()
