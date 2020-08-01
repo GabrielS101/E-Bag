@@ -65,7 +65,7 @@ client.on('message', async message => {
            message.channel.send(working)
            db.add(`money_${message.author.id}`, amountearned)
            db.set(`worked_${message.author.id}`, Date.now())
-       }break;
+        }}break
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
