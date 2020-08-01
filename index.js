@@ -36,7 +36,8 @@ client.on('message', async message=>{
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
         break;
-        case `covid${countries}`:
+        case 'covid':
+             if(args[1] === `${countries}`){
         const countrycovid = message.content.slice(PREFIX.length).split(' ')
         const countrydata = await covid.countries({country: countrycovid})
         const countrycoronavirus = new Discord.MessageEmbed()
@@ -52,6 +53,7 @@ client.on('message', async message=>{
         .addField("Recovered", countrydata.recovered)
         .addField("Affected Countries", countrydata.affectedCountries)
         message.channel.send(countrycoronavirus)
+        }
         break;
         case 'meme':
         const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
