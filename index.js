@@ -10,7 +10,7 @@ bot.on('ready', () =>{
 
 bot.login(process.env.token);
 
-const PREFIX = "E-"
+const PREFIX = "e-"
 
 bot.on('message', message=>{
 
