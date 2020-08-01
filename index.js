@@ -51,7 +51,22 @@ client.on('message', async message=>{
         .addField("Cases In Critical Condition", countrydata.critical)
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
-       }break;
+       }else if(message.content.startsWith("e-covid")){
+        const continentcovid = message.content.slice(PREFIX.length).split(' ')
+        const continentdata = await covid.continents({continent: continentcovid})
+        const continentcoronavirus = new Discord.MessageEmbed()
+        .setTitle(`${continentcovid[1]} Covid-19 Data`)
+        .setColor(0xe62012)
+        .addField("Tests", continentdata.tests)
+        .addField("Cases Total", continentdata.cases)
+        .addField("Cases Today", continentdata.todayCases)
+        .addField("Deaths Total", continentdata.deaths)
+        .addField("Deaths Today", continentdata.todayDeaths)
+        .addField("Active Cases", continentdata.active)
+        .addField("Cases In Critical Condition", continentdata.critical)
+        .addField("Recovered", continentdata.recovered)
+        message.channel.send(continentcoronavirus)
+       }break; 
         case 'meme':
         const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
