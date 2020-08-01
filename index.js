@@ -22,10 +22,10 @@ client.on('message', async message=>{
 
     switch(args[0].toLowerCase()) {
         case 'balance':
-        let user = message.mentions.user.first() || message.author
-        let money = db.fetch(`money_${user.id}`)
+        let person = message.mentions.user.first() || message.author
+        let money = db.fetch(`money_${person.id}`)
         if (money === null) money = 0
-        message.channel.send(`${user} You Have ${money} Dollars`)
+        message.channel.send(`${person} You Have ${money} Dollars`)
         break;
         case 'covid':
         if(args[1] === 'world'){
