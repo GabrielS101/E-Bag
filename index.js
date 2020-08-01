@@ -28,7 +28,7 @@ client.login(process.env.token);
 
 const PREFIX = "e-"
 
-client.on('message', message=>{
+client.on('message', async message=>{
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
