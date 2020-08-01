@@ -21,13 +21,18 @@ client.on('message', async message=>{
     switch(args[0].toLowerCase()) {
         case 'covidall':
         const data = await covid.all()
-        const coronavirus = new Discord.MessageEmbed()
+        const worldcoronavirus = new Discord.MessageEmbed()
         .setTitle("Worldwide Covid-19 Data")
         .setColor(0xe62012)
-        .addField("Cases", data.cases)
-        .addField("Deaths", data.deaths)
+        .addField("Tests", data.tests)
+        .addField("Cases Total", data.cases)
+        .addField("Cases Today", data.todayCases)
+        .addField("Deaths Total", data.deaths)
+        .addField("Deaths Today", data.todayDeaths)
+        .addField("Active Cases", data.active)
         .addField("Recovered", data.recovered)
-        message.channel.send(coronavirus)
+        .addField("Affected Countries", data.affectedCountries)
+        message.channel.send(worldcoronavirus)
         break;
         case 'meme':
         const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
