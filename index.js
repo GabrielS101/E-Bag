@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const randomPuppy = require('random-puppy');
 const covid = require('covidapi');
+const { countries } = require('covidapi');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -34,6 +35,23 @@ client.on('message', async message=>{
         .addField("Recovered", data.recovered)
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
+        break;
+        case `covid${countrycovid[1]}`:
+        const countrycovid = message.content.slice(PREFIX.length).split(' ')
+        const countrydata = await covid.countries({country: countrycovid})
+        const countrycoronavirus = new Discord.MessageEmbed()
+        .setTitle(`${countrycovid[1]} Covid-19 Data`)
+        .setColor(0xe62012)
+        .addField("Tests", countrydata.tests)
+        .addField("Cases Total", countrydata.cases)
+        .addField("Cases Today", countrydata.todayCases)
+        .addField("Deaths Total", countrydata.deaths)
+        .addField("Deaths Today", countrydata.todayDeaths)
+        .addField("Active Cases", countrydata.active)
+        .addField("Cases In Critical Condition", countrydata.critical)
+        .addField("Recovered", countrydata.recovered)
+        .addField("Affected Countries", countrydata.affectedCountries)
+        message.channel.send(countrycoronavirus)
         break;
         case 'meme':
         const subReddits = ["dankmeme", "meme", "memes", "dankmemes", "pewdiepie"]
