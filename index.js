@@ -16,16 +16,16 @@ client.login(process.env.token);
 
 const PREFIX = "e-"
 
-client.on('message', async message=>{
+client.on('message', async message => {
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
         case 'balance':
-        let person = message.mentions.person.first() || message.author
-        let money = db.fetch(`money_${person.id}`)
+        let user = message.mentions.users.first() || message.author
+        let money = db.fetch(`money_${user.id}`)
         if (money === null) money = 0
-        message.channel.send(`${person} You Have ${money} Dollars`)
+        message.channel.send(`${user} You Have ${money} Dollars`)
         break;
         case 'covid':
         if(args[1] === 'world'){
@@ -76,8 +76,8 @@ client.on('message', async message=>{
             if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
-            var user = message.mentions.members.first();
-            if(user){
+            var person = message.mentions.members.first();
+            if(person){
                 var member = message.guild.member(user);
                 if(member){
                     member.kick('You have been kicked').then(() =>{
@@ -98,8 +98,8 @@ client.on('message', async message=>{
         if(!message.member.hasPermission("ADMINISTRATOR" && "BAN_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Ban Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
-            var user = message.mentions.members.first();
-            if(user){
+            var person = message.mentions.members.first();
+            if(person){
                 var member = message.guild.member(user);
                 if(member){
                     member.ban({reason: 'Banned'}).then(() =>{
