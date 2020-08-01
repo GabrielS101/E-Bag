@@ -5,7 +5,6 @@ const covid = require('covidapi');
 const { countries } = require('covidapi');
 const { states } = require('covidapi');
 const { continents } = require('covidapi');
-const db = require('quickdb');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
