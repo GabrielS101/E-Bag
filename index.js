@@ -55,11 +55,11 @@ client.on('message', async message=>{
         message.channel.send(countrycoronavirus)
        }break;
        case 'covid':
-        if(args[1] === 'state'){
+        if(args[2] === 'state'){
         const statecovid = message.content.slice(PREFIX.length).split(' ')
         const statedata = await covid.states({state: statecovid})
         const statecoronavirus = new Discord.MessageEmbed()
-        .setTitle(`${statecovid[2]} Covid-19 Data`)
+        .setTitle(`${statecovid[1]} Covid-19 Data`)
         .setDescription("Data May Vary From Other Sources")
         .setColor(0xe62012)
         .addField("Tests", statedata.tests)
