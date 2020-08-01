@@ -1,5 +1,15 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const lib = require("reddit-package");
+
+client.on('message', async message => {
+  if (message.content === "e-meme") {
+    let data = lib.reddit('meme')
+
+    message.channel.send(data.img) //sends the image 
+  }
+
+})
 
 bot.on('ready', () =>{
     console.log('E-Bag Is Now Online');
