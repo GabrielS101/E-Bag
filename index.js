@@ -19,8 +19,7 @@ bot.on('message', message=>{
     switch(args[0].toLowerCase()) {
 
         case 'kick':
-            if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command')
-            .then(message => message.delete({timeout: 5000}));
+            if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
             var user = message.mentions.members.first();
@@ -42,8 +41,7 @@ bot.on('message', message=>{
             }
        break;
        case 'ban':
-        if(!message.member.hasPermission("ADMINISTRATOR" && "BAN_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Ban Members Permission Can Use This Command')
-            .then(message => message.delete({timeout: 5000}));
+        if(!message.member.hasPermission("ADMINISTRATOR" && "BAN_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Ban Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
             var user = message.mentions.members.first();
