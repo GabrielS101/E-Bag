@@ -50,7 +50,7 @@ client.on('message', async message => {
         {let timeoutworked = 3600000
         let worked = db.fetch(`worked_${message.author.id}`)
         if (worked != null && timeoutworked - (Date.now() - worked) > 0){
-            let time = parsems(timeout - (Date.now() - worked));
+            let time = parsems(timeoutworked - (Date.now() - worked));
             message.channel.send(`You Already Worked. Please Come Back In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
        }else {
            let amountearned = Math.floor(Math.random() *500) + 1
