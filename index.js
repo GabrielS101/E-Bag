@@ -146,6 +146,7 @@ bot.on('message', message=>{
             message.channel.send(EventStands);
         break;
         case 'adminstands':
+            if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             const AdminStands = new Discord.MessageEmbed()
             .setTitle('Admin Stands')
             .setDescription('4 Total Admin Stands.')
@@ -312,7 +313,8 @@ bot.on('message', message=>{
          .setColor(0xde2f83)
          message.channel.send(CrazyDiamond);
         break;
-        case 'metallica':  
+        case 'metallica':
+          if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
          const Metallica = new Discord.MessageEmbed()             
          .setTitle('Metallica')
          .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
@@ -338,7 +340,8 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(Metallica);
         break;
-        case 'mr.president':  
+        case 'mr.president':
+          if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
          const MrPresident = new Discord.MessageEmbed()             
          .setTitle('Mr.President')
          .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
@@ -361,7 +364,8 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
          break;
-         case 'oceanman':  
+         case 'oceanman':
+           if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
          const OceanMan = new Discord.MessageEmbed()             
          .setTitle('Ocean Man')
          .setDescription("This Stand Is The Exclusive Property Of <@592471909707546634>")
@@ -383,8 +387,9 @@ bot.on('message', message=>{
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(OceanMan);
          break;
-         case 'thtw':  
-         const TheHandTheWorld = new Discord.MessageEmbed()             
+         case 'thtw':
+           if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
+         const TheHandTheWorld = new Discord.MessageEmbed()       
          .setTitle('The Hand: The World')
          .setDescription("This Stand Is The Exclusive Property Of <@502242566272581662>")
          .addField('Health', '900.')
