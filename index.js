@@ -46,6 +46,26 @@ client.on('message', async message => {
             db.add(`money_${message.author.id}`, amount)
             db.add(`daily_${message.author.id}`, Date.now())
         }
+        break;
+        case 'work':
+        {let timeoutworked = 3600000
+        let worked = db.fetch(`worked_${message.author.id}`)
+        if (worked != null && timeoutworked - (Date.now() - worked) > 0){
+            let time = parsems(timeout - (Date.now() - worked));
+            message.channel.send(`You Already Worked. Please Come Back In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
+       }else {
+           let amountearned = Math.floor(Math.random() *500) + 1
+
+           let jobs = ["Assasin", "Gangster", "Marine Biologist", "SpeedWagon Foundation Employee"]
+           let job = jobs[Math.floor(Math.random() *jobs.length)]
+
+           let working = new Discord.MessageEmbed()
+           .setAuthor(`${message.author.tag} Got Paid`, displayAvatarURL())
+           .setDescription(`${message.author} Worked As A ${job} And Earned ${amountearned}`)
+           message.channel.send(working)
+           db.add(`money_${message.author.id}`, amountearned)
+           db.set(`worked_${message.author.id}`, Date.now())
+       }break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
