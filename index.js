@@ -168,7 +168,7 @@ client.on('message', async message => {
                .setDescription(`${message.author} Gave ${giveamount} Dollars To ${user}`)
              message.channel.send(givemoney)
              db.subtract(`money_${message.author.id}`, giveamount)
-             db.add(`money_${message.user.id}`, giveamount)
+             db.add(`money_${user.id}`, giveamount)
         if(!giveamount === Number) {
           message.channel.send("Amount To Give Must Be In Number Form")
         }
