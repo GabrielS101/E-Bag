@@ -13,8 +13,6 @@ client.on('ready', () =>{
     }).catch(console.error);
 })
 
-
-
 client.login(process.env.token);
 
 const PREFIX = "e-"
