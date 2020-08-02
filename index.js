@@ -88,9 +88,8 @@ client.on('message', async message => {
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         let unwantedamount = (args[1])
-         let extra = (unwantedamount - money)
         if(money < unwantedamount) {
-            message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra}`)
+            message.channel.send("You Dont Have That Much To Get Rid Of")
         }else {
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!unwantedamount === Number) {
