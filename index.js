@@ -159,7 +159,7 @@ client.on('message', async message => {
           var exra = (giveamount - money)
           if (money < giveamount) {
             message.channel.send(`You Dont Have Enough Money To Give. You Went Over By ${extra} Dollars`)
-          }
+          }else {
           if(!giveamount) {
             message.channel.send('No Amount To Give Specified')
           }else {
@@ -172,6 +172,7 @@ client.on('message', async message => {
         if(!giveamount === Number) {
           message.channel.send("Amount To Give Must Be In Number Form")
         }
+          }
           }
         break;
         case 'covid':
