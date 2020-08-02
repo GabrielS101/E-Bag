@@ -75,11 +75,11 @@ client.on('message', async message => {
         case `get`:
         let wantedamount = (args[1])
         if (!wantedamount) {
-          message.channel.send("Please Specify An Amount To Get")
+          message.channel.send("Amount To Get Not Specified")
         }else {
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!wantedamount === Number) {
-            message.channel.send("Please Specify An Amount To Get")
+            message.channel.send("Amount To Get Must Be In Number Form")
         }else {
         const adminget = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag} Got ${wantedamount}`, message.author.displayAvatarURL())
@@ -93,14 +93,14 @@ client.on('message', async message => {
         let unwantedamount = (args[1])
         let extra = (unwantedamount - money)
         if (!unwantedamount) {
-          message.channel.send("Please Specify An Amount To Get Rid Of")
+          message.channel.send("Amount To Get Rid Of Not Specified")
         }else {
         if(money < unwantedamount) {
             message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         }else {
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!unwantedamount === Number) {
-            message.channel.send("Please Specify An Amount To Get Rid Of")
+            message.channel.send("Amount To Get Rid Of Must Be In Number Form")
         }else {
         const adminremove = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag} Removed ${unwantedamount}`, message.author.displayAvatarURL())
