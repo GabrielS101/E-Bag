@@ -77,7 +77,7 @@ client.on('message', async message => {
         let buyer = db.fetch(`money_${message.author.id}`)
         if (!args[0]) {
             message.channel.send('What Are You Trying To Buy?')
-        if (author < 1500) {
+        if (buyer < 1500) {
                 message.reply('You Cannot Afford To Buy A Stand Arrow')
             }else {
                 let merchandise = db.fetch(message.author.id, { merchandise: [] })
@@ -87,7 +87,7 @@ client.on('message', async message => {
         }}}break;
         case 'buy':
             if(args[1] === 'rokakaka'){{
-        if (author < 800) {
+        if (buyer < 800) {
             message.reply('You Cannot Afford To Buy A Rokakaka')
         }else {
             db.push(message.author.id, "Rokakaka")
