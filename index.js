@@ -50,6 +50,7 @@ dispatcher.setVolumeLogarithmic(5 / 5)
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
+        
         case 'fight':
           //checks if the username to fight is in the message
     let author1 = message.author.username;
