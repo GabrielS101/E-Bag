@@ -23,7 +23,7 @@ client.on('message', async message => {
 
     switch(args[0].toLowerCase()) {
         case 'balance':
-        let user = message.mentions.users.first() || message.author
+        var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         if (money === null) money = 0
         message.channel.send(`${user} You Have ${money} Dollars`)
@@ -85,6 +85,7 @@ client.on('message', async message => {
         db.add(`money_${message.author.id}`, wantedamount) 
        }break;
        case 'remove':
+        var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         if(money < unwantedamount) {
             message.channel.send("You Dont Have That Much To Get Rid Of")
