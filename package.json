@@ -11,12 +11,9 @@
   "dependencies": {
     "covidapi": "^0.5.0",
     "discord.js": "^12.2.0",
-    "ffmpeg-static": "^4.2.6",
     "node-gyp": "^7.0.0",
-    "opusscript": "0.0.7",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.1",
-    "random-puppy": "^1.1.0",
-    "ytdl-core": "^3.2.0"
+    "random-puppy": "^1.1.0"
   }
 }

@@ -5,9 +5,6 @@ const covid = require('covidapi');
 const { countries } = require('covidapi');
 const db = require('quick.db');
 const parsems = require('parse-ms');
-const ytdl = require('ytdl-core');
-const opusscript = require('opusscript');
-const ffmpegstatic = require('ffmpeg-static');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -21,31 +18,6 @@ client.login(process.env.token);
 const PREFIX = "e-"
 
 client.on('message', async message => {
-
-    if (message.content.startsWith(`${PREFIX}play`)) {
-        const voiceChannel = message.member.voice.channel
-    { if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
-        const permissions = voiceChannel.permissionsFor(message.client.user)
-        if(!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
-        if(!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
-}try {
-    var connection = await voiceChannel.join()
-}catch (error) {
-    console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
-    return message.channel.send(`There Was A Error Connecting To The Voice Channel: ${error}`)
-}
-const dispatcher = connection.play(ytdl(args[1]))
-.on('finish', () => {
-    voiceChannel.leave()
-})
-.on('error', error => {
-    console.log(error)
-})
-dispatcher.setVolumeLogarithmic(5 / 5)
-}else if (message.content.startsWith(`${PREFIX}stop`)) {
-    if(!message.author.voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
-    message.member.voice.channel.leave()
-    return undefined}
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
