@@ -132,7 +132,7 @@ client.on('message', async message => {
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         let unwantedamount = (args[1])
-        var exra = (unwantedamount - money)
+        var extra = (unwantedamount - money)
         if (!unwantedamount) {
           message.channel.send("Amount To Get Rid Of Not Specified")
         }else {
@@ -150,6 +150,7 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, unwantedamount) 
      }}}break;
         case 'give':
+          var user = message.mentions.users.first()
           if(!user) {
             message.channel.send("Person To Give Money To Not Specified")
           }
