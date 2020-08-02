@@ -150,6 +150,9 @@ client.on('message', async message => {
         case 'give':
           var user = message.author
           let otheruser = message.mentions.users.first() 
+          if(otheruser.bot ==  true)
+        return message.reply('Cannot Give To A Bot');
+        if(user.id == message.author.id) return message.reply('Cannot Give To Yourself');
           var money = db.fetch(`money_${user.id}`)
           var othermoney = db.fetch(`money_${otheruser.id}`)
           if(!otheruser) {
