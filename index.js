@@ -84,6 +84,21 @@ client.on('message', async message => {
         message.channel.send(adminget)
         db.add(`money_${message.author.id}`, wantedamount) 
        }break;
+       case 'remove':
+        if(money < unwantedamount) {
+            message.channel.send("You Dont Have That Much To Get Rid Of")
+        }else {
+        let unwantedamount = (args[1])
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
+        if(!wantedamount === Number) {
+            message.channel.send("Please Specify An Amount To Get")
+        }else {
+        const adminremove = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.tag} Removed ${unwantedamount}`, message.author.displayAvatarURL())
+        .setDescription(`${message.author} Removed ${unwantedamount} Dollars`)
+        message.channel.send(adminremove)
+        db.subtract(`money_${message.author.id}`, unwantedamount) 
+      }}break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
