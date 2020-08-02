@@ -80,6 +80,7 @@ client.on('message', async message => {
         }else {
         const adminget = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag} Got ${wantedamount}`, message.author.displayAvatarURL())
+        .setDescription(`${message.author} Got ${wantedamount} Dollars`)
         message.channel.send(adminget)
         db.add(`money_${message.author.id}`, wantedamount) 
        }break;
