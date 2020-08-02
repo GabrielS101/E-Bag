@@ -51,7 +51,7 @@ client.on('message', async message => {
         let worked = db.fetch(`worked_${message.author.id}`)
         if (worked != null && timeoutworked - (Date.now() - worked) > 0){
             let time = parsems(timeoutworked - (Date.now() - worked));
-            message.channel.send(`You Already Worked. Please Come Back In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
+            message.channel.send(`You Already Worked. Please Come Back In ${time.minutes} Minutes And ${time.seconds} Seconds`)
        }else {
            let amountearned = Math.floor(Math.random() *500) + 1
            let jobs = ["Assasin", "Gangster", "Marine Biologist", "SpeedWagon Foundation Employee", "Kame Yu Department Employee", "Manga Artist", "Fortune Teller", "Prison Guard", "United States President", "Fruit Parlor Employee", "Priest"]
