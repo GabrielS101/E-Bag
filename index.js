@@ -150,8 +150,10 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, unwantedamount) 
      }}}break;
         case 'give':
-          var user = message.mentions.users.first() || message.author
+          var user = message.author
+          let otheruser = message.mentions.users.first() 
           var money = db.fetch(`money_${user.id}`)
+          var othermoney = db.fetch(`money_${otheruser.id}`)
           if(!user) {
             message.channel.send("Person To Give Money To Not Specified")
           }
@@ -168,7 +170,7 @@ client.on('message', async message => {
                .setDescription(`${message.author} Gave ${giveamount} Dollars To ${user}`)
              message.channel.send(givemoney)
              db.subtract(`money_${message.author.id}`, giveamount)
-             db.add(`money_${user.id}`, giveamount)
+             db.add(`money_${othrruser.id}`, giveamount)
         if(!giveamount === Number) {
           message.channel.send("Amount To Give Must Be In Number Form")
         }
