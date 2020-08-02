@@ -92,7 +92,7 @@ client.on('message', async message => {
         let unwantedamount = (args[1])
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!unwantedamount === Number) {
-            message.channel.send("Please Specify An Amount To Get")
+            message.channel.send("Please Specify An Amount To Get Rid Of")
         }else {
         const adminremove = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag} Removed ${unwantedamount}`, message.author.displayAvatarURL())
