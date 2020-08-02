@@ -22,7 +22,11 @@ client.on('message', async message => {
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
-        
+        case 'turtle':
+        if(args[1] === 'overwrite'){
+            var gayperson = message.author.id
+            message.channel.send(`<@${gayperson}> Is Gay`)}
+        break;
         case 'fight':
           //checks if the username to fight is in the message
     let author1 = message.author.username;
