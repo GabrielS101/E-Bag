@@ -1143,14 +1143,9 @@ client.on('message', async message => {
             message.channel.send('I Love You Mom')
             break;
         case 'invite':
-            if(args[1] === 'server'){
-                message.channel.send('https://discord.gg/pRXmQUr')}
-        case 'invite':
-             if(args[1] === 'bot'){
-                message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')}
-         } 
-})
-
+             message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
+            break;
+    
 client.on('message', msg=>{
     if(msg.content === "Oof"){
         msg.reply('O o f');       //this command is if you want the bot to ping you without prefix when responding.
