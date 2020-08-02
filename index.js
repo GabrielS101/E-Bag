@@ -52,14 +52,14 @@ client.on('message', async message => {
             })
             .then((collected) => {
                 if (collected.first().content == 'yes') {
-                    message.channel.send(`${challenged} Has Accepted Thee Challenge`);
+                    message.channel.send(`${challenged} Has Accepted The Challenge`);
                 }
                 else if(collected.first().content == 'no') {
                     message.channel.send(`nope`);
                 }
             })
             .catch(() => {
-                message.channel.send(`No response. Fight Has een cancelled.`);
+                message.channel.send(`No response. Fight Has Been cancelled.`);
             });
         });       
         break;
