@@ -154,7 +154,7 @@ client.on('message', async message => {
           let otheruser = message.mentions.users.first() 
           var money = db.fetch(`money_${user.id}`)
           var othermoney = db.fetch(`money_${otheruser.id}`)
-          if(!user) {
+          if(!otheruser) {
             message.channel.send("Person To Give Money To Not Specified")
           }
           let giveamount = (args[2])
@@ -167,10 +167,10 @@ client.on('message', async message => {
           }else {
             const givemoney = new Discord.MessageEmbed()
              .setAuthor(`${message.author.tag} Gave ${giveamount} Dollars`, message.author.displayAvatarURL())
-               .setDescription(`${message.author} Gave ${giveamount} Dollars To ${user}`)
+               .setDescription(`${message.author} Gave ${giveamount} Dollars To ${otheruser}`)
              message.channel.send(givemoney)
              db.subtract(`money_${message.author.id}`, giveamount)
-             db.add(`money_${othrruser.id}`, giveamount)
+             db.add(`money_${otheruser.id}`, giveamount)
         if(!giveamount === Number) {
           message.channel.send("Amount To Give Must Be In Number Form")
         }
