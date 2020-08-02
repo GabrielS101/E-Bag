@@ -132,7 +132,7 @@ client.on('message', async message => {
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         let unwantedamount = (args[1])
-        let extra = (unwantedamount - money)
+        var exra = (unwantedamount - money)
         if (!unwantedamount) {
           message.channel.send("Amount To Get Rid Of Not Specified")
         }else {
@@ -154,6 +154,9 @@ client.on('message', async message => {
             message.channel.send("Person To Give Money To Not Specified")
           }
           let giveamount = (args[2])
+          var exra = (giveamount - money)
+          if (money < giveamount) {
+            message.channel.send(`You Dont Enough Money To Give. You Went Over By ${extra} Dollars`)
           if(!giveamount) {
             message.channel.send('No Amount To Give Specified')
           }else {
