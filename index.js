@@ -73,7 +73,6 @@ client.on('message', async message => {
         message.channel.send(inventory)
         break;
         case `get`:
-        let money = db.fetch(`money_${user.id}`)
         let wantedamount = (args[1])
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!wantedamount === Number) {
@@ -86,6 +85,7 @@ client.on('message', async message => {
         db.add(`money_${message.author.id}`, wantedamount) 
        }break;
        case 'remove':
+        let money = db.fetch(`money_${user.id}`)
         if(money < unwantedamount) {
             message.channel.send("You Dont Have That Much To Get Rid Of")
         }else {
