@@ -62,7 +62,16 @@ client.on('message', async message => {
            message.channel.send(working)
            db.add(`money_${message.author.id}`, amountearned)
            db.set(`worked_${message.author.id}`, Date.now())
-        }}break
+        }}break;
+        case 'inventory':
+        let items = db.get(message.author.id)
+        let human = message.author
+        if(items === null) items = "You Have Nothing In Your Inventory"
+        let inventory = new Discord.MessageEmbed()
+        .setTitle(`${message.author.username}'s Inventory`)
+        .addField("Inventory", items)
+        message.channel.send(inventory)
+        break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
