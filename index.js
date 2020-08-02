@@ -170,6 +170,7 @@ client.on('message', async message => {
           message.channel.send("Amount To Give Must Be In Number Form")
         }
           }
+          }
         break;
         case 'covid':
         if(args[1] === 'world'){
