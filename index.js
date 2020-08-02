@@ -32,6 +32,7 @@ client.on('message', async message => {
         let daily = await db.fetch(`daily_${message.author.id}`);
         let timeout = 86400000
         let amount = 500
+        let wantedamount = args[2]
         if (daily != null && timeout - (Date.now() - daily) > 0){
             let time = parsems(timeout - (Date.now() - daily));
             message.channel.send(`You Already Claimed Your Daily Reward. Next Reward Availible In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
@@ -74,9 +75,14 @@ client.on('message', async message => {
         break;
         case `get`:
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
-        message.channel.send('You Got 500 Dollars')
-        db.add(`money_${message.author.id}`, amount)
-        break;
+        if(!wantedamount === Number) {
+            message.channel.send("Please Specify An Amount To Get")
+        }else {
+        const adminget = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.tag} Got ${wantedamount}`, message.author.displayAvatarURL())
+        message.channel.send(adminget)
+        db.add(`money_${message.author.id}`, wantedamount) 
+       }break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
