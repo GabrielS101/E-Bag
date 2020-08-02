@@ -45,7 +45,7 @@ client.on('message', async message => {
     var challenged = user.toString();
     message.channel.send(`${challenged}, ${author1} Has Challenged You To A Duel. Do You Accept The Challenge, Yes Or No?`)
         .then(() => {
-            message.channel.awaitMessages(response => response.content == 'yes' && message.author.id == fighter2 || response.content == 'no' && message.author.id == fighter2, {
+            message.channel.awaitMessages(response => response.content == 'yes' && response.author.id == fighter2 || response.content == 'no' && message.author.id == fighter2, {
                 max: 1,
                 time: 60000,
                 errors: ['time'],
