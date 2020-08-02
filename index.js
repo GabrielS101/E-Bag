@@ -76,7 +76,7 @@ client.on('message', async message => {
         let wantedamount = (args[1])
         if (!wantedamount) {
           message.channel.send("Please Specify An Amount To Get")
-        }
+        }else {
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!wantedamount === Number) {
             message.channel.send("Please Specify An Amount To Get")
@@ -86,7 +86,7 @@ client.on('message', async message => {
         .setDescription(`${message.author} Got ${wantedamount} Dollars`)
         message.channel.send(adminget)
         db.add(`money_${message.author.id}`, wantedamount) 
-       }break;
+     }}break;
        case 'remove':
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
@@ -94,7 +94,7 @@ client.on('message', async message => {
         let extra = (unwantedamount - money)
         if (!unwantedamount) {
           message.channel.send("Please Specify An Amount To Get Rid Of")
-        }
+        }else {
         if(money < unwantedamount) {
             message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         }else {
@@ -107,7 +107,7 @@ client.on('message', async message => {
         .setDescription(`${message.author} Removed ${unwantedamount} Dollars`)
         message.channel.send(adminremove)
         db.subtract(`money_${message.author.id}`, unwantedamount) 
-      }}break;
+     }}}break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
