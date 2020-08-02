@@ -7,6 +7,7 @@ const db = require('quick.db');
 const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
 const opusscript = require('opusscript');
+const voiceChannel = message.member.voice.channel
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -25,8 +26,7 @@ client.on('message', async message => {
 
     switch(args[0].toLowerCase()) {
         case 'play':
-        { const voiceChannel = message.member.voice.channel
-        if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
+        { if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
             const permissions = voiceChannel.permissionsFor(message.client.user)
             if(!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
             if(!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
