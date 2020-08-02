@@ -73,27 +73,27 @@ client.on('message', async message => {
         message.channel.send(inventory)
         break;
         case 'buy':
+        if(args[1] === 'arrow'){
         let buyer = db.fetch(`money_${message.author.id}`)
         if (!args[0]) {
             message.channel.send('What Are You Trying To Buy?')
-        }
-        if (args[0] === "stand arrow") {
-            if (author < 1500) {
+        if (author < 1500) {
                 message.reply('You Cannot Afford To Buy A Stand Arrow')
             }else {
                 let merchandise = db.fetch(message.author.id, { merchandise: [] })
                 db.push(message.author.id, "Stand Arrow")
                 message.channel.send("You Have Bough 1 Stand Arrow")
                 db.subtract(`money_${message.author.id}`, 1500)
-            }
-            if (args[0] === "rokakaka") {
-                if (author < 800) {
-                    message.reply('You Cannot Afford To Buy A Rokakaka')
-                }else {
-                    db.push(message.author.id, "Rokakaka")
-                    message.channel.send("You Have Bough 1 Rokakaka")
-                    db.subtract(`money_${message.author.id}`, 800)
         }}}break;
+        case 'buy':
+            if(args[1] === 'rokakaka'){{
+        if (author < 800) {
+            message.reply('You Cannot Afford To Buy A Rokakaka')
+        }else {
+            db.push(message.author.id, "Rokakaka")
+            message.channel.send("You Have Bough 1 Rokakaka")
+            db.subtract(`money_${message.author.id}`, 800)
+     }}}break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
