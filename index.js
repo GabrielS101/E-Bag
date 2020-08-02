@@ -73,6 +73,7 @@ client.on('message', async message => {
         message.channel.send(inventory)
         break;
         case `get`:
+        let money = db.fetch(`money_${user.id}`)
         let wantedamount = (args[1])
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!wantedamount === Number) {
