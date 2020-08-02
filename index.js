@@ -25,13 +25,13 @@ client.on('message', async message => {
 
     switch(args[0].toLowerCase()) {
         case 'play':
-        { const voicechannel = message.member.voice.channel
-        if(!voicechannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
-            const permissions = voicechannel.permissionsFor(message.client.user)
+        { const voicecChannel = message.member.voice.channel
+        if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
+            const permissions = voiceChannel.permissionsFor(message.client.user)
             if(!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
             if(!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     }try {
-        var connection = await voicechannel.join()
+        var connection = await voiceChannel.join()
     }catch (error) {
         console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
         return message.channel.send(`There Was A Error Connecting To The Voice Channel: ${error}`)
