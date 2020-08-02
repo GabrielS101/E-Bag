@@ -1091,7 +1091,7 @@ client.on('message', async message => {
         .addField("Life Imbue", 'Heal 100 health - 4 turn cooldown.')
         .addField("Tracking Fly", 'The enemy cannot dodge for 3 turns - 6 turn cooldown.')
         .addField("Tree", '8 turn cooldown - 6 turn wait - Dodge your opponents next attack and reflect it back at them, dealing 50% more damage they would have done to you.')
-        .addField("Consciousness Acceleration", '5 Turn Cooldown - 100 - Can Only Be Used If Punch Was Used Last Turn - Stun the opponent for 1 turn.')
+        .addField("Consciousness Acceleration", '100 - 5 Turn Cooldown - Can Only Be Used If Punch Was Used Last Turn - Stun the opponent for 1 turn.')
         .addField("7 Page MUDA", '60x8 - 6 turn cooldown - 6 turn wait - Can Only Be Used If Did You Really Think You’d Be That Lucky? Was Used Last Turn.')
         .addField("Did You Really Think You’d Be That Lucky?", '6 Turn Cooldown - 5 Turn Wait - Your opponent cannot dodge or block your next attack.')
         .addField("Life Create", '5 Turn Cooldown - 5 Turn Wait - Roll a 10 sided die depending on what you get is what damage you roll - 1-3 Frog reflect your opponents attack after using this. 4-6 Scorpion do 80x3. 5-9 Bird Add 1x to your next attack. 10 choose which animal you want')
