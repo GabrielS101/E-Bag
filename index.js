@@ -25,7 +25,7 @@ client.on('message', async message => {
 
     switch(args[0].toLowerCase()) {
         case 'play':
-        { const voicecChannel = message.member.voice.channel
+        { const voiceChannel = message.member.voice.channel
         if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
             const permissions = voiceChannel.permissionsFor(message.client.user)
             if(!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
@@ -38,7 +38,7 @@ client.on('message', async message => {
     }
     const dispatcher = connection.play(ytdl(args[1]))
     .on('finish', () => {
-        voicechannel.leave()
+        voiceChannel.leave()
     })
     .on('error', error => {
         console.log(error)
@@ -46,7 +46,7 @@ client.on('message', async message => {
     dispatcher.setVolumeLogarithmic(5 / 5)
         break;
         case 'stop':
-        if(!message.member.voicechannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
+        if(!message.member.voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
         message.member.voice.channel.leave()
         return undefined
         case 'fight':
