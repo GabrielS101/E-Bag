@@ -72,6 +72,11 @@ client.on('message', async message => {
         .addField("Inventory", items)
         message.channel.send(inventory)
         break;
+        case `get`:
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
+        message.channel.send('You Got 500 Dollars')
+        db.add(`money_${message.author.id}`, amount)
+        break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
