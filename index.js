@@ -162,7 +162,7 @@ client.on('message', async message => {
           if(!giveamount) {
             message.channel.send('No Amount To Give Specified')
           }else {
-            const givemoney = new Discord.messageEmbed
+            const givemoney = new Discord.messageEmbed()
              .setAuthor(`${message.author.tag} Gave ${giveamount} Dollars`, message.author.displayAvatarURL())
                .setDescription(`${message.author} Gave ${giveamount} Dollars To ${user}`)
              message.channel.send(givemoney)
