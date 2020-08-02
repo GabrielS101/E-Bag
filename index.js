@@ -27,7 +27,7 @@ client.on('message', async message => {
         case 'fight':
           //checks if the username to fight is in the message
     let author1 = message.author.username;
-    let user = message.mentions.users.first();
+    var user = message.mentions.users.first();
     if(!user) return message.reply("Opponent Not Specified");
 
     //checks if the users is trying to fight themselves
