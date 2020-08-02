@@ -144,11 +144,30 @@ client.on('message', async message => {
             message.channel.send("Amount To Get Rid Of Must Be In Number Form")
         }else {
         const adminremove = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.tag} Removed ${unwantedamount}`, message.author.displayAvatarURL())
+        .setAuthor(`${message.author.tag} Removed ${unwantedamount} Dollars`, message.author.displayAvatarURL())
         .setDescription(`${message.author} Removed ${unwantedamount} Dollars`)
         message.channel.send(adminremove)
         db.subtract(`money_${message.author.id}`, unwantedamount) 
      }}}break;
+        case 'give':
+          if(!user) {
+            message.channel.send("Person To Give Money To Not Specified")
+          }
+          let giveamount = (args[2])
+          if(!giveamount) {
+            message.channel.send('No Amount To Give Specified')
+          }else {
+            const givemoney = new Discord.messageEmbed
+             .setAuthor(`${message.author.tag} Gave ${giveamount} Dollars`, message.author.displayAvatarURL())
+               .setDescription(`${message.author} Gave ${giveamount} Dollars To ${user}`)
+             message.channel.send(givemoney)
+             db.subtract(`money_${message.author.id}`, giveamount)
+             db.add(`money_${message.user.id}`, giveamount)
+        if(!giveamount === Number) {
+          message.channel.send("Amount To Give Must Be In Number Form")
+        }
+          }
+        break;
         case 'covid':
         if(args[1] === 'world'){
         const data = await covid.all()
