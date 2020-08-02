@@ -26,7 +26,7 @@ client.on('message', async message => {
     switch(args[0].toLowerCase()) {
         case 'play':
             const voiceChannel = message.member.voice.channel
-        { if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
+        {{ if(!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
             const permissions = voiceChannel.permissionsFor(message.client.user)
             if(!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
             if(!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
@@ -44,11 +44,11 @@ client.on('message', async message => {
         console.log(error)
     })
     dispatcher.setVolumeLogarithmic(5 / 5)
-        break;
-        case 'stop':
+      }else if(message.content.startsWith(`${PREFIX}stop`)) {
         if(!message.member.voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
         message.member.voice.channel.leave()
         return undefined
+       }break;
         case 'fight':
           //checks if the username to fight is in the message
     let author1 = message.author.username;
