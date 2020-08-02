@@ -156,7 +156,7 @@ client.on('message', async message => {
             message.channel.send("Person To Give Money To Not Specified")
           }
           let giveamount = (args[2])
-          var exra = (giveamount - money)
+          var extra = (giveamount - money)
           if (money < giveamount) {
             message.channel.send(`You Dont Have Enough Money To Give. You Went Over By ${extra} Dollars`)
           }else {
