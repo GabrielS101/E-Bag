@@ -1145,7 +1145,7 @@ client.on('message', async message => {
         case 'invite':
              message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
             break;
-    }
+    })
     
 client.on('message', msg=>{
     if(msg.content === "Oof"){
