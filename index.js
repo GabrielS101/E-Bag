@@ -32,7 +32,6 @@ client.on('message', async message => {
         let daily = await db.fetch(`daily_${message.author.id}`);
         let timeout = 86400000
         let amount = 500
-        let wantedamount = args[2]
         if (daily != null && timeout - (Date.now() - daily) > 0){
             let time = parsems(timeout - (Date.now() - daily));
             message.channel.send(`You Already Claimed Your Daily Reward. Next Reward Availible In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
@@ -74,6 +73,7 @@ client.on('message', async message => {
         message.channel.send(inventory)
         break;
         case `get`:
+        let wantedamount = (args[2])
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!wantedamount === Number) {
             message.channel.send("Please Specify An Amount To Get")
