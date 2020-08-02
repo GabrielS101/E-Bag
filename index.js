@@ -31,7 +31,7 @@ client.on('message', async message => {
         case 'daily':
         let daily = await db.fetch(`daily_${message.author.id}`);
         let timeout = 86400000
-        let amount = 500
+        let amount = 10
         if (daily != null && timeout - (Date.now() - daily) > 0){
             let time = parsems(timeout - (Date.now() - daily));
             message.channel.send(`You Already Claimed Your Daily Reward. Next Reward Availible In ${time.hours} Hours, ${time.minutes} Minutes, And ${time.seconds} Seconds`)
@@ -53,7 +53,7 @@ client.on('message', async message => {
             let time = parsems(timeoutworked - (Date.now() - worked));
             message.channel.send(`You Already Worked. Please Come Back In ${time.minutes} Minutes And ${time.seconds} Seconds`)
        }else {
-           let amountearned = Math.floor(Math.random() *500) + 1
+           let amountearned = Math.floor(Math.random() *5) + 1
            let jobs = ["Assasin", "Gangster", "Marine Biologist", "SpeedWagon Foundation Employee", "Kame Yu Department Employee", "Manga Artist", "Fortune Teller", "Prison Guard", "United States President", "Fruit Parlor Employee", "Priest"]
            let job = jobs[Math.floor(Math.random() *jobs.length)]
            let working = new Discord.MessageEmbed()
