@@ -13,6 +13,8 @@ client.on('ready', () =>{
     }).catch(console.error);
 })
 
+
+
 client.login(process.env.token);
 
 const PREFIX = "e-"
@@ -22,6 +24,45 @@ client.on('message', async message => {
     let args = message.content.slice(PREFIX.length).split(" ");
 
     switch(args[0].toLowerCase()) {
+        case 'fight':
+          //checks if the username to fight is in the message
+    let author1 = message.author.username;
+    let user = message.mentions.users.first();
+    if(!user) return message.reply("Opponent Not Specified");
+
+    //checks if the users is trying to fight themselves
+    if(user.id == message.author.id) return message.reply('Cannot Fight Yourself');
+
+    //checks if the user is trying to fight the bot
+    if(user.bot ==  true)
+        return message.reply('Cannot Fight A Bot');
+
+    //saves the two user ids to variables
+    var fighter1 = message.author.id;
+    var fighter2 = user.id;
+
+    //announces challenge and awaits response
+    var challenged = user.toString();
+    message.channel.send(`${challenged}, ${author1} Has Challenged You To A Duel. Do You Accept The Challenge, Yes Or No?`)
+        .then(() => {
+            message.channel.awaitMessages(response => response.content == 'yes' && message.author.id == fighter2 || response.content == 'no' && message.author.id == fighter2, {
+                max: 1,
+                time: 60000,
+                errors: ['time'],
+            })
+            .then((collected) => {
+                if (collected.first().content == 'yes') {
+                    message.channel.send(`${challenged} Has Accepted Thee Challenge`);
+                }
+                else if(collected.first().content == 'no') {
+                    message.channel.send(`nope`);
+                }
+            })
+            .catch(() => {
+                message.channel.send(`No response. Fight Has een cancelled.`);
+            });
+        });       
+        break;
         case 'balance':
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
