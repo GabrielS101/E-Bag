@@ -43,7 +43,7 @@ const dispatcher = connection.play(ytdl(args[1]))
 })
 dispatcher.setVolumeLogarithmic(5 / 5)
 }else if (message.content.startsWith(`${PREFIX}stop`)) {
-    if(!message.member.voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
+    if(!message.author.voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
     message.member.voice.channel.leave()
     return undefined}
 
