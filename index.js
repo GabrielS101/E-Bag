@@ -198,10 +198,11 @@ client.on('message', async message => {
             }
        break;
        case 'info':
+         var user = message.mentions.users.first() || message.author
            const Info = new Discord.MessageEmbed()
            .setTitle('User Information')
-           .addField('User Name', message.author.username, true)
-           .addField('User Id', message.author.id, true)
+           .addField('User Name', message.user.username, true)
+           .addField('User Id', message.user.id, true)
            .addField('Current Server', message.guild.name, true)
            .addField('Server Owner', message.guild.owner, true)
            message.channel.send(Info);
