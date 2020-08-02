@@ -150,7 +150,7 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, unwantedamount) 
      }}}break;
         case 'give':
-          var user = message.mentions.users.first()
+          var user = message.mentions.users.first() || message.author
           var money = db.fetch(`money_${user.id}`)
           if(!user) {
             message.channel.send("Person To Give Money To Not Specified")
