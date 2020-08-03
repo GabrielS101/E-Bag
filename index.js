@@ -175,7 +175,7 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirus)
        }break; 
         case 'stand':
-        var user = message.author
+        var user = message.author.id
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
         var random = Stands[Math.floor(Math.random() * Stands.length)];
@@ -183,7 +183,8 @@ client.on('message', async message => {
         message.member.setNickname(`[${random}]${name}`);
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${random} As Your Stand. Congratulations`)
-        .setAuthor(`${user} Got A New Stand`, message.author.displayAvatarURL())
+        .setAuthor(`<@${user}> Got A New Stand`, message.author.displayAvatarURL())
+        .setFooter(`Check Your New Stands Stats By Doing e-${random}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
         break;
@@ -262,7 +263,9 @@ client.on('message', async message => {
             .addField('Passives', 'Passives are abilities some stands can have that are always active. (Example: Moody Blues Passive, Shut Up Giorno makes your opponent unable to use healing moves.) All passives are different, and remember to read them closely.')
             message.channel.send(Tutorial);
         break;
-        case 'publicstands1':
+        case 'public':
+        if(args[1] === 'stands'){
+            if(args[2] === '1'){
             const PublicStands1 = new Discord.MessageEmbed()
             .setTitle('Public Stands 1')
             .setDescription('39 Total Public Stands.')
@@ -292,8 +295,10 @@ client.on('message', async message => {
             .addField('24', "C-Moon.")
             .addField('25', "Made In Heaven.")
             message.channel.send(PublicStands1);
-        break;
-        case 'publicstands2':
+     }}break;
+       case 'public':
+        if(args[1] === 'stands'){
+            if(args[2] === '2') {
             const PublicStands2 = new Discord.MessageEmbed()
             .setTitle('Public Stands 2')
             .addField('26', "Stray Cat.")
@@ -311,8 +316,9 @@ client.on('message', async message => {
             .addField('38', "Sex Pistols.")
             .addField('39', "Emperor.")
             message.channel.send(PublicStands2);
-        break;
-        case 'eventstands':
+     }}break;
+       case 'event':
+        if(args[1] === 'stands'){
             const EventStands = new Discord.MessageEmbed()
             .setTitle('Event Stands')
             .setDescription('5 Total Event Stands.')
@@ -323,8 +329,9 @@ client.on('message', async message => {
             .addField('5', "Frog Experience.")
             .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
             message.channel.send(EventStands);
-        break;
-        case 'adminstands':
+       }break;
+       case 'admin':
+        if(args[1] === 'stands'){
             if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             const AdminStands = new Discord.MessageEmbed()
             .setTitle('Admin Stands')
@@ -335,8 +342,9 @@ client.on('message', async message => {
             .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@502242566272581662>).")
             .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
             message.channel.send(AdminStands);
-        break;
-        case 'spinmethod':
+       }break;
+       case 'spin':
+        if(args[1] === 'method'){
             const SpinMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Spin')
             .addField('1', "Survive up to turn 5.")
@@ -345,8 +353,9 @@ client.on('message', async message => {
             .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
             .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
             message.channel.send(SpinMethod);
-        break;
-        case 'tuskmethod':
+       }break;
+        case 'tusk':
+        if(args[1] === 'method'){
             const TuskMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Tusk')
             .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
@@ -354,22 +363,27 @@ client.on('message', async message => {
             .addField('Tusk Act 3', "Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2.")
             .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
             message.channel.send(TuskMethod);
-        break;
-        case 'echoesmethod':
+       }break;
+       case 'echoes':
+        if(args[1] === 'method'){
             const EchoesMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Echoes')
             .addField('Echoes Act 1', "Win a match with Echoes Egg after using hatch 3 times.")
             .addField('Echoes Act 2', "Win a match under 150 health with Echoes Act 1.")
             .addField('Echoes ACt 3', "Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.")
             message.channel.send(EchoesMethod);
-        break;
-        case 'ballbreakermethod':
+       }break;
+       case 'ball':
+        if(args[1] === 'breaker') {
+            if(args[2] === 'method'){
             const BallBreakerMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Ball Breaker')
             .setDescription("Use a corpse part and win with more than 50 health with Spin.")
             message.channel.send(BallBreakerMethod);
-        break;
-        case 'purplehazedistortion':
+      }}break;
+      case 'purple':
+        if(args[1] === 'haze') {
+            if(args[2] === 'distortion'){
             const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
             .setTitle('Purple Haze Distortion')
             .addField('Health', '800,')
@@ -384,8 +398,9 @@ client.on('message', async message => {
             .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/6c/Purple_Haze_Distortion.png/revision/latest?cb=20160417072947')
             .setColor(0x753c62)
             message.channel.send(PurpleHazeDistortion);
-         break;
-         case 'straycat':  
+       }}break;
+         case 'stray':
+        if(args[1] === 'cat') { 
             const StrayCat = new Discord.MessageEmbed()             
             .setTitle('Stray Cat')
             .addField('Health', '700.')
@@ -398,7 +413,7 @@ client.on('message', async message => {
             .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/Stray_Cat.png/revision/latest?cb=20160417072845')
             .setColor(0xd41961)
             message.channel.send(StrayCat);
-         break;
+        }break;
          case 'whitesnake':  
             const Whitesnake = new Discord.MessageEmbed()             
             .setTitle('Whitesnake')
@@ -447,7 +462,8 @@ client.on('message', async message => {
          .setColor(0xcca516)
          message.channel.send(TheWorldAlternateUniverse);
         break;
-        case 'silverchariot':  
+        case 'silver':
+        if(args[1] === 'chariot') {
          const SilverChariot = new Discord.MessageEmbed()             
          .setTitle('Silver Chariot')
          .addField('Health', '750.')
@@ -461,8 +477,9 @@ client.on('message', async message => {
          .setImage('https://i.imgur.com/daQB3px.png')
          .setColor(0x9398c2)
          message.channel.send(SilverChariot);
-        break;
-        case 'ballbreaker':  
+       }break;
+       case 'ball':
+        if(args[1] === 'breaker') {   
          const BallBreaker = new Discord.MessageEmbed()             
          .setTitle('Ball Breaker')
          .addField('Health', '700.')
@@ -476,8 +493,9 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/63/Ballbreakerasb.png/revision/latest?cb=20130812154811')
          .setColor(0x11d92c)
          message.channel.send(BallBreaker);
-        break;
-        case 'crazydiamond':  
+       }break;
+        case 'crazy':
+        if(args[1] === 'diamond') {   
          const CrazyDiamond = new Discord.MessageEmbed()             
          .setTitle('Crazy Diamond')
          .addField('Health', '720.')
@@ -491,7 +509,7 @@ client.on('message', async message => {
          .setImage('https://i.pinimg.com/originals/27/4d/01/274d01fdcf3fe582ab3e52f55e6ce100.jpg')
          .setColor(0xde2f83)
          message.channel.send(CrazyDiamond);
-        break;
+       }break;
         case 'metallica':
           if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
          const Metallica = new Discord.MessageEmbed()             
@@ -543,7 +561,8 @@ client.on('message', async message => {
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(MrPresident);
          break;
-         case 'oceanman':
+         case 'ocean':
+        if(args[1] === 'man') { 
            if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
          const OceanMan = new Discord.MessageEmbed()             
          .setTitle('Ocean Man')
@@ -565,7 +584,7 @@ client.on('message', async message => {
          .setColor(0x4b4eab)
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(OceanMan);
-         break;
+        }break;
          case 'thtw':
            if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
          const TheHandTheWorld = new Discord.MessageEmbed()       
@@ -591,7 +610,8 @@ client.on('message', async message => {
          .setFooter("This Stand Is An Admin Exclusive.")
          message.channel.send(TheHandTheWorld);
          break;
-         case 'heyya':  
+         case 'Hey':
+        if(args[1] === 'Ya') { 
          const HeyYa = new Discord.MessageEmbed()             
          .setTitle('Hey Ya')
          .addField('Health', '900.')
@@ -604,7 +624,7 @@ client.on('message', async message => {
          .setColor(0xe0d499)
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(HeyYa);
-         break;
+        }break;
          case 'd4c:lt':  
          const D4CLT = new Discord.MessageEmbed()             
          .setTitle('Dirty Deeds Done Dirt Cheap: Love Train')
@@ -646,7 +666,8 @@ client.on('message', async message => {
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(Kiss);
          break;
-         case 'frogexperience':  
+         case 'frog':
+        if(args[1] === 'experience') { 
          const FrogExperience = new Discord.MessageEmbed()             
          .setTitle('Frog Experience')
          .addField('Health', '750.')
@@ -663,8 +684,9 @@ client.on('message', async message => {
          .setColor(0xded82f)
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(FrogExperience);
-         break;
-         case 'forbiddenfruit':  
+        }break;
+         case 'forbidden':
+        if(args[1] === 'fruit') {  
          const ForbiddenFruit = new Discord.MessageEmbed()             
          .setTitle('Forbidden Fruit')
          .addField('Health', '800.')
@@ -680,8 +702,9 @@ client.on('message', async message => {
          .setColor(0x713ce6)
          .setFooter("This Stand Is An Event Exclusive.")
          message.channel.send(ForbiddenFruit);
-         break;
-         case 'hierophantgreen':  
+        }break;
+        case 'hierophant':
+            if(args[1] === 'green') {   
          const HierophantGreen = new Discord.MessageEmbed()             
          .setTitle('Hierophant Green')
          .addField('Health', '700.')
@@ -694,8 +717,9 @@ client.on('message', async message => {
          .setImage('https://i.imgur.com/QEJsqf7.png')
          .setColor(0x32a852)
          message.channel.send(HierophantGreen);
-         break;
-         case 'thehand':  
+        }break;
+         case 'the':
+        if(args[1] === 'hand') {  
          const TheHand = new Discord.MessageEmbed()             
          .setTitle('The Hand')
          .addField('Health', '700.')
@@ -711,8 +735,9 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c8/TheHand.png/revision/latest?cb=20140808155617')
          .setColor(0x2d6bcf)
          message.channel.send(TheHand);
-        break;
-        case 'hermitpurple':  
+       }break;
+       case 'hermit':
+        if(args[1] === 'purple') {  
          const HermitPurple = new Discord.MessageEmbed()             
          .setTitle('Hermit Purple')
          .addField('Health', '750.')
@@ -728,8 +753,9 @@ client.on('message', async message => {
          .setImage('https://images.shoutwiki.com/jojodiamondrecords/9/91/Tarot_TheHermit.png')
          .setColor(0x912390)
          message.channel.send(HermitPurple);
-        break;
-        case 'whitealbum':  
+       }break;
+       case 'white':
+        if(args[1] === 'album') { 
          const WhiteAlbum = new Discord.MessageEmbed()             
          .setTitle('White Album')
          .addField('Health', '900.')
@@ -744,8 +770,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/d/da/WhiteAlbum.png/revision/latest?cb=20150523161426')
          .setColor(0x5dc0de)
          message.channel.send(WhiteAlbum);
-        break;
-        case 'softandwet':  
+       }break;
+       case 'soft':
+        if(args[1] === 'and') { 
+            if(args[2] === 'wet') {
          const SoftAndWet = new Discord.MessageEmbed()             
          .setTitle('Soft And Wet')
          .addField('Health', '750.')
@@ -760,8 +788,9 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/9/9a/S%26WManga.png/revision/latest/top-crop/width/360/height/450?cb=20190504142401')
          .setColor(0xa4ebeb)
          message.channel.send(SoftAndWet);
-        break;
-        case 'heavensdoor':  
+       }}break;
+       case 'heavens':
+        if(args[1] === 'door') {  
          const HeavensDoor = new Discord.MessageEmbed()             
          .setTitle('Heavens Door')
          .addField('Health', '650.')
@@ -774,7 +803,7 @@ client.on('message', async message => {
          .setImage('https://static.jojowiki.com/images/thumb/d/de/latest/20191228045732/Heaven%27s_Door_Infobox_Manga.png/270px-Heaven%27s_Door_Infobox_Manga.png')
          .setColor(0xffd30f)
          message.channel.send(HeavensDoor);
-        break;
+       }break;
         case 'enigma':  
         const Enigma = new Discord.MessageEmbed()             
         .setTitle('Enigma')
@@ -790,7 +819,8 @@ client.on('message', async message => {
         .setColor(0xa653c9)
         message.channel.send(Enigma);
        break;
-       case 'stickyfingers':  
+       case 'sticky':
+        if(args[1] === 'fingers') {  
          const StickyFingers = new Discord.MessageEmbed()             
          .setTitle('Sticky Fingers')
          .addField('Health', '650.')
@@ -805,7 +835,7 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/d/dd/StickyFingers.png/revision/latest?cb=20150428184345')
          .setColor(0x2f52c4)
          message.channel.send(StickyFingers);
-        break;
+       }break;
         case 'sptw':  
          const StarPlatinumTheWorld = new Discord.MessageEmbed()             
          .setTitle('Star Platinum: The World')
@@ -822,7 +852,9 @@ client.on('message', async message => {
          .setColor(0xa3369c)
          message.channel.send(StarPlatinumTheWorld);
         break;
-        case 'wheeloffortune':  
+        case 'wheel':
+        if(args[1] === 'of') { 
+            if(args[2] === 'fortune') {  
         const WheelOfFortune = new Discord.MessageEmbed()             
         .setTitle('Wheel Of Fortune')
         .addField('Health', '700.')
@@ -836,8 +868,9 @@ client.on('message', async message => {
         .setImage('https://i.pinimg.com/originals/98/be/96/98be962beb5da964cbc670ef18423dc4.jpg')
         .setColor(0x737d76)
         message.channel.send(WheelOfFortune);
-       break;
-       case 'hangedman':  
+     }}break;
+     case 'hanged':
+        if(args[1] === 'man') { 
         const HangedMan = new Discord.MessageEmbed()             
         .setTitle('Hanged Man')
         .addField('Health', '650.')
@@ -854,8 +887,9 @@ client.on('message', async message => {
         .setImage('https://i.pinimg.com/originals/9c/ce/4a/9cce4acc44c3f9088d4915508f257f78.jpg')
         .setColor(0x98cad4)
         message.channel.send(HangedMan);
-       break;
-       case 'thefool':  
+      }break;
+      case 'the':
+        if(args[1] === 'fool') {   
         const TheFool = new Discord.MessageEmbed()             
         .setTitle('The Fool')
         .addField('Health', '850.')
@@ -870,8 +904,9 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/3/36/JoJo_Tarot_00_-_The_Fool.png/revision/latest/scale-to-width-down/340?cb=20150826093807')
         .setColor(0xe6e339)
         message.channel.send(TheFool);
-       break;
-       case 'echoesegg':  
+      }break;
+      case 'echoes':
+        if(args[1] === 'egg') { 
          const EchoesEgg = new Discord.MessageEmbed()             
          .setTitle('Echoes Egg')
          .addField('Health', '700.')
@@ -884,8 +919,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/1/16/Echoes_0.png/revision/latest/top-crop/width/220/height/220?cb=20160423065016')
          .setColor(0x4be33d)
          message.channel.send(EchoesEgg);
-        break;
-        case 'echoesact1':  
+       }break;
+       case 'echoes':
+        if(args[1] === 'act') { 
+            if(args[2] === '1') {
          const EchoesAct1 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 1')
          .addField('Health', '700.')
@@ -897,8 +934,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/Echoes_Act1_color.png/revision/latest/scale-to-width-down/340?cb=20140818160319')
          .setColor(0x4be33d)
          message.channel.send(EchoesAct1);
-        break;
-        case 'echoesact2':  
+      }}break;
+      case 'echoes':
+        if(args[1] === 'act') { 
+            if(args[2] === '2') { 
          const EchoesAct2 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 2')
          .addField('Health', '750.')
@@ -911,8 +950,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/55/Echoes_Act2_color.png/revision/latest/scale-to-width-down/340?cb=20160326105114')
          .setColor(0x4be33d)
          message.channel.send(EchoesAct2);
-        break;
-        case 'echoesact3':  
+      }}break;
+      case 'echoes':
+        if(args[1] === 'act') { 
+            if(args[2] === '3') { 
          const EchoesAct3 = new Discord.MessageEmbed()             
          .setTitle('Echoes Act 3')
          .addField('Health', '800.')
@@ -925,8 +966,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c3/Echoes_Act3_color.png/revision/latest/scale-to-width-down/340?cb=20160423150540')
          .setColor(0x4be33d)
          message.channel.send(EchoesAct3);
-        break;
-        case 'tuskact1':  
+      }}break;
+      case 'tusk':
+        if(args[1] === 'act') { 
+            if(args[2] === '1') { 
          const TuskAct1 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 1')
          .addField('Health', '650.')
@@ -939,8 +982,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct1);
-        break;
-        case 'tuskact2':  
+      }}break;
+      case 'tusk':
+        if(args[1] === 'act') { 
+            if(args[2] === '2') {
          const TuskAct2 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 2')
          .addField('Health', '700.')
@@ -952,8 +997,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct2);
-        break;
-        case 'tuskact3':  
+      }}break;
+      case 'tusk':
+        if(args[1] === 'act') { 
+            if(args[2] === '3') { 
          const TuskAct3 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 3')
          .addField('Health', '750.')
@@ -965,8 +1012,10 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct3);
-        break;
-        case 'tuskact4':  
+      }}break;
+        case 'tusk':
+        if(args[1] === 'act') { 
+            if(args[2] === '4') {  
          const TuskAct4 = new Discord.MessageEmbed()             
          .setTitle('Tusk Act 4')
          .addField('Health', '800.')
@@ -979,7 +1028,7 @@ client.on('message', async message => {
          .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
          .setColor(0xe01fa0)
          message.channel.send(TuskAct4);
-        break;
+      }}break;
         case 'spin':  
          const Spin = new Discord.MessageEmbed()             
          .setTitle('Spin')
@@ -994,7 +1043,9 @@ client.on('message', async message => {
          .setColor(0x4be33d)
          message.channel.send(Spin);
         break;
-        case 'madeinheaven':  
+        case 'made':
+        if(args[1] === 'in') { 
+            if(args[2] === 'heaven') {  
          const MadeInHeaven = new Discord.MessageEmbed()             
          .setTitle('Made In Heaven')
          .addField('Health', '800.')
@@ -1011,8 +1062,9 @@ client.on('message', async message => {
          .setImage('https://vignette.wikia.nocookie.net/jjba/images/f/fb/Made_in_Heaven_2.png/revision/latest/top-crop/width/360/height/450?cb=20191205005203')
          .setColor(0xdfe8e1)
          message.channel.send(MadeInHeaven);
-        break;
-        case 'killerqueen':  
+      }}break;
+      case 'killer':
+        if(args[1] === 'queen') {  
         const KillerQueenPart4 = new Discord.MessageEmbed()             
         .setTitle('Killer Queen (Part 4)')
         .addField('Health', '600.')
@@ -1028,8 +1080,9 @@ client.on('message', async message => {
         .setImage('https://media.discordapp.net/attachments/731415895682973696/733556309991096381/270px-Killer_Queen_Infobox_Manga.png')
         .setColor(0xe84fa6)
         message.channel.send(KillerQueenPart4);
-       break;
-       case 'magiciansred':  
+       }break;
+     case 'magicians':
+        if(args[1] === 'red') {  
          const MagiciansRed = new Discord.MessageEmbed()             
          .setTitle('Magicians Red')
          .addField('Health', '800.')
@@ -1043,8 +1096,10 @@ client.on('message', async message => {
          .setImage('https://i.pinimg.com/originals/19/1f/ff/191fffd235e41ba9e7cf2e19e3d0ae17.jpg')
          .setColor(0xe85c35)
          message.channel.send(MagiciansRed);
-        break;
-        case 'towerofgray':  
+       }break;
+       case 'tower':
+        if(args[1] === 'of') { 
+            if(args[2] === 'gray') { 
          const TowerOfGray = new Discord.MessageEmbed()             
          .setTitle('Tower Of Gray')
          .addField('Health', '700.')
@@ -1060,8 +1115,9 @@ client.on('message', async message => {
          .setImage('https://i.pinimg.com/originals/90/60/b6/9060b6ffb86a08df38e411dda236bb79.jpg')
          .setColor(0x536f96)
          message.channel.send(TowerOfGray);
-        break;
-        case 'lovedeluxe':  
+      }}break;
+      case 'love':
+        if(args[1] === 'deluxe') {   
         const LoveDeluxe = new Discord.MessageEmbed()             
         .setTitle('Love Deluxe')
         .addField('Health', '700.')
@@ -1079,7 +1135,7 @@ client.on('message', async message => {
         .setImage('https://cdn.discordapp.com/attachments/732140300272795710/735003884778553415/350.png')
         .setColor(0x999797)
         message.channel.send(LoveDeluxe);
-       break;
+      }break;
        case 'geb':  
          const Geb = new Discord.MessageEmbed()             
          .setTitle('Geb')
@@ -1112,7 +1168,8 @@ client.on('message', async message => {
          .setColor(0xe8e046)
          message.channel.send(RedHotChiliPepper);
         break;
-        case 'moodyblues':  
+        case 'moody':
+        if(args[1] === 'blues') { 
          const MoodyBlues = new Discord.MessageEmbed()             
          .setTitle('Moody Blues')
          .addField('Health', '700.')
@@ -1127,8 +1184,9 @@ client.on('message', async message => {
          .setImage('https://i.pinimg.com/564x/f4/ed/93/f4ed93901c1aac2136e37d00268c5fc9.jpg')
          .setColor(0x564bab)
          message.channel.send(MoodyBlues);
-        break;
-        case 'goldexperience':  
+       }break;
+       case 'gold':
+        if(args[1] === 'experience') {  
         const GoldExperience = new Discord.MessageEmbed()             
         .setTitle('Gold Experience')
         .addField('Health', '750.')
@@ -1147,8 +1205,9 @@ client.on('message', async message => {
         .setImage('https://media.discordapp.net/attachments/731415895682973696/735432435193479188/Z.png')
         .setColor(0xded82f)
         message.channel.send(GoldExperience);
-       break;
-       case 'sexpistols':  
+      }break;
+       case 'sex':
+        if(args[1] === 'pistols') {  
          const SexPistols = new Discord.MessageEmbed()             
          .setTitle('Sex Pistols')
          .addField('Health', '650.')
@@ -1163,7 +1222,7 @@ client.on('message', async message => {
          .setImage('https://cdn.discordapp.com/attachments/731415895682973696/735748501820014622/350.png')
          .setColor(0xded82f)
          message.channel.send(SexPistols);
-        break;
+      }break;
        case 'emperor':  
          const Emperor = new Discord.MessageEmbed()             
          .setTitle('Emperor')
