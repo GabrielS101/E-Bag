@@ -5,6 +5,7 @@ const covid = require('covidapi');
 const { countries } = require('covidapi');
 const db = require('quick.db');
 const parsems = require('parse-ms');
+var mutedrole = message.guild.roles.find("name", "Muted");
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
