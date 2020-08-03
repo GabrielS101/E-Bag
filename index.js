@@ -175,7 +175,6 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirus)
        }break; 
         case 'stand':
-        var user = message.author.id
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
         var random = Stands[Math.floor(Math.random() * Stands.length)];
@@ -183,7 +182,7 @@ client.on('message', async message => {
         message.member.setNickname(`[${random}]${name}`);
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${random} As Your Stand. Congratulations`)
-        .setAuthor(`<@${user}> Got A New Stand`, message.author.displayAvatarURL())
+        .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
         .setFooter(`Check Your New Stands Stats By Doing e-${random}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
