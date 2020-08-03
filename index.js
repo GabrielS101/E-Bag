@@ -177,8 +177,7 @@ client.on('message', async message => {
         case 'stand':
         var user = message.author
         var name = message.author.username
-        const Stands = ["PurpleHazeDistortion", "HermitPurple", "WhiteAlbum","HeavensDoor", "SoftAndWet", "HierophantGreen", "Enigma", "StickyFingers", "SPTW", "EchoesEgg", "SilverChariot", "TheFool", "TWAU", "Whitesnake."]
-        message.channel.send(`${Standscommand}`)
+        const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
         var random = Stands[Math.floor(Math.random() * Stands.length)];
         message.channel.send(random)
         message.member.setNickname(`[${random}]${name}`);
