@@ -174,9 +174,19 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
+        case 'stand':
+        var user = message.author
+        const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
+        var random = Stands[Math.floor(Math.random() * Stands.length)];
+        const randomstands = new Discord.MessageEmbed()
+        .setTitle(`You Got ${random} As Your Stand. Congratulations`)
+        .setAuthor(`${user} Got A New Stand`, message.author.displayAvatarURL())
+        .setColor("RANDOM")
+        message.channel.send(randomstands)
+        break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
-        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+        var random = subReddits[Math.floor(Math.random() * subReddits.length)];
         const img = await randomPuppy(random);
         const meme = new Discord.MessageEmbed()
         .setColor("RANDOM")
