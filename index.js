@@ -175,7 +175,7 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirus)
        }break; 
         case 'meme':
-        const subReddits = ["dankmeme", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
+        const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
         const img = await randomPuppy(random);
         const meme = new Discord.MessageEmbed()
