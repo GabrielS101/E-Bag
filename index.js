@@ -5,7 +5,6 @@ const covid = require('covidapi');
 const { countries } = require('covidapi');
 const db = require('quick.db');
 const parsems = require('parse-ms');
-var mutedrole = message.guild.roles.find("name", "Muted");
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -175,36 +174,6 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
-       case 'mute': // creates the command mute
-       if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
-       .then(message => message.delete({timeout: 5000})); // if author has no perms
-        var mutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
-        if (!mutedmember) return message.reply("Member Not Found In This Server")
-        .then(message => message.delete({timeout: 5000})); // if there is no kickedmmeber var
-        if (mutedmember.hasPermission("ADMINISTRATOR")) return message.reply("Member Cannot Be Muted")
-        .then(message => message.delete({timeout: 5000})); // if memebr is an admin
-        var mutereasondelete = 10 + mutedmember.user.id.length //sets the length of the kickreasondelete
-        var mutereason = message.content.substring(mutereasondelete).split(" "); // deletes the first letters until it reaches the reason
-        var mutereason = mutereason.join(" "); // joins the list kickreason into one line
-        if (!mutereason) return message.reply("Reason For Mute Not Specified")
-        .then(message => message.delete({timeout: 5000})); // if no reason
-        mutedmember.addRole(mutedrole) //if reason, kick
-            .catch(error => message.reply(`${message.author} Could Not Be Muted Because ${error}`))
-            .then(message => message.delete({timeout: 5000})); //if error, display error
-        message.reply(`${mutedmember.user} Was Muted By ${message.author} Because ${mutereason}`)
-        .then(message => message.delete({timeout: 5000})); // sends a message saying he was kicked
-        break;
-        case 'unmute': // creates the command unmute
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command'); // if author has no perms
-            var unmutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
-            if (!unmutedmember) return message.reply("Member Not Found In This Server")
-            .then(message => message.delete({timeout: 5000})); // if there is no kickedmmeber var
-            unmutedmember.removeRole(mutedrole) //if reason, kick
-                .catch(error => message.reply(`Sorry ${message.author} Could Not Be Muted Because ${error}`))
-                .then(message => message.delete({timeout: 5000})); //if error, display error
-            message.reply(`${unmutedmember.user} Has Been Unmuted By ${message.author}`) // sends a message saying he was kicked
-            .then(message => message.delete({timeout: 5000}));
-        break;
         case 'stand':
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
