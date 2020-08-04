@@ -199,17 +199,17 @@ client.on('message', async message => {
         message.channel.send("You Already Have A Stand")
        }break;
         case 'roka':
-        var reply = await message.author.message();
+        message.channel.awaitMessages(m => m.author.id == message.author.id)
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
        await message.channel.send("Are You Sure You Want To Reset Everything? Please Specify Yes Or No") 
-        if (reply.toLower() == "yes") {
-            message.channel.send("You Ate A Roka And Reset Everything")
+       if (collected.first().content.toLowerCase() == 'yes') {
+        message.reply('You Ate The Roka And Reset Everything');
             db.delete(message.author.id, items)
             db.subtract(`money_${money}`)
-       } if (reply.toLower() == "no") {
-            message.channel.send("You Decided Not To Eat The Roka")
+       } if (collected.first().content.toLowerCase() == 'no') {
+        message.reply('You Decided Not To Eat The Roka And Kept What You Have');
        }break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
