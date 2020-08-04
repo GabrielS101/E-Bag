@@ -65,7 +65,7 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-        let items = db.get(message.author.id)
+        var items = db.get(message.author.id)
         if(items === null) items = "You Don't Have A Stand"
         let inventory = new Discord.MessageEmbed()
         .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
@@ -177,7 +177,7 @@ client.on('message', async message => {
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
-        let items = db.get(message.author.id)
+        var items = db.get(message.author.id)
         if(items === null) { 
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
