@@ -173,11 +173,9 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
-       case 'random':
-        if(args[1] === 'stand'){
+       case 'arrow':
         var name = message.author.username
-        var user = message.author
-        const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
+        const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
         let items = db.get(message.author.id)
         if(items === null) { 
@@ -189,11 +187,9 @@ client.on('message', async message => {
         .setColor("RANDOM")
          message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
-        user.addRole(`${randomlychosenstand}`)
     }else {
         message.channel.send("You Already Have A Stand")
-      }}
-        break;
+       }break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
