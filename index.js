@@ -192,7 +192,7 @@ client.on('message', async message => {
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
          message.channel.send(randomstands)
-        db.push(message.author.id, randomlychosenstand)
+        db.push(items, randomlychosenstand)
     }else {
         message.channel.send("You Already Have A Stand")
        }break;
