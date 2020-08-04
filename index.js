@@ -24,8 +24,8 @@ client.on('message', async message => {
     switch(args[0].toLowerCase()) {
         
         case 'balance':
-            let otheruser = message.mentions.users.first() 
-            if(otheruser.bot ==  true)
+        var otheruser = message.mentions.users.first() 
+        if(otheruser.bot ==  true)
         return message.reply('Cannot Check Balance Of A Bot');
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
@@ -68,8 +68,8 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-            let otheruser = message.mentions.users.first() 
-            if(otheruser.bot ==  true)
+        var otheruser = message.mentions.users.first() 
+        if(otheruser.bot ==  true)
         return message.reply('Cannot Check Stand Of A Bot');
         var user = message.mentions.users.first() || message.author
         var name = user.username
@@ -117,8 +117,8 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, unwantedamount) 
      }}}break;
         case 'give':
-          var user = message.author
-          let otheruser = message.mentions.users.first() 
+        var user = message.author
+        var otheruser = message.mentions.users.first() 
           if(otheruser.bot ==  true)
         return message.reply('Cannot Give To A Bot');
         if(otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
@@ -199,7 +199,7 @@ client.on('message', async message => {
         message.channel.send("You Already Have A Stand")
        }break;
         case 'roka':
-         var user = message.mentions.users.first() || message.author
+        var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
         message.channel.send("Are You Sure You Want To Reset Everything?")
