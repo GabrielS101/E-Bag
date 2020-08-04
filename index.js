@@ -203,7 +203,7 @@ client.on('message', async message => {
         var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
         message.channel.send("Are You Sure You Want To Reset Everything?")
-        if(message.author.reply = 'yes') {
+        if(message.author.content = 'yes') {
             message.channel.send("You Ate A Roka And Reset Everything")
             db.delete(message.author.id, items)
             db.subtract(`money_${money}`)
