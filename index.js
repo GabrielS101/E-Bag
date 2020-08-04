@@ -199,6 +199,7 @@ client.on('message', async message => {
         message.channel.send("You Already Have A Stand")
        }break;
         case 'roka':
+        var reply = await message.author.message();
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
