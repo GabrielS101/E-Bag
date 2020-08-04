@@ -77,7 +77,8 @@ client.on('message', async message => {
         if (!wantedamount) {
           message.channel.send("Amount To Get Not Specified")
         }else {
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
+        .then(message => message.delete({timeout: 5000}));;
         if(!wantedamount === Number) {
             message.channel.send("Amount To Get Must Be In Number Form")
         }else {
@@ -98,7 +99,8 @@ client.on('message', async message => {
         if(money < unwantedamount) {
             message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         }else {
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
+        .then(message => message.delete({timeout: 5000}));;
         if(!unwantedamount === Number) {
             message.channel.send("Amount To Get Rid Of Must Be In Number Form")
         }else {
@@ -173,6 +175,12 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
+       case 'reset':
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator PermissionCan Use This Command')
+        .then(message => message.delete({timeout: 5000}));
+       var items = db.get(message.author.id)
+       db.delete(message.author.id, items)
+       break;
        case 'arrow':
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
