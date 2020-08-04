@@ -213,11 +213,9 @@ client.on('message', async message => {
         var stand = db.get(`stand_${user}`)
         var items = db.get(message.author.id)
         if(!items === 'arrow') {
-            message.channel.send("You Don't Have A Arrow")
-        }else {
+            message.channel.send("You Don't Have A Arrow")}
         if(!stand === null) {
-            message.channel.send("You Already Have A Stand")
-       }else {
+            message.channel.send("You Already Have A Stand")}
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
@@ -226,7 +224,7 @@ client.on('message', async message => {
         .setColor("RANDOM")
          message.channel.send(randomstands)
         db.push(`stand_${user}`, randomlychosenstand)
-    }}}break;
+      }break;
        case 'evolve':
         if(args[1] === 'echoes') {
             if(args[2] === 'egg') {
