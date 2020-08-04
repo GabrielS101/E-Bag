@@ -24,6 +24,9 @@ client.on('message', async message => {
     switch(args[0].toLowerCase()) {
         
         case 'balance':
+            let otheruser = message.mentions.users.first() 
+            if(otheruser.bot ==  true)
+        return message.reply('Cannot Check Balance Of A Bot');
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         if (money === null) money = 0
@@ -65,6 +68,9 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
+            let otheruser = message.mentions.users.first() 
+            if(otheruser.bot ==  true)
+        return message.reply('Cannot Check Stand Of A Bot');
         var user = message.mentions.users.first() || message.author
         var name = user.username
         var items = db.get(`${user}.id`)
@@ -193,10 +199,17 @@ client.on('message', async message => {
         message.channel.send("You Already Have A Stand")
        }break;
         case 'roka':
+         var user = message.mentions.users.first() || message.author
+        var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
-        message.channel.send("You Used A Roka And Reset Your Stand")
-        db.delete(message.author.id, items)
-        break;
+        message.channel.send("Are You Sure You Want To Reset Everything?")
+        if(message.author.reply = 'yes') {
+            message.channel.send("You Ate A Roka And Reset Everything")
+            db.delete(message.author.id, items)
+            db.subtract(`money_${money}`)
+       }else {
+           message.channel.send("You Decided Not To Eat The Roka")
+       }break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
