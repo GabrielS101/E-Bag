@@ -190,6 +190,27 @@ client.on('message', async message => {
     }else {
         message.channel.send("You Already Have A Stand")
        }break;
+        case 'evolve':
+        var items = db.get(message.author.id)
+        if(items = 'Echoes Egg') {{
+            db.delete(message.author.id, items)
+        }db.push(message.author.id, "Echoes Act 1")}
+        {if(items = 'Echoes Act 1') {{
+            db.delete(message.author.id, items)
+        }db.push(message.author.id, "Echoes Act 2")}}
+        {if(items = 'Echoes Act 2') {{
+            db.delete(message.author.id, items)
+        }db.push(message.author.id, "Echoes Act 3")}}
+        {if(items = 'Tusk Act 1') {{
+            db.delete(message.author.id, items)
+        }db.push(message.author.id, "Tusk Act 2")}}
+        {if(items = 'Tusk Act 2') {{
+            db.delete(message.author.id, items)
+        }db.push(message.author.id, "Tusk Act 3")}}
+        {if(items = 'Tusk Act 3') {{
+            db.delete(message.author.id, items)
+        }db.push(message.author.id, "Tusk Act 4")}}
+        break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
