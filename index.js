@@ -186,9 +186,6 @@ client.on('message', async message => {
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
         var items = db.get(message.author.id)
-        if(!items === null) {
-            message.channel.send("You Already Have A Stand")
-        }
         message.channel.send("You Already Have A Stand")
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
@@ -196,7 +193,7 @@ client.on('message', async message => {
         .setDescription("Your New Stand Can Be Found In Your Inventory")
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
-         message.channel.send(randomstands)
+        message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
         break;
         case 'roka':
