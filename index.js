@@ -214,10 +214,10 @@ client.on('message', async message => {
         if(items === 'arrow')
         if(!items === 'arrow') {
             message.channel.send("You Don't Have A Arrow")
-        }
+        }else {
         if(!stand === null) {
             message.channel.send("You Already Have A Stand")
-        }else {
+       }}else {
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
