@@ -183,6 +183,7 @@ client.on('message', async message => {
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${random} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
+        .setDescription("Your New Stand Can Be Found In Your Inventory")
         .setFooter(`Check Your New Stand's Stats By Doing e-${random}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
