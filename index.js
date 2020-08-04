@@ -198,9 +198,12 @@ client.on('message', async message => {
        if(args[1] === 'roka') {
         var items = db.get(message.author.id)
         var money = db.fetch(`money_${user.id}`)
+        var stand = db.get(`stand_${user}`)
+        var user = message.author.id
         if(items = 'roka') {{
             db.delete(message.author.id, items)
             db.subtract(`money_${money}`)
+            db.delete(`stand_${user}`, stand)
             message.channel.send("You Ate A Roka And Reset Everything")
         }}else {
             message.channel.send("You Dont Have A Roka")
@@ -210,6 +213,7 @@ client.on('message', async message => {
         if(args[1] === 'arrow') {
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
+        var user = message.author.id
         var stand = db.get(`stand_${user}`)
         var items = db.get(message.author.id)
         if(!items === 'arrow') {
@@ -224,7 +228,7 @@ client.on('message', async message => {
         .setColor("RANDOM")
          message.channel.send(randomstands)
         db.push(`stand_${user}`, randomlychosenstand)
-        db.delete(message.author.id, "arrow")
+        db.delete(message.author.id, items)
       }break;
        case 'evolve':
         if(args[1] === 'echoes') {
