@@ -216,10 +216,6 @@ client.on('message', async message => {
         var user = message.author.id
         var stand = db.get(`stand_${user}`)
         var items = db.get(message.author.id)
-        if(!items === 'arrow') {
-            message.channel.send("You Don't Have A Arrow")}
-        if(!stand === null) {
-            message.channel.send("You Already Have A Stand")}
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
