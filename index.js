@@ -64,13 +64,16 @@ client.on('message', async message => {
            db.add(`money_${message.author.id}`, amountearned)
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
-        case 'inventory':
+        case 'stand':
         let items = db.get(message.author.id)
         let human = message.author
-        if(items === null) items = "You Have Nothing In Your Inventory"
+        if(items === null) items = "You Don't Have A Stand"
+        if(items === 2) {
+            db.delete(message.author.id, `${items}`)
+        }
         let inventory = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username}'s Inventory`, message.author.displayAvatarURL())
-        .addField("Inventory", items)
+        .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
+        .addField("Stand", items)
         message.channel.send(inventory)
         break;
         case `get`:
@@ -174,20 +177,23 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
-        case 'stand':
+       case 'random':
+        if(args[1] === 'stand'){
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
-        var random = Stands[Math.floor(Math.random() * Stands.length)];
+        const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
         message.channel.send(random)
         const randomstands = new Discord.MessageEmbed()
-        .setTitle(`You Got ${random} As Your Stand. Congratulations`)
+        .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
         .setDescription("Your New Stand Can Be Found In Your Inventory")
-        .setFooter(`Check Your New Stand's Stats By Doing e-${random}`)
+        .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
-        db.push(message.author.id, `${random}`)
-        break;
+        let items = db.get(message.author.id)
+        if(items === 0) { 
+        db.push(message.author.id, `${randomlychosenstand}`)
+      }}break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
