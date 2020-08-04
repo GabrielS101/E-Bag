@@ -178,19 +178,20 @@ client.on('message', async message => {
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
+        let items = db.get(message.author.id)
+        if(items === null) { 
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
         .setDescription("Your New Stand Can Be Found In Your Inventory")
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
-        message.channel.send(randomstands)
-        let items = db.get(message.author.id)
-        if(items === null) { 
+         message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
     }else {
-        db.delete(message.author.id, randomlychosenstand)
-      }}break;
+        message.channel.send("You Already Have A Stand")
+      }}
+        break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
