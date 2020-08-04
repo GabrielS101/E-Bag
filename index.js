@@ -69,7 +69,9 @@ client.on('message', async message => {
         }}break;
         case 'stand':
         var user = message.mentions.users.first() || message.author
-        if(user.bot == true) return message.reply('Cannot Check Stand Of A Bot');
+        if(user.bot ==  true)
+        return message.reply('Cannot Check Stand Of A Bot');
+        var user = message.mentions.users.first() || message.author
         var name = user.username
         var items = db.get(`${user}.id`)
         if(items === null) items = "You Don't Have A Stand"
@@ -183,7 +185,7 @@ client.on('message', async message => {
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
-        var items = db.fetch(message.author.id)
+        var items = db.get(message.author.id)
         if(items === null) { 
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
@@ -192,7 +194,7 @@ client.on('message', async message => {
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
          message.channel.send(randomstands)
-        db.push(items, randomlychosenstand)
+        db.push(message.author.id, randomlychosenstand)
     }else {
         message.channel.send("You Already Have A Stand")
        }break;
