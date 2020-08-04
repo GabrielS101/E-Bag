@@ -209,13 +209,16 @@ client.on('message', async message => {
             message.channel.send("You Dont Have A Roka")
         }
        }break;
-       case 'use':
-        if(args[1] === 'arrow') {
-        const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
-        const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
+       case 'arrow':
         var user = message.author.id
         var stand = db.get(`stand_${user}`)
         var items = db.get(message.author.id)
+        if(!items === 'arrow') {
+            message.channel.send("You Don't Have A Arrow")}
+        if(!stand === null) {
+            message.channel.send("You Already Have A Stand")}
+        const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
+        const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
@@ -225,7 +228,7 @@ client.on('message', async message => {
          message.channel.send(randomstands)
         db.push(`stand_${user}`, randomlychosenstand)
         db.delete(message.author.id, items)
-      }break;
+       break;
        case 'evolve':
         if(args[1] === 'echoes') {
             if(args[2] === 'egg') {
