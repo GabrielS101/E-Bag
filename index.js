@@ -68,10 +68,8 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-            var otheruser = message.mentions.users.first() 
-            if(otheruser.bot ==  true)
-        return message.reply('Cannot Check Stand Of A Bot');
         var user = message.mentions.users.first() || message.author
+        if(user.bot == true) return message.reply('Cannot Check Stand Of A Bot');
         var name = user.username
         var items = db.get(`${user}.id`)
         if(items === null) items = "You Don't Have A Stand"
