@@ -186,6 +186,7 @@ client.on('message', async message => {
         .setFooter(`Check Your New Stand's Stats By Doing e-${random}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
+        db.push(message.author.id, `${random}`)
         break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
