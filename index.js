@@ -190,6 +190,10 @@ client.on('message', async message => {
     }else {
         message.channel.send("You Already Have A Stand")
        }break;
+        case 'roka':
+        message.channel.send("You Used A Roka And Reset Your Stand")
+        db.delete(message.author.id, items)
+        break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
