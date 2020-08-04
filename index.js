@@ -179,7 +179,6 @@ client.on('message', async message => {
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
         var random = Stands[Math.floor(Math.random() * Stands.length)];
         message.channel.send(random)
-        message.member.setNickname(`[${random}]`);
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${random} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
