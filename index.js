@@ -187,9 +187,8 @@ client.on('message', async message => {
         message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
         let items = db.get(message.author.id)
-        if(items === 2) { 
-        db.delete(message.author.id, items).then
-        db.push(message.author.id, randomlychosenstand)
+        if(!items === null) { 
+        db.delete(message.author.id, randomlychosenstand)
       }}break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
