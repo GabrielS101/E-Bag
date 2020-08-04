@@ -77,7 +77,7 @@ client.on('message', async message => {
         if(techniques === null) techniques = "You Don't Have Any Techniques"
         let ability = new Discord.MessageEmbed()
         .setAuthor(`${message.author.username}'s Technique`, message.author.displayAvatarURL())
-        .addField("Technique", ability)
+        .addField("Technique", techniques)
         message.channel.send(ability)
         break;
         case `get`:
