@@ -176,8 +176,10 @@ client.on('message', async message => {
        case 'random':
         if(args[1] === 'stand'){
         var name = message.author.username
+        var user = message.author
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake."]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
+        var standrole = message.guild.roles.find("name", `${randomlychosenstand}`);
         let items = db.get(message.author.id)
         if(items === null) { 
         const randomstands = new Discord.MessageEmbed()
@@ -188,6 +190,7 @@ client.on('message', async message => {
         .setColor("RANDOM")
          message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
+        user.addRole(standrole)
     }else {
         message.channel.send("You Already Have A Stand")
       }}
