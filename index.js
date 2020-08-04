@@ -65,39 +65,19 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-        var user = message.author.id
-        var stand = db.get(`stand_${user}`)
-        if(stand === null) stand = "You Don't Have A Stand"
-        let stands = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
-        .addField("Stand", stand)
-        message.channel.send(stands)
-        break;
-        case 'ability':
-        var user = message.author.id
-        var abilities = db.get(`ability_${user}`)
-        if(abilities === null) abilities = "You Don't Have Any Abilities"
-        let ability = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username}'s Ability`, message.author.displayAvatarURL())
-        .addField("Ability", abilities)
-        message.channel.send(ability)
-        break;
-        case 'inventory':
-        var user = message.author.id
         var items = db.get(message.author.id)
-        if(items === null) items = "You Have No Items"
-        let item = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username}'s Inventory`, message.author.displayAvatarURL())
-        .addField("Items", items)
-        message.channel.send(item)
+        if(items === null) items = "You Don't Have A Stand"
+        let inventory = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
+        .addField("Stand", items)
+        message.channel.send(inventory)
         break;
         case `get`:
         let wantedamount = (args[1])
         if (!wantedamount) {
           message.channel.send("Amount To Get Not Specified")
         }else {
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
-        .then(message => message.delete({timeout: 5000}));;
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!wantedamount === Number) {
             message.channel.send("Amount To Get Must Be In Number Form")
         }else {
@@ -118,8 +98,7 @@ client.on('message', async message => {
         if(money < unwantedamount) {
             message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         }else {
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
-        .then(message => message.delete({timeout: 5000}));;
+        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
         if(!unwantedamount === Number) {
             message.channel.send("Amount To Get Rid Of Must Be In Number Form")
         }else {
@@ -194,31 +173,12 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
-       case 'use':
-       if(args[1] === 'roka') {
-        var items = db.get(message.author.id)
-        var money = db.fetch(`money_${user.id}`)
-        var stand = db.get(`stand_${user}`)
-        var user = message.author.id
-        if(items = 'roka') {{
-            db.delete(message.author.id, items)
-            db.subtract(`money_${money}`)
-            db.delete(`stand_${user}`, stand)
-            message.channel.send("You Ate A Roka And Reset Everything")
-        }}else {
-            message.channel.send("You Dont Have A Roka")
-        }
-       }break;
        case 'arrow':
-        var user = message.author.id
-        var stand = db.get(`stand_${user}`)
-        var items = db.get(message.author.id)
-        if(!items === 'arrow') {
-            message.channel.send("You Don't Have A Arrow")}
-        if(!stand === null) {
-            message.channel.send("You Already Have A Stand")}
+        var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
+        var items = db.get(message.author.id)
+        if(items === null) { 
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
@@ -226,104 +186,10 @@ client.on('message', async message => {
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
          message.channel.send(randomstands)
-        db.push(`stand_${user}`, randomlychosenstand)
-        db.delete(message.author.id, items)
-       break;
-       case 'evolve':
-        if(args[1] === 'echoes') {
-            if(args[2] === 'egg') {
-            var user = message.author.id
-            var stand = db.get(`stand_${user}`)
-        if(stand = 'Echoes Egg') {{
-            db.delete(`stand_${user}`, stand)
-        }db.push(`stand_${user}`, "Echoes Act 1")}else {
-            message.channel.send("You Dont Have Echoes Egg As Your Stand")
-        }
-     }}break;
-       case 'evolve':
-        if(args[1] === 'echoes')
-            if(args[2] === 'act'){
-                if(args[3] === '1') {
-                var user = message.author.id
-                var stand = db.get(`stand_${user}`)
-        if(stand = 'Echoes Act 1') {{
-            db.delete(`stand_${user}`, stand)
-        }db.push(`stand_${user}`, "Echoes Act 2")}else {
-            message.channel.send("You Dont Have Echoes Act 1 As Your Stand")
-        }
-     }}break;
-       case 'evolve':
-        if(args[1] === 'echoes')
-            if(args[2] === 'act') {
-                if(args[3] === '2') {
-                var user = message.author.id
-                var stand = db.get(`stand_${user}`)
-        if(stand = 'Echoes Act 2') {{
-            db.delete(`stand_${user}`, stand)
-        }db.push(`stand_${user}`, "Echoes Act 3")}else {
-            message.channel.send("You Dont Have Echoes Act 2 As Your Stand")
-        }
-     }}break;
-       case 'evolve':
-        if(args[1] === 'tusk')
-            if(args[2] === 'act') {
-                if(args[3] === '1') {
-                var user = message.author.id
-                var stand = db.get(`stand_${user}`)
-        if(stand = 'Tusk Act 1') {{
-            db.delete(`stand_${user}`, stand)
-        }db.push(`stand_${user}`, "Tusk Act 2")}else {
-            message.channel.send("You Dont Have Tusk Act 1 As Your Stand")
-        }
-     }}break;
-       case 'evolve':
-        if(args[1] === 'tusk')
-            if(args[2] === 'act') {
-                if(args[3] === '2') {
-                var user = message.author.id
-                var stand = db.get(`stand_${user}`)
-        if(stand = 'Tusk Act 2') {{
-            db.delete(`stand_${user}`, stand)
-        }db.push(`stand_${user}`, "Tusk Act 3")}else {
-            message.channel.send("You Dont Have Tusk Act 2 As Your Stand")
-        }
-     }}break;
-       case 'evolve':
-        if(args[1] === 'tusk')
-            if(args[2] === 'act') {
-                if(args[3] === '3') {
-                var user = message.author.id
-                var stand = db.get(`stand_${user}`)
-        if(stand = 'Tusk Act 3') {{
-            db.delete(`stand_${user}`, stand)
-        }db.push(`stand_${user}`, "Tusk Act 4")}else {
-            message.channel.send("You Dont Have Tusk Act 3 As Your Stand")
-        }
-     }}break;
-       case 'use':
-        if(args[1] === 'corpse') {
-            if(arga[2] === 'part') 
-        var items = db.get(message.author.id)
-        var user = message.author.id
-        var stand = db.get(`stand_${user}`)
-        if(items = 'Corpse Part') {{
-            db.delete(message.author.id, items)
-        }db.push(`stand_${user}`, "Tusk Act 1")}
-            if(!items === 'Corpse Part') {
-                message.channel.send("You Dont Have A Corpse Part")
-      }}break;
-      case 'evolve':
-        if(args[1] === 'spin') {
-            var user = message.author.id
-            var stand = db.get(`stand_${user}`)
-            var abilities = db.get(`ability_${user}`)
-            var items = db.get(message.author.id)
-        if(abilities = 'Spin') {{
-            db.delete(message.author.id, abilities)
-        }db.push(`stand_${user}`, "Ball Breaker")}
-            if(!abilities === 'Spin') {
-                message.channel.send("You Have Not Learned Spin")
-      }}break;
+        db.push(message.author.id, randomlychosenstand)
+    }else {
+        message.channel.send("You Already Have A Stand")
+       }break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
