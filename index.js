@@ -195,8 +195,9 @@ client.on('message', async message => {
         .setColor("RANDOM")
         message.channel.send(randomstands)
         db.push(message.author.id, `${randomlychosenstand}`)
-       } message.channel.send("You Already Have A Stand")
-        break;
+       } if(items === 1){
+           message.channel.send("You Already Have A Stand")
+       }break;
         case 'roka':
         var items = db.get(message.author.id, {items: []}) 
         message.channel.send("You Used A Roka And Reset Your Stand")
