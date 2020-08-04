@@ -69,7 +69,7 @@ client.on('message', async message => {
         let human = message.author
         if(items === null) items = "You Have Nothing In Your Inventory"
         let inventory = new Discord.MessageEmbed()
-        .setTitle(`${message.author.username}'s Inventory`)
+        .setAuthor(`${message.author.username}'s Inventory`, message.author.displayAvatarURL())
         .addField("Inventory", items)
         message.channel.send(inventory)
         break;
