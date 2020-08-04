@@ -66,11 +66,7 @@ client.on('message', async message => {
         }}break;
         case 'stand':
         let items = db.get(message.author.id)
-        let human = message.author
         if(items === null) items = "You Don't Have A Stand"
-        if(items === 2) {
-            db.delete(message.author.id, `${items}`)
-        }
         let inventory = new Discord.MessageEmbed()
         .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
         .addField("Stand", items)
@@ -190,8 +186,9 @@ client.on('message', async message => {
         .setColor("RANDOM")
         message.channel.send(randomstands)
         let items = db.get(message.author.id)
-        if(items === 0) { 
-        db.push(message.author.id, `${randomlychosenstand}`)
+        if(items === 2) { 
+        db.delete(message.author.id, items)
+        db.push(message.author.id, randomlychosenstand)
       }}break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
