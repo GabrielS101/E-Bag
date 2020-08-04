@@ -65,10 +65,11 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-        var items = db.get(message.author.id)
+        var items = db.get(message.user.id)
+        var user = message.mentions.users.first() || message.author
         if(items === null) items = "You Don't Have A Stand"
         let inventory = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
+        .setAuthor(`${user}'s Stand`, message.user.displayAvatarURL())
         .addField("Stand", items)
         message.channel.send(inventory)
         break;
