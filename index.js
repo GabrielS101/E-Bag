@@ -24,8 +24,8 @@ client.on('message', async message => {
     switch(args[0].toLowerCase()) {
         
         case 'balance':
-        var otheruser = message.mentions.users.first() 
-        if(otheruser.bot ==  true)
+             var otheruser = message.mentions.users.first() 
+            if(otheruser.bot ==  true)
         return message.reply('Cannot Check Balance Of A Bot');
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
@@ -68,8 +68,8 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-        var otheruser = message.mentions.users.first() 
-        if(otheruser.bot ==  true)
+            var otheruser = message.mentions.users.first() 
+            if(otheruser.bot ==  true)
         return message.reply('Cannot Check Stand Of A Bot');
         var user = message.mentions.users.first() || message.author
         var name = user.username
@@ -117,8 +117,8 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, unwantedamount) 
      }}}break;
         case 'give':
-        var user = message.author
-        var otheruser = message.mentions.users.first() 
+          var user = message.author
+          var otheruser = message.mentions.users.first() 
           if(otheruser.bot ==  true)
         return message.reply('Cannot Give To A Bot');
         if(otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
@@ -199,18 +199,10 @@ client.on('message', async message => {
         message.channel.send("You Already Have A Stand")
        }break;
         case 'roka':
-        message.channel.awaitMessages(m => m.author.id == message.author.id)
-        var user = message.mentions.users.first() || message.author
-        var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
-       await message.channel.send("Are You Sure You Want To Reset Everything? Please Specify Yes Or No") 
-       if (message.first().content.toLowerCase() == 'yes') {
-        message.reply('You Ate The Roka And Reset Everything');
-            db.delete(message.author.id, items)
-            db.subtract(`money_${money}`)
-       } if (message.first().content.toLowerCase() == 'no') {
-        message.reply('You Decided Not To Eat The Roka And Kept What You Have');
-       }break;
+        message.channel.send("You Used A Roka And Reset Your Stand")
+        db.delete(message.author.id, items)
+        break;
         case 'meme':
         const subReddits = ["dankmeme", "dankmemes", "meme", "memes", "ShitPostCrusaders", "PewdiepieSubmissions"]
         var random = subReddits[Math.floor(Math.random() * subReddits.length)];
