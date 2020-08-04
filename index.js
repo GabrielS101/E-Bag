@@ -69,7 +69,7 @@ client.on('message', async message => {
         var items = db.get(`${user}.id`)
         if(items === null) items = "You Don't Have A Stand"
         let inventory = new Discord.MessageEmbed()
-        .setAuthor(`${user}'s Stand`, message.author.displayAvatarURL())
+        .setAuthor(`<@${user}.id>'s Stand`, message.author.displayAvatarURL())
         .addField("Stand", items)
         message.channel.send(inventory)
         break;
