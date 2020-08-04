@@ -67,7 +67,7 @@ client.on('message', async message => {
         case 'stand':
         var user = message.author.id
         var stand = db.get(`stand_${user}`)
-        if(stand === null) items = "You Don't Have A Stand"
+        if(stand === null) stand = "You Don't Have A Stand"
         let stands = new Discord.MessageEmbed()
         .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
         .addField("Stand", stand)
@@ -208,11 +208,13 @@ client.on('message', async message => {
        }break;
        case 'use':
         if(args[1] === 'arrow') {
-        var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
         var items = db.get(message.author.id)
-        if(items === 'arrow') {
+        if(items === 'arrow')
+        if(!items === 'arrow') {
+            message.channel.send("You Don't Have A Arrow")
+        }
         if(!stand === null) {
             message.channel.send("You Already Have A Stand")
         }
@@ -224,9 +226,6 @@ client.on('message', async message => {
         .setColor("RANDOM")
          message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
-    }else {
-        message.channel.send("You Don't Have A Arrow")
-    }
       }break;
        case 'evolve':
         if(args[1] === 'echoes') {
