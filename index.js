@@ -73,7 +73,7 @@ client.on('message', async message => {
         return message.reply('Cannot Check Stand Of A Bot');
         var user = message.mentions.users.first() || message.author
         var name = user.username
-        var items = db.get(`${user}.id`)
+        var items = db.get(message.author.id, {items: []}) 
         if(items === null) items = "You Don't Have A Stand"
         let inventory = new Discord.MessageEmbed()
         .setAuthor(`${name}'s Stand`, user.displayAvatarURL())
@@ -185,18 +185,18 @@ client.on('message', async message => {
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
-        var items = db.get(message.author.id) 
+        var items = db.get(message.author.id, {items: []}) 
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
         .setDescription("Your New Stand Can Be Found In Your Inventory")
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
-         message.channel.send(randomstands)
+        message.channel.send(randomstands)
         db.push(message.author.id, `${randomlychosenstand}`)
         break;
         case 'roka':
-        var items = db.get(message.author.id)
+        var items = db.get(message.author.id, {items: []}) 
         message.channel.send("You Used A Roka And Reset Your Stand")
         db.delete(message.author.id, items)
         break;
