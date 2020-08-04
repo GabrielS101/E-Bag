@@ -202,8 +202,8 @@ client.on('message', async message => {
         var user = message.mentions.users.first() || message.author
         var money = db.fetch(`money_${user.id}`)
         var items = db.get(message.author.id)
-        message.channel.send("Are You Sure You Want To Reset Everything?")
-        if(message.author.content = 'yes') {
+       await message.channel.send("Are You Sure You Want To Reset Everything? If So Say Yes") 
+        if (reply.toLower() == "yes") {
             message.channel.send("You Ate A Roka And Reset Everything")
             db.delete(message.author.id, items)
             db.subtract(`money_${money}`)
