@@ -224,6 +224,7 @@ client.on('message', async message => {
         .setColor("RANDOM")
          message.channel.send(randomstands)
         db.push(`stand_${user}`, randomlychosenstand)
+        db.delete(message.author.id, "arrow")
       }break;
        case 'evolve':
         if(args[1] === 'echoes') {
