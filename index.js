@@ -175,9 +175,8 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
-       case 'reset':
-        if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator PermissionCan Use This Command')
-        .then(message => message.delete({timeout: 5000}));
+       case 'roka':
+       message.channel.send("You Ate A Roka And Reset Your Stand")
        var items = db.get(message.author.id)
        db.delete(message.author.id, items)
        break;
