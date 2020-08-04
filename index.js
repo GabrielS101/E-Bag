@@ -185,9 +185,10 @@ client.on('message', async message => {
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
+        db.push(message.author.id, randomlychosenstand)
         let items = db.get(message.author.id)
         if(items === 2) { 
-        db.delete(message.author.id, items)
+        db.delete(message.author.id, items).then
         db.push(message.author.id, randomlychosenstand)
       }}break;
         case 'meme':
