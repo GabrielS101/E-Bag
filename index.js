@@ -65,20 +65,31 @@ client.on('message', async message => {
            db.set(`worked_${message.author.id}`, Date.now())
         }}break;
         case 'stand':
-        var items = db.get(message.author.id)
-        if(items === null) items = "You Don't Have A Stand"
-        let inventory = new Discord.MessageEmbed()
+        var user = message.author.id
+        var stand = db.get(`stand_${user}`)
+        if(stand === null) items = "You Don't Have A Stand"
+        let stands = new Discord.MessageEmbed()
         .setAuthor(`${message.author.username}'s Stand`, message.author.displayAvatarURL())
-        .addField("Stand", items)
-        message.channel.send(inventory)
+        .addField("Stand", stand)
+        message.channel.send(stands)
         break;
         case 'ability':
-        var techniques = db.get(message.author.id)
-        if(techniques === null) techniques = "You Don't Have Any Techniques"
+        var user = message.author.id
+        var abilities = db.get(`ability_${user}`)
+        if(abilities === null) items = "You Don't Have Any Abilities"
         let ability = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username}'s Technique`, message.author.displayAvatarURL())
-        .addField("Technique", techniques)
+        .setAuthor(`${message.author.username}'s Ability`, message.author.displayAvatarURL())
+        .addField("Ability", abilities)
         message.channel.send(ability)
+        break;
+        case 'inventory':
+        var user = message.author.id
+        var items = db.get(message.author.id)
+        if(items === null) items = "You Have No Items"
+        let item = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.username}'s Inventory`, message.author.displayAvatarURL())
+        .addField("Items", items)
+        message.channel.send(item)
         break;
         case `get`:
         let wantedamount = (args[1])
@@ -183,17 +194,28 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
        }break; 
-       case 'roka':
-       message.channel.send("You Ate A Roka And Reset Your Stand")
-       var items = db.get(message.author.id)
-       db.delete(message.author.id, items)
-       break;
-       case 'arrow':
+       case 'use':
+       if(args[1] === 'roka') {
+        var items = db.get(message.author.id)
+        var money = db.fetch(`money_${user.id}`)
+        if(items = 'roka') {{
+            db.delete(message.author.id, items)
+            db.subtract(`money_${money}`)
+            message.channel.send("You Ate A Roka And Reset Everything")
+        }}else {
+            message.channel.send("You Dont Have A Roka")
+        }
+       }break;
+       case 'use':
+        if(args[1] === 'arrow') {
         var name = message.author.username
         const Stands = ["Purple Haze Distortion", "Hermit Purple", "White Album","Heavens Door", "Soft And Wet", "Hierophant Green", "Enigma", "Sticky Fingers", "Star Platinum: The World", "Echoes Egg", "Silver Chariot", "The Fool", "The World: Alternate Universe", "Whitesnake", "Stray Cat", "Crazy Diamond", "The Hand", "Killer Queen", "Wheel Of Fortune", "Hanged Man", "Tower Of Gray", "Love Deluxe", "Geb", "Red Hot Chili Pepper", "Moody Blues", "Gold Experience", "Sex Pistols", "Emperor"]
         const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
         var items = db.get(message.author.id)
-        if(items === null) { 
+        if(items === 'arrow') {
+        if(!stand === null) {
+            message.channel.send("You Already Have A Stand")
+        }
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
@@ -203,15 +225,17 @@ client.on('message', async message => {
          message.channel.send(randomstands)
         db.push(message.author.id, randomlychosenstand)
     }else {
-        message.channel.send("You Already Have A Stand")
-       }break;
+        message.channel.send("You Don't Have A Arrow")
+    }
+      }break;
        case 'evolve':
         if(args[1] === 'echoes') {
             if(args[2] === 'egg') {
-        var items = db.get(message.author.id)
-        if(items = 'Echoes Egg') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Echoes Act 1")}else {
+            var user = message.author.id
+            var stand = db.get(`stand_${user}`)
+        if(stand = 'Echoes Egg') {{
+            db.delete(`stand_${user}`, stand)
+        }db.push(`stand_${user}`, "Echoes Act 1")}else {
             message.channel.send("You Dont Have Echoes Egg As Your Stand")
         }
      }}break;
@@ -219,10 +243,11 @@ client.on('message', async message => {
         if(args[1] === 'echoes')
             if(args[2] === 'act'){
                 if(args[3] === '1') {
-        var items = db.get(message.author.id)
-        if(items = 'Echoes Act 1') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Echoes Act 2")}else {
+                var user = message.author.id
+                var stand = db.get(`stand_${user}`)
+        if(stand = 'Echoes Act 1') {{
+            db.delete(`stand_${user}`, stand)
+        }db.push(`stand_${user}`, "Echoes Act 2")}else {
             message.channel.send("You Dont Have Echoes Act 1 As Your Stand")
         }
      }}break;
@@ -230,10 +255,11 @@ client.on('message', async message => {
         if(args[1] === 'echoes')
             if(args[2] === 'act') {
                 if(args[3] === '2') {
-        var items = db.get(message.author.id)
-        if(items = 'Echoes Act 2') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Echoes Act 3")}else {
+                var user = message.author.id
+                var stand = db.get(`stand_${user}`)
+        if(stand = 'Echoes Act 2') {{
+            db.delete(`stand_${user}`, stand)
+        }db.push(`stand_${user}`, "Echoes Act 3")}else {
             message.channel.send("You Dont Have Echoes Act 2 As Your Stand")
         }
      }}break;
@@ -241,10 +267,11 @@ client.on('message', async message => {
         if(args[1] === 'tusk')
             if(args[2] === 'act') {
                 if(args[3] === '1') {
-        var items = db.get(message.author.id)
-        if(items = 'Tusk Act 1') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Tusk Act 2")}else {
+                var user = message.author.id
+                var stand = db.get(`stand_${user}`)
+        if(stand = 'Tusk Act 1') {{
+            db.delete(`stand_${user}`, stand)
+        }db.push(`stand_${user}`, "Tusk Act 2")}else {
             message.channel.send("You Dont Have Tusk Act 1 As Your Stand")
         }
      }}break;
@@ -252,10 +279,11 @@ client.on('message', async message => {
         if(args[1] === 'tusk')
             if(args[2] === 'act') {
                 if(args[3] === '2') {
-        var items = db.get(message.author.id)
-        if(items = 'Tusk Act 2') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Tusk Act 3")}else {
+                var user = message.author.id
+                var stand = db.get(`stand_${user}`)
+        if(stand = 'Tusk Act 2') {{
+            db.delete(`stand_${user}`, stand)
+        }db.push(`stand_${user}`, "Tusk Act 3")}else {
             message.channel.send("You Dont Have Tusk Act 2 As Your Stand")
         }
      }}break;
@@ -263,10 +291,11 @@ client.on('message', async message => {
         if(args[1] === 'tusk')
             if(args[2] === 'act') {
                 if(args[3] === '3') {
-        var items = db.get(message.author.id)
-        if(items = 'Tusk Act 3') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Tusk Act 4")}else {
+                var user = message.author.id
+                var stand = db.get(`stand_${user}`)
+        if(stand = 'Tusk Act 3') {{
+            db.delete(`stand_${user}`, stand)
+        }db.push(`stand_${user}`, "Tusk Act 4")}else {
             message.channel.send("You Dont Have Tusk Act 3 As Your Stand")
         }
      }}break;
@@ -274,19 +303,24 @@ client.on('message', async message => {
         if(args[1] === 'corpse') {
             if(arga[2] === 'part') 
         var items = db.get(message.author.id)
+        var user = message.author.id
+        var stand = db.get(`stand_${user}`)
         if(items = 'Corpse Part') {{
             db.delete(message.author.id, items)
-        }db.push(message.author.id, "Tusk Act 1")}
+        }db.push(`stand_${user}`, "Tusk Act 1")}
             if(!items === 'Corpse Part') {
                 message.channel.send("You Dont Have A Corpse Part")
       }}break;
       case 'evolve':
         if(args[1] === 'spin') {
+            var user = message.author.id
+            var stand = db.get(`stand_${user}`)
+            var abilities = db.get(`ability_${user}`)
             var items = db.get(message.author.id)
-        if(items = 'Spin') {{
-            db.delete(message.author.id, items)
-        }db.push(message.author.id, "Ball Breaker")}
-            if(!items === 'Spin') {
+        if(abilities = 'Spin') {{
+            db.delete(message.author.id, abilities)
+        }db.push(`stand_${user}`, "Ball Breaker")}
+            if(!abilities === 'Spin') {
                 message.channel.send("You Have Not Learned Spin")
       }}break;
         case 'meme':
