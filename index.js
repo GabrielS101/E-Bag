@@ -10,7 +10,8 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const queue = new Map()
-const youtube = new YouTube(process.env.GOOGLE_API_KEY)
+const youtubeapi = 'AIzaSyCqhjgrPTPSOFyLyos5gfN47TJ0HnNA_LA'
+const youtube = new YouTube(youtubeapi)
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
