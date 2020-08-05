@@ -7,6 +7,7 @@ const db = require('quick.db');
 const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
+const queue = new Map()
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -23,6 +24,8 @@ client.on('message', async message => {
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
+    const serverQueue = queue.get(message.guild.id)
+    
     switch(args[0].toLowerCase()) {
         
         case 'play':
@@ -31,25 +34,68 @@ client.on('message', async message => {
         const permissions = voiceChannel.permissionsFor(message.client.user)
         if(!permissions.has("CONNECT")) return message.channel.send("I Dont Have Permissions To Connect To The Voice Channel")
         if(!permissions.has("SPEAK")) return message.channel.send("I Dont Have Permissions To Speak In The Voice Channel")
-        try {
-            var connection = await voiceChannel.join()
-        }catch(error) {
-            console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
-            return message.channel.send(`There Was A Error Connecting To The Voice Channel: ${error}`)
+        const songInfo = await ytdl.getInfo(args[1])
+        const song = {
+            title: songInfo.title,
+            url: songInfo.video_url
         }
-        const dispatcher = connection.play(ytdl(args[1]))
-        .on('finish', () => {
-            voiceChannel.leave()
-        })
-        .on('error', error => {
-            console.log(error)
-        })
-        dispatcher.setVolumeLogarithmic(5 / 5)
+        if(!serverqueue) {
+            const queueConstruct = {
+                textchannel: message.channel,
+                voiceChannel: voiceChannel,
+                connection: null,
+                songs: [], 
+                volume: 5,
+                playing: true
+            }
+            queue.set(message.guild.id, queueConstruct)
+            queueConstruct.songs.push(song)
+            try {
+                var connection = await voiceChannel.join()
+                queueConstruct.connection = connection
+                play(message.guild, queueConstruct.songs[0])
+            }catch(error) {
+                console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
+                queue.delete(message.guild.id)
+                return message.channel.send(`There Was A Error Connecting To The Voice Channel: ${error}`)
+            }
+        }else {
+            serverQueue.songs.push(song)
+            return message.channel.send(`${song.title} Has Been Added To The Queue`)
+        }
+        return undefined
         break;
         case 'stop':
         if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Stop The Music")
-        message.member.voice.channel.leave()
+        if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+        serverQueue.songs = []
+        serverQueue.connection.dispatcher.end()
+        message.channel.send("The Music Has Been Stopped")
         return undefined
+        function play(guild,song) {
+            const serverQueue = queue.get(guild.id)
+            if(!song) {
+                serverQueue.voiceChannel.leave()
+                queue.delete(guild.id)
+                return
+            }
+            const dispatcher = serverQueue.connection.play(ytdl(song.url))
+            .on('finish', () => {
+                serverQueue.songs.shift()
+                play(guild, serverQueue.songs[0])
+            })
+            .on('error', error => {
+                console.log(error)
+            })
+            dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
+        }
+        break;
+        case 'skip':
+            if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Skip This Song")
+            if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+            serverQueue.connection.dispatcher.end()
+            message.channel.send("Song Has Been Skipped")
+            return undefined
         break;
         case 'balance':
              var otheruser = message.mentions.users.first() 
