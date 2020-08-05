@@ -10,7 +10,7 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const queue = new Map()
-const youtubeapi = ''
+const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
 
 client.on('ready', () =>{
