@@ -9,6 +9,7 @@ const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
+const youtubeapi = 'AIzaSyAvfDT1rVyX5h3G1kX49IOB611mcS8kMw4'
 const queue = new Map()
 const youtube = new YouTube(process.env.GOOGLE_API_KEY)
 
