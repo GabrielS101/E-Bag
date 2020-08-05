@@ -54,6 +54,7 @@ client.on('message', async message => {
                 var connection = await voiceChannel.join()
                 queueConstruct.connection = connection
                 play(message.guild, queueConstruct.songs[0])
+                message.channel.send(`Now Playing "${song.title}"`)
             }catch(error) {
                 console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
                 queue.delete(message.guild.id)
