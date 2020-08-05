@@ -6,8 +6,6 @@ const { countries } = require('covidapi');
 const db = require('quick.db');
 const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
-const opus = require('opusscript');
-const ffmpeg = require('ffmpeg');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
