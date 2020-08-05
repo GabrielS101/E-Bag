@@ -73,7 +73,7 @@ client.on('message', async message => {
         return message.reply('Cannot Check Stand Of A Bot');
         var user = message.mentions.users.first() || message.author
         var name = user.username
-        var items = db.get(message.author.id, {items: []}) 
+        var items = db.get(user.id, {items: []}) 
         if(items === null) items = "You Don't Have A Stand"
         let inventory = new Discord.MessageEmbed()
         .setAuthor(`${name}'s Stand`, user.displayAvatarURL())
