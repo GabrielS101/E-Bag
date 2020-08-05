@@ -12,6 +12,9 @@ const YouTube = require('simple-youtube-api');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
+const serverQueue = queue.get(message.guild.id)
+const searchString = args.slice(1).join(' ')
+const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -27,10 +30,6 @@ const PREFIX = "e-"
 client.on('message', async message => {
 
     let args = message.content.slice(PREFIX.length).split(" ");
-
-    const serverQueue = queue.get(message.guild.id)
-    const searchString = args.slice(1).join(' ')
-    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
 
     switch(args[0].toLowerCase()) {
         
@@ -69,7 +68,7 @@ client.on('message', async message => {
             try {
                 var connection = await voiceChannel.join()
                 queueConstruct.connection = connection
-                play(message.guild.id, queueConstruct.songs[0])
+                play(message.guild, queueConstruct.songs[0])
             }catch(error) {
                 console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
                 queue.delete(message.guild.id)
