@@ -69,7 +69,7 @@ client.on('message', async message => {
             try {
                 var connection = await voiceChannel.join()
                 queueConstruct.connection = connection
-                play(message.guild, queueConstruct.songs[0])
+                play(message.guild.id, queueConstruct.songs[0])
             }catch(error) {
                 console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
                 queue.delete(message.guild.id)
