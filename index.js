@@ -61,7 +61,7 @@ client.on('message', async message => {
             }
         }else {
             serverQueue.songs.push(song)
-            return message.channel.send(`${song.title} Has Been Added To The Queue`)
+            return message.channel.send(`"${song.title}" Has Been Added To The Queue`)
         }
         return undefined
         break;
@@ -94,7 +94,7 @@ client.on('message', async message => {
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Skip This Song")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             serverQueue.connection.dispatcher.end()
-            message.channel.send("Song Has Been Skipped")
+            message.channel.send(`"${song.title}" Has Been Skipped`)
             return undefined
         break;
         case 'balance':
