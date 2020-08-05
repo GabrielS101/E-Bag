@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const { Client, Util } = require('discord.js');
 const randomPuppy = require('random-puppy');
 const covid = require('covidapi');
 const { countries } = require('covidapi');
@@ -36,7 +37,7 @@ client.on('message', async message => {
         if(!permissions.has("SPEAK")) return message.channel.send("I Dont Have Permissions To Speak In The Voice Channel")
         const songInfo = await ytdl.getInfo(args[1])
         const song = {
-            title: songInfo.videoDetails.title,
+            title: Util.escapeMarkdown(songInfo.videoDetails.title),
             url: songInfo.videoDetails.video_url
         }
         if(!serverQueue) {
@@ -54,7 +55,6 @@ client.on('message', async message => {
                 var connection = await voiceChannel.join()
                 queueConstruct.connection = connection
                 play(message.guild, queueConstruct.songs[0])
-                message.channel.send(`Now Playing "${song.title}"`)
             }catch(error) {
                 console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
                 queue.delete(message.guild.id)
@@ -89,6 +89,7 @@ client.on('message', async message => {
                 console.log(error)
             })
             dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
+            serverQueue.textChannel.send(`Start Playing "${song.title}"`)
         }
         break;
         case 'skip':
@@ -96,6 +97,50 @@ client.on('message', async message => {
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             serverQueue.connection.dispatcher.end()
             message.channel.send(`"${song.title}" Has Been Skipped`)
+            return undefined
+        break;
+        case 'volume':
+            if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Change The Volume")
+            if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+            if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
+            if(isNaN(args[1])) return message.channel.send("Volume Cannot Be Changed To That As It Is Not A Number")
+            serverQueue.volume = args[1]
+            serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
+            message.channel.send(`Volume Has Been Changed TO ${args[1]}`)
+            return undefined
+        break;
+        case 'now':
+            if(args[1] === 'playing'){
+                if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+                message.channel.send(`Currently Playing "${serverQueue.songs[0].title}"`)
+                return undefined
+       }break;
+        case 'queue':
+            if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+            message.channel.send(`
+            Song Queue
+            ${serverQueue.songs.Map(song => `${song.title}`).join('\n')}
+
+            Now Playing "${serverQueue.songs[0].title}"
+            `, { split: true})
+            return undefined
+        break;
+        case 'pause':
+            if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Pause The Music")
+            if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+            if(!serverQueue.playing) return message.channel.send("The Music Is Already Paused")
+            serverQueue.playing = false
+            serverQueue.connection.dispatcher.pause()
+            message.channel.send("Music Is Now Paused")
+            return undefined
+        break;
+        case 'resume':
+            if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Resume The Music")
+            if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+            if(serverQueue.playing) return message.channel.send("The Music Is Already Playing")
+            serverQueue.playing = true
+            serverQueue.connection.dispatcher.resume()
+            message.channel.send("Music Is Now Resumed")
             return undefined
         break;
         case 'balance':
@@ -161,7 +206,7 @@ client.on('message', async message => {
           message.channel.send("Amount To Get Not Specified")
         }else {
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
-        if(!wantedamount === Number) {
+        if(isNaN(args[1])) {
             message.channel.send("Amount To Get Must Be In Number Form")
         }else {
         const adminget = new Discord.MessageEmbed()
@@ -182,7 +227,7 @@ client.on('message', async message => {
             message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         }else {
         if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
-        if(!unwantedamount === Number) {
+        if(isNaN(args[1])) {
             message.channel.send("Amount To Get Rid Of Must Be In Number Form")
         }else {
         const adminremove = new Discord.MessageEmbed()
@@ -216,7 +261,7 @@ client.on('message', async message => {
              message.channel.send(givemoney)
              db.subtract(`money_${message.author.id}`, giveamount)
              db.add(`money_${otheruser.id}`, giveamount)
-        if(!giveamount === Number) {
+             if(isNaN(args[1])) {
           message.channel.send("Amount To Give Must Be In Number Form")
         }
           }
