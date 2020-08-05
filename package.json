@@ -11,6 +11,8 @@
   "dependencies": {
     "covidapi": "^0.5.0",
     "discord.js": "^12.2.0",
+    "ffmpeg": "0.0.4",
+    "node-gyp": "^7.0.0",
     "opusscript": "0.0.7",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.1",
