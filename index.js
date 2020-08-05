@@ -10,7 +10,7 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const queue = new Map()
-const youtubeapi = 'AIzaSyAQy7Q43fep4uwthuA66o4jgYYjdv_k['
+const youtubeapi = ''
 const youtube = new YouTube(youtubeapi)
 
 client.on('ready', () =>{
@@ -159,10 +159,9 @@ client.on('message', async message => {
             return undefined
         break;
         case 'balance':
-             var otheruser = message.mentions.users.first() 
-            if(otheruser.bot ==  true)
-        return message.reply('Cannot Check Balance Of A Bot');
         var user = message.mentions.users.first() || message.author
+        if(user.bot ==  true)
+        return message.reply('Cannot Check Balance Of A Bot');
         var money = db.fetch(`money_${user.id}`)
         if (money === null) money = 0
         message.channel.send(`${user} You Have ${money} Dollars`)
