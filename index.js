@@ -195,7 +195,7 @@ client.on('message', async message => {
         .setColor("RANDOM")
         message.channel.send(randomstands)
         db.push(message.author.id, `${randomlychosenstand}`)
-       } if(items > 0){
+       }else {
            message.channel.send("You Already Have A Stand")
        }break;
         case 'roka':
