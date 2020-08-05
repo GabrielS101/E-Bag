@@ -47,7 +47,7 @@ client.on('message', async message => {
                 var videos = await youtube.searchVideos(searchString, 1)
                 var video = await youtube.getVideoByID(videos[0].id)
             }catch {
-                return message.channel.send("Search Result Not Found")
+                message.channel.send("Search Result Not Found")
             }
         }
         const song = {
