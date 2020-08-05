@@ -5,6 +5,8 @@ const covid = require('covidapi');
 const { countries } = require('covidapi');
 const db = require('quick.db');
 const parsems = require('parse-ms');
+const ytdl = requre('ytdl-core');
+const opus = require('opusscript');
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -23,6 +25,32 @@ client.on('message', async message => {
 
     switch(args[0].toLowerCase()) {
         
+        case 'play':
+        const voiceChannel = message.member.voice.channel
+        if(!voiceChannel) return message.channel.send("You Need To Be In A Voice Channel To Play Music")
+        const permissions = voiceChannel.permissionsFor(message.client.user)
+        if(!permissions.has("CONNECT")) return message.channel.send("I Dont Have Permissions To Connect To The Voice Channel")
+        if(!permissions.has("SPEAK")) return message.channel.send("I Dont Have Permissions To Speak In The Voice Channel")
+        try {
+            var connection = await voiceChannel.join()
+        }catch(error) {
+            console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
+            return message.channel.send(`There Was A Error Connecting To The Voice Channel: ${error}`)
+        }
+        const dispatcher = connection.play(ytdl(arga[1]))
+        .on('finish', () => {
+            voiceChannel.leave()
+        })
+        .on('error', error => {
+            console.log(error)
+        })
+        dispatcher.setVolumeLogarithmic(5 / 5)
+        break;
+        case 'stop':
+        if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Stop The Music")
+        message.member.voice.channel.leave()
+        return undefined
+        break;
         case 'balance':
              var otheruser = message.mentions.users.first() 
             if(otheruser.bot ==  true)
