@@ -190,7 +190,7 @@ client.on('message', async message => {
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
         .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
-        .setDescription("You Can Check What Your Current Stand Is By Doing e-stand")
+        .setDescription("You Can Reset Your Stand To Get A New One By Doind e-roka")
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
