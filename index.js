@@ -5,7 +5,7 @@ const covid = require('covidapi');
 const { countries } = require('covidapi');
 const db = require('quick.db');
 const parsems = require('parse-ms');
-const ytdl = requre('ytdl-core');
+const ytdl = require('ytdl-core');
 const opus = require('opusscript');
 
 client.on('ready', () =>{
