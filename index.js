@@ -28,12 +28,13 @@ client.on('message', async message => {
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
+    const serverQueue = queue.get(message.guild.id)
+    const searchString = args.slice(1).join(' ')
+    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
+
     switch(args[0].toLowerCase()) {
         
         case 'play':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
         const voiceChannel = message.member.voice.channel
         if(!voiceChannel) return message.channel.send("You Need To Be In A Voice Channel To Play Music")
         const permissions = voiceChannel.permissionsFor(message.client.user)
@@ -81,9 +82,6 @@ client.on('message', async message => {
         return undefined
         break;
         case 'stop':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
         if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Stop The Music")
         if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
         serverQueue.songs = []
@@ -110,9 +108,6 @@ client.on('message', async message => {
         }
         break;
         case 'skip':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Skip This Song")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             serverQueue.connection.dispatcher.end()
@@ -120,9 +115,6 @@ client.on('message', async message => {
             return undefined
         break;
         case 'volume':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Change The Volume")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
@@ -134,17 +126,11 @@ client.on('message', async message => {
         break;
         case 'now':
             if(args[1] === 'playing'){
-                var serverQueue = queue.get(message.guild.id)
-                var searchString = args.slice(1).join(' ')
-                var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
                 if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
                 message.channel.send(`Currently Playing "${serverQueue.songs[0].title}"`)
                 return undefined
        }break;
         case 'queue':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             message.channel.send(`
             Song Queue
@@ -155,9 +141,6 @@ client.on('message', async message => {
             return undefined
         break;
         case 'pause':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Pause The Music")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             if(!serverQueue.playing) return message.channel.send("The Music Is Already Paused")
@@ -167,9 +150,6 @@ client.on('message', async message => {
             return undefined
         break;
         case 'resume':
-            var serverQueue = queue.get(message.guild.id)
-            var searchString = args.slice(1).join(' ')
-            var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Resume The Music")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             if(serverQueue.playing) return message.channel.send("The Music Is Already Playing")
