@@ -8,7 +8,10 @@ const db = require('quick.db');
 const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
+const YouTube = require('simple-youtube-api');
+const youtubeapi = 'AIzaSyArjjjjRFdLnVQbcbg6efm-GMYMo8_fdKI'
 const queue = new Map()
+const youtube = new YouTube(process.env.GOOGLE_API_KEY)
 
 client.on('ready', () =>{
     console.log('E-Bag Is Now Online');
@@ -26,7 +29,9 @@ client.on('message', async message => {
     let args = message.content.slice(PREFIX.length).split(" ");
 
     const serverQueue = queue.get(message.guild.id)
-    
+    const searchString = args.slice(1).join(' ')
+    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
+
     switch(args[0].toLowerCase()) {
         
         case 'play':
@@ -35,10 +40,20 @@ client.on('message', async message => {
         const permissions = voiceChannel.permissionsFor(message.client.user)
         if(!permissions.has("CONNECT")) return message.channel.send("I Dont Have Permissions To Connect To The Voice Channel")
         if(!permissions.has("SPEAK")) return message.channel.send("I Dont Have Permissions To Speak In The Voice Channel")
-        const songInfo = await ytdl.getInfo(args[1])
+        try {
+            var videa = await youtube.getVideoByID(url)
+        } catch {
+            try {
+                var videos = await youtube.searchVideos(searchString, 1)
+                var video = await youtube.getVideoByID(videos[0].id)
+            }catch {
+                return message.channel.send("Search Result Not Found")
+            }
+        }
         const song = {
-            title: Util.escapeMarkdown(songInfo.videoDetails.title),
-            url: songInfo.videoDetails.video_url
+            id: video.id,
+            title: video.title,
+            url: `https://youtube.com/watch?v=${video.id}`
         }
         if(!serverQueue) {
             const queueConstruct = {
