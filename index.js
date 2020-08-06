@@ -356,7 +356,7 @@ client.on('message', async message => {
             if(person){
                 var member = message.guild.member(user);
                 if(member){
-                    member.kick('You have been kicked').then(() =>{
+                    person.kick('You have been kicked').then(() =>{
                         message.reply('Succesfully Kicked Member')
                         .then(message => message.delete({timeout: 5000}));
                     }).catch(err =>{
@@ -378,7 +378,7 @@ client.on('message', async message => {
             if(person){
                 var member = message.guild.member(user);
                 if(member){
-                    member.ban({reason: 'Banned'}).then(() =>{
+                    person.ban({reason: 'Banned'}).then(() =>{
                         message.reply('Succesfully Banned Member')
                         .then(message => message.delete({timeout: 5000}));
                     }).catch(err =>{
