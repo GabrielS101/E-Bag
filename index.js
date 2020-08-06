@@ -352,10 +352,10 @@ client.on('message', async message => {
             if(!message.member.hasPermission("ADMINISTRATOR" && "KICK_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Kick Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
-            var person = message.mentions.members.first();
-            if(person){
-                var member = message.guild.member(user);
-                if(member){
+            var member = message.guild.member(user)
+            if(member){
+                var person = message.mentions.members.first()
+                if(person){
                     person.kick('You have been kicked').then(() =>{
                         message.reply('Succesfully Kicked Member')
                         .then(message => message.delete({timeout: 5000}));
@@ -374,10 +374,10 @@ client.on('message', async message => {
         if(!message.member.hasPermission("ADMINISTRATOR" && "BAN_MEMBERS", explicit = true)) return message.channel.send('Only People With The Administrator Permission Or The Ban Members Permission Can Use This Command').then(message => message.delete({timeout: 5000}));
             if(!args[1]) message.channel.send('No Member Specified')
             .then(message => message.delete({timeout: 5000}));
-            var person = message.mentions.members.first();
-            if(person){
-                var member = message.guild.member(user);
-                if(member){
+            var member = message.guild.member(user)
+            if(member){
+                var person = message.mentions.members.first()
+                if(person){
                     person.ban({reason: 'Banned'}).then(() =>{
                         message.reply('Succesfully Banned Member')
                         .then(message => message.delete({timeout: 5000}));
