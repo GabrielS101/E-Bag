@@ -355,7 +355,7 @@ client.on('message', async message => {
             var person = message.mentions.members.first();
             if(person){
                 var member = message.guild.member(user);
-                if(member){
+                if(args[1] = member){
                     member.kick('You have been kicked').then(() =>{
                         message.reply('Succesfully Kicked Member')
                         .then(message => message.delete({timeout: 5000}));
