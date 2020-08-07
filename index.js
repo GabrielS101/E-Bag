@@ -41,7 +41,7 @@ client.on('message', async message => {
         if(!permissions.has("CONNECT")) return message.channel.send("I Dont Have Permissions To Connect To The Voice Channel")
         if(!permissions.has("SPEAK")) return message.channel.send("I Dont Have Permissions To Speak In The Voice Channel")
         try {
-            var videa = await youtube.getVideoByID(url)
+            var video = await youtube.getVideoByID(url)
         } catch {
             try {
                 var videos = await youtube.searchVideos(searchString, 1)
@@ -112,6 +112,8 @@ client.on('message', async message => {
         }
         break;
         case 'skip':
+            var videos = await youtube.searchVideos(searchString, 1)
+            var video = await youtube.getVideoByID(videos[0].id)
             var song = {
                 id: video.id,
                 title: video.title,
