@@ -138,7 +138,7 @@ client.on('message', async message => {
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             message.channel.send(`
             Song Queue
-            ${serverQueue.songs.Map(song => `""-"" ${song.title}`).join('\n')}
+            ${serverQueue.songs.Map(song => `**-** ${song.title}`).join('\n')}
 
             Now Playing "${serverQueue.songs[0].title}"
             `, { split: true})
