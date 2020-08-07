@@ -50,7 +50,7 @@ client.on('message', async message => {
                 return message.channel.send("Search Result Not Found")
             }
         }
-        const song = {
+        var song = {
             id: video.id,
             title: video.title,
             url: `https://youtube.com/watch?v=${video.id}`
@@ -80,7 +80,7 @@ client.on('message', async message => {
         return undefined
         break;
         case 'stop':
-            const song = {
+            var song = {
                 id: video.id,
                 title: video.title,
                 url: `https://youtube.com/watch?v=${video.id}`
