@@ -1023,7 +1023,7 @@ client.on('message', async message => {
           .addField("Spin Charge", 'Add a extra 1x to your next attack.')
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
           .setColor(0xe01fa0)
-          message.channel.send(TuskAct1)
+          message.channel.send(TuskAct1);
         }}break;
     case 'tusk':
       if (args[1] === 'act') {
@@ -1038,7 +1038,7 @@ client.on('message', async message => {
           .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
           .setColor(0xe01fa0)
-          message.channel.send(TuskAct2)
+          message.channel.send(TuskAct2);
         }}break;
     case 'tusk':
       if (args[1] === 'act') {
@@ -1053,7 +1053,7 @@ client.on('message', async message => {
           .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
           .setColor(0xe01fa0)
-          message.channel.send(TuskAct3)
+          message.channel.send(TuskAct3);
         }}break;
     case 'tusk':
       if (args[1] === 'act') {
@@ -1069,7 +1069,7 @@ client.on('message', async message => {
           .addField("Fingernail Glide", '4 Turn Cooldown - Dodge an attack.')
           .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
           .setColor(0xe01fa0)
-          message.channel.send(TuskAct4)
+          message.channel.send(TuskAct4);
         }}break;
     case 'spin':
       const Spin = new Discord.MessageEmbed()
@@ -1083,7 +1083,7 @@ client.on('message', async message => {
       .addField("Execution", '300 - Only Once Per Game.')
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
-      message.channel.send(Spin)
+      message.channel.send(Spin);
       break;
     case 'made':
       if (args[1] === 'in') {
