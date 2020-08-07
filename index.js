@@ -112,6 +112,11 @@ client.on('message', async message => {
         }
         break;
         case 'skip':
+            var song = {
+                id: video.id,
+                title: video.title,
+                url: `https://youtube.com/watch?v=${video.id}`
+            }
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Skip This Song")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             serverQueue.connection.dispatcher.end()
