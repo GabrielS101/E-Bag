@@ -1084,7 +1084,7 @@ client.on('message', async message => {
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
       message.channel.send(Spin);
-      break;
+    break;
     case 'made':
       if (args[1] === 'in') {
         if (args[2] === 'heaven') {
