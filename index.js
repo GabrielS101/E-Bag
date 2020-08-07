@@ -118,13 +118,6 @@ client.on('message', async message => {
             message.channel.send(`"${song.title}" Has Been Skipped`)
             return undefined
         break;
-        case 'skip':
-            if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Skip This Song")
-            if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-            serverQueue.connection.dispatcher.end()
-            message.channel.send(`"${song.title}" Has Been Skipped`)
-            return undefined
-        break;
         case 'volume':
             if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Change The Volume")
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
@@ -145,7 +138,7 @@ client.on('message', async message => {
             if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
             message.channel.send(`
             Song Queue
-            ${serverQueue.songs.Map(song => `${song.title}`).join('\n')}
+            ${serverQueue.songs.Map(song => `""-"" ${song.title}`).join('\n')}
 
             Now Playing "${serverQueue.songs[0].title}"
             `, { split: true})
