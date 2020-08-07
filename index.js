@@ -168,7 +168,7 @@ client.on('message', async message => {
           message.channel.send(givemoney)
           db.subtract(`money_${message.author.id}`, giveamount)
           db.add(`money_${otheruser.id}`, giveamount)
-          if (isNaN(args[1])) {
+          if (isNaN(args[2])) {
             message.channel.send("Amount To Give Must Be In Number Form")
           }
         }
