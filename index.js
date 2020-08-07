@@ -483,24 +483,22 @@ client.on('message', async message => {
           .setDescription("Use a corpse part and win with more than 50 health with Spin.")
           message.channel.send(BallBreakerMethod);
         }}break;
-    case 'purple':
-      if (args[1] === 'haze') {
-        if (args[2] === 'distortion') {
-          const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
-          .setTitle('Purple Haze Distortion')
-          .addField('Health', '800,')
-          .addField('Punch', '50.')
-          .addField("Smoke Shot", "50x4 - 4 Turn Cooldown.")
-          .addField("Wreckless Punch", '150 - 3 Turn Cooldown.')
-          .addField("Bulb Breaker", '100x3 - 4 Turn Cooldown.')
-          .addField("Bulb Throw", '100x2 - 3 Turn Cooldown.')
-          .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided dice, if u roll under 5 then the damage goes to you.')
-          .addField('The Final Stand', "200x3 - 10 turn cooldown - break a bulb in your mouth and blow it at your opponent and roll out of 10 if you roll under 5 you take 100 damage.")
-          .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
-          .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/6c/Purple_Haze_Distortion.png/revision/latest?cb=20160417072947')
-          .setColor(0x753c62)
-          message.channel.send(PurpleHazeDistortion);
-        }}break;
+    case 'phd':
+      const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
+      .setTitle('Purple Haze Distortion')
+      .addField('Health', '800,')
+      .addField('Punch', '50.')
+      .addField("Smoke Shot", "50x4 - 4 Turn Cooldown.")
+      .addField("Wreckless Punch", '150 - 3 Turn Cooldown.')
+      .addField("Bulb Breaker", '100x3 - 4 Turn Cooldown.')
+      .addField("Bulb Throw", '100x2 - 3 Turn Cooldown.')
+      .addField("Virus Cloud", '100x4 - 5 turn cooldown - roll a 10 sided dice, if u roll under 5 then the damage goes to you.')
+      .addField('The Final Stand', "200x3 - 10 turn cooldown - break a bulb in your mouth and blow it at your opponent and roll out of 10 if you roll under 5 you take 100 damage.")
+      .addField("Raging Virus", 'And x1 on all your abilities - 5 turn wait.')
+      .setImage('https://vignette.wikia.nocookie.net/jjba/images/6/6c/Purple_Haze_Distortion.png/revision/latest?cb=20160417072947')
+      .setColor(0x753c62)
+      message.channel.send(PurpleHazeDistortion);
+      break;
     case 'stray':
       if (args[1] === 'cat') {
         const StrayCat = new Discord.MessageEmbed()
