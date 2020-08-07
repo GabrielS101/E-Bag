@@ -1071,20 +1071,7 @@ client.on('message', async message => {
           .setColor(0xe01fa0)
           message.channel.send(TuskAct4);
         }}break;
-    case 'spin':
-      const Spin = new Discord.MessageEmbed()
-      .setTitle('Spin')
-      .addField('Health', '600.')
-      .addField('Steel Ball', '50.')
-      .addField("Wrecking Ball", '80x2 - 4 Turn Cooldown (Roll a additional 1-10 dice. If you roll a 6 or higher than do an additional 50% of the amount of damage you just did to your opponent.)')
-      .addField("Left-Half Ataxia", '70x3 - 3 Turn Cooldown (If at least 2 of the dice you rolled roll higher than 40 than for the next turn the opponent only does 50% of the damage they were supposed to do.)')
-      .addField("Golden Rotation", '0 - 6 Turn Cooldown (For this turn you do no damage but next turn roll 3 100 sided dice for damage.)')
-      .addField("Air Distortion", '0 - 5 turn Cooldown (Your opponent misses their attack this turn and you get to attack first next turn.)')
-      .addField("Execution", '300 - Only Once Per Game.')
-      .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
-      .setColor(0x4be33d)
-      message.channel.send(Spin);
-      break;
+
     case 'made':
       if (args[1] === 'in') {
         if (args[2] === 'heaven') {
