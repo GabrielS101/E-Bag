@@ -28,7 +28,7 @@ client.on('message', async message => {
 
     let args = message.content.slice(PREFIX.length).split(" ");
 
-    const serverQueue = queue.get(message.guild.id)
+    var serverQueue = queue.get(message.guild.id)
     const searchString = args.slice(1).join(' ')
     const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
 
@@ -80,6 +80,11 @@ client.on('message', async message => {
         return undefined
         break;
         case 'stop':
+            const song = {
+                id: video.id,
+                title: video.title,
+                url: `https://youtube.com/watch?v=${video.id}`
+            }
         if(!message.member.voice.channel) return message.channel.send("You Need To Be In A Voice Channel To Stop The Music")
         message.member.voice.channel.leave()
         if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
@@ -88,7 +93,7 @@ client.on('message', async message => {
         message.channel.send("The Music Has Been Stopped")
         return undefined
         function play(guild,song) {
-            const serverQueue = queue.get(guild.id)
+            var serverQueue = queue.get(guild.id)
             if(!song) {
                 serverQueue.voiceChannel.leave()
                 queue.delete(guild.id)
