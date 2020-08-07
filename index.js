@@ -46,7 +46,7 @@ client.on('message', async message => {
             console.log(`There Was A Error Connecting To The Voice Channel: ${error}`)
             return message.channel.send(`There Was A Error Connecting To The Voice Channel: ${error}`)
         }
-        const dispatcher = connection.play(ytdl(arga[1]))
+        const dispatcher = connection.play(ytdl(args[1]))
         .on('finish', () => {
             voiceChannel.leave()
         })
