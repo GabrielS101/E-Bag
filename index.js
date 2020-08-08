@@ -1305,6 +1305,8 @@ client.on('message', msg=> {
   }
 })
 
+emitter.setMaxListeners()
+
 client.on('message', message=> {
 
   let args = message.content. substring(PREFIX.length).split(" ");
