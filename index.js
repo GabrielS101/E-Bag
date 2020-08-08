@@ -1,4 +1,4 @@
-require('events').EventEmitter.prototype._maxListeners = 11;
+process.on('warning', e => console.warn(e.stack));
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const {
