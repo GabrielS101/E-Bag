@@ -1,4 +1,4 @@
-process.on('warning', e => console.warn(e.stack));
+process.setMaxListeners(0);
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const {
