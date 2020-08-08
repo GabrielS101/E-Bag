@@ -27,7 +27,8 @@ client.on('ready', () => {
 
 client.login(process.env.token);
 
-const PREFIX = "e-"
+var PREFIX = "e-"
+var PREFIX = "E-"
 
 client.on('message', async message => {
 
