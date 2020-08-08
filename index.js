@@ -21,7 +21,7 @@ const EventEmitter = require('events');
 class MyEmitter extends EventEmitter {}
 const myEmitter = new MyEmitter();
 // increase the limit
-myEmitter.setMaxListeners(11);
+myEmitter.setMaxListeners(12);
 
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
