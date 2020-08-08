@@ -40,7 +40,7 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'deactivate':
-    message.channel.send("I Refuse")
+    message.channel.send("I Refuse To Die")
     break;
     case 'balance':
       var user = message.mentions.users.first() || message.author
