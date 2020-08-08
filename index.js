@@ -398,9 +398,8 @@ client.on('message', async message => {
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
         message.channel.send(AdminStands);
       }break;
-    case 'method':
-      if (args[1] === 'for') {
-        if (args[2] === 'spin') {
+    case 'spin':
+      if (args[1] === 'method') {
           const SpinMethod = new Discord.MessageEmbed()
           .setTitle('How To Obtain Spin')
           .addField('1', "Survive up to turn 5.")
@@ -409,10 +408,9 @@ client.on('message', async message => {
           .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
           .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
           message.channel.send(SpinMethod);
-        }}break;
-    case 'method':
-      if (args[1] === 'for') {
-        if (args[2] === 'tusk') {
+        }break;
+    case 'tusk':
+      if (args[1] === 'method') {
           const TuskMethod = new Discord.MessageEmbed()
           .setTitle('How To Obtain Tusk')
           .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
@@ -420,10 +418,9 @@ client.on('message', async message => {
           .addField('Tusk Act 3', "Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2.")
           .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
           message.channel.send(TuskMethod);
-        }}break;
-    case 'method':
-      if (args[1] === 'for') {
-        if (args[2] === 'echoes') {
+        }break;
+    case 'echoes':
+      if (args[1] === 'method') {
           const EchoesMethod = new Discord.MessageEmbed()
           .setTitle('How To Obtain Echoes')
           .addField('Echoes Egg', "There Is No Method To Unlock Echoes Egg Besides Selecting It As Your Current Stand")
@@ -431,16 +428,15 @@ client.on('message', async message => {
           .addField('Echoes Act 2', "Win a match under 150 health with Echoes Act 1.")
           .addField('Echoes ACt 3', "Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.")
           message.channel.send(EchoesMethod);
-        }}break;
-    case 'method':
-      if (args[1] === 'for') {
-        if (args[2] === 'ball') {
-          if (args[3] === 'breaker') {
+        }break;
+    case 'ball':
+      if (args[1] === 'breaker') {
+        if (args[2] === 'method') {
             const BallBreakerMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Ball Breaker')
             .setDescription("Use a corpse part and win with more than 50 health with Spin.")
             message.channel.send(BallBreakerMethod);
-          }}}break;
+          }}break;
     case 'phd':
       const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
       .setTitle('Purple Haze Distortion')
