@@ -1079,7 +1079,7 @@ client.on('message', async message => {
           .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
           .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
           message.channel.send(SpinMethod);
-        }else {
+        }else if (args[1] === null) {
       const Spin = new Discord.MessageEmbed()
       .setTitle('Spin')
       .addField('Health', '600.')
