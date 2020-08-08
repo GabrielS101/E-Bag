@@ -176,7 +176,7 @@ client.on('message', async message => {
       }
       break;
     case 'covid':
-      if (args[1] === 'world') {
+      if (args[1].toLowerCase() === 'world') {
         const data = await covid.all()
         const worldcoronavirus = new Discord.MessageEmbed()
         .setTitle("Worldwide Covid-19 Data")
@@ -317,7 +317,7 @@ client.on('message', async message => {
       message.channel.send(Tutorial);
       break;
     case 'public':
-      if (args[1] === 'stands') {
+      if (args[1].toLowerCase() === 'stands') {
         if (args[2] === '1') {
           const PublicStands1 = new Discord.MessageEmbed()
           .setTitle('Public Stands 1')
@@ -350,7 +350,7 @@ client.on('message', async message => {
           message.channel.send(PublicStands1);
         }}break;
     case 'public':
-      if (args[1] === 'stands') {
+      if (args[1].toLowerCase() === 'stands') {
         if (args[2] === '2') {
           const PublicStands2 = new Discord.MessageEmbed()
           .setTitle('Public Stands 2')
@@ -371,7 +371,7 @@ client.on('message', async message => {
           message.channel.send(PublicStands2);
         }}break;
     case 'event':
-      if (args[1] === 'stands') {
+      if (args[1].toLowerCase() === 'stands') {
         const EventStands = new Discord.MessageEmbed()
         .setTitle('Event Stands')
         .setDescription('5 Total Event Stands.')
@@ -384,7 +384,7 @@ client.on('message', async message => {
         message.channel.send(EventStands);
       }break;
     case 'admin':
-      if (args[1] === 'stands') {
+      if (args[1].toLowerCase() === 'stands') {
         if (!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({
           timeout: 5000
         }));
@@ -399,7 +399,7 @@ client.on('message', async message => {
         message.channel.send(AdminStands);
       }break;
     case 'spin':
-      if (args[1] === 'method') {
+      if (args[1].toLowerCase() === 'method') {
           const SpinMethod = new Discord.MessageEmbed()
           .setTitle('How To Obtain Spin')
           .addField('1', "Survive up to turn 5.")
@@ -410,7 +410,7 @@ client.on('message', async message => {
           message.channel.send(SpinMethod);
         }break;
     case 'tusk':
-      if (args[1] === 'method') {
+      if (args[1].toLowerCase() === 'method') {
           const TuskMethod = new Discord.MessageEmbed()
           .setTitle('How To Obtain Tusk')
           .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
@@ -420,7 +420,7 @@ client.on('message', async message => {
           message.channel.send(TuskMethod);
         }break;
     case 'echoes':
-      if (args[1] === 'method') {
+      if (args[1].toLowerCase() === 'method') {
           const EchoesMethod = new Discord.MessageEmbed()
           .setTitle('How To Obtain Echoes')
           .addField('Echoes Egg', "There Is No Method To Unlock Echoes Egg Besides Selecting It As Your Current Stand")
@@ -430,8 +430,8 @@ client.on('message', async message => {
           message.channel.send(EchoesMethod);
         }break;
     case 'ball':
-      if (args[1] === 'breaker') {
-        if (args[2] === 'method') {
+      if (args[1].toLowerCase() === 'breaker') {
+        if (args[2].toLowerCase() === 'method') {
             const BallBreakerMethod = new Discord.MessageEmbed()
             .setTitle('How To Obtain Ball Breaker')
             .setDescription("Use a corpse part and win with more than 50 health with Spin.")
@@ -454,7 +454,7 @@ client.on('message', async message => {
       message.channel.send(PurpleHazeDistortion);
       break;
     case 'stray':
-      if (args[1] === 'cat') {
+      if (args[1].toLowerCase() === 'cat') {
         const StrayCat = new Discord.MessageEmbed()
         .setTitle('Stray Cat')
         .addField('Health', '700.')
@@ -517,7 +517,7 @@ client.on('message', async message => {
       message.channel.send(TheWorldAlternateUniverse);
       break;
     case 'silver':
-      if (args[1] === 'chariot') {
+      if (args[1].toLowerCase() === 'chariot') {
         const SilverChariot = new Discord.MessageEmbed()
         .setTitle('Silver Chariot')
         .addField('Health', '750.')
@@ -533,7 +533,7 @@ client.on('message', async message => {
         message.channel.send(SilverChariot);
       }break;
     case 'ball':
-      if (args[1] === 'breaker') {
+      if (args[1].toLowerCase() === 'breaker') {
         const BallBreaker = new Discord.MessageEmbed()
         .setTitle('Ball Breaker')
         .addField('Health', '700.')
@@ -549,7 +549,7 @@ client.on('message', async message => {
         message.channel.send(BallBreaker);
       }break;
     case 'crazy':
-      if (args[1] === 'diamond') {
+      if (args[1].toLowerCase() === 'diamond') {
         const CrazyDiamond = new Discord.MessageEmbed()
         .setTitle('Crazy Diamond')
         .addField('Health', '720.')
@@ -620,7 +620,7 @@ client.on('message', async message => {
       message.channel.send(MrPresident);
       break;
     case 'ocean':
-      if (args[1] === 'man') {
+      if (args[1].toLowerCase() === 'man') {
         if (!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({
           timeout: 5000
         }));
@@ -673,7 +673,7 @@ client.on('message', async message => {
       message.channel.send(TheHandTheWorld);
       break;
     case 'Hey':
-      if (args[1] === 'Ya') {
+      if (args[1].toLowerCase() === 'Ya') {
         const HeyYa = new Discord.MessageEmbed()
         .setTitle('Hey Ya')
         .addField('Health', '900.')
@@ -729,7 +729,7 @@ client.on('message', async message => {
       message.channel.send(Kiss);
       break;
     case 'frog':
-      if (args[1] === 'experience') {
+      if (args[1].toLowerCase() === 'experience') {
         const FrogExperience = new Discord.MessageEmbed()
         .setTitle('Frog Experience')
         .addField('Health', '750.')
@@ -748,7 +748,7 @@ client.on('message', async message => {
         message.channel.send(FrogExperience);
       }break;
     case 'forbidden':
-      if (args[1] === 'fruit') {
+      if (args[1].toLowerCase() === 'fruit') {
         const ForbiddenFruit = new Discord.MessageEmbed()
         .setTitle('Forbidden Fruit')
         .addField('Health', '800.')
@@ -766,7 +766,7 @@ client.on('message', async message => {
         message.channel.send(ForbiddenFruit);
       }break;
     case 'hierophant':
-      if (args[1] === 'green') {
+      if (args[1].toLowerCase() === 'green') {
         const HierophantGreen = new Discord.MessageEmbed()
         .setTitle('Hierophant Green')
         .addField('Health', '700.')
@@ -781,7 +781,7 @@ client.on('message', async message => {
         message.channel.send(HierophantGreen);
       }break;
     case 'the':
-      if (args[1] === 'hand') {
+      if (args[1].toLowerCase() === 'hand') {
         const TheHand = new Discord.MessageEmbed()
         .setTitle('The Hand')
         .addField('Health', '700.')
@@ -799,7 +799,7 @@ client.on('message', async message => {
         message.channel.send(TheHand);
       }break;
     case 'hermit':
-      if (args[1] === 'purple') {
+      if (args[1].toLowerCase() === 'purple') {
         const HermitPurple = new Discord.MessageEmbed()
         .setTitle('Hermit Purple')
         .addField('Health', '750.')
@@ -817,7 +817,7 @@ client.on('message', async message => {
         message.channel.send(HermitPurple);
       }break;
     case 'white':
-      if (args[1] === 'album') {
+      if (args[1].toLowerCase() === 'album') {
         const WhiteAlbum = new Discord.MessageEmbed()
         .setTitle('White Album')
         .addField('Health', '900.')
@@ -834,8 +834,8 @@ client.on('message', async message => {
         message.channel.send(WhiteAlbum);
       }break;
     case 'soft':
-      if (args[1] === 'and') {
-        if (args[2] === 'wet') {
+      if (args[1].toLowerCase() === 'and') {
+        if (args[2].toLowerCase() === 'wet') {
           const SoftAndWet = new Discord.MessageEmbed()
           .setTitle('Soft And Wet')
           .addField('Health', '750.')
@@ -852,7 +852,7 @@ client.on('message', async message => {
           message.channel.send(SoftAndWet);
         }}break;
     case 'heavens':
-      if (args[1] === 'door') {
+      if (args[1].toLowerCase() === 'door') {
         const HeavensDoor = new Discord.MessageEmbed()
         .setTitle('Heavens Door')
         .addField('Health', '650.')
@@ -882,7 +882,7 @@ client.on('message', async message => {
       message.channel.send(Enigma);
       break;
     case 'sticky':
-      if (args[1] === 'fingers') {
+      if (args[1].toLowerCase() === 'fingers') {
         const StickyFingers = new Discord.MessageEmbed()
         .setTitle('Sticky Fingers')
         .addField('Health', '650.')
@@ -915,8 +915,8 @@ client.on('message', async message => {
       message.channel.send(StarPlatinumTheWorld);
       break;
     case 'wheel':
-      if (args[1] === 'of') {
-        if (args[2] === 'fortune') {
+      if (args[1].toLowerCase() === 'of') {
+        if (args[2].toLowerCase() === 'fortune') {
           const WheelOfFortune = new Discord.MessageEmbed()
           .setTitle('Wheel Of Fortune')
           .addField('Health', '700.')
@@ -932,7 +932,7 @@ client.on('message', async message => {
           message.channel.send(WheelOfFortune);
         }}break;
     case 'hanged':
-      if (args[1] === 'man') {
+      if (args[1].toLowerCase() === 'man') {
         const HangedMan = new Discord.MessageEmbed()
         .setTitle('Hanged Man')
         .addField('Health', '650.')
@@ -951,7 +951,7 @@ client.on('message', async message => {
         message.channel.send(HangedMan);
       }break;
     case 'the':
-      if (args[1] === 'fool') {
+      if (args[1].toLowerCase() === 'fool') {
         const TheFool = new Discord.MessageEmbed()
         .setTitle('The Fool')
         .addField('Health', '850.')
@@ -968,7 +968,7 @@ client.on('message', async message => {
         message.channel.send(TheFool);
       }break;
     case 'echoes':
-      if (args[1] === 'egg') {
+      if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
         .setTitle('Echoes Egg')
         .addField('Health', '700.')
@@ -983,8 +983,8 @@ client.on('message', async message => {
         message.channel.send(EchoesEgg);
       }break;
     case 'echoes':
-      if (args[1] === 'act') {
-        if (args[2] === '1') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '1') {
           const EchoesAct1 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 1')
           .addField('Health', '700.')
@@ -998,8 +998,8 @@ client.on('message', async message => {
           message.channel.send(EchoesAct1);
         }}break;
     case 'echoes':
-      if (args[1] === 'act') {
-        if (args[2] === '2') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '2') {
           const EchoesAct2 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 2')
           .addField('Health', '750.')
@@ -1014,8 +1014,8 @@ client.on('message', async message => {
           message.channel.send(EchoesAct2);
         }}break;
     case 'echoes':
-      if (args[1] === 'act') {
-        if (args[2] === '3') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '3') {
           const EchoesAct3 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 3')
           .addField('Health', '800.')
@@ -1030,8 +1030,8 @@ client.on('message', async message => {
           message.channel.send(EchoesAct3);
         }}break;
     case 'tusk':
-      if (args[1] === 'act') {
-        if (args[2] === '1') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '1') {
           const TuskAct1 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 1')
           .addField('Health', '650.')
@@ -1046,8 +1046,8 @@ client.on('message', async message => {
           message.channel.send(TuskAct1);
         }}break;
     case 'tusk':
-      if (args[1] === 'act') {
-        if (args[2] === '2') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '2') {
           const TuskAct2 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 2')
           .addField('Health', '700.')
@@ -1061,8 +1061,8 @@ client.on('message', async message => {
           message.channel.send(TuskAct2);
         }}break;
     case 'tusk':
-      if (args[1] === 'act') {
-        if (args[2] === '3') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '3') {
           const TuskAct3 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 3')
           .addField('Health', '750.')
@@ -1076,8 +1076,8 @@ client.on('message', async message => {
           message.channel.send(TuskAct3);
         }}break;
     case 'tusk':
-      if (args[1] === 'act') {
-        if (args[2] === '4') {
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '4') {
           const TuskAct4 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 4')
           .addField('Health', '800.')
@@ -1106,8 +1106,8 @@ client.on('message', async message => {
       message.channel.send(Spin);
       break;
     case 'made':
-      if (args[1] === 'in') {
-        if (args[2] === 'heaven') {
+      if (args[1].toLowerCase() === 'in') {
+        if (args[2].toLowerCase() === 'heaven') {
           const MadeInHeaven = new Discord.MessageEmbed()
           .setTitle('Made In Heaven')
           .addField('Health', '800.')
@@ -1126,7 +1126,7 @@ client.on('message', async message => {
           message.channel.send(MadeInHeaven);
         }}break;
     case 'killer':
-      if (args[1] === 'queen') {
+      if (args[1].toLowerCase() === 'queen') {
         const KillerQueenPart4 = new Discord.MessageEmbed()
         .setTitle('Killer Queen (Part 4)')
         .addField('Health', '600.')
@@ -1144,7 +1144,7 @@ client.on('message', async message => {
         message.channel.send(KillerQueenPart4);
       }break;
     case 'magicians':
-      if (args[1] === 'red') {
+      if (args[1].toLowerCase() === 'red') {
         const MagiciansRed = new Discord.MessageEmbed()
         .setTitle('Magicians Red')
         .addField('Health', '800.')
@@ -1160,8 +1160,8 @@ client.on('message', async message => {
         message.channel.send(MagiciansRed);
       }break;
     case 'tower':
-      if (args[1] === 'of') {
-        if (args[2] === 'gray') {
+      if (args[1].toLowerCase() === 'of') {
+        if (args[2].toLowerCase() === 'gray') {
           const TowerOfGray = new Discord.MessageEmbed()
           .setTitle('Tower Of Gray')
           .addField('Health', '700.')
@@ -1179,7 +1179,7 @@ client.on('message', async message => {
           message.channel.send(TowerOfGray);
         }}break;
     case 'love':
-      if (args[1] === 'deluxe') {
+      if (args[1].toLowerCase() === 'deluxe') {
         const LoveDeluxe = new Discord.MessageEmbed()
         .setTitle('Love Deluxe')
         .addField('Health', '700.')
@@ -1231,7 +1231,7 @@ client.on('message', async message => {
       message.channel.send(RedHotChiliPepper);
       break;
     case 'moody':
-      if (args[1] === 'blues') {
+      if (args[1].toLowerCase() === 'blues') {
         const MoodyBlues = new Discord.MessageEmbed()
         .setTitle('Moody Blues')
         .addField('Health', '700.')
@@ -1248,7 +1248,7 @@ client.on('message', async message => {
         message.channel.send(MoodyBlues);
       }break;
     case 'gold':
-      if (args[1] === 'experience') {
+      if (args[1].toLowerCase() === 'experience') {
         const GoldExperience = new Discord.MessageEmbed()
         .setTitle('Gold Experience')
         .addField('Health', '750.')
@@ -1269,7 +1269,7 @@ client.on('message', async message => {
         message.channel.send(GoldExperience);
       }break;
     case 'sex':
-      if (args[1] === 'pistols') {
+      if (args[1].toLowerCase() === 'pistols') {
         const SexPistols = new Discord.MessageEmbed()
         .setTitle('Sex Pistols')
         .addField('Health', '650.')
