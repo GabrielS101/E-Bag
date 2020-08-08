@@ -192,7 +192,7 @@ client.on('message', async message => {
         .addField("Recovered", data.recovered)
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
-      } else if (message.content.startsWith("e-covid" && "E-covid")) {
+      } else if (message.content.startsWith("e-covid", "E-covid")) {
         const countrycovid = message.content.slice(PREFIX.length).split(' ')
         const countrydata = await covid.countries({
           country: countrycovid
