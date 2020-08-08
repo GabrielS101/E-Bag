@@ -1070,7 +1070,7 @@ client.on('message', async message => {
           message.channel.send(TuskMethod);
         }break;
     case 'spin':
-      if (args[1].toLowerCase() === 'method') {
+      if (args[1] === 'method') {
         const SpinMethod = new Discord.MessageEmbed()
         .setTitle('How To Obtain Spin')
         .addField('1', "Survive up to turn 5.")
