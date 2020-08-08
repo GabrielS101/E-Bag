@@ -315,7 +315,8 @@ client.on('message', async message => {
       .addField('Waits And Cooldowns', 'If your attack is on cooldown, you are unable to use it unless the required amount turns has been passed. (Example: Rapid Fire on Sex Pistols has a 4 turn cooldown. If you use it on turn 1, 4 turns have to pass until you can use it again). Waits have you wait until the required amount of turns have passed until you can use the move. Example: 7 page MUDA has a 6 turn wait, so on turn 7 you can use the attack.')
       .addField('Passives', 'Passives are abilities some stands can have that are always active. (Example: Moody Blues Passive, Shut Up Giorno makes your opponent unable to use healing moves.) All passives are different, and remember to read them closely.')
       .addField('How To Unlock Spin', 'Survive up to turn 5. On your 5th Turn, instead of rolling to attack, roll a 1-100 dice. If you Roll a Prime Number you will have the potential to learn Spin. If you do not roll a prime number than you do not get Spin. Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.')
-      .addField('How To Unlock Tusk', '**Tusk Act 1:** Use a corpse part at under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead). **Tusk Act 2:** Use a corpse part and win two games under 100 health in a row with Tusk Act 1). **Tusk Act 3:** Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2. **Tusk Act 4:** Use a corpse part and win with under 100 health with Tusk Act 3.')
+      .addField('How To Unlock Tusk', '__**Tusk Act 1:**__ Use a corpse part at under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead). __**Tusk Act 2:**__ Use a corpse part and win two games under 100 health in a row with Tusk Act 1). __**Tusk Act 3:**__ Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2. __**Tusk Act 4:**__ Use a corpse part and win with under 100 health with Tusk Act 3.')
+      .addField('How To Unlock Echoes', '__**Echoes Egg:**__ There Is No Method To Unlock Echoes Egg Besides Selecting It As Your Current Stand. __**Echoes Act 1:**__ Win a match with Echoes Egg after using hatch 3 times. __**Echoes Act 2:**__ Win a match under 150 health with Echoes Act 1. __**Echoes Act 3:**__ Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.')
       message.channel.send(Tutorial);
       break;
     case 'public':
@@ -400,24 +401,6 @@ client.on('message', async message => {
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
         message.channel.send(AdminStands);
       }break;
-    case 'echoes':
-      if (args[1].toLowerCase() === 'method') {
-          const EchoesMethod = new Discord.MessageEmbed()
-          .setTitle('How To Obtain Echoes')
-          .addField('Echoes Egg', "There Is No Method To Unlock Echoes Egg Besides Selecting It As Your Current Stand")
-          .addField('Echoes Act 1', "Win a match with Echoes Egg after using hatch 3 times.")
-          .addField('Echoes Act 2', "Win a match under 150 health with Echoes Act 1.")
-          .addField('Echoes ACt 3', "Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.")
-          message.channel.send(EchoesMethod);
-        }break;
-    case 'ball':
-      if (args[1].toLowerCase() === 'breaker') {
-        if (args[2].toLowerCase() === 'method') {
-            const BallBreakerMethod = new Discord.MessageEmbed()
-            .setTitle('How To Obtain Ball Breaker')
-            .setDescription("Use a corpse part and win with more than 50 health with Spin.")
-            message.channel.send(BallBreakerMethod);
-          }}break;
     case 'phd':
       const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
       .setTitle('Purple Haze Distortion')
