@@ -39,6 +39,9 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
+    case 'nsfw':
+    message.channel.send("https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/72162028_166556641086424_6836720710475005778_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=h_GHZs28H7YAX8IVoG-&oh=d310a6b5ec0e6b9c3112bbebe8427c11&oe=5F3E957F")
+    message.channel.send("Begone Horny")
     case 'deactivate':
     message.channel.send("I Refuse To Die")
     break;
