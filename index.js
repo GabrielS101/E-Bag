@@ -1082,8 +1082,8 @@ client.on('message', async message => {
       .addField("Execution", '300 - Only Once Per Game.')
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
-      message.channel.send(Spin);
-        }else if (args[1].toLowerCase === 'method') {
+      message.channel.send(Spin)}
+      if (args[1].toLowerCase === 'method') {
         const SpinMethod = new Discord.MessageEmbed()
         .setTitle('How To Obtain Spin')
         .addField('1', "Survive up to turn 5.")
