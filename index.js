@@ -227,7 +227,7 @@ client.on('message', async message => {
       }break;
     case 'arrow':
       var name = message.author.username
-      const Stands = ["Purple Haze Distortion",
+      const Stands = ["PHD",
         "Hermit Purple",
         "White Album",
         "Heavens Door",
@@ -235,11 +235,11 @@ client.on('message', async message => {
         "Hierophant Green",
         "Enigma",
         "Sticky Fingers",
-        "Star Platinum: The World",
+        "SPTW",
         "Echoes Egg",
         "Silver Chariot",
         "The Fool",
-        "The World: Alternate Universe",
+        "TWAU",
         "Whitesnake",
         "Stray Cat",
         "Crazy Diamond",
@@ -250,7 +250,7 @@ client.on('message', async message => {
         "Tower Of Gray",
         "Love Deluxe",
         "Geb",
-        "Red Hot Chili Pepper",
+        "RHCP",
         "Moody Blues",
         "Gold Experience",
         "Sex Pistols",
