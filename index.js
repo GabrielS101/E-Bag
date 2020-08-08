@@ -1070,16 +1070,7 @@ client.on('message', async message => {
           message.channel.send(TuskMethod);
         }break;
     case 'spin':
-      if(args[1].toLowerCase === 'method') {
-          const SpinMethod = new Discord.MessageEmbed()
-          .setTitle('How To Obtain Spin')
-          .addField('1', "Survive up to turn 5.")
-          .addField('2', "On your 5th Turn, instead of rolling to attack, roll a 1-100 dice.")
-          .addField('3', "If you Roll a Prime Number you will have the potential to learn Spin. If you do not roll a prime number than you do not get Spin.")
-          .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
-          .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
-          message.channel.send(SpinMethod);
-        }else {
+      if (!args[1]) {
       const Spin = new Discord.MessageEmbed()
       .setTitle('Spin')
       .addField('Health', '600.')
@@ -1092,7 +1083,16 @@ client.on('message', async message => {
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
       message.channel.send(Spin);
-      }break;
+        }else if (args[1].toLowerCase === 'method') {
+        const SpinMethod = new Discord.MessageEmbed()
+        .setTitle('How To Obtain Spin')
+        .addField('1', "Survive up to turn 5.")
+        .addField('2', "On your 5th Turn, instead of rolling to attack, roll a 1-100 dice.")
+        .addField('3', "If you Roll a Prime Number you will have the potential to learn Spin. If you do not roll a prime number than you do not get Spin.")
+        .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
+       .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
+        message.channel.send(SpinMethod);
+   }break;
     case 'made':
       if (args[1].toLowerCase() === 'in') {
         if (args[2].toLowerCase() === 'heaven') {
