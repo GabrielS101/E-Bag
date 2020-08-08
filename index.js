@@ -281,6 +281,7 @@ client.on('message', async message => {
       break;
     case 'info':
       var user = message.mentions.users.first() || message.author
+      if(user.bot === true) return message.channel.send("I Will Not Snitch On My Fellow Bots")
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
       .setAuthor('User Image', user.displayAvatarURL())
