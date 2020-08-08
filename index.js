@@ -262,6 +262,8 @@ client.on('message', async message => {
       db.delete(message.author.id, items)
       break;
     case 'meme':
+      var user = message.author
+      if (user.bot === true) return message.channel.send("Bots Can Not Use This Command")
       const subReddits = ["dankmeme",
         "dankmemes",
         "meme",
