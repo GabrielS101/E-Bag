@@ -211,10 +211,6 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
       } else if (message.content.startsWith("e-covid")) {
-        const countrycovid = message.content.slice(PREFIX.length).split(' ')
-        const countrydata = await covid.countries({
-          country: countrycovid
-        })
         const countrycoronavirusbutlowercase = new Discord.MessageEmbed()
         .setTitle(`${countrycovid[1]} Covid-19 Data`)
         .setDescription("Data May Vary From Other Sources")
