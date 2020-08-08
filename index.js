@@ -314,6 +314,7 @@ client.on('message', async message => {
       .addField('Special Actions', 'Dodging and blocking attacks result in the opponent using their attack, making it go on cooldown, but not taking any damage from it. Healing can heal yourself or any teammate (Unless the command says only yourself or only a teammate) Stunning makes your opponent unable to move, so they cannot attack, dodge, block, or heal.')
       .addField('Waits And Cooldowns', 'If your attack is on cooldown, you are unable to use it unless the required amount turns has been passed. (Example: Rapid Fire on Sex Pistols has a 4 turn cooldown. If you use it on turn 1, 4 turns have to pass until you can use it again). Waits have you wait until the required amount of turns have passed until you can use the move. Example: 7 page MUDA has a 6 turn wait, so on turn 7 you can use the attack.')
       .addField('Passives', 'Passives are abilities some stands can have that are always active. (Example: Moody Blues Passive, Shut Up Giorno makes your opponent unable to use healing moves.) All passives are different, and remember to read them closely.')
+      .addField('How To Unlock Spin', 'Survive up to turn 5. On your 5th Turn, instead of rolling to attack, roll a 1-100 dice. If you Roll a Prime Number you will have the potential to learn Spin. If you do not roll a prime number than you do not get Spin. Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.')
       message.channel.send(Tutorial);
       break;
     case 'public':
@@ -1070,16 +1071,6 @@ client.on('message', async message => {
           message.channel.send(TuskMethod);
         }break;
     case 'spin':
-      if (args[1] === 'method') {
-        const SpinMethod = new Discord.MessageEmbed()
-        .setTitle('How To Obtain Spin')
-        .addField('1', "Survive up to turn 5.")
-        .addField('2', "On your 5th Turn, instead of rolling to attack, roll a 1-100 dice.")
-        .addField('3', "If you Roll a Prime Number you will have the potential to learn Spin. If you do not roll a prime number than you do not get Spin.")
-        .addField('4', "Win the game while having the potential to learn spin and you shall gain spin. If you lose than you wont get spin.")
-       .setFooter('The prime numbers in 1-100 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.')
-        message.channel.send(SpinMethod);
-    }else if (!args) {
       const Spin = new Discord.MessageEmbed()
       .setTitle('Spin')
       .addField('Health', '600.')
@@ -1092,7 +1083,7 @@ client.on('message', async message => {
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
       message.channel.send(Spin);
-   }break;
+   break;
     case 'made':
       if (args[1].toLowerCase() === 'in') {
         if (args[2].toLowerCase() === 'heaven') {
