@@ -1062,14 +1062,6 @@ client.on('message', async message => {
           .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct4);
-        }else if (args[1].toLowerCase() === 'method') {
-          const TuskMethod = new Discord.MessageEmbed()
-          .setTitle('How To Obtain Tusk')
-          .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
-          .addField('Tusk Act 2', "Use a corpse part and win two games under 100 health in a row with Tusk Act 1.")
-          .addField('Tusk Act 3', "Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2.")
-          .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
-          message.channel.send(TuskMethod);
         }break;
     case 'spin':
       const Spin = new Discord.MessageEmbed()
