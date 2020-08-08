@@ -17,11 +17,6 @@ const YouTube = require('simple-youtube-api');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
-const EventEmitter = require('events');
-class MyEmitter extends EventEmitter {}
-const myEmitter = new MyEmitter();
-// increase the limit
-myEmitter.setMaxListeners(12);
 
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
