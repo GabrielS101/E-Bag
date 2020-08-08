@@ -38,7 +38,7 @@ client.on('message', async message => {
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
 
   switch (args[0].toLowerCase()) {
-    
+
     case 'balance':
       var user = message.mentions.users.first() || message.author
       if (user.bot == true)
@@ -281,7 +281,7 @@ client.on('message', async message => {
       break;
     case 'info':
       var user = message.mentions.users.first() || message.author
-      if(user.bot === true) return message.channel.send("I Will Not Snitch On My Fellow Bots")
+      if (user.bot === true) return message.channel.send("I Will Not Snitch On My Fellow Bots")
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
       .setAuthor('User Image', user.displayAvatarURL())
@@ -1076,7 +1076,7 @@ client.on('message', async message => {
           message.channel.send(TuskAct4);
         }}break;
     case 'spin':
-      const Spin = new Discord.MessageEmbed()
+      const Spinability = new Discord.MessageEmbed()
       .setTitle('Spin')
       .addField('Health', '600.')
       .addField('Steel Ball', '50.')
@@ -1087,7 +1087,7 @@ client.on('message', async message => {
       .addField("Execution", '300 - Only Once Per Game.')
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
-      message.channel.send(Spin);
+      message.channel.send(Spinability);
       break;
     case 'made':
       if (args[1] === 'in') {
