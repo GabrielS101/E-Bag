@@ -398,16 +398,6 @@ client.on('message', async message => {
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
         message.channel.send(AdminStands);
       }break;
-    case 'tusk':
-      if (args[1].toLowerCase() === 'method') {
-          const TuskMethod = new Discord.MessageEmbed()
-          .setTitle('How To Obtain Tusk')
-          .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
-          .addField('Tusk Act 2', "Use a corpse part and win two games under 100 health in a row with Tusk Act 1.")
-          .addField('Tusk Act 3', "Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2.")
-          .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
-          message.channel.send(TuskMethod);
-        }break;
     case 'echoes':
       if (args[1].toLowerCase() === 'method') {
           const EchoesMethod = new Discord.MessageEmbed()
@@ -1033,10 +1023,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct1);
-        }}break;
-    case 'tusk':
-      if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '2') {
+        }}else if (args[2].toLowerCase() === '2') {
           const TuskAct2 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 2')
           .addField('Health', '700.')
@@ -1048,10 +1035,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct2);
-        }}break;
-    case 'tusk':
-      if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '3') {
+        }else if (args[2].toLowerCase() === '3') {
           const TuskAct3 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 3')
           .addField('Health', '750.')
@@ -1063,10 +1047,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct3);
-        }}break;
-    case 'tusk':
-      if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '4') {
+        }else if (args[2].toLowerCase() === '4') {
           const TuskAct4 = new Discord.MessageEmbed()
           .setTitle('Tusk Act 4')
           .addField('Health', '800.')
@@ -1079,7 +1060,15 @@ client.on('message', async message => {
           .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct4);
-        }}break;
+        }else if (args[1].toLowerCase() === 'method') {
+          const TuskMethod = new Discord.MessageEmbed()
+          .setTitle('How To Obtain Tusk')
+          .addField('Tusk Act 1', "Use a corpse part under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead).")
+          .addField('Tusk Act 2', "Use a corpse part and win two games under 100 health in a row with Tusk Act 1.")
+          .addField('Tusk Act 3', "Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2.")
+          .addField('Tusk Act 4', "Use a corpse part and win with under 100 health with Tusk Act 3.")
+          message.channel.send(TuskMethod);
+        }break;
     case 'spin':
       if(args[1].toLowerCase === 'method') {
           const SpinMethod = new Discord.MessageEmbed()
