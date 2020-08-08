@@ -38,7 +38,10 @@ client.on('message', async message => {
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
 
   switch (args[0].toLowerCase()) {
-
+    
+    case 'deactivate':
+    message.channel.send("I Refuse")
+    break;
     case 'balance':
       var user = message.mentions.users.first() || message.author
       if (user.bot == true)
