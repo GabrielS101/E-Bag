@@ -27,10 +27,10 @@ client.on('ready', () => {
 
 client.login(process.env.token);
 
-client.on('message', async message => {
+var PREFIX = "e-"
+var PREFIX = "E-"  
 
-  var PREFIX = "e-"
-  var PREFIX = "E-"  
+client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
 
