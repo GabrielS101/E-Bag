@@ -280,11 +280,12 @@ client.on('message', async message => {
       message.channel.send(meme)
       break;
     case 'info':
+      var user = message.mentions.users.first() || message.author
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
-      .setAuthor('User Image', message.author.displayAvatarURL())
-      .addField('User Name', message.author.username, true)
-      .addField('User Id', message.author.id, true)
+      .setAuthor('User Image', user.displayAvatarURL())
+      .addField('User Name', user.username, true)
+      .addField('User Id', user.id, true)
       .addField('Current Server', message.guild.name, true)
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
