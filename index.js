@@ -17,6 +17,7 @@ const YouTube = require('simple-youtube-api');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
+require('events').EventEmitter.prototype._maxListeners = 11;
 
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
@@ -1304,8 +1305,6 @@ client.on('message', msg=> {
     msg.reply('O o f'); //this command is if you want the bot to ping you without prefix when responding.
   }
 })
-
-emitter.setMaxListeners()
 
 client.on('message', message=> {
 
