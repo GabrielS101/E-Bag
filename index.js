@@ -107,6 +107,8 @@ client.on('message', async message => {
       if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
       if (otheruser.bot === true) return message.channel.send("Can Not Trade Stands With A Bot")
       if (user.bot === true) return message.channel.send("Can Not Trade Stands If You Are A Bot")
+      db.push(otheruser.id, items)
+      db.push(user.id, otheritems)
       break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
