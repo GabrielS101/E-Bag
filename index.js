@@ -277,6 +277,7 @@ client.on('message', async message => {
     case 'roka':
       var items = db.get(message.author.id, {
         items: []})
+      if (items === null) return message.channel.send("You Don't Have A Stand To Reset")
       message.channel.send("You Used A Roka And Reset Your Stand")
       db.delete(message.author.id, items)
       break;
