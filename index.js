@@ -32,7 +32,7 @@ const PREFIX = ["e-", "E-"]
 
 client.on('message', async message => {
 
-  let args = message.content.slice(PREFIX.length).split(" ");
+  var args = message.content.slice(PREFIX.length).split(" ");
 
   var serverQueue = queue.get(message.guild.id)
   const searchString = args.slice(1).join(' ')
@@ -1269,12 +1269,12 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      let args = message.content.slice(PREFIX.length).split(" ");
+      var args = message.content.slice(PREFIX.length).split(" ");
       if (agrs[1].toLowerCase() = 'invite') {
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
      }break;
     case 'server':
-      let args = message.content.slice(PREFIX.length).split(" ");
+      var args = message.content.slice(PREFIX.length).split(" ");
       if (agrs[1].toLowerCase() = 'invite') {
       message.channel.send('https://discord.gg/6ueb6Yy')
      }break;
@@ -1291,7 +1291,7 @@ client.on('message',
 client.on('message',
   message=> {
 
-    let args = message.content. substring(PREFIX.length).split(" ");
+    var args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0].toLowerCase()) {
       case 'oof': //this command is if you want the bot to use prefix and ping.
