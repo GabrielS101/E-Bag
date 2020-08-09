@@ -101,7 +101,7 @@ client.on('message', async message => {
         items: []})
       var otheritems = db.get(otheruser.id, {
         items: []})
-      if (user = otheruser) return message.channel.send("Can Not Trade With Yourself")
+      if (user.otheruser === true) return message.channel.send("Can Not Trade With Yourself")
       if (items === null) return message.channel.send("You Don't Have A Stand To Trade")
       if (otheritems === null) return message.channel.send("Can Not Trade Stands With Someone Who Does Not Have A Stand")
       if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
