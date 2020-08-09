@@ -1326,7 +1326,7 @@ msg=> {
 
 client.on('message',
 msg=> {
-  if (msg.content === "I giorno giovanna have a dream") { //this command is if you want no prefix and no ping.
+  if (msg.content === "I giorno giovanna have a dream") {
     msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
   }
 })
