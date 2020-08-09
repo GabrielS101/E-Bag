@@ -1270,6 +1270,7 @@ client.on('message', async message => {
       break;
     case 'son':
       message.channel.send("I Love You Son")
+      break;
     case 'invite':
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
