@@ -1268,6 +1268,8 @@ client.on('message', async message => {
     case 'mom':
       message.channel.send('I Love You Mom')
       break;
+    case 'son':
+      message.channel.send("I Love You Son")
     case 'invite':
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
