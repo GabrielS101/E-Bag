@@ -103,9 +103,9 @@ client.on('message', async message => {
         items: []})
       if (items === null) return message.channel.send("You Don't Have A Stand To Trade")
       if (otheritems === null) return message.channel.send("Can Not Trade Stands With Someone Who Does Not Have A Stand")
-      if (!otheruser) return message.channel.send("Person To Trade With Not Specified")
-      if (otheruser.bot === true) return message.channel.send("Can Not Trade With A Bot")
-      if (user.bot === true) return message.channel.send("Can Not Trade If You Are A Bot")
+      if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
+      if (otheruser.bot === true) return message.channel.send("Can Not Trade Stands With A Bot")
+      if (user.bot === true) return message.channel.send("Can Not Trade Stands If You Are A Bot")
       break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
