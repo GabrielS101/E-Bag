@@ -1269,11 +1269,13 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      if (agrs[1] = 'invite') {
+      let args = message.content.slice(PREFIX.length).split(" ");
+      if (agrs[1].toLowerCase() = 'invite') {
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
      }break;
     case 'server':
-      if (agrs[1] = 'invite') {
+      let args = message.content.slice(PREFIX.length).split(" ");
+      if (agrs[1].toLowerCase() = 'invite') {
       message.channel.send('https://discord.gg/6ueb6Yy')
      }break;
   }
