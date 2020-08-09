@@ -193,8 +193,8 @@ client.on('message', async message => {
         .addField("Affected Countries", data.affectedCountries)
         message.channel.send(worldcoronavirus)
       } else if (message.content.startsWith("E-covid")) {
-        const countrycovid = message.content.slice(PREFIX.length).split(' ')
-        const countrydata = await covid.countries({
+        var countrycovid = message.content.slice(PREFIX.length).split(' ')
+        var countrydata = await covid.countries({
           country: countrycovid
         })
         const countrycoronavirus = new Discord.MessageEmbed()
@@ -211,6 +211,10 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirus)
       } else if (message.content.startsWith("e-covid")) {
+        var countrycovid = message.content.slice(PREFIX.length).split(' ')
+        var countrydata = await covid.countries({
+          country: countrycovid
+        })
         const countrycoronavirusbutlowercase = new Discord.MessageEmbed()
         .setTitle(`${countrycovid[1]} Covid-19 Data`)
         .setDescription("Data May Vary From Other Sources")
