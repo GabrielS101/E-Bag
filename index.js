@@ -1315,7 +1315,7 @@ client.on('message', async message => {
 
 client.on('message',
   msg=> {
-    if (msg.content === "Oof") {
+    if (msg.content.toLocaleLowerCase() === "oof") {
       msg.reply('O o f'); //this command is if you want the bot to ping you without prefix when responding.
     }
   })
