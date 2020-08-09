@@ -116,6 +116,8 @@ client.on('message', async message => {
       .addField(`${othername}'s Stand`, otheritems)
       .setFooter(`${othername} Reply With Yes If You Want To Continue With The Trade`)
       message.channel.send(Tradedetails)
+      if (otheruser.message.reply.toLowerCase() === 'no') {
+       message.channel.send("The Trade Has Been Cancelled")}
       if (otheruser.message.reply.toLowerCase() === 'yes') {
       db.delete(otheruser, otheritems)
       db.delete(user, items)
@@ -123,7 +125,7 @@ client.on('message', async message => {
       db.push(user, otheritems)
       message.channel.send("Trade Completed")
       }else {
-        message.channel.send("If You Would Like To Continue With This Trade: Please Say Yes")
+        message.channel.send("If You Would Like To Continue With This Trade: Please Say Yes Or No To Cancel")
      }break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
