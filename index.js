@@ -107,7 +107,7 @@ client.on('message', async message => {
       if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
       if (otheruser.bot === true) return message.channel.send("Can Not Trade Stands With A Bot")
       if (user.bot === true) return message.channel.send("Can Not Trade Stands If You Are A Bot")
-      mmessagechannel.send(`${ < @otheruser.id > } Do You Accept This Trade? Yes Or No`)
+      mmessagechannel.send(`<@${otheruser.id}> Do You Accept This Trade? Yes Or No`)
       if (otheruser.message.channel.send("no")) {
         return message.channel.send("The Trade Has Been Canceled")
       }
