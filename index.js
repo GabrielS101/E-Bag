@@ -111,7 +111,7 @@ client.on('message', async message => {
       if (user.bot === true) return message.channel.send("Can Not Trade Stands If You Are A Bot")
       const Tradedetails = new Discord.MessageEmbed()
       .setTitle(`${name} Would Like To Trade Stands With ${othername}`)
-      .setAuthor(`Does ${othername} Accept?`, otherusrr.displayAvatarURL())
+      .setAuthor(`Does ${othername} Accept The Trade?`, otheruser.displayAvatarURL())
       .addField(`${name}'s Stand`, items)
       .addField(`${othername}'s Stand`, otheritems)
       message.channel.send(Tradedetails)
