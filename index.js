@@ -327,53 +327,53 @@ client.on('message', async message => {
       break;
     case 'public':
       if (args[1].toLowerCase() === 'stands') {
-          const PublicStands1 = new Discord.MessageEmbed()
-          .setTitle('Public Stands')
-          .setDescription('39 Total Public Stands.')
-          .addField('1', "Purple Haze Distortion.")
-          .addField('2', "Hermit Purple.")
-          .addField('3', "White Album.")
-          .addField('4', "Heavens Door.")
-          .addField('5', "Soft And Wet.")
-          .addField('6', "Hierophant Green.")
-          .addField('7', "Enigma.")
-          .addField('8', "Sticky Fingers.")
-          .addField('9', "Star Platinum: The World.")
-          .addField('10', "Echoes Egg.")
-          .addField('11', "Echoes Act 1.")
-          .addField('12', "Echoes Act 2.")
-          .addField('13', "Echoes Act 3.")
-          .addField('14', "Tusk Act 1.")
-          .addField('15', "Tusk Act 2.")
-          .addField('16', "Tusk Act 3.")
-          .addField('17', "Tusk Act 4.")
-          .addField('18', "Spin.")
-          .addField('19', "Silver Chariot.")
-          .addField('20', "The Fool.")
-          .addField('21', "Ball Breaker.")
-          .addField('22', "The World: Alternate Universe.")
-          .addField('23', "Whitesnake.")
-          .addField('24', "C-Moon.")
-          .addField('25', "Made In Heaven.")
-          message.channel.send(PublicStands1);
-          const PublicStands2 = new Discord.MessageEmbed()
-          .setTitle('Public Stands 2')
-          .addField('26', "Stray Cat.")
-          .addField('27', "Crazy Diamond.")
-          .addField('28', "The Hand.")
-          .addField('29', "Killer Queen.")
-          .addField('30', "Wheel Of Fortune.")
-          .addField('31', "Hanged Man.")
-          .addField('32', "Tower Of Gray.")
-          .addField('33', "Love Deluxe.")
-          .addField('34', "Geb.")
-          .addField('35', "Red Hot Chili Pepper.")
-          .addField('36', "Moody Blues.")
-          .addField('37', "Gold Experience.")
-          .addField('38', "Sex Pistols.")
-          .addField('39', "Emperor.")
-          message.channel.send(PublicStands2);
-        }break;
+        const PublicStands1 = new Discord.MessageEmbed()
+        .setTitle('Public Stands')
+        .setDescription('39 Total Public Stands.')
+        .addField('1', "Purple Haze Distortion.")
+        .addField('2', "Hermit Purple.")
+        .addField('3', "White Album.")
+        .addField('4', "Heavens Door.")
+        .addField('5', "Soft And Wet.")
+        .addField('6', "Hierophant Green.")
+        .addField('7', "Enigma.")
+        .addField('8', "Sticky Fingers.")
+        .addField('9', "Star Platinum: The World.")
+        .addField('10', "Echoes Egg.")
+        .addField('11', "Echoes Act 1.")
+        .addField('12', "Echoes Act 2.")
+        .addField('13', "Echoes Act 3.")
+        .addField('14', "Tusk Act 1.")
+        .addField('15', "Tusk Act 2.")
+        .addField('16', "Tusk Act 3.")
+        .addField('17', "Tusk Act 4.")
+        .addField('18', "Spin.")
+        .addField('19', "Silver Chariot.")
+        .addField('20', "The Fool.")
+        .addField('21', "Ball Breaker.")
+        .addField('22', "The World: Alternate Universe.")
+        .addField('23', "Whitesnake.")
+        .addField('24', "C-Moon.")
+        .addField('25', "Made In Heaven.")
+        message.channel.send(PublicStands1);
+        const PublicStands2 = new Discord.MessageEmbed()
+        .setTitle('Public Stands 2')
+        .addField('26', "Stray Cat.")
+        .addField('27', "Crazy Diamond.")
+        .addField('28', "The Hand.")
+        .addField('29', "Killer Queen.")
+        .addField('30', "Wheel Of Fortune.")
+        .addField('31', "Hanged Man.")
+        .addField('32', "Tower Of Gray.")
+        .addField('33', "Love Deluxe.")
+        .addField('34', "Geb.")
+        .addField('35', "Red Hot Chili Pepper.")
+        .addField('36', "Moody Blues.")
+        .addField('37', "Gold Experience.")
+        .addField('38', "Sex Pistols.")
+        .addField('39', "Emperor.")
+        message.channel.send(PublicStands2);
+      }break;
     case 'event':
       if (args[1].toLowerCase() === 'stands') {
         const EventStands = new Discord.MessageEmbed()
@@ -398,7 +398,7 @@ client.on('message', async message => {
         .addField('1', "Metallica (This Stand Is The Exclusive Property Of <@340100783901245441>).")
         .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
-        .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@502242566272581662>).")
+        .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@741860257822670879>).")
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
         message.channel.send(AdminStands);
       }break;
@@ -616,7 +616,7 @@ client.on('message', async message => {
       }));
       const TheHandTheWorld = new Discord.MessageEmbed()
       .setTitle('The Hand: The World')
-      .setDescription("This Stand Is The Exclusive Property Of <@502242566272581662>")
+      .setDescription("This Stand Is The Exclusive Property Of <@741860257822670879>")
       .addField('Health', '900.')
       .addField('Punch', '80.')
       .addField("Timestop", "5 Turn Cooldown - Stun your opponent for the next 2 turns.")
@@ -1009,44 +1009,44 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct1);
-        }}else if (args[2].toLowerCase() === '2') {
-          const TuskAct2 = new Discord.MessageEmbed()
-          .setTitle('Tusk Act 2')
-          .addField('Health', '700.')
-          .addField('Punch', '20.')
-          .addField("Fingernail Shot", '50x2 - 3 Turn Cooldown - Each Turn It’s Not Used Is +5 Damage To What it’s rolled when using it. (First Round Doesnt Count).')
-          .addField("Fingernail Shotgun", '100x3 - Turn Cooldown.')
-          .addField("Spinning Punch", '50x3 - 3 Turn Cooldown.')
-          .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
-          .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
-          .setColor(0xe01fa0)
-          message.channel.send(TuskAct2);
-        }else if (args[2].toLowerCase() === '3') {
-          const TuskAct3 = new Discord.MessageEmbed()
-          .setTitle('Tusk Act 3')
-          .addField('Health', '750.')
-          .addField('Punch', '20.')
-          .addField("Fingernail Cannon", '100x3 - 6 Turn Cooldown.')
-          .addField("Fingernail Shotgun", '50x3 - 3 Turn Cooldown.')
-          .addField("Spacial Wormhole", '100x2 - 4 Turn Cooldown.')
-          .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
-          .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
-          .setColor(0xe01fa0)
-          message.channel.send(TuskAct3);
-        }else if (args[2].toLowerCase() === '4') {
-          const TuskAct4 = new Discord.MessageEmbed()
-          .setTitle('Tusk Act 4')
-          .addField('Health', '800.')
-          .addField('Punch', '30.')
-          .addField("Rotation Punch", '100x2 - 4 Turn Cooldown.')
-          .addField("Rotation Barrage", '100x3 - 4 Turn Cooldown .')
-          .addField("Rotation Fingernail Shotgun", '80x3 - 2 Turn Cooldown.')
-          .addField("Spinning Nail Shot", '100x2 - 5 Turn Cooldown - Stun The Player For 2 Turns.')
-          .addField("Fingernail Glide", '4 Turn Cooldown - Dodge an attack.')
-          .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
-          .setColor(0xe01fa0)
-          message.channel.send(TuskAct4);
-        }break;
+        }} else if (args[2].toLowerCase() === '2') {
+        const TuskAct2 = new Discord.MessageEmbed()
+        .setTitle('Tusk Act 2')
+        .addField('Health', '700.')
+        .addField('Punch', '20.')
+        .addField("Fingernail Shot", '50x2 - 3 Turn Cooldown - Each Turn It’s Not Used Is +5 Damage To What it’s rolled when using it. (First Round Doesnt Count).')
+        .addField("Fingernail Shotgun", '100x3 - Turn Cooldown.')
+        .addField("Spinning Punch", '50x3 - 3 Turn Cooldown.')
+        .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
+        .setColor(0xe01fa0)
+        message.channel.send(TuskAct2);
+      } else if (args[2].toLowerCase() === '3') {
+        const TuskAct3 = new Discord.MessageEmbed()
+        .setTitle('Tusk Act 3')
+        .addField('Health', '750.')
+        .addField('Punch', '20.')
+        .addField("Fingernail Cannon", '100x3 - 6 Turn Cooldown.')
+        .addField("Fingernail Shotgun", '50x3 - 3 Turn Cooldown.')
+        .addField("Spacial Wormhole", '100x2 - 4 Turn Cooldown.')
+        .addField("Fingernail Glide", '5 Turn Cooldown - Dodge An Attack.')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
+        .setColor(0xe01fa0)
+        message.channel.send(TuskAct3);
+      } else if (args[2].toLowerCase() === '4') {
+        const TuskAct4 = new Discord.MessageEmbed()
+        .setTitle('Tusk Act 4')
+        .addField('Health', '800.')
+        .addField('Punch', '30.')
+        .addField("Rotation Punch", '100x2 - 4 Turn Cooldown.')
+        .addField("Rotation Barrage", '100x3 - 4 Turn Cooldown .')
+        .addField("Rotation Fingernail Shotgun", '80x3 - 2 Turn Cooldown.')
+        .addField("Spinning Nail Shot", '100x2 - 5 Turn Cooldown - Stun The Player For 2 Turns.')
+        .addField("Fingernail Glide", '4 Turn Cooldown - Dodge an attack.')
+        .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
+        .setColor(0xe01fa0)
+        message.channel.send(TuskAct4);
+      }break;
     case 'spin':
       const Spin = new Discord.MessageEmbed()
       .setTitle('Spin')
@@ -1060,7 +1060,7 @@ client.on('message', async message => {
       .setImage('https://vignette.wikia.nocookie.net/jjba/images/4/4c/XtC6I.png/revision/latest/top-crop/width/360/height/450?cb=20150726055849')
       .setColor(0x4be33d)
       message.channel.send(Spin);
-   break;
+      break;
     case 'made':
       if (args[1].toLowerCase() === 'in') {
         if (args[2].toLowerCase() === 'heaven') {
@@ -1270,12 +1270,12 @@ client.on('message', async message => {
       break;
     case 'bot':
       if (args[1] = 'invite') {
-      message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
-     }break;
+        message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
+      }break;
     case 'server':
       if (args[1] = 'invite') {
-      message.channel.send('https://discord.gg/6ueb6Yy')
-     }break;
+        message.channel.send('https://discord.gg/6ueb6Yy')
+      }break;
   }
 })
 
@@ -1299,71 +1299,71 @@ client.on('message',
   })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I, Giorno Giovanna, Have A Dream") {
-    msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss'); //this command is if you want no prefix and no ping.
-  }
-})
+  msg=> {
+    if (msg.content === "I, Giorno Giovanna, Have A Dream") {
+      msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss'); //this command is if you want no prefix and no ping.
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I Giorno Giovanna Have A Dream") {
-    msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');
-  }
-})
+  msg=> {
+    if (msg.content === "I Giorno Giovanna Have A Dream") {
+      msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I, GIORNO GIOVANNA, HAVE A DREAM") {
-    msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
-  }
-})
+  msg=> {
+    if (msg.content === "I, GIORNO GIOVANNA, HAVE A DREAM") {
+      msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I GIORNO GIOVANNA HAVE A DREAM") {
-    msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
-  }
-})
+  msg=> {
+    if (msg.content === "I GIORNO GIOVANNA HAVE A DREAM") {
+      msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I giorno giovanna have a dream") {
-    msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
-  }
-})
+  msg=> {
+    if (msg.content === "I giorno giovanna have a dream") {
+      msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "i giorno giovanna have a dream") {
-    msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
-  }
-})
+  msg=> {
+    if (msg.content === "i giorno giovanna have a dream") {
+      msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I Giorno Giovanna have a dream") {
-    msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
-  }
-})
+  msg=> {
+    if (msg.content === "I Giorno Giovanna have a dream") {
+      msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I, giorno giovanna, have a dream") {
-    msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
-  }
-})
+  msg=> {
+    if (msg.content === "I, giorno giovanna, have a dream") {
+      msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "i, giorno giovanna, have a dream") {
-    msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
-  }
-})
+  msg=> {
+    if (msg.content === "i, giorno giovanna, have a dream") {
+      msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
+    }
+  })
 
 client.on('message',
-msg=> {
-  if (msg.content === "I, Giorno Giovanna, have a dream") {
-    msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
-  }
-})
+  msg=> {
+    if (msg.content === "I, Giorno Giovanna, have a dream") {
+      msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
+    }
+  })
