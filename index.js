@@ -121,6 +121,7 @@ client.on('message', async message => {
       .setAuthor(`${name}'s Stand`, user.displayAvatarURL())
       .addField("Stand", items)
       message.channel.send(inventory)
+      message.channel.send(`<@${otheruser.id}> Do You Want To Continue With This Trade? Yes Or No`)
       break;
     case `get`:
       let wantedamount = (args[1])
