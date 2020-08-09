@@ -1269,11 +1269,11 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      if (message.content.slice(PREFIX.length).split(" ")[1].toLowerCase() = 'invite') {
+      if (args[1].toLowerCase() = 'invite') {
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
      }break;
     case 'server':
-      if (message.content.slice(PREFIX.length).split(" ")[1].toLowerCase() = 'invite') {
+      if (args[1].toLowerCase() = 'invite') {
       message.channel.send('https://discord.gg/6ueb6Yy')
      }break;
   }
@@ -1289,7 +1289,9 @@ client.on('message',
 client.on('message',
   message=> {
 
-    switch (message.content.substring(PREFIX.length).split(" ")[0].toLowerCase()) {
+    let args = message.content.substring(PREFIX.length).split(" ")
+
+    switch (args[0].toLowerCase()) {
       case 'oof': //this command is if you want the bot to use prefix and ping.
         message.reply('O o f')
         break;
