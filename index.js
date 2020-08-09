@@ -327,7 +327,7 @@ client.on('message', async message => {
     case 'public':
       if (args[1].toLowerCase() === 'stands') {
           const PublicStands1 = new Discord.MessageEmbed()
-          .setTitle('Public Stands 1')
+          .setTitle('Public Stands')
           .setDescription('39 Total Public Stands.')
           .addField('1', "Purple Haze Distortion.")
           .addField('2', "Hermit Purple.")
@@ -1267,9 +1267,14 @@ client.on('message', async message => {
     case 'son':
       message.channel.send("I Love You Son")
       break;
-    case 'invite':
+    case 'bot':
+      if (agrs[1] = 'invite') {
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
-      break;
+     }break;
+    case 'server':
+      if (agrs[1] = 'invite') {
+      message.channel.send('https://discord.gg/6ueb6Yy')
+     }break;
   }
 })
 
