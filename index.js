@@ -1298,70 +1298,14 @@ client.on('message',
 
 client.on('message',
   msg=> {
-    if (msg.content === "I, Giorno Giovanna, Have A Dream") {
-      msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss'); //this command is if you want no prefix and no ping.
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I Giorno Giovanna Have A Dream") {
-      msg.channel.send('Shut The Fuck Up Giorno Before I Make You Drink More Of My Piss');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I, GIORNO GIOVANNA, HAVE A DREAM") {
-      msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I GIORNO GIOVANNA HAVE A DREAM") {
-      msg.channel.send('SHUT THE FUCK UP GIORNO BEFORE I MAKE YOU DRINK MORE OF MY PISS');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I giorno giovanna have a dream") {
+    if (msg.content.toLowerCase() === "I giorno giovanna have a dream") { //this command is if you want no prefix and no ping.
       msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
     }
   })
 
 client.on('message',
   msg=> {
-    if (msg.content === "i giorno giovanna have a dream") {
-      msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I Giorno Giovanna have a dream") {
-      msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I, giorno giovanna, have a dream") {
+    if (msg.content.toLowerCase() === "I, giorno giovanna, have a dream") {
       msg.channel.send('Shut the fuck up giorno before i make you drink more of my piss');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "i, giorno giovanna, have a dream") {
-      msg.channel.send('shut the fuck up giorno before i make you drink more of my piss');
-    }
-  })
-
-client.on('message',
-  msg=> {
-    if (msg.content === "I, Giorno Giovanna, have a dream") {
-      msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
   })
