@@ -120,6 +120,7 @@ client.on('message', async message => {
       db.delete(user, items)
       db.push(otheruser, items)
       db.push(user, otheritems)
+      message.channel.send("Trade Completed")
       }else {
         message.channel.send("If You Would Like To Continue With This Trade: Please Say Yes")
      }break;
