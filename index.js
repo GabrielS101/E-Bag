@@ -94,6 +94,19 @@ client.on('message', async message => {
           db.add(`money_${message.author.id}`, amountearned)
           db.set(`worked_${message.author.id}`, Date.now())
         }}break;
+    case 'trade':
+      var user = message.author
+      var otheruser = message.mentions.users.first()
+      var items = db.get(user.id, {
+        items: []})
+      var otheritems = db.get(otheruser.id, {
+        items: []})
+      if (items === null) return message.channel.send("You Don't Have A Stand To Trade")
+      if (otheritems === null) return message.channel.send("Can Not Trade Stands With Someone Who Does Not Have A Stand")
+      if (!otheruser) return message.channel.send("Person To Trade With Not Specified")
+      if (otheruser.bot === true) return message.channel.send("Can Not Trade With A Bot")
+      if (user.bot === true) return message.channel.send("Can Not Trade If You Are A Bot")
+      break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
       if (user.bot == true)
@@ -147,7 +160,8 @@ client.on('message', async message => {
     case 'give':
       var user = message.author
       var otheruser = message.mentions.users.first()
-      if (otheruser.bot == true)
+      if (user.bot === true)
+        if (otheruser.bot == true)
         return message.reply('Cannot Give To A Bot');
       if (otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
       var money = db.fetch(`money_${user.id}`)
