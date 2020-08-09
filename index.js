@@ -101,6 +101,8 @@ client.on('message', async message => {
         items: []})
       var otheritems = db.get(otheruser.id, {
         items: []})
+      let firstargtrade = args[1]
+      if (!args[1] === member.guild) return message.channel.send(`Can Not Trade With ${firstargtrade} As It Is Not A Person`)
       if (items === null) return message.channel.send("You Don't Have A Stand To Trade")
       if (otheritems === null) return message.channel.send("Can Not Trade Stands With Someone Who Does Not Have A Stand")
       if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
