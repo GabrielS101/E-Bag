@@ -326,7 +326,6 @@ client.on('message', async message => {
       break;
     case 'public':
       if (args[1].toLowerCase() === 'stands') {
-        if (args[2] === '1') {
           const PublicStands1 = new Discord.MessageEmbed()
           .setTitle('Public Stands 1')
           .setDescription('39 Total Public Stands.')
@@ -356,10 +355,6 @@ client.on('message', async message => {
           .addField('24', "C-Moon.")
           .addField('25', "Made In Heaven.")
           message.channel.send(PublicStands1);
-        }}break;
-    case 'public':
-      if (args[1].toLowerCase() === 'stands') {
-        if (args[2] === '2') {
           const PublicStands2 = new Discord.MessageEmbed()
           .setTitle('Public Stands 2')
           .addField('26', "Stray Cat.")
@@ -377,7 +372,7 @@ client.on('message', async message => {
           .addField('38', "Sex Pistols.")
           .addField('39', "Emperor.")
           message.channel.send(PublicStands2);
-        }}break;
+        }break;
     case 'event':
       if (args[1].toLowerCase() === 'stands') {
         const EventStands = new Discord.MessageEmbed()
