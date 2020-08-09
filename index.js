@@ -115,7 +115,7 @@ client.on('message', async message => {
       .addField(`${name}'s Stand`, items)
       .addField(`${othername}'s Stand`, otheritems)
       message.channel.send(Tradedetails)
-      if (otheruser.message.content.toLowerCase() === 'yes') {
+      if (otheruser.message.reply.toLowerCase() === 'yes') {
       db.delete(otheruser, otheritems)
       db.delete(user, items)
       db.push(otheruser, items)
