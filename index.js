@@ -96,7 +96,9 @@ client.on('message', async message => {
         }}break;
     case 'trade':
       var user = message.author
+      var name = user.username
       var otheruser = message.mentions.users.first()
+      var othername = otheruser.username
       var items = db.get(user.id, {
         items: []})
       var otheritems = db.get(otheruser.id, {
@@ -107,6 +109,12 @@ client.on('message', async message => {
       if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
       if (otheruser.bot === true) return message.channel.send("Can Not Trade Stands With A Bot")
       if (user.bot === true) return message.channel.send("Can Not Trade Stands If You Are A Bot")
+      const Tradedetails = new Discord.MessageEmbed()
+      .setTitle(`${name} Would Like To Trade Stands With ${othername}`)
+      .setAuthor(`Does ${othername} Accept?`, otherusrr.displayAvatarURL())
+      .addField(`${name}'s Stand`, items)
+      .addField(`${othername}'s Stand`, otheritems)
+      message.channel.send(Tradedetails)
       break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
@@ -121,7 +129,6 @@ client.on('message', async message => {
       .setAuthor(`${name}'s Stand`, user.displayAvatarURL())
       .addField("Stand", items)
       message.channel.send(inventory)
-      message.channel.send(`<@${otheruser.id}> Do You Want To Continue With This Trade? Yes Or No`)
       break;
     case `get`:
       let wantedamount = (args[1])
