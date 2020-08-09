@@ -115,12 +115,6 @@ client.on('message', async message => {
       .addField(`${name}'s Stand`, items)
       .addField(`${othername}'s Stand`, otheritems)
       message.channel.send(Tradedetails)
-      const userstand = db.fetch(user.id)
-      const otheruserstand = db.fetch(otheruser.id)
-      db.delete(user, items)
-      db.delete(otheruser, items)
-      db.push(otheruser, userstand)
-      db.push(user, otheruserstand)
       break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
