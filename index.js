@@ -114,6 +114,7 @@ client.on('message', async message => {
       .setAuthor(`${name} Would Like To Trade Stands With ${othername}`, otheruser.displayAvatarURL())
       .addField(`${name}'s Stand`, items)
       .addField(`${othername}'s Stand`, otheritems)
+      .setFooter(`${othername} Reply With Yes If You Want To Continue With The Trade`)
       message.channel.send(Tradedetails)
       if (otheruser.message.reply.toLowerCase() === 'yes') {
       db.delete(otheruser, otheritems)
