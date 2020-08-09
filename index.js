@@ -115,7 +115,14 @@ client.on('message', async message => {
       .addField(`${name}'s Stand`, items)
       .addField(`${othername}'s Stand`, otheritems)
       message.channel.send(Tradedetails)
-      break;
+      if (otheruser.message.content.toLowerCase() === 'yes') {
+      db.delete(otheruser, otheritems)
+      db.delete(user, items)
+      db.push(otheruser, items)
+      db.push(user, otheritems)
+      }else {
+        message.channel.send("If You Would Like To Continue With This Trade: Please Say Yes")
+     }break;
     case 'stand':
       var user = message.mentions.users.first() || message.author
       if (user.bot == true)
