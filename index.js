@@ -886,6 +886,7 @@ client.on('message', async message => {
       message.channel.send(StarPlatinumTheWorld);
       break;
     case 'wheel':
+      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
       if (args[1].toLowerCase() === 'of') {
         if (args[2].toLowerCase() === 'fortune') {
           const WheelOfFortune = new Discord.MessageEmbed()
@@ -953,9 +954,10 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c8/TheHand.png/revision/latest?cb=20140808155617')
           .setColor(0x2d6bcf)
           message.channel.send(TheHand);
-        }if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
-        break;
+        }break;
     case 'echoes':
+      if (!args[1]) return message.channel.send("Echoes Type Not Specified")
+      if (!args[2])  return message.channel.send("Act Of Echoes Not Specified")
       if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
         .setTitle('Echoes Egg')
@@ -1008,10 +1010,9 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c3/Echoes_Act3_color.png/revision/latest/scale-to-width-down/340?cb=20160423150540')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct3);
-        } if (!args[1]) return message.channel.send("Echoes Type Not Specified")
-        if (!args[2])  return message.channel.send("Act Of Echoes Not Specified")
-        break;
+        }break;
     case 'tusk':
+      if (!args[2]) return message.channel.send("Act Of Tusk Not Specified")
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
           const TuskAct1 = new Discord.MessageEmbed()
@@ -1063,8 +1064,7 @@ client.on('message', async message => {
         .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
         .setColor(0xe01fa0)
         message.channel.send(TuskAct4);
-      }if (!args[2]) return message.channel.send("Act Of Tusk Not Specified")
-      break;
+      }break;
     case 'spin':
       const Spin = new Discord.MessageEmbed()
       .setTitle('Spin')
