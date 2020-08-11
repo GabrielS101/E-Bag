@@ -21,8 +21,8 @@ const youtube = new YouTube(youtubeapi)
 
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
-  client.user.setActivity('Do E-Tutorial To Learn How To Play', {
-    type: `CUSTOM_STATUS`
+  client.user.setActivity('On PC 2', {
+    type: 'PLAYING'
   }).catch(console.error);
 })
 
