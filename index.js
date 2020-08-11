@@ -635,9 +635,7 @@ client.on('message', async message => {
         message.channel.send(OceanMan);
       }break;
     case 'thtw':
-      if (!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command').then(message => message.delete({
-        timeout: 5000
-      }));
+      if (!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command')
       const TheHandTheWorld = new Discord.MessageEmbed()
       .setTitle('The Hand: The World')
       .setDescription("This Stand Is The Exclusive Property Of <@741860257822670879>")
@@ -958,12 +956,8 @@ client.on('message', async message => {
         message.channel.send(TheHand);
       }break;
     case 'echoes':
-      if (!args[1]) return message.channel.send("Echoes Type Not Specified").then(message => message.delete({
-        timeout: 5000
-      }));
-      if (!args[2]) return message.channel.send("Echoes Act Not Specified").then(message => message.delete({
-        timeout: 5000
-      }));
+      if (!args[1]) return message.channel.send("Echoes Type Not Specified")
+      if (!args[2]) return message.channel.send("Echoes Act Not Specified")
       if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
         .setTitle('Echoes Egg')
@@ -1020,12 +1014,8 @@ client.on('message', async message => {
           message.channel.send(EchoesAct3);
         }}break;
     case 'tusk':
-      if (!args[1]) return message.channel.send("Tusk Type Not Specified").then(message => message.delete({
-        timeout: 5000
-      }));
-      if (!args[2]) return message.channel.send("Tusk Act Not Specified").then(message => message.delete({
-        timeout: 5000
-      }));
+      if (!args[1]) return message.channel.send("Tusk Type Not Specified")
+      if (!args[2]) return message.channel.send("Tusk Act Not Specified")
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
           const TuskAct1 = new Discord.MessageEmbed()
