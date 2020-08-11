@@ -21,8 +21,8 @@ const youtube = new YouTube(youtubeapi)
 
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
-  client.user.setActivity('On PC 2', {
-    type: 'PLAYING'
+  client.user.setActivity('Do E-Tutorial To Learn How To Play', {
+    type: `CUSTOM_STATUS`
   }).catch(console.error);
 })
 
@@ -332,7 +332,7 @@ client.on('message', async message => {
       .addField("How To Unlock Ball Breaker", 'Use a corpse part and win the fight with Spin (If you use the corpse part at under 200 health and win the fight at 50 health with spin than you will get Tusk Act 1 instead).')
       .addField('How To Unlock Tusk', '__**Tusk Act 1:**__ Use a corpse part at under 200 health and win with 50 health or below with Spin (If you win with more than 50 health after using the corpse part than you get Ball Breaker instead). __**Tusk Act 2:**__ Use a corpse part and win two games under 100 health in a row with Tusk Act 1). __**Tusk Act 3:**__ Win a game under 50 health and use a corpse well under 100 health with Tusk Act 2. __**Tusk Act 4:**__ Use a corpse part and win with under 100 health with Tusk Act 3.')
       .addField('How To Unlock Echoes', '__**Echoes Egg:**__ There Is No Method To Unlock Echoes Egg Besides Selecting It As Your Current Stand. __**Echoes Act 1:**__ Win a match with Echoes Egg after using hatch 3 times. __**Echoes Act 2:**__ Win a match under 150 health with Echoes Act 1. __**Echoes Act 3:**__ Win 3 matches in a row. On your last match you must be above 300 health with Echoes Act 2.')
-      message.channel.send(Tutorial);
+      message.author.send(Tutorial);
       break;
     case 'public':
       if (args[1].toLowerCase() === 'stands') {
@@ -364,7 +364,7 @@ client.on('message', async message => {
         .addField('23', "Whitesnake.")
         .addField('24', "C-Moon.")
         .addField('25', "Made In Heaven.")
-        message.channel.send(PublicStands1);
+        message.author.send(PublicStands1);
         const PublicStands2 = new Discord.MessageEmbed()
         .setTitle('Public Stands 2')
         .addField('26', "Stray Cat.")
@@ -381,7 +381,7 @@ client.on('message', async message => {
         .addField('37', "Gold Experience.")
         .addField('38', "Sex Pistols.")
         .addField('39', "Emperor.")
-        message.channel.send(PublicStands2);
+        message.author.send(PublicStands2);
       }break;
     case 'event':
       if (args[1].toLowerCase() === 'stands') {
@@ -394,7 +394,7 @@ client.on('message', async message => {
         .addField('4', "Forbidden Fruit.")
         .addField('5', "Frog Experience.")
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
-        message.channel.send(EventStands);
+        message.author.send(EventStands);
       }break;
     case 'admin':
       if (args[1].toLowerCase() === 'stands') {
@@ -409,7 +409,7 @@ client.on('message', async message => {
         .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@741860257822670879>).")
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
-        message.channel.send(AdminStands);
+        message.author.send(AdminStands);
       }break;
     case 'phd':
       const PurpleHazeDistortion = new Discord.MessageEmbed()                //this command is if you want embed with prefix and no ping
