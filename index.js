@@ -1009,7 +1009,9 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c3/Echoes_Act3_color.png/revision/latest/scale-to-width-down/340?cb=20160423150540')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct3);
-        }break;
+        } if (!args[1]) return message.channel.send("Echoes Type Not Specified")
+        if (!args[2])  return message.channel.send("Act Of Echoes Not Specified")
+        break;
     case 'tusk':
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
@@ -1062,7 +1064,8 @@ client.on('message', async message => {
         .setImage('https://i.pinimg.com/originals/4c/af/82/4caf82294d73831d0e35746cda2d9817.jpg')
         .setColor(0xe01fa0)
         message.channel.send(TuskAct4);
-      }break;
+      }if (!args[2]) return message.channel.send("Act Of Tusk Not Specified")
+      break;
     case 'spin':
       const Spin = new Discord.MessageEmbed()
       .setTitle('Spin')
