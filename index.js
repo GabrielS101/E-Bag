@@ -331,6 +331,7 @@ client.on('message', async message => {
       .setAuthor('User Image', user.displayAvatarURL())
       .addField('User Name', user.username, true)
       .addField('User Id', user.id, true)
+      .addField("Latest Message", message.user.latest)
       .addField('Current Server', message.guild.name, true)
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
@@ -769,6 +770,24 @@ client.on('message', async message => {
         .setColor(0x32a852)
         message.channel.send(HierophantGreen);
       }break;
+    case 'the':
+      if (args[1].toLowerCase() === 'hand') {
+        const TheHand = new Discord.MessageEmbed()
+        .setTitle('The Hand')
+        .addField('Health', '700.')
+        .addField('Punch', '60.')
+        .addField("Barrage", "120x4 - 6 turn cooldown.")
+        .addField("Za Hando", '150x2 - 5 turn cooldown.')
+        .addField("Oi Josuke", ' 5 Turn Wait/Cooldown - Heal 150 Health.')
+        .addField("Delete Space", 'Dodge An Attack - 6 turn cooldown.')
+        .addField("Get Over Here", '100x3 - 4 turn cooldown - Your Opponent Cannot Dodge Your Next Attack.')
+        .addField("Rapid Kick", '130 - 2 turn cooldown.')
+        .addField("Shoot The Flower Pots Foward", '50x? - 6 Turn Wait/Cooldown - Roll a 10 sided dice to determine how many dice to roll.')
+        .addField("Passive- Im Not Very Smart", '(Every Turn) After calculating damage, roll a 10 sided dice. If you roll less than a 6, deal 25% of the damage you did to your opponent to yourself.')
+        .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c8/TheHand.png/revision/latest?cb=20140808155617')
+        .setColor(0x2d6bcf)
+        message.channel.send(TheHand);
+      }break;
     case 'hermit':
       if (args[1].toLowerCase() === 'purple') {
         const HermitPurple = new Discord.MessageEmbed()
@@ -886,7 +905,6 @@ client.on('message', async message => {
       message.channel.send(StarPlatinumTheWorld);
       break;
     case 'wheel':
-      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
       if (args[1].toLowerCase() === 'of') {
         if (args[2].toLowerCase() === 'fortune') {
           const WheelOfFortune = new Discord.MessageEmbed()
@@ -923,7 +941,6 @@ client.on('message', async message => {
         message.channel.send(HangedMan);
       }break;
     case 'the':
-      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
       if (args[1].toLowerCase() === 'fool') {
         const TheFool = new Discord.MessageEmbed()
         .setTitle('The Fool')
@@ -939,26 +956,8 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/3/36/JoJo_Tarot_00_-_The_Fool.png/revision/latest/scale-to-width-down/340?cb=20150826093807')
         .setColor(0xe6e339)
         message.channel.send(TheFool);
-      }if (args[1].toLowerCase() === 'hand') {
-          const TheHand = new Discord.MessageEmbed()
-          .setTitle('The Hand')
-          .addField('Health', '700.')
-          .addField('Punch', '60.')
-          .addField("Barrage", "120x4 - 6 turn cooldown.")
-          .addField("Za Hando", '150x2 - 5 turn cooldown.')
-          .addField("Oi Josuke", ' 5 Turn Wait/Cooldown - Heal 150 Health.')
-          .addField("Delete Space", 'Dodge An Attack - 6 turn cooldown.')
-          .addField("Get Over Here", '100x3 - 4 turn cooldown - Your Opponent Cannot Dodge Your Next Attack.')
-          .addField("Rapid Kick", '130 - 2 turn cooldown.')
-          .addField("Shoot The Flower Pots Foward", '50x? - 6 Turn Wait/Cooldown - Roll a 10 sided dice to determine how many dice to roll.')
-          .addField("Passive- Im Not Very Smart", '(Every Turn) After calculating damage, roll a 10 sided dice. If you roll less than a 6, deal 25% of the damage you did to your opponent to yourself.')
-          .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c8/TheHand.png/revision/latest?cb=20140808155617')
-          .setColor(0x2d6bcf)
-          message.channel.send(TheHand);
-        }break;
+      }break;
     case 'echoes':
-      if (!args[1]) return message.channel.send("Echoes Type Not Specified")
-      if (!args[2])  return message.channel.send("Act Of Echoes Not Specified")
       if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
         .setTitle('Echoes Egg')
@@ -972,8 +971,10 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/1/16/Echoes_0.png/revision/latest/top-crop/width/220/height/220?cb=20160423065016')
         .setColor(0x4be33d)
         message.channel.send(EchoesEgg);
-      } if (args[1].toLowerCase() === 'act') {
-      if (args[2].toLowerCase() === '1') {
+      }break;
+    case 'echoes':
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '1') {
           const EchoesAct1 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 1')
           .addField('Health', '700.')
@@ -985,7 +986,10 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/Echoes_Act1_color.png/revision/latest/scale-to-width-down/340?cb=20140818160319')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct1);
-        } if (args[2].toLowerCase() === '2') {
+        }}break;
+    case 'echoes':
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '2') {
           const EchoesAct2 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 2')
           .addField('Health', '750.')
@@ -998,7 +1002,10 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/55/Echoes_Act2_color.png/revision/latest/scale-to-width-down/340?cb=20160326105114')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct2);
-        }}if (args[2].toLowerCase() === '3') {
+        }}break;
+    case 'echoes':
+      if (args[1].toLowerCase() === 'act') {
+        if (args[2].toLowerCase() === '3') {
           const EchoesAct3 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 3')
           .addField('Health', '800.')
@@ -1011,10 +1018,8 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c3/Echoes_Act3_color.png/revision/latest/scale-to-width-down/340?cb=20160423150540')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct3);
-        }break;
+        }}break;
     case 'tusk':
-      if (!args[1]) return message.channel.send("Tusk Type Not Specified")
-      if (!args[2]) return message.channel.send("Act Of Tusk Not Specified")
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
           const TuskAct1 = new Discord.MessageEmbed()
@@ -1029,7 +1034,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct1);
-        }} if (args[2].toLowerCase() === '2') {
+        }} else if (args[2].toLowerCase() === '2') {
         const TuskAct2 = new Discord.MessageEmbed()
         .setTitle('Tusk Act 2')
         .addField('Health', '700.')
@@ -1041,7 +1046,7 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
         .setColor(0xe01fa0)
         message.channel.send(TuskAct2);
-      } if (args[2].toLowerCase() === '3') {
+      } else if (args[2].toLowerCase() === '3') {
         const TuskAct3 = new Discord.MessageEmbed()
         .setTitle('Tusk Act 3')
         .addField('Health', '750.')
@@ -1053,7 +1058,7 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
         .setColor(0xe01fa0)
         message.channel.send(TuskAct3);
-      } if (args[2].toLowerCase() === '4') {
+      } else if (args[2].toLowerCase() === '4') {
         const TuskAct4 = new Discord.MessageEmbed()
         .setTitle('Tusk Act 4')
         .addField('Health', '800.')
