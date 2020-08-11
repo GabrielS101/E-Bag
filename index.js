@@ -922,7 +922,9 @@ client.on('message', async message => {
         message.channel.send(HangedMan);
       }break;
     case 'the':
-      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
+      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified").then(message => message.delete({
+        timeout: 5000
+      }));
       if (args[1].toLowerCase() === 'fool') {
         const TheFool = new Discord.MessageEmbed()
         .setTitle('The Fool')
@@ -956,8 +958,12 @@ client.on('message', async message => {
         message.channel.send(TheHand);
       }break;
     case 'echoes':
-      if (!args[1]) return message.channel.send("Echoes Type Not Specified")
-      if (!args[2]) return message.channel.send("Echoes Act Not Specified")
+      if (!args[1]) return message.channel.send("Echoes Type Not Specified").then(message => message.delete({
+        timeout: 5000
+      }));
+      if (!args[2]) return message.channel.send("Echoes Act Not Specified").then(message => message.delete({
+        timeout: 5000
+      }));
       if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
         .setTitle('Echoes Egg')
@@ -1014,8 +1020,12 @@ client.on('message', async message => {
           message.channel.send(EchoesAct3);
         }}break;
     case 'tusk':
-      if (!args[1]) return message.channel.send("Tusk Type Not Specified")
-      if (!args[2]) return message.channel.send("Tusk Act Not Specified")
+      if (!args[1]) return message.channel.send("Tusk Type Not Specified").then(message => message.delete({
+        timeout: 5000
+      }));
+      if (!args[2]) return message.channel.send("Tusk Act Not Specified").then(message => message.delete({
+        timeout: 5000
+      }));
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
           const TuskAct1 = new Discord.MessageEmbed()
