@@ -957,7 +957,6 @@ client.on('message', async message => {
       }break;
     case 'echoes':
       if (!args[1]) return message.channel.send("Echoes Type Not Specified")
-      if (!args[2]) return message.channel.send("Echoes Act Not Specified")
       if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
         .setTitle('Echoes Egg')
@@ -972,6 +971,7 @@ client.on('message', async message => {
         .setColor(0x4be33d)
         message.channel.send(EchoesEgg);
       }if (args[1].toLowerCase() === 'act') {
+        if (!args[2]) return message.channel.send("Echoes Act Not Specified")
         if (args[2].toLowerCase() === '1') {
           const EchoesAct1 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 1')
@@ -984,8 +984,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/Echoes_Act1_color.png/revision/latest/scale-to-width-down/340?cb=20140818160319')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct1);
-        }}if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '2') {
+        }if (args[2].toLowerCase() === '2') {
           const EchoesAct2 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 2')
           .addField('Health', '750.')
@@ -998,8 +997,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/55/Echoes_Act2_color.png/revision/latest/scale-to-width-down/340?cb=20160326105114')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct2);
-        }}if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '3') {
+        }if (args[2].toLowerCase() === '3') {
           const EchoesAct3 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 3')
           .addField('Health', '800.')
