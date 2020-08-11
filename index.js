@@ -40,14 +40,6 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
 
-    case 'balance':
-      var user = message.mentions.users.first() || message.author
-      if (user.bot == true)
-        return message.reply('Cannot Check Balance Of A Bot');
-      var money = db.fetch(`money_${user.id}`)
-      if (money === null) money = 0
-      message.channel.send(`${user} Has ${money} Dollars`)
-      break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
@@ -116,20 +108,6 @@ client.on('message', async message => {
       .addField(`${othername}'s Stand`, otheritems)
       .setFooter(`${othername}, Reply With Yes If You Want To Continue With The Trade Or With No To Cancel The Trade`)
       message.channel.send(Tradedetails)
-      break;
-    case 'stand':
-      var user = message.mentions.users.first() || message.author
-      if (user.bot == true)
-        return message.reply('Cannot Check Stand Of A Bot');
-      var user = message.mentions.users.first() || message.author
-      var name = user.username
-      var items = db.get(user.id, {
-        items: []})
-      if (items === null) items = "You Don't Have A Stand"
-      let inventory = new Discord.MessageEmbed()
-      .setAuthor(`${name}'s Stand`, user.displayAvatarURL())
-      .addField("Stand", items)
-      message.channel.send(inventory)
       break;
     case `get`:
       let wantedamount = (args[1])
@@ -325,12 +303,19 @@ client.on('message', async message => {
       break;
     case 'info':
       var user = message.mentions.users.first() || message.author
-      if (user.bot === true) return message.channel.send("I Will Not Snitch On My Fellow Bots")
+      var items = db.get(user.id, {
+        items: []})
+        if (items === null) items = "You Don't Have A Stand"
+        var money = db.fetch(`money_${user.id}`)
+        if (money === null) money = 0
+      if (user.bot === true) return message.channel.send("Can Not Check Info Of A Bot")
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
       .setAuthor('User Image', user.displayAvatarURL())
       .addField('User Name', user.username, true)
       .addField('User Id', user.id, true)
+      .addField("Current Stand", items)
+      .addField("Current Balance", `${user} Has ${money} Dollars`)
       .addField('Current Server', message.guild.name, true)
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
