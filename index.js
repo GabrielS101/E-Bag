@@ -305,7 +305,7 @@ client.on('message', async message => {
       var user = message.mentions.users.first() || message.author
       var items = db.get(user.id, {
         items: []})
-        if (items === null) items = "You Don't Have A Stand"
+        if (items === null) items = "No Stand"
         var money = db.fetch(`money_${user.id}`)
         if (money === null) money = 0
       if (user.bot === true) return message.channel.send("Can Not Check Info Of A Bot")
