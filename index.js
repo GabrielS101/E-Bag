@@ -331,7 +331,6 @@ client.on('message', async message => {
       .setAuthor('User Image', user.displayAvatarURL())
       .addField('User Name', user.username, true)
       .addField('User Id', user.id, true)
-      .addField("Latest Message", message.user.latest)
       .addField('Current Server', message.guild.name, true)
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
