@@ -314,6 +314,7 @@ client.on('message', async message => {
       .setAuthor('User Image', user.displayAvatarURL())
       .addField('User Name', user.username, true)
       .addField('User Id', user.id, true)
+      .addField("Latest Message", user.lastMessage, true)
       .addField("Current Stand", items, true)
       .addField("Current Balance", `${money} Dollars`)
       .addField('Current Server', message.guild.name, true)
