@@ -996,10 +996,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/55/Echoes_Act2_color.png/revision/latest/scale-to-width-down/340?cb=20160326105114')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct2);
-        }}break;
-    case 'echoes':
-      if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '3') {
+        }}if (args[2].toLowerCase() === '3') {
           const EchoesAct3 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 3')
           .addField('Health', '800.')
@@ -1012,7 +1009,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c3/Echoes_Act3_color.png/revision/latest/scale-to-width-down/340?cb=20160423150540')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct3);
-        }}break;
+        }break;
     case 'tusk':
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
