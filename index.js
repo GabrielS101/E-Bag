@@ -769,24 +769,6 @@ client.on('message', async message => {
         .setColor(0x32a852)
         message.channel.send(HierophantGreen);
       }break;
-    case 'the':
-      if (args[1].toLowerCase() === 'hand') {
-        const TheHand = new Discord.MessageEmbed()
-        .setTitle('The Hand')
-        .addField('Health', '700.')
-        .addField('Punch', '60.')
-        .addField("Barrage", "120x4 - 6 turn cooldown.")
-        .addField("Za Hando", '150x2 - 5 turn cooldown.')
-        .addField("Oi Josuke", ' 5 Turn Wait/Cooldown - Heal 150 Health.')
-        .addField("Delete Space", 'Dodge An Attack - 6 turn cooldown.')
-        .addField("Get Over Here", '100x3 - 4 turn cooldown - Your Opponent Cannot Dodge Your Next Attack.')
-        .addField("Rapid Kick", '130 - 2 turn cooldown.')
-        .addField("Shoot The Flower Pots Foward", '50x? - 6 Turn Wait/Cooldown - Roll a 10 sided dice to determine how many dice to roll.')
-        .addField("Passive- Im Not Very Smart", '(Every Turn) After calculating damage, roll a 10 sided dice. If you roll less than a 6, deal 25% of the damage you did to your opponent to yourself.')
-        .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c8/TheHand.png/revision/latest?cb=20140808155617')
-        .setColor(0x2d6bcf)
-        message.channel.send(TheHand);
-      }break;
     case 'hermit':
       if (args[1].toLowerCase() === 'purple') {
         const HermitPurple = new Discord.MessageEmbed()
@@ -955,7 +937,24 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/3/36/JoJo_Tarot_00_-_The_Fool.png/revision/latest/scale-to-width-down/340?cb=20150826093807')
         .setColor(0xe6e339)
         message.channel.send(TheFool);
-      }break;
+      }if (args[1].toLowerCase() === 'hand') {
+          const TheHand = new Discord.MessageEmbed()
+          .setTitle('The Hand')
+          .addField('Health', '700.')
+          .addField('Punch', '60.')
+          .addField("Barrage", "120x4 - 6 turn cooldown.")
+          .addField("Za Hando", '150x2 - 5 turn cooldown.')
+          .addField("Oi Josuke", ' 5 Turn Wait/Cooldown - Heal 150 Health.')
+          .addField("Delete Space", 'Dodge An Attack - 6 turn cooldown.')
+          .addField("Get Over Here", '100x3 - 4 turn cooldown - Your Opponent Cannot Dodge Your Next Attack.')
+          .addField("Rapid Kick", '130 - 2 turn cooldown.')
+          .addField("Shoot The Flower Pots Foward", '50x? - 6 Turn Wait/Cooldown - Roll a 10 sided dice to determine how many dice to roll.')
+          .addField("Passive- Im Not Very Smart", '(Every Turn) After calculating damage, roll a 10 sided dice. If you roll less than a 6, deal 25% of the damage you did to your opponent to yourself.')
+          .setImage('https://vignette.wikia.nocookie.net/jjba/images/c/c8/TheHand.png/revision/latest?cb=20140808155617')
+          .setColor(0x2d6bcf)
+          message.channel.send(TheHand);
+        }if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
+        break;
     case 'echoes':
       if (args[1].toLowerCase() === 'egg') {
         const EchoesEgg = new Discord.MessageEmbed()
