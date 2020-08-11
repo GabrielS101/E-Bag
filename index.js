@@ -923,6 +923,7 @@ client.on('message', async message => {
         message.channel.send(HangedMan);
       }break;
     case 'the':
+      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
       if (args[1].toLowerCase() === 'fool') {
         const TheFool = new Discord.MessageEmbed()
         .setTitle('The Fool')
@@ -1012,6 +1013,7 @@ client.on('message', async message => {
           message.channel.send(EchoesAct3);
         }break;
     case 'tusk':
+      if (!args[1]) return message.channel.send("Full Name Of Stand Not Specified")
       if (!args[2]) return message.channel.send("Act Of Tusk Not Specified")
       if (args[1].toLowerCase() === 'act') {
         if (args[2].toLowerCase() === '1') {
