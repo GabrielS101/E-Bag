@@ -59,7 +59,7 @@ client.on('message', async message => {
         let dailyreward = new Discord.MessageEmbed()
         .setAuthor("Daily", message.author.displayAvatarURL)
         .setColor("GREEN")
-        .setDescription("**Daily Rewards**")
+        .setDescription("Daily Rewards")
         .addField("Collected", amount)
         message.channel.send(dailyreward)
         db.add(`money_${message.author.id}`, amount)
