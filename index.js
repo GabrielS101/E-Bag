@@ -316,7 +316,7 @@ client.on('message', async message => {
       .addField('User Id', user.id, true)
       .addField("Latest Message", user.lastMessage, true)
       .addField("Current Stand", items, true)
-      .addField("Current Balance", `${money} Dollars`)
+      .addField("Current Balance", `${money} Dollars`, true)
       .addField('Current Server', message.guild.name, true)
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
