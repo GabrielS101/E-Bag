@@ -970,10 +970,8 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/1/16/Echoes_0.png/revision/latest/top-crop/width/220/height/220?cb=20160423065016')
         .setColor(0x4be33d)
         message.channel.send(EchoesEgg);
-      }break;
-    case 'echoes':
-      if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '1') {
+      } if (args[1].toLowerCase() === 'act') {
+      if (args[2].toLowerCase() === '1') {
           const EchoesAct1 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 1')
           .addField('Health', '700.')
@@ -985,10 +983,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/Echoes_Act1_color.png/revision/latest/scale-to-width-down/340?cb=20140818160319')
           .setColor(0x4be33d)
           message.channel.send(EchoesAct1);
-        }}break;
-    case 'echoes':
-      if (args[1].toLowerCase() === 'act') {
-        if (args[2].toLowerCase() === '2') {
+        } if (args[2].toLowerCase() === '2') {
           const EchoesAct2 = new Discord.MessageEmbed()
           .setTitle('Echoes Act 2')
           .addField('Health', '750.')
@@ -1033,7 +1028,7 @@ client.on('message', async message => {
           .setImage('https://vignette.wikia.nocookie.net/jjba/images/5/58/TuskAct1color.png/revision/latest/scale-to-width-down/340?cb=20140813205839')
           .setColor(0xe01fa0)
           message.channel.send(TuskAct1);
-        }} else if (args[2].toLowerCase() === '2') {
+        }} if (args[2].toLowerCase() === '2') {
         const TuskAct2 = new Discord.MessageEmbed()
         .setTitle('Tusk Act 2')
         .addField('Health', '700.')
@@ -1045,7 +1040,7 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/7/7a/TuskAct2color.png/revision/latest/scale-to-width-down/340?cb=20160325172005')
         .setColor(0xe01fa0)
         message.channel.send(TuskAct2);
-      } else if (args[2].toLowerCase() === '3') {
+      } if (args[2].toLowerCase() === '3') {
         const TuskAct3 = new Discord.MessageEmbed()
         .setTitle('Tusk Act 3')
         .addField('Health', '750.')
@@ -1057,7 +1052,7 @@ client.on('message', async message => {
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/a/aa/TuskAct3color.png/revision/latest/scale-to-width-down/340?cb=20140813205954')
         .setColor(0xe01fa0)
         message.channel.send(TuskAct3);
-      } else if (args[2].toLowerCase() === '4') {
+      } if (args[2].toLowerCase() === '4') {
         const TuskAct4 = new Discord.MessageEmbed()
         .setTitle('Tusk Act 4')
         .addField('Health', '800.')
