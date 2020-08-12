@@ -114,7 +114,7 @@ client.on('message', async message => {
       if (!wantedamount) {
         message.channel.send("Amount To Get Not Specified")
       } else {
-        if (!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
+        if (!message.author.id === '340100783901245441' || '592471909707546634' || '741860257822670879' || '717418455154032730') return message.channel.send('You Can Not Use This Command');
         if (isNaN(args[1])) {
           message.channel.send("Amount To Get Must Be In Number Form")
         } else {
@@ -135,7 +135,7 @@ client.on('message', async message => {
         if (money < unwantedamount) {
           message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         } else {
-          if (!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Only People With The Administrator Permission Can Use This Command');
+          if (!message.author.id === '340100783901245441' || '592471909707546634' || '741860257822670879' || '717418455154032730') return message.channel.send('You Can Not Use This Command');
           if (isNaN(args[1])) {
             message.channel.send("Amount To Get Rid Of Must Be In Number Form")
           } else {
