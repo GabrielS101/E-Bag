@@ -232,6 +232,9 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirusbutlowercase)
       }break;
     case 'arrow':
+      var money = db.fetch(`money_${message.author.id}`)
+      var extra = (150 - money)
+      if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Arrow. You Need ${extra} More Dollars`)
       var name = message.author.username
       const Stands = ["PHD",
         "Hermit Purple",
@@ -273,6 +276,7 @@ client.on('message', async message => {
         .setColor("RANDOM")
         message.channel.send(randomstands)
         db.push(message.author.id, `${randomlychosenstand}`)
+        db.subtract(`money_${message.author.id}, 150`)
       } else {
         message.channel.send("You Already Have A Stand")
       }break;
