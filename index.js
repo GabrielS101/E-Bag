@@ -289,7 +289,7 @@ client.on('message', async message => {
       if (items === null) return message.channel.send("You Don't Have A Stand To Reset")
       message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
       db.delete(message.author.id, items)
-      db.subtract(`money_${message.author.id}`, 150)
+      db.subtract(`money_${message.author.id}`, 100)
       break;
     case 'meme':
       var user = message.author
