@@ -91,7 +91,7 @@ client.on('message', async message => {
           let time = parsems(timeoutworked - (Date.now() - worked));
           message.channel.send(`You Already Worked. You Can Work Again In ${time.minutes} Minutes And ${time.seconds} Seconds`)
         }else {
-          let amountearned = Math.floor(Math.random() *50) + 15
+          let amountearned = Math.floor(Math.random() *35) + 15
           let jobs = ["Assasin",
             "Gangster",
             "Marine Biologist",
