@@ -40,6 +40,33 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
 
+    case 'gamble':
+    var money = db.fetch(`money_${message.author.id}`)
+    var bet = args[1]
+    if (bet > money) return message.channel.send("You Don't Have That Much Money To Gamble")
+    if (isNaN(args[1])) {
+      message.channel.send("Amount To Gamble Must Be In Number Form")}
+      var chances = ["win", "lose"]
+      var pick = chances[Math.floor(Math.random() * chances.length)];
+      if (pick === 'win') {
+        const winamount = new Discord.MessageEmbed()
+        .setTitle(`The Gamble Paid Off`)
+        .setAuthor(`${message.author.username} Won`, message.author.displayAvatarURL())
+        .setDescription(`${bet} Dollars Have Been Added To Your Balance`)
+        .setFooter("You Can Chech Your Balance By Doing e-Info")
+        message.channel.send(winamount);
+        db.add(`money_${message.author.id}`, bet)
+      }
+      if (pick === 'lose') {
+        const loseamount = new Discord.MessageEmbed()
+        .setTitle(`The Gamble Did Not Pay Off`)
+        .setAuthor(`${message.author.username} Lost`, message.author.displayAvatarURL())
+        .setDescription(`${bet} Dollars Have Been Subtracted From Your Balance`)
+        .setFooter("You Can Chech Your Balance By Doing e-Info")
+        message.channel.send(loseamount);
+        db.subtract(`money${message.author.id}`, bet)
+      }
+    break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
