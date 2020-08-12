@@ -42,12 +42,12 @@ client.on('message', async message => {
 
     case 'gamble':
     var money = db.fetch(`money_${message.author.id}`)
-    var bet = args[1]
+    const bet = args[1]
     if (bet > money) return message.channel.send("You Don't Have That Much Money To Gamble")
-    if (isNaN(args[1])) {
+    if (isNaN(bet)) {
       message.channel.send("Amount To Gamble Must Be In Number Form")}
-      var chances = ["win", "lose"]
-      var pick = chances[Math.floor(Math.random() * chances.length)];
+      const chances = ["win", "lose"]
+      const pick = chances[Math.floor(Math.random() * chances.length)];
       if (pick === 'win') {
         const winamount = new Discord.MessageEmbed()
         .setTitle(`The Gamble Paid Off`)
