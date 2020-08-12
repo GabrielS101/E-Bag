@@ -110,7 +110,7 @@ client.on('message', async message => {
       message.channel.send(Tradedetails)
       break;
     case `get`:
-      if (message.author.id != "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") return message.channel.send("You Can Not Use This Command")
+      if (client.user.id != "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") return message.channel.send("You Can Not Use This Command")
       let wantedamount = (args[1])
       if (!wantedamount) {
         message.channel.send("Amount To Get Not Specified")
@@ -125,7 +125,7 @@ client.on('message', async message => {
           db.add(`money_${message.author.id}`, wantedamount)
       }}break;
     case 'remove':
-      if (message.author.id != "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") return message.channel.send("You Can Not Use This Command")
+      if (client.user.id != "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") return message.channel.send("You Can Not Use This Command")
       var user = message.mentions.users.first() || message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
