@@ -54,19 +54,17 @@ client.on('message', async message => {
         .setAuthor(`${message.author.username} Won`, message.author.displayAvatarURL())
         .setDescription(`${bet} Dollars Have Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
-        message.channel.send(winamount);
+        message.channel.send(winamount)
         db.add(`money_${message.author.id}`, bet)
-      }
-      if (pick === 'lose') {
+      }if (pick === 'lose') {
         const loseamount = new Discord.MessageEmbed()
         .setTitle(`The Gamble Did Not Pay Off`)
         .setAuthor(`${message.author.username} Lost`, message.author.displayAvatarURL())
         .setDescription(`${bet} Dollars Have Been Subtracted From Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
-        message.channel.send(loseamount);
+        message.channel.send(loseamount)
         db.subtract(`money${message.author.id}`, bet)
-      }
-    break;
+      }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
@@ -83,16 +81,14 @@ client.on('message', async message => {
         message.channel.send(dailyreward)
         db.add(`money_${message.author.id}`, amount)
         db.add(`daily_${message.author.id}`, Date.now())
-      }
-      break;
+      }break;
     case 'work':
-      {
-        let timeoutworked = 3600000
+      {let timeoutworked = 3600000
         let worked = db.fetch(`worked_${message.author.id}`)
         if (worked != null && timeoutworked - (Date.now() - worked) > 0) {
           let time = parsems(timeoutworked - (Date.now() - worked));
           message.channel.send(`You Already Worked. You Can Work Again In ${time.minutes} Minutes And ${time.seconds} Seconds`)
-        } else {
+        }else {
           let amountearned = Math.floor(Math.random() *50) + 1
           let jobs = ["Assasin",
             "Gangster",
