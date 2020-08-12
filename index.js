@@ -114,7 +114,7 @@ client.on('message', async message => {
       if (!wantedamount) {
         message.channel.send("Amount To Get Not Specified")
       } else {
-        if (message.author.id === "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") {
+        if (message.author.id != "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") {
         if (isNaN(args[1])) {
           message.channel.send("Amount To Get Must Be In Number Form")
         } else {
@@ -137,7 +137,7 @@ client.on('message', async message => {
         if (money < unwantedamount) {
           message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
         } else {
-          if (message.author.id === "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") {
+          if (message.author.id != "340100783901245441" || "592471909707546634" || "741860257822670879" || "717418455154032730") {
           if (isNaN(args[1])) {
             message.channel.send("Amount To Get Rid Of Must Be In Number Form")
           } else {
@@ -157,7 +157,6 @@ client.on('message', async message => {
         return message.reply('Can Not Give To A Bot');
       if (otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
       var money = db.fetch(`money_${user.id}`)
-      var othermoney = db.fetch(`money_${otheruser.id}`)
       if (!otheruser) {
         message.channel.send("Person To Give Money To Not Specified")
       }
