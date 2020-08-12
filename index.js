@@ -136,7 +136,7 @@ client.on('message', async message => {
       break;
     case `get`:
       let wantedamount = (args[1])
-      if (message.author.id === "340100783901245441" ||message.author.id === "741860257822670879" ||message.author.id === "717418455154032730") {
+      if (message.author.id === "340100783901245441") {
       if (!wantedamount) {
         message.channel.send("Amount To Get Not Specified")
       } else {
@@ -155,7 +155,7 @@ client.on('message', async message => {
       var user = message.mentions.users.first() || message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
-      if (message.author.id === "340100783901245441" ||message.author.id === "741860257822670879" ||message.author.id === "717418455154032730") {
+      if (message.author.id === "340100783901245441") {
       var extra = (unwantedamount - money)
       if (!unwantedamount) {
         message.channel.send("Amount To Get Rid Of Not Specified")
