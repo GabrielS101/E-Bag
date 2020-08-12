@@ -45,7 +45,7 @@ client.on('message', async message => {
     const bet = args[1]
     if (!bet) return message.channel.send("Amount To Gamble Not Specified")
     var extra = (bet - money)
-    if (bet > money) return message.channel.send(`You Don't Have That Much Money To Gamble. You Went Over By ${extra}`)
+    if (bet > money) return message.channel.send(`You Don't Have That Much Money To Gamble. You Went Over By ${extra} Dollars`)
     if (isNaN(bet)) {
       message.channel.send("Amount To Gamble Must Be In Number Form")}
       const chances = ["win", "lose"]
