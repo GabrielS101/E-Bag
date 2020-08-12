@@ -111,7 +111,7 @@ client.on('message', async message => {
       break;
     case `get`:
       let wantedamount = (args[1])
-      if (message.author.id === "340100783901245441" ||message.author.id === "592471909707546634" ||message.author.id === "741860257822670879" ||message.author.id === "717418455154032730")
+      if (message.author.id === "340100783901245441" ||message.author.id === "592471909707546634" ||message.author.id === "741860257822670879" ||message.author.id === "717418455154032730") {
       if (!wantedamount) {
         message.channel.send("Amount To Get Not Specified")
       } else {
@@ -123,12 +123,14 @@ client.on('message', async message => {
           .setDescription(`${message.author} Got ${wantedamount} Dollars`)
           message.channel.send(adminget)
           db.add(`money_${message.author.id}`, wantedamount)
-      }}break;
+      }}}else {
+        message.channel.send("You Can Not Use This Command")
+      }break;
     case 'remove':
       var user = message.mentions.users.first() || message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
-      if (message.author.id === "340100783901245441" ||message.author.id === "592471909707546634" ||message.author.id === "741860257822670879" ||message.author.id === "717418455154032730")
+      if (message.author.id === "340100783901245441" ||message.author.id === "592471909707546634" ||message.author.id === "741860257822670879" ||message.author.id === "717418455154032730") {
       var extra = (unwantedamount - money)
       if (!unwantedamount) {
         message.channel.send("Amount To Get Rid Of Not Specified")
@@ -144,7 +146,9 @@ client.on('message', async message => {
             .setDescription(`${message.author} Removed ${unwantedamount} Dollars`)
             message.channel.send(adminremove)
             db.subtract(`money_${message.author.id}`, unwantedamount)
-          }}}break;
+          }}}}else {
+            message.channel.send("You Can Not Use This Command")
+          }break;
     case 'give':
       var user = message.author
       var otheruser = message.mentions.users.first()
