@@ -43,6 +43,7 @@ client.on('message', async message => {
     case 'gamble':
     var money = db.fetch(`money_${message.author.id}`)
     const bet = args[1]
+    if (!bet) return message.channel.send("Amount To Gamble Not Specified")
     if (bet > money) return message.channel.send("You Don't Have That Much Money To Gamble")
     if (isNaN(bet)) {
       message.channel.send("Amount To Gamble Must Be In Number Form")}
