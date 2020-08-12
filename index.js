@@ -326,14 +326,13 @@ client.on('message', async message => {
         "dankmemes",
         "meme",
         "memes",
-        "ShitPostCrusaders",
-        "PewdiepieSubmissions"]
+        "ShitPostCrusaders"]
       var random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
       const meme = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setImage(img)
-      .setFooter(`From /r/${random}`)
+      .setTitle(`From /r/${random}`)
       .setURL(`https://reddit.com/r/${random}`)
       message.channel.send(meme)
       break;
