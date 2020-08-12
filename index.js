@@ -330,7 +330,12 @@ client.on('message', async message => {
         "PewdiepieSubmissions"]
       var random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
-      message.channel.send(img)
+      const meme = new Discord.MessageEmbed()
+      .setColor("RANDOM")
+      .setImage(img)
+      .setFooter(`From /r/${random}`)
+      .setURL(`https://reddit.com/r/${random}`)
+      message.channel.send(meme)
       break;
     case 'info':
       var user = message.mentions.users.first() || message.author
