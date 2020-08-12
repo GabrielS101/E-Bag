@@ -63,7 +63,7 @@ client.on('message', async message => {
         .setDescription(`${bet} Dollars Have Been Subtracted From Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(loseamount)
-        db.subtract(`money${message.author.id}`, bet)
+        db.subtract(`money_${message.author.id}`, bet)
       }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
