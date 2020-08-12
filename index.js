@@ -66,7 +66,7 @@ client.on('message', async message => {
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
-      }break;
+    }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
