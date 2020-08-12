@@ -40,6 +40,24 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
 
+    case 'health':
+    const currenthealth = db.fetch(`health_${message.author.id}`)
+    const healthamount = args[2]
+    if (!args[1]) return message.channel.send(`You Have ${currenthealth} Health Left`) 
+    if (currenthealth = null) currenthealth = 0
+    if (args[1] = 'add') {
+      if (isNan(healthamount)) {
+        message.channel.send("Health Must Be In Number Form")
+      }else db.add(`health_${message.author.id}`, healthamount)
+    }
+    if (args[1] = 'subtract') {
+      if (isNan(healthamount)) {
+        message.channel.send("Health Must Be In Number Form")
+      }else if (0 > currenthealth) {
+        message.channel.send(`${message.author.username} Has Lost The Fight`)
+        db.subtract(`health_${message.author.id}`, currenthealth)
+      }else {db.subtract(`health_${message.author.id}`, healthamount)
+    }}break;
     case 'gamble':
     var money = db.fetch(`money_${message.author.id}`)
     const bet = args[1]
