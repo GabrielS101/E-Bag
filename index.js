@@ -234,7 +234,7 @@ client.on('message', async message => {
     case 'arrow':
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (150 - money)
-      if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Arrow. You Need ${extra} More Dollars`)
+      if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Stand Arrow. You Need ${extra} More Dollars`)
       var name = message.author.username
       const Stands = ["PHD",
         "Hermit Purple",
@@ -270,22 +270,26 @@ client.on('message', async message => {
       if (items === null) {
         const randomstands = new Discord.MessageEmbed()
         .setTitle(`You Got ${randomlychosenstand} As Your Stand. Congratulations`)
-        .setAuthor(`You Got A New Stand`, message.author.displayAvatarURL())
+        .setAuthor(`You Bought A Stand Arrow And Used It To Get A New Stand`, message.author.displayAvatarURL())
         .setDescription("You Can Reset Your Stand To Get A New One By Doind e-roka")
         .setFooter(`Check Your New Stand's Stats By Doing e-${randomlychosenstand}`)
         .setColor("RANDOM")
         message.channel.send(randomstands)
         db.push(message.author.id, `${randomlychosenstand}`)
-        db.subtract(`money_${message.author.id}, 150`)
+        db.subtract(`money_${message.author.id}`, 150)
       } else {
         message.channel.send("You Already Have A Stand")
       }break;
     case 'roka':
+      var money = db.fetch(`money_${message.author.id}`)
+      var extra = (100 - money)
+      if (100 > money) return message.channel.send(`You Don't Have Enough To Buy A Roka. You Need ${extra} More Dollars`)
       var items = db.get(message.author.id, {
         items: []})
       if (items === null) return message.channel.send("You Don't Have A Stand To Reset")
-      message.channel.send("You Used A Roka And Reset Your Stand")
+      message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
       db.delete(message.author.id, items)
+      db.subtract(`money_${message.author.id}`, 150)
       break;
     case 'meme':
       var user = message.author
