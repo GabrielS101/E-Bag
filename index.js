@@ -76,7 +76,7 @@ client.on('message', async message => {
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
       }if (pick === 'jackpot') {
-        const jackpotbet = bet(5)
+        const jackpotbet = bet×5
         const jackpotamount = new Discord.MessageEmbed()
         .setTitle(`You Struck The Jackpot`)
         .setAuthor(`${message.author.username} Won The Jackpot`, message.author.displayAvatarURL())
