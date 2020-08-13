@@ -333,8 +333,8 @@ client.on('message', async message => {
         "memes",
         "ShitPostCrusaders",
         "PewdiepieSubmissions"]
-      var random = subReddits[Math.floor(Math.random() * subReddits.length)];
-      const img = await randomPuppy(random);
+      const random = subReddits[Math.floor(Math.random() * subReddits.length)]
+      const img = await randomPuppy(random)
       const meme = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setTitle(`From /r/${random}`)
