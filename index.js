@@ -79,7 +79,7 @@ client.on('message', async message => {
         const jackpotamount = new Discord.MessageEmbed()
         .setTitle(`You Struck The Jackpot`)
         .setAuthor(`${message.author.username} Won The Jackpot`, message.author.displayAvatarURL())
-        .setDescription(`5 x ${bet} Dollars Have Been Added To Your Balance`)
+        .setDescription(`5 Times The Amount You Bet Has Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(jackpotamount)
         db.add(`money_${message.author.id}`, bet)
