@@ -49,10 +49,15 @@ client.on('message', async message => {
       if (isNaN(bet)) {
         message.channel.send("Amount To Gamble Must Be In Number Form")}
       const chances = ["win",
+         "win",
         "lose",
         "lose",
         "lose",
-        "lose"]
+        "lose",
+        "lose,
+        "lose,
+        "lose",
+        "jackpot"]
       const pick = chances[Math.floor(Math.random() * chances.length)];
       if (pick === 'win') {
         const winamount = new Discord.MessageEmbed()
@@ -70,6 +75,15 @@ client.on('message', async message => {
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
+      }if (pick === 'jackpot') {
+        const jackpotbet = (bet + bet + bet + bet + bet)
+        const jackpotamount = new Discord.MessageEmbed()
+        .setTitle(`The Jackpot Has Been Won`)
+        .setAuthor(`${message.author.username} Won The Jackpot`, message.author.displayAvatarURL())
+        .setDescription(`${jackpotbet} Dollars Have Been Added To Your Balance`)
+        .setFooter("You Can Chech Your Balance By Doing e-Info")
+        message.channel.send(jackpotamount)
+        db.add(`money_${message.author.id}`, jackpotbet)
       }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
@@ -157,7 +171,7 @@ client.on('message', async message => {
         message.channel.send("You Can Not Use This Command")
       }break;
     case 'remove':
-      var user = message.mentions.users.first() || message.author
+      var user = message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
       if (message.author.id === "340100783901245441") {
