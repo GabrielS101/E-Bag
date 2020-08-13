@@ -82,11 +82,7 @@ client.on('message', async message => {
         .setDescription(`${jackpotbet} Dollars Have Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(jackpotamount)
-        db.add(`money_${message.author.id}`, bet)
-        db.add(`money_${message.author.id}`, bet)
-        db.add(`money_${message.author.id}`, bet)
-        db.add(`money_${message.author.id}`, bet)
-        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet*5)
       }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
