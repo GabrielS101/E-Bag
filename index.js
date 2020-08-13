@@ -55,7 +55,7 @@ client.on('message', async message => {
         "lose",
         "lose",
         "lose",
-        "lose,
+        "lose",
         "lose",
         "jackpot"]
       const pick = chances[Math.floor(Math.random() * chances.length)];
