@@ -41,14 +41,18 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
 
     case 'gamble':
-    var money = db.fetch(`money_${message.author.id}`)
-    const bet = args[1]
-    if (!bet) return message.channel.send("Amount To Gamble Not Specified")
-    var extra = (bet - money)
-    if (bet > money) return message.channel.send(`You Don't Have That Much Money To Gamble. You Went Over By ${extra} Dollars`)
-    if (isNaN(bet)) {
-      message.channel.send("Amount To Gamble Must Be In Number Form")}
-      const chances = ["win", "lose", "lose", "lose", "lose"]
+      var money = db.fetch(`money_${message.author.id}`)
+      const bet = args[1]
+      if (!bet) return message.channel.send("Amount To Gamble Not Specified")
+      var extra = (bet - money)
+      if (bet > money) return message.channel.send(`You Don't Have That Much Money To Gamble. You Went Over By ${extra} Dollars`)
+      if (isNaN(bet)) {
+        message.channel.send("Amount To Gamble Must Be In Number Form")}
+      const chances = ["win",
+        "lose",
+        "lose",
+        "lose",
+        "lose"]
       const pick = chances[Math.floor(Math.random() * chances.length)];
       if (pick === 'win') {
         const winamount = new Discord.MessageEmbed()
@@ -66,7 +70,7 @@ client.on('message', async message => {
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
-    }break;
+      }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
@@ -85,12 +89,13 @@ client.on('message', async message => {
         db.add(`daily_${message.author.id}`, Date.now())
       }break;
     case 'work':
-      {let timeoutworked = 3600000
+      {
+        let timeoutworked = 3600000
         let worked = db.fetch(`worked_${message.author.id}`)
         if (worked != null && timeoutworked - (Date.now() - worked) > 0) {
           let time = parsems(timeoutworked - (Date.now() - worked));
           message.channel.send(`You Already Worked. You Can Work Again In ${time.minutes} Minutes And ${time.seconds} Seconds`)
-        }else {
+        } else {
           let amountearned = Math.floor(Math.random() *35) + 15
           let jobs = ["Assasin",
             "Gangster",
@@ -137,18 +142,18 @@ client.on('message', async message => {
     case `get`:
       let wantedamount = (args[1])
       if (message.author.id === "340100783901245441") {
-      if (!wantedamount) {
-        message.channel.send("Amount To Get Not Specified")
-      } else {
-        if (isNaN(args[1])) {
-          message.channel.send("Amount To Get Must Be In Number Form")
+        if (!wantedamount) {
+          message.channel.send("Amount To Get Not Specified")
         } else {
-          const adminget = new Discord.MessageEmbed()
-          .setAuthor(`${message.author.tag} Got ${wantedamount}`, message.author.displayAvatarURL())
-          .setDescription(`${message.author} Got ${wantedamount} Dollars`)
-          message.channel.send(adminget)
-          db.add(`money_${message.author.id}`, wantedamount)
-      }}}else {
+          if (isNaN(args[1])) {
+            message.channel.send("Amount To Get Must Be In Number Form")
+          } else {
+            const adminget = new Discord.MessageEmbed()
+            .setAuthor(`${message.author.tag} Got ${wantedamount}`, message.author.displayAvatarURL())
+            .setDescription(`${message.author} Got ${wantedamount} Dollars`)
+            message.channel.send(adminget)
+            db.add(`money_${message.author.id}`, wantedamount)
+          }}} else {
         message.channel.send("You Can Not Use This Command")
       }break;
     case 'remove':
@@ -156,24 +161,24 @@ client.on('message', async message => {
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
       if (message.author.id === "340100783901245441") {
-      var extra = (unwantedamount - money)
-      if (!unwantedamount) {
-        message.channel.send("Amount To Get Rid Of Not Specified")
-      } else {
-        if (money < unwantedamount) {
-          message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
+        var extra = (unwantedamount - money)
+        if (!unwantedamount) {
+          message.channel.send("Amount To Get Rid Of Not Specified")
         } else {
-          if (isNaN(args[1])) {
-            message.channel.send("Amount To Get Rid Of Must Be In Number Form")
+          if (money < unwantedamount) {
+            message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
           } else {
-            const adminremove = new Discord.MessageEmbed()
-            .setAuthor(`${message.author.tag} Removed ${unwantedamount} Dollars`, message.author.displayAvatarURL())
-            .setDescription(`${message.author} Removed ${unwantedamount} Dollars`)
-            message.channel.send(adminremove)
-            db.subtract(`money_${message.author.id}`, unwantedamount)
-          }}}}else {
-            message.channel.send("You Can Not Use This Command")
-          }break;
+            if (isNaN(args[1])) {
+              message.channel.send("Amount To Get Rid Of Must Be In Number Form")
+            } else {
+              const adminremove = new Discord.MessageEmbed()
+              .setAuthor(`${message.author.tag} Removed ${unwantedamount} Dollars`, message.author.displayAvatarURL())
+              .setDescription(`${message.author} Removed ${unwantedamount} Dollars`)
+              message.channel.send(adminremove)
+              db.subtract(`money_${message.author.id}`, unwantedamount)
+            }}}} else {
+        message.channel.send("You Can Not Use This Command")
+      }break;
     case 'give':
       var user = message.author
       var otheruser = message.mentions.users.first()
@@ -326,13 +331,14 @@ client.on('message', async message => {
         "dankmemes",
         "meme",
         "memes",
-        "ShitPostCrusaders"]
+        "ShitPostCrusaders",
+        "PewdiepieSubmissions"]
       var random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
       const meme = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setImage(img)
       .setTitle(`From /r/${random}`)
+      .setImage(img)
       .setURL(`https://reddit.com/r/${random}`)
       message.channel.send(meme)
       break;
@@ -340,9 +346,9 @@ client.on('message', async message => {
       var user = message.mentions.users.first() || message.author
       var items = db.get(user.id, {
         items: []})
-        if (items === null) items = "No Stand"
-        var money = db.fetch(`money_${user.id}`)
-        if (money === null) money = 0
+      if (items === null) items = "No Stand"
+      var money = db.fetch(`money_${user.id}`)
+      if (money === null) money = 0
       if (user.bot === true) return message.channel.send("Can Not Check Info Of A Bot")
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
