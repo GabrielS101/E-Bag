@@ -54,7 +54,7 @@ client.on('message', async message => {
         "lose",
         "lose",
         "lose",
-        "lose,
+        "lose",
         "lose,
         "lose",
         "jackpot"]
