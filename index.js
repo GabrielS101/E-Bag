@@ -978,7 +978,7 @@ client.on('message', async message => {
         .addField("Shield Blast", '150 - 5 turn cooldown - This skill can be activated the same turn as sand shield.')
         .addField("Sand Drill", '150 - 4 turn cooldown.')
         .addField("Double Swipe", '100x2 - 4 Turn Cooldown.')
-        .addField("Transform", '5 Turn Wait - Can Only Be Used Once Per Game - Transform The Fool into a certain mode depending on what number you roll.1-4 defense mode all your opponents attack does 50 less damage, 6-10 attack mode all your attacks get x1, 5 Power Mode get both modes buffs.')
+        .addField("Transform", '5 Turn Wait - Can Only Be Used Once Per Game - Transform The Fool into a certain mode depending on what number you roll.1-4 Defense Mode all your opponents attack do 50 less damage for the next 3 turns, 6-9 Attack Mode all your attacks get x1 for the next 3 turns, 10 Power Mode get both modes buffs for the next 3 turns.')
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/3/36/JoJo_Tarot_00_-_The_Fool.png/revision/latest/scale-to-width-down/340?cb=20150826093807')
         .setColor(0xe6e339)
         message.channel.send(TheFool);
