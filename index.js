@@ -87,7 +87,7 @@ client.on('message', async message => {
         db.add(`money_${message.author.id}`, bet)
         db.add(`money_${message.author.id}`, bet)
         db.add(`money_${message.author.id}`, bet)
-      }break;
+    }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
