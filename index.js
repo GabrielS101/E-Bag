@@ -76,14 +76,17 @@ client.on('message', async message => {
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
       }if (pick === 'jackpot') {
-        const jackpotpet = Math.imul(bet, 5);
         const jackpotamount = new Discord.MessageEmbed()
         .setTitle(`You Struck The Jackpot`)
         .setAuthor(`${message.author.username} Won The Jackpot`, message.author.displayAvatarURL())
-        .setDescription(`${jackpotpet} Dollars Have Been Added To Your Balance`)
+        .setDescription(`5 Times The Amount You Bet Has Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(jackpotamount)
-        db.add(`money_${message.author.id}`, jackpotpet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
       }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
@@ -206,7 +209,7 @@ client.on('message', async message => {
       }
       let giveamount = (args[2])
       var extra = (giveamount - money)
-      if (money < giveamount) {
+      if (giveamount > money) {
         message.channel.send(`You Dont Have Enough Money To Give. You Went Over By ${extra} Dollars`)
       } else {
         if (!giveamount) {
