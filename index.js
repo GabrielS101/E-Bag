@@ -838,7 +838,7 @@ client.on('message', async message => {
         .addField("Flash Freeze", '60x3 - 2 Turn Cooldown.')
         .addField("Ice Armor Barrage", '100x2 - 4 Turn Cooldown - reduce the damage of attacks by 25 for the next 2 turns.')
         .addField("Ice Armor", "4 Turn Cooldown - Block The Next 100 Damage You Would Take")
-        .addField("Gently Weeps", '4 - Turn Wait - Can Only Be Used Once Per Game - Stuns the enemy for two turns and unlocks the moves listed below.')
+        .addField("Gently Weeps", '4 Turn Wait - Can Only Be Used Once Per Game - Stuns the enemy for two turns and unlocks the moves listed below.')
         .addField("Ice Mirror", '3 Turn Cooldown - Reflect your opponents next attack back at them.')
         .addField("Ice Spears", '100x3 - 5 Turn Cooldown.')
         .addField("Sub Zero", '200x2 - 6 Turn Cooldown.')
