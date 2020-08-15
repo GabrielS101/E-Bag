@@ -1346,7 +1346,7 @@ client.on('message', async message => {
       message.channel.send('Ping')
       break;
     case 'mom':
-      message.channel.send('I Love You Mom')
+      message.channel.send('I Love You Mommy')
       break;
     case 'son':
       message.channel.send("I Love You Son")
@@ -1367,7 +1367,7 @@ client.on('message', async message => {
       if (message.author.bot === true) {break;
       } else if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase != 'you') {message.channel.send("Full Name Of Command Not Specified")
-      }else return message.channel.send('I Miss You Too')
+      }else return message.channel.send('I Miss You Too Mommy')
       break;
   }
 })
