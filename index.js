@@ -76,15 +76,18 @@ client.on('message', async message => {
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
       }if (pick === 'jackpot') {
-        const jackpotpet = Math.imul(bet, 5);
         const jackpotamount = new Discord.MessageEmbed()
         .setTitle(`You Struck The Jackpot`)
         .setAuthor(`${message.author.username} Won The Jackpot`, message.author.displayAvatarURL())
-        .setDescription(`${jackpotpet} Dollars Have Been Added To Your Balance`)
+        .setDescription(`5 Times The Amount You Bet Has Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
         message.channel.send(jackpotamount)
-        db.add(`money_${message.author.id}`, jackpotpet)
-      }break;
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+        db.add(`money_${message.author.id}`, bet)
+    }break;
     case 'daily':
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
@@ -206,7 +209,7 @@ client.on('message', async message => {
       }
       let giveamount = (args[2])
       var extra = (giveamount - money)
-      if (money < giveamount) {
+      if (giveamount > money) {
         message.channel.send(`You Dont Have Enough Money To Give. You Went Over By ${extra} Dollars`)
       } else {
         if (!giveamount) {
@@ -840,13 +843,14 @@ client.on('message', async message => {
         .setTitle('White Album')
         .addField('Health', '900.')
         .addField('Punch', '30.')
-        .addField("Freezing Punch", "150 - 3 turn cooldown.")
-        .addField("Flash Freeze", '60x3 - 3 turn cooldown.')
-        .addField("Ice Armor Barrage", '100x3 - 5 turn cooldown - reduce the damage of attacks by 25 for the next 2 turns.')
-        .addField("Gently Weeps", ' Stuns the enemy for two turns and unlocks new moves.')
-        .addField("Ice Deflection", 'if the damage is under 150 deflect it back - 5 turn cooldown.')
-        .addField("Ice Spears", '100x3 - 4 turn cooldown.')
-        .addField("Sub Zero", '200x2 - 5 turn cooldown.')
+        .addField("Freezing Punch", "150 - 3 Turn Cooldown.")
+        .addField("Flash Freeze", '60x3 - 2 Turn Cooldown.')
+        .addField("Ice Armor Barrage", '100x2 - 4 Turn Cooldown - reduce the damage of attacks by 25 for the next 2 turns.')
+        .addField("Ice Armor", "4 Turn Cooldown - Block The Next 100 Damage You Would Take")
+        .addField("Gently Weeps", '4 Turn Wait - Can Only Be Used Once Per Game - Stuns the enemy for two turns and unlocks the moves listed below.')
+        .addField("Ice Mirror", '3 Turn Cooldown - Reflect your opponents next attack back at them.')
+        .addField("Ice Spears", '100x3 - 5 Turn Cooldown.')
+        .addField("Sub Zero", '200x2 - 6 Turn Cooldown.')
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/d/da/WhiteAlbum.png/revision/latest?cb=20150523161426')
         .setColor(0x5dc0de)
         message.channel.send(WhiteAlbum);
@@ -975,15 +979,15 @@ client.on('message', async message => {
       if (args[1].toLowerCase() === 'fool') {
         const TheFool = new Discord.MessageEmbed()
         .setTitle('The Fool')
-        .addField('Health', '850.')
-        .addField('Claw', '40.')
+        .addField('Health', '750.')
+        .addField('Scratch', '40.')
         .addField("Stand Bullets", "50x4 - 3 turn cooldown.")
-        .addField("Sand Clone", 'Copy the opponents last move - cooldown depends on the other persons move cooldown.')
-        .addField("Sand Shield", 'Protects you from all attacks - 5 turn cooldown.')
+        .addField("Sand Clone", '4 Turn Cooldown - Dodge your opponents next attack')
+        .addField("Sand Shield", '5 turn cooldown - Block your opponents next attack.')
         .addField("Shield Blast", '150 - 5 turn cooldown - This skill can be activated the same turn as sand shield.')
         .addField("Sand Drill", '150 - 4 turn cooldown.')
-        .addField("The Fool Double Swipe", '100x2 - 6 Turn Cooldown - 5 Turn Wait - Reduce The Damage You Take By 25% And Deal 25% More Damage For The Next 2 Turns (Doesn’t Apply To Suprise! 30 extra damage per round but does apply to the initial Suprise! 150 damage).')
-        .addField("Transform", 'Transform The Fool into a certain mode depending on what number you roll.1-4 defense mode all your opponents attack does 50 less damage, 6-10 attack mode all your attacks get x1, 5 Power Mode get both modes buffs - 5 turn wait (this can be used once per game.)')
+        .addField("Double Swipe", '100x2 - 4 Turn Cooldown.')
+        .addField("Transform", '5 Turn Wait - Can Only Be Used Once Per Game - Transform The Fool into a certain mode depending on what number you roll.1-4 Defense Mode all your opponents attack do 50 less damage for the next 3 turns, 6-9 Attack Mode all your attacks get x1 for the next 3 turns, 10 Power Mode get both modes buffs for the next 3 turns.')
         .setImage('https://vignette.wikia.nocookie.net/jjba/images/3/36/JoJo_Tarot_00_-_The_Fool.png/revision/latest/scale-to-width-down/340?cb=20150826093807')
         .setColor(0xe6e339)
         message.channel.send(TheFool);
@@ -1301,10 +1305,11 @@ client.on('message', async message => {
         .addField("Rapid Fire", '50x6 - 4 turn cooldown.')
         .addField("Giorno Assist: Gold Experience", '50x4 - 3 turn cooldown.')
         .addField("Rebound Shot", '60x2 - 4 turn cooldown.')
-        .addField("Torture Dance", '5 turn cooldown - Heal 100 Health.')
+        .addField("Salami", '5 turn cooldown - Heal 100 Health.')
         .addField("Yeehaw!", '120 - 4 turn cooldown.')
         .addField("Narancia Assist: Aerosmith", '60x3 - 4 turn cooldown.')
-        .addField("Passive: Unlucky 4", 'On turn 4, you will always miss your attack.')
+        .addField("Pass Pass Pass", '70x3 - 5 Turn Cooldown')
+        .addField("Torture Dance", "6 Turn Cooldown - Increase The Amount Of Damage You Do For The Next 3 Turns By 60")
         .setImage('https://cdn.discordapp.com/attachments/731415895682973696/735748501820014622/350.png')
         .setColor(0xded82f)
         message.channel.send(SexPistols);
@@ -1337,13 +1342,17 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      if (args[1] = 'invite') {
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1] = 'invite') { 
         message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
-      }break;
+      }else return message.channel.send("Full Name Of Command Not Specified")
+      break;
     case 'server':
-      if (args[1] = 'invite') {
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1] = 'invite') { 
         message.channel.send('https://discord.gg/6ueb6Yy')
-      }break;
+      }else return message.channel.send("Full Name Of Command Not Specified")
+      break;
   }
 })
 
