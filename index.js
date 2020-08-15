@@ -1333,11 +1333,13 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1] = 'invite') { 
         message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       }else return message.channel.send("Full Name Of Command Not Specified")
       break;
     case 'server':
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1] = 'invite') { 
         message.channel.send('https://discord.gg/6ueb6Yy')
       }else return message.channel.send("Full Name Of Command Not Specified")
