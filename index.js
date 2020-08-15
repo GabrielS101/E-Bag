@@ -378,15 +378,15 @@ client.on('message', async message => {
     case 'challenge':
     var user = message.author
     var otheruser = message.mentions.users.first()
+    if (!otheruser) return message.channel.send("Person To Challenge Not Specified")
+    if (user.bot === true) return message.channel.send("Bots Can Not Initiate Challenges")
+    if (otheruser.bot === true) return message.channel.send("Can Not Challenge A Bot")
     var items = db.get(user.id, {
       items: []})
     if (items === null) items = "No Stand"
     var otheritems = db.get(otheruser.id, {
       items: []})
     if (otheritems === null) otheritems = "No Stand"
-    if (!otheruser) return message.channel.send("Person To Challenge Not Specified")
-    if (user.bot === true) return message.channel.send("Bots Can Not Initiate Challenges")
-    if (otheruser.bot === true) return message.channel.send("Can Not Challenge A Bot")
     var health = db.fetch(`health_${user.id}`)
     var otherhealth = db.fetch(`health_${otheruser.id}`)
     const battle = new Discord.MessageEmbed()
@@ -395,7 +395,6 @@ client.on('message', async message => {
     .addField(`${user.username}'s Health`, health, true)
     .addField(`${otheruser.username}'s Stand`, otheritems, true)
     .addField(`${otheruser.username}'s Health`, otherhealth, true)
-    .setColor("RANDOM")
     message.channel.send(battle);
     break;
     case 'tutorial':
