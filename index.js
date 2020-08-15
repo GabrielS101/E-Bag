@@ -388,9 +388,9 @@ client.on('message', async message => {
       items: []})
     if (otheritems === null) otheritems = "No Stand"
     var health = db.fetch(`health_${user.id}`)
+    var otherhealth = db.fetch(`health_${otheruser.id}`)
     if (health === null) health = "No Health"
     if (otherhealth === null) otherhealth = "No Health"
-    var otherhealth = db.fetch(`health_${otheruser.id}`)
     const battle = new Discord.MessageEmbed()
     .setTitle(`${user.username} Has Challenged ${otheruser.username} To A Fight`)
     .addField(`${user.username}'s Stand`, items, true)
@@ -1354,6 +1354,9 @@ client.on('message', async message => {
     case 'son':
       message.channel.send("I Love You Son")
       break;
+    case 'miss':
+      message.channel.send("I Miss You Too Mommy")
+      break;
     case 'bot':
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1] = 'invite') { 
@@ -1364,12 +1367,6 @@ client.on('message', async message => {
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1] = 'invite') { 
         message.channel.send('https://discord.gg/6ueb6Yy')
-      }else return message.channel.send("Full Name Of Command Not Specified")
-      break;
-      case 'miss':
-      if (message.author.bot === true) {break;
-      } else if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase = 'you') {message.channel.send('I Miss You Too Mommy')
       }else return message.channel.send("Full Name Of Command Not Specified")
       break;
   }
