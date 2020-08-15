@@ -388,6 +388,8 @@ client.on('message', async message => {
       items: []})
     if (otheritems === null) otheritems = "No Stand"
     var health = db.fetch(`health_${user.id}`)
+    if (health === null) health = "No Health"
+    if (otherhealth = null) otherhealth = "No Health"
     var otherhealth = db.fetch(`health_${otheruser.id}`)
     const battle = new Discord.MessageEmbed()
     .setTitle(`${user.username} Has Challenged ${otheruser.username} To A Fight`)
@@ -395,6 +397,7 @@ client.on('message', async message => {
     .addField(`${user.username}'s Health`, health, true)
     .addField(`${otheruser.username}'s Stand`, otheritems, true)
     .addField(`${otheruser.username}'s Health`, otherhealth, true)
+    .setColor("RANDOM")
     message.channel.send(battle);
     break;
     case 'tutorial':
