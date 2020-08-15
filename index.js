@@ -1350,6 +1350,12 @@ client.on('message', async message => {
         message.channel.send('https://discord.gg/6ueb6Yy')
       }else return message.channel.send("Full Name Of Command Not Specified")
       break;
+      case 'miss':
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1] = 'you') { 
+        message.channel.send('I Miss You Too')
+      }else return message.channel.send("Full Name Of Command Not Specified")
+      break;
   }
 })
 
