@@ -375,6 +375,15 @@ client.on('message', async message => {
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
       break;
+    case 'challenge':
+    var user = message.author
+    var otheruser = message.mentions.users.first()
+    var health = db.fetch(`health_${message.user.id}`)
+    var otherhealth = db.fetch(`health_${message.otheruser.id}`)
+    if (!otheruser) return message.channel.send("Person To Challenge Not Specified")
+    if (user.bot === true) return message.channel.send("Bots Can Not Initiate Challenges")
+    if (otheruser.bot === true) return message.channel.send("Can Not Challenge A Bot")
+    break;
     case 'tutorial':
       const Tutorial = new Discord.MessageEmbed()
       .setTitle('How To Play')
