@@ -389,7 +389,7 @@ client.on('message', async message => {
     if (otheritems === null) otheritems = "No Stand"
     var health = db.fetch(`health_${user.id}`)
     if (health === null) health = "No Health"
-    if (otherhealth = null) otherhealth = "No Health"
+    if (otherhealth === null) otherhealth = "No Health"
     var otherhealth = db.fetch(`health_${otheruser.id}`)
     const battle = new Discord.MessageEmbed()
     .setTitle(`${user.username} Has Challenged ${otheruser.username} To A Fight`)
