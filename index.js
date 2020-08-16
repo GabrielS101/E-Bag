@@ -130,29 +130,6 @@ client.on('message', async message => {
           db.add(`money_${message.author.id}`, amountearned)
           db.set(`worked_${message.author.id}`, Date.now())
         }}break;
-    case 'trade':
-      var user = message.author
-      var name = user.username
-      var otheruser = message.mentions.users.first()
-      var othername = otheruser.username
-      var items = db.get(user.id, {
-        items: []})
-      var otheritems = db.get(otheruser.id, {
-        items: []})
-      if (user === otheruser) return message.channel.send("Can Not Trade With Yourself")
-      if (items === null) return message.channel.send("You Don't Have A Stand To Trade")
-      if (otheritems === null) return message.channel.send("Can Not Trade Stands With Someone Who Does Not Have A Stand")
-      if (!otheruser) return message.channel.send("Person To Trade Stands With Not Specified")
-      if (otheruser.bot === true) return message.channel.send("Can Not Trade Stands With A Bot")
-      if (user.bot === true) return message.channel.send("Can Not Trade Stands If You Are A Bot")
-      const Tradedetails = new Discord.MessageEmbed()
-      .setTitle(`Does ${othername} Accept The Trade?`)
-      .setAuthor(`${name} Would Like To Trade Stands With ${othername}`, otheruser.displayAvatarURL())
-      .addField(`${name}'s Stand`, items)
-      .addField(`${othername}'s Stand`, otheritems)
-      .setFooter(`${othername}, Reply With Yes If You Want To Continue With The Trade Or With No To Cancel The Trade`)
-      message.channel.send(Tradedetails)
-      break;
     case `get`:
       let wantedamount = (args[1])
       if (message.author.id === "340100783901245441") {
@@ -283,7 +260,34 @@ client.on('message', async message => {
       var extra = (150 - money)
       if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Stand Arrow. You Need ${extra} More Dollars`)
       var name = message.author.username
-      const Stands = ["PHD"]
+      const Stands = ["PHD",
+        "Hermit Purple",
+        "White Album",
+        "Heavens Door",
+        "Soft And Wet",
+        "Hierophant Green",
+        "Enigma",
+        "Sticky Fingers",
+        "SPTW",
+        "Echoes Egg",
+        "Silver Chariot",
+        "The Fool",
+        "TWAU",
+        "Whitesnake",
+        "Stray Cat",
+        "Crazy Diamond",
+        "The Hand",
+        "Killer Queen",
+        "Wheel Of Fortune",
+        "Hanged Man",
+        "Tower Of Gray",
+        "Love Deluxe",
+        "Geb",
+        "RHCP",
+        "Moody Blues",
+        "Gold Experience",
+        "Sex Pistols",
+        "Emperor"]
       const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
       var items = db.get(message.author.id, {
         items: []})
@@ -348,33 +352,6 @@ client.on('message', async message => {
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
       break;
-    case 'challenge':
-    var user = message.author
-    var otheruser = message.mentions.users.first()
-    if (!otheruser) return message.channel.send("Person To Challenge Not Specified")
-    if (user.bot === true) return message.channel.send("Bots Can Not Initiate Challenges")
-    if (otheruser.bot === true) return message.channel.send("Can Not Challenge A Bot")
-    var items = db.get(user.id, {
-      items: []})
-    if (items === null) items = "No Stand"
-    var otheritems = db.get(otheruser.id, {
-      items: []})
-    if (otheritems === null) otheritems = "No Stand"
-    var health = db.fetch(`health_${user.id}`)
-    var otherhealth = db.fetch(`health_${otheruser.id}`)
-    if (health === null) health = "No Health"
-    if (otherhealth === null) otherhealth = "No Health"
-    if (items === 'PHD') {
-      db.push(`health_${message.author.id}`, 750)}
-    const battle = new Discord.MessageEmbed()
-    .setTitle(`${user.username} Has Challenged ${otheruser.username} To A Fight`)
-    .addField(`${user.username}'s Stand`, items, true)
-    .addField(`${user.username}'s Health`, health, true)
-    .addField(`${otheruser.username}'s Stand`, otheritems, true)
-    .addField(`${otheruser.username}'s Health`, otherhealth, true)
-    .setColor("RANDOM")
-    message.channel.send(battle);
-    break;
     case 'tutorial':
       const Tutorial = new Discord.MessageEmbed()
       .setTitle('How To Play')
