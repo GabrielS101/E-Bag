@@ -283,34 +283,7 @@ client.on('message', async message => {
       var extra = (150 - money)
       if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Stand Arrow. You Need ${extra} More Dollars`)
       var name = message.author.username
-      const Stands = ["PHD",
-        "Hermit Purple",
-        "White Album",
-        "Heavens Door",
-        "Soft And Wet",
-        "Hierophant Green",
-        "Enigma",
-        "Sticky Fingers",
-        "SPTW",
-        "Echoes Egg",
-        "Silver Chariot",
-        "The Fool",
-        "TWAU",
-        "Whitesnake",
-        "Stray Cat",
-        "Crazy Diamond",
-        "The Hand",
-        "Killer Queen",
-        "Wheel Of Fortune",
-        "Hanged Man",
-        "Tower Of Gray",
-        "Love Deluxe",
-        "Geb",
-        "RHCP",
-        "Moody Blues",
-        "Gold Experience",
-        "Sex Pistols",
-        "Emperor"]
+      const Stands = ["PHD"]
       const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
       var items = db.get(message.author.id, {
         items: []})
@@ -391,7 +364,7 @@ client.on('message', async message => {
     var otherhealth = db.fetch(`health_${otheruser.id}`)
     if (health === null) health = "No Health"
     if (otherhealth === null) otherhealth = "No Health"
-    if (items === 'The Fool') health = 750
+    if (items === 'PHD') health = 750
     const battle = new Discord.MessageEmbed()
     .setTitle(`${user.username} Has Challenged ${otheruser.username} To A Fight`)
     .addField(`${user.username}'s Stand`, items, true)
