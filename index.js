@@ -364,7 +364,9 @@ client.on('message', async message => {
     var otherhealth = db.fetch(`health_${otheruser.id}`)
     if (health === null) health = "No Health"
     if (otherhealth === null) otherhealth = "No Health"
-    if (items === 'PHD') health = 750
+    if (items === 'PHD') {
+      db.subtract(`health_${message.author.id}`, health)
+      db.add(`health_${message.author.id}`, 750)}
     const battle = new Discord.MessageEmbed()
     .setTitle(`${user.username} Has Challenged ${otheruser.username} To A Fight`)
     .addField(`${user.username}'s Stand`, items, true)
