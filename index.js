@@ -1367,7 +1367,8 @@ client.on('message', async message => {
       }else return message.channel.send("Full Name Of Command Not Specified")
       break;
       case 'miss':
-      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+      if (message.author.bot === true) { break;
+      }else if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase = 'you') { 
         message.channel.send('I Miss You Too Mommy')
       }else return message.channel.send("Full Name Of Command Not Specified")
