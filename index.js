@@ -76,6 +76,20 @@ client.on('message', async message => {
       serverQueue.songs.push(song)
       message.channel.send(`${song.title} Has Been Added To The Queue`)
     }
+    function play(guild, song) {
+      const serverQueue = queue.get(guild.id)
+      if (!song) {
+        serverQueue.voiceChannel.leave()
+        queue.delete(guild.id)
+        return
+      }
+      const dispatcher = serverQueue.connection.play(ytdl(song.url))
+    .on('finish', () => {
+      serverQueue.songs.shift()
+      play(guild, serverQueue.songs[0])
+    })
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
+    }
     break;
     case 'stop':
     var voiceChannel = message.member.voice.channel
@@ -92,20 +106,6 @@ client.on('message', async message => {
     message.channel.send(`${queueConstruct[0]} Has Been SKipped`)
     serverQueue.connection.dispatcher.end()
     break;
-    function play(guild, song) {
-      const serverQueue = queue.get(guild.id)
-      if (!song) {
-        serverQueue.voiceChannel.leave()
-        queue.delete(guild.id)
-        return
-      }
-      const dispatcher = serverQueue.connection.play(ytdl(song.url))
-    .on('finish', () => {
-      serverQueue.songs.shift()
-      play(guild, serverQueue.songs[0])
-    })
-    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
-    }
     case 'gamble':
       var money = db.fetch(`money_${message.author.id}`)
       const bet = args[1]
