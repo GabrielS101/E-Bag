@@ -42,8 +42,9 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'play':
+    if (!args[1]) return message.channel.send("Video To Play Not Specified")
     var voiceChannel = message.member.voice.channel
-    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To USe This Command")
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Use This Command")
     const permissions = voiceChannel.permissionsFor(message.client.user)
     if (!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join This Voice Channel")
     if (!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In This Voice Channel")
