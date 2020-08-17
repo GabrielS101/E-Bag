@@ -50,8 +50,8 @@ client.on('message', async message => {
     if (!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In This Voice Channel")
     const songInfo = await ytdl.getInfo(args[1])
     const song = {
-      title: info.videoDetails.title,
-      url: info.videoDetails.video_url
+      title: songInfo.videoDetails.title,
+      url: songInfo.videoDetails.video_url
     }
     if (!serverQueue) {
       const queueConstruct = {
