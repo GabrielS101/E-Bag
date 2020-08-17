@@ -136,7 +136,7 @@ client.on('message', async message => {
         if (!wantedamount) {
           message.channel.send("Amount To Get Not Specified")
         } else {
-          if (isNaN(args[1])) {
+          if (isNaN(wantedamount)) {
             message.channel.send("Amount To Get Must Be In Number Form")
           } else {
             const adminget = new Discord.MessageEmbed()
@@ -159,7 +159,7 @@ client.on('message', async message => {
           if (money < unwantedamount) {
             message.channel.send(`You Dont Have That Much To Get Rid Of. You Went Over By ${extra} Dollars`)
           } else {
-            if (isNaN(args[1])) {
+            if (isNaN(unwantedamount)) {
               message.channel.send("Amount To Get Rid Of Must Be In Number Form")
             } else {
               const adminremove = new Discord.MessageEmbed()
@@ -195,7 +195,7 @@ client.on('message', async message => {
           message.channel.send(givemoney)
           db.subtract(`money_${message.author.id}`, giveamount)
           db.add(`money_${otheruser.id}`, giveamount)
-          if (isNaN(args[2])) {
+          if (isNaN(giveamount)) {
             message.channel.send("Amount To Give Must Be In Number Form")
           }
         }
