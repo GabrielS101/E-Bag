@@ -48,22 +48,64 @@ client.on('message', async message => {
     const permissions = voiceChannel.permissionsFor(message.client.user)
     if (!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join This Voice Channel")
     if (!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In This Voice Channel")
-    try {
-      var connection = await voiceChannel.join()
-    } catch (error) {
-      return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+    const songInfo = await ytdl.getInfo(args[1])
+    const song = {
+      title: songInfo.title,
+      url: songInfo.video_url
     }
-    const dispatcher = connection.play(ytdl(args[1]))
-    .on('finish', () => {
-      voiceChannel.leave()
-    })
-    dispatcher.setVolumeLogarithmic(5 / 5)
+    if (!serverQueue) {
+      const queueConstruct = {
+        textChannel: message.channel,
+        voiceChannel: voiceChannel,
+        connection: null,
+        songs: [],
+        volume: 5,
+        playing: true
+      }
+      queue.set(message.guild.id, queueConstruct)
+      queueConstruct.songs.push(song)
+      try {
+        var connection = await voiceChannel.join()
+        queueConstruct.connection = connection
+        play(message.guild.id, queueConstruct[0])
+      } catch (error) {
+        queue.delete(message.guild.id)
+        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+      }
+    }else {
+      serverQueue.songs.push(song)
+      message.channel.send(`${song.title} Has Been Added To The Queue`)
+    }
     break;
     case 'stop':
     var voiceChannel = message.member.voice.channel
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To USe This Command")
-    voiceChannel.leave()
+    if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    serverQueue.songs = []
+    serverQueue.connection.dispatcher.end()
+    message.channel.send("The Music Has Been Stopped")
     break;
+    case 'skip':
+    var voiceChannel = message.member.voice.channel
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To USe This Command")
+    if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    message.channel.send(`${queueConstruct[0]} Has Been SKipped`)
+    serverQueue.connection.dispatcher.end()
+    break;
+    function play(guild, song) {
+      const serverQueue = queue.get(guild.id)
+      if (!song) {
+        serverQueue.voiceChannel.leave()
+        queue.delete(guild.id)
+        return
+      }
+      const dispatcher = serverQueue.connection.play(ytdl(song.url))
+    .on('finish', () => {
+      serverQueue.songs.shift()
+      play(guild, serverQueue.songs[0])
+    })
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
+    }
     case 'gamble':
       var money = db.fetch(`money_${message.author.id}`)
       const bet = args[1]
