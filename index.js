@@ -15,6 +15,7 @@ const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
+const { join } = require('path');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
@@ -39,7 +40,29 @@ client.on('message', async message => {
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
 
   switch (args[0].toLowerCase()) {
-
+    
+    case 'play':
+    var voiceChannel = message.member.voice.channel
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To USe This Command")
+    const permissions = voiceChannel.permissionsFor(message.client.user)
+    if (!permissions.has("CONNECT")) return message.channel.send("I Do Not Have Permission To Join This Voice Channel")
+    if (!permissions.has("SPEAK")) return message.channel.send("I Do Not Have Permission To Speak In This Voice Channel")
+    try {
+      var connection = await voiceChannel.join()
+    } catch (error) {
+      return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+    }
+    const dispatcher = connection.play(ytdl(args[1]))
+    .on('finish', () => {
+      voiceChannel.leave()
+    })
+    dispatcher.setVolumeLogarithmic(5 / 5)
+    break;
+    case 'stop':
+    var voiceChannel = message.member.voice.channel
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To USe This Command")
+    voiceChannel.leave()
+    break;
     case 'gamble':
       var money = db.fetch(`money_${message.author.id}`)
       const bet = args[1]
@@ -1307,22 +1330,22 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      if (message.author.bot === true) { break;
-      }else if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+      if (message.author.bot === true) return
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase = 'invite') { 
         message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       }else return message.channel.send("Full Name Of Command Not Specified")
       break;
     case 'server':
-     if (message.author.bot === true) { break;
-      }else if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase = 'invite') { 
+     if (message.author.bot === true) return
+     if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+     if (args[1].toLowerCase = 'invite') { 
         message.channel.send('https://discord.gg/6ueb6Yy')
       }else return message.channel.send("Full Name Of Command Not Specified")
       break;
       case 'miss':
-      if (message.author.bot === true) { break;
-      }else if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
+      if (message.author.bot === true) return
+      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase = 'you') { 
         message.channel.send('I Miss You Too Mommy')
       }else return message.channel.send("Full Name Of Command Not Specified")
