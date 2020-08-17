@@ -29,11 +29,11 @@ client.on('ready', () => {
 
 client.login(process.env.token);
 
-const PREFIX = ["e-", "E-"]
+const PREFIX = "e-"
 
 client.on('message', async message => {
 
-  let args = message.content.slice(PREFIX.length).split(" ");
+  let args = message.content.slice(PREFIX).split(" ");
 
   var serverQueue = queue.get(message.guild.id)
   const searchString = args.slice(1).join(' ')
