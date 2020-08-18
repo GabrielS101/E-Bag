@@ -318,7 +318,9 @@ client.on('message', async message => {
       break;
     case 'meme':
       var user = message.author
-      if (user.bot === true) return message.channel.send("Bots Can Not Use This Command")
+      if (user.bot === true) {
+        if (user.id != '736099696623353858') {
+      }return message.channel.send("Bots Can Not Use This Command")}
       const subReddits = ["dankmeme",
         "dankmemes",
         "meme",
