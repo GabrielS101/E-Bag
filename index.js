@@ -42,6 +42,7 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'gamble':
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
       var money = db.fetch(`money_${message.author.id}`)
       const bet = args[1]
       if (!bet) return message.channel.send("Amount To Gamble Not Specified")
@@ -87,6 +88,7 @@ client.on('message', async message => {
         db.add(`money_${message.author.id}`, jackpotbet)
     }break;
     case 'daily':
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Daily Reward")
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
       let amount = 100
@@ -104,6 +106,7 @@ client.on('message', async message => {
         db.add(`daily_${message.author.id}`, Date.now())
       }break;
     case 'work':
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Work")
       {
         let timeoutworked = 3600000
         let worked = db.fetch(`worked_${message.author.id}`)
@@ -132,8 +135,9 @@ client.on('message', async message => {
           db.set(`worked_${message.author.id}`, Date.now())
         }}break;
     case `get`:
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Get Money")
       let wantedamount = (args[1])
-      if (message.author.id === "340100783901245441") {
+      if (message.author.id === "340100783901245441"||message.author.id === '736099696623353858') {
         if (!wantedamount) {
           message.channel.send("Amount To Get Not Specified")
         } else {
@@ -149,6 +153,7 @@ client.on('message', async message => {
         message.channel.send("You Can Not Use This Command")
       }break;
     case 'remove':
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Remove Money")
       var user = message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
@@ -174,7 +179,7 @@ client.on('message', async message => {
     case 'give':
       var user = message.author
       var otheruser = message.mentions.users.first()
-      if (user.bot === true) return message.channel.send("Bots Can Not Give Money")
+      if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Give Money")
       if (otheruser.bot == true)
         return message.reply('Can Not Give To A Bot');
       if (otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
@@ -256,7 +261,17 @@ client.on('message', async message => {
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirusbutlowercase)
       }break;
-    case 'arrow':
+    case 'shop':
+    const shopitems = new Discord.MessageEmbed()
+    .setTitle("Items For Sale")
+    .addField("Arrow", "150 Dollars")
+    .addField("Roka", "100 Dollars")
+    .setColor("GREEN")
+    .setFooter("In Order To Buy An Item Do e-Buy Item name")
+    case 'buy':
+      if (!args[1]) return message.channel.send("Item To Buy Not Specified")
+      if (args[1] = 'arrow') {
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (150 - money)
       if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Stand Arrow. You Need ${extra} More Dollars`)
@@ -304,8 +319,8 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, 150)
       } else {
         message.channel.send("You Already Have A Stand")
-      }break;
-    case 'roka':
+      }} if (args[1] ='roka') {
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Rokas")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (100 - money)
       if (100 > money) return message.channel.send(`You Don't Have Enough To Buy A Roka. You Need ${extra} More Dollars`)
@@ -315,7 +330,8 @@ client.on('message', async message => {
       message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
       db.delete(message.author.id, items)
       db.subtract(`money_${message.author.id}`, 100)
-      break;
+     }else return message.channel.send("Item To Buy Not Specified")
+     break;
     case 'meme':
       var user = message.author
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
