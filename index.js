@@ -321,7 +321,7 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, 150)
       } else {
         message.channel.send("You Already Have A Stand")
-      }} if (args[1] ='roka') {
+      }}else if (args[1] = 'roka') {
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Rokas")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (100 - money)
