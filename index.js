@@ -267,7 +267,9 @@ client.on('message', async message => {
     .addField("Arrow", "150 Dollars")
     .addField("Roka", "100 Dollars")
     .setColor("GREEN")
-    .setFooter("In Order To Buy An Item Do e-Buy Item name")
+    .setFooter("In Order To Buy An Item Do e-Buy Item Name")
+    message.channel.send(shopitems)
+    break;
     case 'buy':
       if (!args[1]) return message.channel.send("Item To Buy Not Specified")
       if (args[1] = 'arrow') {
