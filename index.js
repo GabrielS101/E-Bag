@@ -263,6 +263,7 @@ client.on('message', async message => {
       }break;
     case 'shop':
     var money = db.fetch(`money_${message.author.id}`)
+    if (money = null) money = 0
     const shopitems = new Discord.MessageEmbed()
     .setTitle("Items For Sale")
     .addField("Current Balance", `${money} Dollars`, true)
@@ -1330,30 +1331,27 @@ client.on('message', async message => {
     case 'bot':
       if (message.author.bot === true) return
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase = 'invite') { 
-        message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
-      }else return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1].toLowerCase() != 'invite') return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1].toLowerCase() = 'invite') return message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
     case 'server':
      if (message.author.bot === true) return
      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-     if (args[1].toLowerCase = 'invite') { 
-        message.channel.send('https://discord.gg/6ueb6Yy')
-      }else return message.channel.send("Full Name Of Command Not Specified")
+     if (args[1].toLowerCase() != 'invite') return message.channel.send("Full Name Of Command Not Specified")
+     if (args[1].toLowerCase() = 'invite') return message.channel.send('https://discord.gg/6ueb6Yy')
       break;
       case 'miss':
       if (message.author.bot === true) return
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase = 'you') { 
-        message.channel.send('I Miss You Too Mommy')
-      }else return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1].toLowerCase() != 'you') return message.channel.send("Full Name Of Command Not Specified")
+      if (args[1].toLowerCase() = 'you') return message.channel.send('I Miss You Too Mommy')
       break;
   }
 })
 
 client.on('message',
   msg=> {
-    if (msg.content.toLocaleLowerCase() === "oof") {
+    if (msg.content.toLowerCase() === "oof") {
       msg.reply('O o f'); //this command is if you want the bot to ping you without prefix when responding.
     }
   })
