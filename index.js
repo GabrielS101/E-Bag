@@ -1331,20 +1331,20 @@ client.on('message', async message => {
     case 'bot':
       if (message.author.bot === true) return
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase != 'invite') return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase = 'invite') return message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
+      if (args[1].toLowerCase() != 'invite') { return message.channel.send("Full Name Of Command Not Specified")
+      }else message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
     case 'server':
      if (message.author.bot === true) return
      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-     if (args[1].toLowerCase != 'invite') return message.channel.send("Full Name Of Command Not Specified")
-     if (args[1].toLowerCase = 'invite') return message.channel.send('https://discord.gg/6ueb6Yy')
+     if (args[1].toLowerCase != 'invite') { return message.channel.send("Full Name Of Command Not Specified")
+     }else message.channel.send('https://discord.gg/6ueb6Yy')
       break;
       case 'miss':
       if (message.author.bot === true) return
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase != 'you') return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase = 'you') return message.channel.send('I Miss You Too Mommy')
+      if (args[1].toLowerCase != 'you') { return message.channel.send("Full Name Of Command Not Specified")
+      }else message.channel.send('I Miss You Too Mommy')
       break;
   }
 })
