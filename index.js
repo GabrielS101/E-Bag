@@ -263,7 +263,7 @@ client.on('message', async message => {
       }break;
     case 'shop':
     var money = db.fetch(`money_${message.author.id}`)
-    if (money = null) money = 0
+    if (money === null) money = 0
     const shopitems = new Discord.MessageEmbed()
     .setTitle("Items For Sale")
     .addField("Current Balance", `${money} Dollars`, true)
