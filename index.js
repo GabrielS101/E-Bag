@@ -262,8 +262,10 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirusbutlowercase)
       }break;
     case 'shop':
+    var money = db.fetch(`money_${message.author.id}`)
     const shopitems = new Discord.MessageEmbed()
     .setTitle("Items For Sale")
+    .addField("Current Balance", `${money} Dollars`, true)
     .addField("Arrow", "150 Dollars")
     .addField("Roka", "100 Dollars")
     .setColor("GREEN")
@@ -272,7 +274,7 @@ client.on('message', async message => {
     break;
     case 'buy':
       if (!args[1]) return message.channel.send("Item To Buy Not Specified")
-      if (args[1] != 'arrow' || args[1] != 'roka') return message.channel.send("Item To Buy Not Specified")
+      if (args[1] != 'arrow' && args[1] != 'roka') return message.channel.send("Item To Buy Not Specified")
       if (args[1] = 'arrow') {
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
