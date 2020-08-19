@@ -341,7 +341,6 @@ client.on('message', async message => {
         "dankmemes",
         "meme",
         "memes",
-        "apandah",
         "ShitPostCrusaders",
         "PewdiepieSubmissions"]
       const random = subReddits[Math.floor(Math.random() * subReddits.length)];
