@@ -1300,7 +1300,7 @@ client.on('message', async message => {
         .setImage('https://cdn.discordapp.com/attachments/731415895682973696/735748501820014622/350.png')
         .setColor(0xded82f)
         message.channel.send(SexPistols);
-      }break;
+    }break;
     case 'emperor':
       const Emperor = new Discord.MessageEmbed()
       .setTitle('Emperor')
