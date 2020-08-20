@@ -271,7 +271,7 @@ client.on('message', async message => {
     .addField("Arrow", "150 Dollars")
     .addField("Roka", "100 Dollars")
     .setColor("GREEN")
-    .setFooter("In Order To Buy An Item Do e-Buy Item Name")
+    .setFooter("In Order To Buy An Item Do E-Buy Item Name")
     message.channel.send(shopitems)
     break;
     case 'buy':
