@@ -266,6 +266,7 @@ client.on('message', async message => {
     if (money === null) money = 0
     const shopitems = new Discord.MessageEmbed()
     .setTitle("Items For Sale")
+    .setThumbnail(message.author.displayAvatarURL())
     .addField(`${message.author.username}'s Balance`, `${money} Dollars`, true)
     .addField("Arrow", "150 Dollars")
     .addField("Roka", "100 Dollars")
