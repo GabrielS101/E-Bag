@@ -157,7 +157,7 @@ client.on('message', async message => {
       var user = message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
-      if (message.author.id === "340100783901245441") {
+      if (message.author.id === "340100783901245441"||message.author.id === '736099696623353858') {
         var extra = (unwantedamount - money)
         if (!unwantedamount) {
           message.channel.send("Amount To Get Rid Of Not Specified")
