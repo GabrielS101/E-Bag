@@ -1323,11 +1323,11 @@ client.on('message', async message => {
       message.channel.send('Ping')
       break;
     case 'mom':
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441') return
+      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
       message.channel.send('I Love You Mommy')
       break;
     case 'son':
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441') return
+      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
       message.channel.send("I Love You Son")
       break;
     case 'bot':
@@ -1344,7 +1344,7 @@ client.on('message', async message => {
       break;
       case 'miss':
       if (message.author.bot === true) return
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441') return
+      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase() != 'you') { message.channel.send("Full Name Of Command Not Specified")
       }else message.channel.send('I Miss You Too Mommy')
