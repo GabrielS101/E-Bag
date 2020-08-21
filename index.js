@@ -151,7 +151,7 @@ client.on('message', async message => {
             db.add(`money_${message.author.id}`, wantedamount)
           }}} else {
         message.channel.send("You Can Not Use This Command")
-      }break;
+    }break;
     case 'remove':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Remove Money")
       var user = message.author
