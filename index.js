@@ -263,7 +263,7 @@ client.on('message', async message => {
       }break;
     case 'shop':
     var money = db.fetch(`money_${message.author.id}`)
-    if (money === null) money = 0
+    if (money === null) money = "No Money"
     const shopitems = new Discord.MessageEmbed()
     .setTitle("Items For Sale")
     .setThumbnail(message.author.displayAvatarURL())
@@ -363,7 +363,7 @@ client.on('message', async message => {
         items: []})
       if (items === null) items = "No Stand"
       var money = db.fetch(`money_${user.id}`)
-      if (money === null) money = 0
+      if (money === null) money = "No Money"
       if (user.bot === true) return message.channel.send("Can Not Check Info Of A Bot")
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
