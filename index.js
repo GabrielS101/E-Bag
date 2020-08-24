@@ -43,7 +43,7 @@ client.on('message', async message => {
     
     case'simp':
     message.channel.send(`<@${390731082141794304}> Is The Simp Of The Year. Rip Rebecca :sob:`)
-    break:
+    break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
       var money = db.fetch(`money_${message.author.id}`)
