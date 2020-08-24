@@ -41,7 +41,7 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case'simo':
+    case'simp':
     message.channel.send(`<@${390731082141794304}> Is The Simp Of The Year. Rip Rebecca :sob:`)
     break:
     case 'gamble':
