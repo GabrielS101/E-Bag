@@ -41,18 +41,6 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case'simp':
-    if (!args[1]) return message.channel.send("Simp Not Specified")
-    var user = message.mentions.users.first()
-    var otheruser = message.mentions.users.second()
-    if (!user) return message.channel.send("Simp Not Specified")
-    if (!otheruser && args[2] != 'for') {
-    if (user.id != '340100783901245441') {message.channel.send(`${user.username} Is A Simp`)
-    }else return message.channel.send("My Creator Is Too Chad To Be A Simp")
-    }else  (user.id != '340100783901245441') 
-    {message.channel.send(`${user.username} Is A Simp For ${otheruser.username}`)
-    }else return message.channel.send("My Creator Is Too Chad To Be A Simp")
-    break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
       var money = db.fetch(`money_${message.author.id}`)
