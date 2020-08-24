@@ -49,7 +49,7 @@ client.on('message', async message => {
     if (!otheruser && args[2] != 'for') {
     if (user.id != '340100783901245441') {message.channel.send(`${user.username} Is A Simp`)
     }else message.channel.send("My Creator Is Too Chad To Be A Simp")
-    }}else  (user.id != '340100783901245441') {message.channel.send(`${user.username} Is A Simp For ${otheruser.username}`)
+    }else  (user.id != '340100783901245441') message.channel.send(`${user.username} Is A Simp For ${otheruser.username}`)
     }else message.channel.send("My Creator Is Too Chad To Be A Simp")
     break;
     case 'gamble':
