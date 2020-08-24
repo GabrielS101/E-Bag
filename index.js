@@ -42,7 +42,11 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case'simp':
-    message.channel.send(`<@390731082141794304> Is The Simp Of The Year. Rip Rebecca :sob:`)
+    if (!args[1]) return message.channel.send("Simp Not Specified")
+    var user = message.mentions.users.first()
+    if (!user) return message.channel.send("Simp Not Specified")
+    if (user.id = '340100783901245441') return message.channel.send("Mentioned Person Is Too Chad To Be A Simp")
+    message.channel.send(`${user.username} Is A Simp`)
     break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
