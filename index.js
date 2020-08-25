@@ -1333,19 +1333,19 @@ client.on('message', async message => {
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase() != 'invite') { message.channel.send("Full Name Of Command Not Specified")
       }else message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
     case 'server':
-     if (message.author.bot === true && message.author.id != '736099696623353858') return
+     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
      if (args[1].toLowerCase() != 'invite') { message.channel.send("Full Name Of Command Not Specified")
      }else message.channel.send('https://discord.gg/6ueb6Yy')
       break;
       case 'miss':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
       if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
       if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
       if (args[1].toLowerCase() != 'you') { message.channel.send("Full Name Of Command Not Specified")
