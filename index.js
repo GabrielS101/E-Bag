@@ -41,11 +41,6 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case 'happy':
-    var user = message.mentions.users.first()
-    if (!user) return message.channel.send("Birthday Person Not Specified")
-    if (args[1] = 'birthday') return message.channel.send(`${user.username} Is Now One Year Closer To Death! Congrats`)
-    break;
     case 'health':
     var health = db.fetch(`health_${message.author.id}`)
     if (health === null) health = 0
