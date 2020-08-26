@@ -48,6 +48,7 @@ client.on('message', async message => {
     break;
     case 'morehealth':
     db.add(`health_${message.author.id}`, 100)
+    message.channel.send("You Now Have 100 More Health")
     break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
