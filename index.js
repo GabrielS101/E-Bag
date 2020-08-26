@@ -43,11 +43,8 @@ client.on('message', async message => {
     
     case 'happy':
     var user = message.mentions.users.first()
-    if (args[1] = 'birthday') {
-      if (args[2] != user) {
-        message.channel.send("Birthday Person Not Specified")
-    }else message.channel.send(`${user.username} Is Now One Year Closer To Death! Congrats`)
-    }else break;
+    if (!user) return message.channel.send("Birthday Person Not Specified")
+    if (args[1] = 'birthday') return message.channel.send(`${user.username} Is Now One Year Closer To Death! Congrats`)
     break;
     case 'health':
     var health = db.fetch(`health_${message.author.id}`)
