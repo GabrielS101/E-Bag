@@ -46,14 +46,15 @@ client.on('message', async message => {
     if (args[1] = 'birthday') {
       if (args[2] != user) {
         message.channel.send("Birthday Person Not Specified")
-    }else message.channel.send(`${user.username} Is Now One Year Closer To Death Congrats`)
+    }else message.channel.send(`${user.username} Is Now One Year Closer To Death! Congrats`)
     }else break;
+    break;
     case 'health':
     var health = db.fetch(`health_${message.author.id}`)
     if (health === null) health = 0
     message.channel.send(`You Have ${health} Health Left`)
     break;
-    case 'more':
+    case 'morehealth':
     db.add(`health_${message.author.id}`, 100)
     break;
     case 'gamble':
