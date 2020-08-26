@@ -61,13 +61,13 @@ client.on('message', async message => {
     var damagehealth = args[1]
     if (!damagehealth) return message.channel.send("Amount Of Damage Not Specified")
     if (isNaN(damagehealth)) return message.channel.send("Amount Of Damage Must Be In Number Form")
-    if (0 > health - damagehealth) {
+    if (0 > health - damagehealth||health - damagehealth == 0) {
       var remaining = 0 - health
-      message.channel.send(`${message.author.username}'s Has Lost`)
+      message.channel.send(`${message.author.username} Has Lost`)
       db.add(`health_${message.author.id}`, remaining)
-    }else db.subtract(`health_${message.author.id}`, damagehealth)
-    message.channel.send(`You Took ${damagehealth} Damage And Now Have ${health} Health Left`)
-    break;
+    }else {message.channel.send(`You Took ${damagehealth} Damage And Now Have ${health - damagehealth} Health Left`)
+    db.subtract(`health_${message.author.id}`, damagehealth)
+   }break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
       var money = db.fetch(`money_${message.author.id}`)
