@@ -135,7 +135,7 @@ client.on('message', async message => {
         message.channel.send(dailyreward)
         db.add(`money_${message.author.id}`, amount)
         db.add(`daily_${message.author.id}`, Date.now())
-      }break;
+       }break;
     case 'work':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Work")
       {
