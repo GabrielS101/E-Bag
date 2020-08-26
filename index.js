@@ -17,7 +17,7 @@ const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const { join } = require('path');
 const queue = new Map()
-const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
+const youtubeapi = (process.env.youtubeapi);
 const youtube = new YouTube(youtubeapi)
 
 client.on('ready', () => {
