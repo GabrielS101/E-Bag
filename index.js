@@ -42,13 +42,31 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'health':
+    var user = message.author||message.mentions.users.first()
+    var health = db.fetch(`health_${user.id}`)
+    if (health === null) health = 0
+    message.channel.send(`${user.username} Has ${health} Health Left`)
+    break;
+    case 'set':
+    if (args[1] = 'health') {
+    var totalhealth = args[2]
+    if (!totalhealth) return message.channel.send("Amount Of Health Not Specified")
+    if (isNaN(totalhealth)) return message.channel.send("Amount Of Health Must Be In Number Form")
+    db.add(`health_${message.author.id}`, totalhealth)
+    message.channel.send(`Your Total Health Has Been Set To ${totalhealth}`)
+    }break;
+    case 'damage':
     var health = db.fetch(`health_${message.author.id}`)
     if (health === null) health = 0
-    message.channel.send(`You Have ${health} Health Left`)
-    break;
-    case 'morehealth':
-    db.add(`health_${message.author.id}`, 100)
-    message.channel.send("You Now Have 100 More Health")
+    var damagehealth = args[1]
+    if (!damagehealth) return message.channel.send("Amount Of Damage Not Specified")
+    if (isNaN(damagehealth)) return message.channel.send("Amount Of Damage Must Be In Number Form")
+    if (0 > health - damagehealth) {
+      var remaining = 0 - health
+      message.channel.send(`${message.author.username}'s Has Lost`)
+      db.add(`health_${message.author.id}`, remaining)
+    }else db.subtract(`health_${message.author.id}`, damagehealth)
+    message.channel.send(`You Took ${damagehealth} Damage And Now Have ${health} Health Left`)
     break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
