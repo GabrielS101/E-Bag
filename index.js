@@ -49,6 +49,7 @@ client.on('message', async message => {
     break;
     case 'set':
     if (args[1] = 'health') {
+    var health = db.fetch(`health_${message.author.id}`)
     var totalhealth = args[2]
     if (!totalhealth) return message.channel.send("Amount Of Health Not Specified")
     if (isNaN(totalhealth)) return message.channel.send("Amount Of Health Must Be In Number Form")
