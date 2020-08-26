@@ -41,6 +41,14 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
+    case 'health':
+    var health = db.fetch(`health_${message.author.id}`)
+    if (health === null) health = 0
+    message.channel.send(`You Have ${health} Health Left`)
+    break;
+    case 'more':
+    db.add(`health_${message.author.id}`, 100)
+    break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
       var money = db.fetch(`money_${message.author.id}`)
