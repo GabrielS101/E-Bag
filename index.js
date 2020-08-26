@@ -41,6 +41,10 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
+    case 'reset':
+    db.set(`health_${message.author.id}`, 0)
+    message.channel.send("Your Health Has Been set Back To 0")
+    break;
     case 'health':
     var user = message.author||message.mentions.users.first()
     var health = db.fetch(`health_${user.id}`)
