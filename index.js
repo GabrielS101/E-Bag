@@ -98,6 +98,7 @@ client.on('message', async message => {
         .setAuthor(`${message.author.username} Won`, message.author.displayAvatarURL())
         .setDescription(`${bet} Dollars Have Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
+        .setColor("BLUE")
         message.channel.send(winamount)
         db.add(`money_${message.author.id}`, bet)
       }if (pick === 'lose') {
@@ -106,6 +107,7 @@ client.on('message', async message => {
         .setAuthor(`${message.author.username} Lost`, message.author.displayAvatarURL())
         .setDescription(`${bet} Dollars Have Been Subtracted From Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
+        .setColor("RED")
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
       }if (pick === 'jackpot') {
@@ -115,6 +117,7 @@ client.on('message', async message => {
         .setAuthor(`${message.author.username} Won The Jackpot`, message.author.displayAvatarURL())
         .setDescription(`${jackpotpet} Dollars Have Been Added To Your Balance`)
         .setFooter("You Can Chech Your Balance By Doing e-Info")
+        .setColor("GREEN")
         message.channel.send(jackpotamount)
         db.add(`money_${message.author.id}`, jackpotbet)
     }break;
