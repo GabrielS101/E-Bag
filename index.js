@@ -31,6 +31,21 @@ client.login(process.env.token);
 
 const PREFIX = ["e-", "E-"]
 
+const Whitesnake = new Discord.MessageEmbed()
+      .setTitle('Whitesnake')
+      .addField('Health', '700.')
+      .addField('Punch', '70.')
+      .addField("Stand Steal", "3 turn wait - 5 turn cooldown - Stuns Opponent for 1 turn.")
+      .addField("Sleep", '2 turn wait - 5 turn cooldown - Stuns Opponent for 2 turn.')
+      .addField("Gun", '150 - 3 Turn Cooldown.')
+      .addField("Powerfull Punch", '130 - 3 Turn Cooldown.')
+      .addField("Remote Controlled Mode", '5 Turn Wait/Cooldown - Makes You Invincible for 1 turn.')
+      .addField("Illusion", '4 Turn Cooldown - Roll a 1-10 dice. If you roll a 4 or Lower than take 100 damage. If you roll 5 or higher deal 100 damage.')
+      .addField("Foo Fighters Assist: Plankton Heal", '5 Turn Cooldown - Heal 100 Health.')
+      .setImage('https://i.pinimg.com/originals/75/54/f1/7554f1083f8c38f03aba491f50367b31.png')
+      .setColor(0xb5b3b3)
+      
+
 client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
@@ -533,19 +548,6 @@ client.on('message', async message => {
         message.channel.send(StrayCat);
       }break;
     case 'whitesnake':
-      const Whitesnake = new Discord.MessageEmbed()
-      .setTitle('Whitesnake')
-      .addField('Health', '700.')
-      .addField('Punch', '70.')
-      .addField("Stand Steal", "3 turn wait - 5 turn cooldown - Stuns Opponent for 1 turn.")
-      .addField("Sleep", '2 turn wait - 5 turn cooldown - Stuns Opponent for 2 turn.')
-      .addField("Gun", '150 - 3 Turn Cooldown.')
-      .addField("Powerfull Punch", '130 - 3 Turn Cooldown.')
-      .addField("Remote Controlled Mode", '5 Turn Wait/Cooldown - Makes You Invincible for 1 turn.')
-      .addField("Illusion", '4 Turn Cooldown - Roll a 1-10 dice. If you roll a 4 or Lower than take 100 damage. If you roll 5 or higher deal 100 damage.')
-      .addField("Foo Fighters Assist: Plankton Heal", '5 Turn Cooldown - Heal 100 Health.')
-      .setImage('https://i.pinimg.com/originals/75/54/f1/7554f1083f8c38f03aba491f50367b31.png')
-      .setColor(0xb5b3b3)
       message.channel.send(Whitesnake);
       break;
     case 'c-moon':
