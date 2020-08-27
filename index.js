@@ -756,7 +756,7 @@ client.on('message', async message => {
     var items = db.get(message.author.id, {
       items: []})
     if (items === null) return message.channel.send("You Don't Have A Stand")
-    message.channel.send(items)
+    message.channel.send(`${items}`);
     break;
     case 'reset':
     db.set(`health_${message.author.id}`, 0)
