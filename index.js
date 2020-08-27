@@ -752,11 +752,6 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case 'stand':
-    const stand = db.fetch(message.author.id)
-    if (items === null) return message.channel.send("You Don't Have A Stand")
-    message.channel.send(stand);
-    break;
     case 'reset':
     if (args[1].toLowerCase() = 'health') {
     db.set(`health_${message.author.id}`, 0)
