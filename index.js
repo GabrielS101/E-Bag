@@ -754,7 +754,11 @@ client.on('message', async message => {
     
     case 'reset':
     if (args[1].toLowerCase() == 'health') {
-    db.set(`health_${message.author.id}`, 0)
+    var items = db.get(message.author.id, {
+        items: []})
+    if (items === null) normalhealth = 0
+    if (items == 'Emperor') normalhealth = 700
+    db.set(`health_${message.author.id}`, normalhealth)
     message.channel.send("Your Health Has Been Set Back To 0")
     }break;
     case 'health':
@@ -1029,34 +1033,7 @@ client.on('message', async message => {
       var extra = (150 - money)
       if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Stand Arrow. You Need ${extra} More Dollars`)
       var name = message.author.username
-      const Stands = ["PHD",
-        "Hermit Purple",
-        "White Album",
-        "Heavens Door",
-        "Soft And Wet",
-        "Hierophant Green",
-        "Enigma",
-        "Sticky Fingers",
-        "SPTW",
-        "Echoes Egg",
-        "Silver Chariot",
-        "The Fool",
-        "TWAU",
-        "Whitesnake",
-        "Stray Cat",
-        "Crazy Diamond",
-        "The Hand",
-        "Killer Queen",
-        "Wheel Of Fortune",
-        "Hanged Man",
-        "Tower Of Gray",
-        "Love Deluxe",
-        "Geb",
-        "RHCP",
-        "Moody Blues",
-        "Gold Experience",
-        "Sex Pistols",
-        "Emperor"]
+      const Stands = ["Emperor"]
       const randomlychosenstand = Stands[Math.floor(Math.random() * Stands.length)];
       var items = db.get(message.author.id, {
         items: []})
