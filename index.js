@@ -1027,7 +1027,18 @@ client.on('message', async message => {
     case 'buy':
       if (!args[1]) return message.channel.send("Item To Buy Not Specified")
       if (args[1] != 'arrow' && args[1] != 'roka') return message.channel.send("Item To Buy Not Specified")
-      if (args[1] = 'arrow') {
+      if (args[1] = 'roka') {
+      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Rokas")
+      var money = db.fetch(`money_${message.author.id}`)
+      var extra = (100 - money)
+       if (100 > money) return message.channel.send(`You Don't Have Enough To Buy A Roka. You Need ${extra} More Dollars`)
+       var items = db.get(message.author.id, {
+        items: []})
+       if (items === null) return message.channel.send("You Don't Have A Stand To Reset")
+      message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
+       db.delete(message.author.id, items)
+      db.subtract(`money_${message.author.id}`, 100)
+      }else if (args[1] = 'arrow') {
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (150 - money)
@@ -1076,18 +1087,7 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, 150)
       } else {
         message.channel.send("You Already Have A Stand")
-      }}else if (args[1] = 'roka') {
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Rokas")
-      var money = db.fetch(`money_${message.author.id}`)
-      var extra = (100 - money)
-      if (100 > money) return message.channel.send(`You Don't Have Enough To Buy A Roka. You Need ${extra} More Dollars`)
-      var items = db.get(message.author.id, {
-        items: []})
-      if (items === null) return message.channel.send("You Don't Have A Stand To Reset")
-      message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
-      db.delete(message.author.id, items)
-      db.subtract(`money_${message.author.id}`, 100)
-     }break;
+      }}break;
     case 'meme':
       var user = message.author
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
