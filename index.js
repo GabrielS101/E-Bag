@@ -753,7 +753,7 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'reset':
-    if (args[1].toLowerCase() = 'health') {
+    if (args[1].toLowerCase() == 'health') {
     db.set(`health_${message.author.id}`, 0)
     message.channel.send("Your Health Has Been Set Back To 0")
     }break;
@@ -764,7 +764,7 @@ client.on('message', async message => {
     message.channel.send(`${user.username} Has ${health} Health Left`)
     break;
     case 'set':
-    if (args[1].toLowerCase() = 'health') {
+    if (args[1].toLowerCase() == 'health') {
     var totalhealth = args[2]
     if (!totalhealth) return message.channel.send("Amount Of Health Not Specified")
     if (isNaN(totalhealth)) return message.channel.send("Amount Of Health Must Be In Number Form")
