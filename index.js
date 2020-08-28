@@ -1037,8 +1037,8 @@ client.on('message', async message => {
       if (items === null) return message.channel.send("You Don't Have A Stand To Reset")
       message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
        db.delete(message.author.id, items)
-      db.subtract(`money_${message.author.id}`, 100)
-      }else if (args[1] = 'arrow') {
+      db.subtract(`money_${message.author.id}`, 100)}
+      if (args[1] = 'arrow') {
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (150 - money)
