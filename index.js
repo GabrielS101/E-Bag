@@ -762,7 +762,7 @@ client.on('message', async message => {
     message.channel.send("Your Health Has Been Set Back To 0")
     }break;
     case 'health':
-    var user = message.author||message.mentions.users.first()
+    var user = message.mentions.users.first()||message.author
     var health = db.fetch(`health_${user.id}`)
     if (health === null) health = 0
     message.channel.send(`${user.username} Has ${health} Health Left`)
