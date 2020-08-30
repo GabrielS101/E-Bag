@@ -775,6 +775,15 @@ client.on('message', async message => {
     db.set(`health_${message.author.id}`, totalhealth)
     message.channel.send(`Your Total Health Has Been Set To ${totalhealth}`)
     }break;
+    case 'recover':
+    var health = db.fetch(`health_${message.author.id}`)
+    if (health === null) health = 0
+    var heal = args[1]
+    if (!heal) return message.channel.send("Amount To Recover Not Specified")
+    if (isNaN(heal)) return message.channel.send("Amount To Recover Must Be In Number Form")
+    message.channel.send(`You Recovered ${heal} Health And Now Have ${health + heal} Health Left`)
+    db.add(`health_${message.author.id}`, heal)
+    break;
     case 'damage':
     var health = db.fetch(`health_${message.author.id}`)
     if (health === null) health = 0
