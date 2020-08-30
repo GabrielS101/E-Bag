@@ -781,7 +781,7 @@ client.on('message', async message => {
     var heal = args[1]
     if (!heal) return message.channel.send("Amount To Recover Not Specified")
     if (isNaN(heal)) return message.channel.send("Amount To Recover Must Be In Number Form")
-    message.channel.send(`You Recovered ${heal} Health And Now Have ${health + heal} Health Left`)
+    message.channel.send(`You Recovered ${heal} Health And Now Have ${Math.add(health + heal)} Health Left`)
     db.add(`health_${message.author.id}`, heal)
     break;
     case 'damage':
