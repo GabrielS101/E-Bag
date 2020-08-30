@@ -791,9 +791,8 @@ client.on('message', async message => {
     if (!damagehealth) return message.channel.send("Amount Of Damage Not Specified")
     if (isNaN(damagehealth)) return message.channel.send("Amount Of Damage Must Be In Number Form")
     if (0 > health - damagehealth||health - damagehealth == 0) {
-      var remaining = 0 - health
       message.channel.send(`${message.author.username} Has Lost`)
-      db.add(`health_${message.author.id}`, remaining)
+      db.set(`health_${message.author.id}`, 0)
     }else {message.channel.send(`You Took ${damagehealth} Damage And Now Have ${health - damagehealth} Health Left`)
     db.subtract(`health_${message.author.id}`, damagehealth)
    }break;
