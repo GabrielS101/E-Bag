@@ -1096,6 +1096,7 @@ client.on('message', async message => {
         "PewdiepieSubmissions"]
       const random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
+      if (!img) return message.channel.send("Meme Not Properly Loaded. Please Try Again")
       const meme = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setTitle(`From /r/${random}`)
