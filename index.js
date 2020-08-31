@@ -1083,6 +1083,7 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, 100)
       break;
     case 'meme':
+      if (Discord.HTTPError) return message.channel.send("SubReddit Not Found")
       var user = message.author
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
     const chosensubreddit = args[1]
@@ -1109,8 +1110,7 @@ client.on('message', async message => {
     .setImage(chosenimg)
     .setURL(`https://reddit.com/r/${chosensubreddit}`)
     message.channel.send(chosenmeme)
-    }if (Discord.HTTPError) return message.channel.send("SubReddit Not Found")
-    break;
+    }break;
     case 'info':
       var user = message.mentions.users.first() || message.author
       var items = db.get(user.id, {
