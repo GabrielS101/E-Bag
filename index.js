@@ -1108,7 +1108,8 @@ client.on('message', async message => {
     .setImage(chosenimg)
     .setURL(`https://reddit.com/r/${chosensubreddit}`)
     message.channel.send(chosenmeme)
-    }break;
+    }if (error) return message.channel.send("Subreddit Not Found")
+    break;
     case 'info':
       var user = message.mentions.users.first() || message.author
       var items = db.get(user.id, {
