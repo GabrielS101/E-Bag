@@ -1081,7 +1081,7 @@ client.on('message', async message => {
         message.channel.send("You Bought A Roka And Ate It To Reset Your Stand")
          db.delete(message.author.id, items)
         db.subtract(`money_${message.author.id}`, 100)
-      break;
+     break;
     case 'meme':
       if (Discord.HTTPError) return message.channel.send("SubReddit Not Found")
       var user = message.author
