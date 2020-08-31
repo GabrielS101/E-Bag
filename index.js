@@ -16,6 +16,7 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const { join } = require('path');
+const { ifError } = require('assert');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
@@ -1108,7 +1109,7 @@ client.on('message', async message => {
     .setImage(chosenimg)
     .setURL(`https://reddit.com/r/${chosensubreddit}`)
     message.channel.send(chosenmeme)
-    }if (error) return message.channel.send("Subreddit Not Found")
+    }if (Discord.HTTPError) return message.channel.send("SubReddit Not Found")
     break;
     case 'info':
       var user = message.mentions.users.first() || message.author
