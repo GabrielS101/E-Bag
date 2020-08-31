@@ -1129,7 +1129,7 @@ client.on('message', async message => {
       .addField('Current Server', message.guild.name, true)
       .addField('Server Owner', message.guild.owner, true)
       message.channel.send(Info);
-      break;
+    break;
     case 'tutorial':
       const Tutorial = new Discord.MessageEmbed()
       .setTitle('How To Play')
