@@ -1086,6 +1086,7 @@ client.on('message', async message => {
       var user = message.author
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
     const chosensubreddit = args[1]
+    if (Discord.HTTPError = true) return message.channel.send("SubReddit Not Found")
     if (!chosensubreddit){
       const subReddits = ["dankmeme",
         "dankmemes",
@@ -1109,7 +1110,6 @@ client.on('message', async message => {
     .setImage(chosenimg)
     .setURL(`https://reddit.com/r/${chosensubreddit}`)
     message.channel.send(chosenmeme)
-    if (Discord.HTTPError) return message.channel.send("SubReddit Not Found")
     }break;
     case 'info':
       var user = message.mentions.users.first() || message.author
