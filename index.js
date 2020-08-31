@@ -1082,6 +1082,8 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, 100)
       break;
     case 'meme':
+    const chosensubreddit = args[1]
+    if (!chosensubreddit){
       var user = message.author
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
       const subReddits = ["dankmeme",
@@ -1099,7 +1101,14 @@ client.on('message', async message => {
       .setImage(img)
       .setURL(`https://reddit.com/r/${random}`)
       message.channel.send(meme)
-      break;
+    }else {const chosenimg = await randomPuppy(chosensubreddit);
+    const chosenmeme = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setTitle(`From /r/${chosensubreddit}`)
+    .setImage(chosenimg)
+    .setURL(`https://reddit.com/r/${chosensubreddit}`)
+    message.channel.send(chosenmeme)
+    }break;
     case 'info':
       var user = message.mentions.users.first() || message.author
       var items = db.get(user.id, {
