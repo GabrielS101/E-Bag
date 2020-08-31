@@ -1103,6 +1103,7 @@ client.on('message', async message => {
       .setURL(`https://reddit.com/r/${random}`)
       message.channel.send(meme)
     }else {const chosenimg = await randomPuppy(chosensubreddit);
+    if (!chosenimg) return message.channel.send("SubReddit Not Found")
     const chosenmeme = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setTitle(`From /r/${chosensubreddit}`)
