@@ -986,22 +986,27 @@ client.on('message', async message => {
         message.channel.send(worldcoronavirus)
       } else if (message.content.startsWith("E-covid")) {
         var countrycovid = message.content.slice(PREFIX.length).split(' ')
-        var countrydata = await covid.countries({
+        var locationdata = await covid.countries({
           country: countrycovid
         })
-        if (countrydata = undefined) return message.channel.send("Covid-19 Information On Location Is Unavailable Or Location Does Not Exist")
+        var locationdata = await covid.states({
+          state: countrycovid
+        })
+        var locationdata = await covid.continents({
+          continent: countrycovid
+        })
         const countrycoronavirus = new Discord.MessageEmbed()
         .setTitle(`${countrycovid[1]} Covid-19 Data`)
         .setDescription("Data May Vary From Other Sources")
         .setColor(0xe62012)
-        .addField("Tests Total", countrydata.tests)
-        .addField("Cases Total", countrydata.cases)
-        .addField("Cases Today", countrydata.todayCases)
-        .addField("Deaths Total", countrydata.deaths)
-        .addField("Deaths Today", countrydata.todayDeaths)
-        .addField("Active Cases", countrydata.active)
-        .addField("Cases In Critical Condition", countrydata.critical)
-        .addField("Recovered", countrydata.recovered)
+        .addField("Tests Total", locationdata.tests)
+        .addField("Cases Total", locationdata.cases)
+        .addField("Cases Today", locationdata.todayCases)
+        .addField("Deaths Total", locationdata.deaths)
+        .addField("Deaths Today", locationdata.todayDeaths)
+        .addField("Active Cases", locationdata.active)
+        .addField("Cases In Critical Condition", locationdata.critical)
+        .addField("Recovered", locationdata.recovered)
         message.channel.send(countrycoronavirus)
       } else if (message.content.startsWith("e-covid")) {
         var countrycovid = message.content.slice(PREFIX.length).split(' ')
