@@ -1106,6 +1106,7 @@ client.on('message', async message => {
       .setURL(`https://reddit.com/r/${random}`)
       message.channel.send(meme)
     }else {const chosenimg = await randomPuppy(chosensubreddit);
+    if (post.nsfw === true && message.channel.nsfw === false) return message.channel.send('This Is Not an NSFW channel') 
     if (!chosenimg) return message.channel.send("SubReddit Not Found")
     const chosenmeme = new Discord.MessageEmbed()
     .setColor("RANDOM")
