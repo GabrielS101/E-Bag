@@ -754,6 +754,7 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'reset':
+    if (!args[1]) return message.channel.send("Thing To Reset Not Specified")
     if (args[1].toLowerCase() == 'health') {
     var items = db.get(message.author.id, {
         items: []})
@@ -795,7 +796,7 @@ client.on('message', async message => {
       message.channel.send(`${message.author.username} Has Lost`)
       db.set(`health_${message.author.id}`, 0)
     }else {message.channel.send(`You Took ${damagehealth} Damage And Now Have ${health - damagehealth} Health Left`)
-    db.set(`health_${message.author.id}`, health - damagehealth)
+    db.set(`health_${message.author.id}`, Number(health) - Number(damagehealth))
    }break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
