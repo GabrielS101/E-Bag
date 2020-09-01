@@ -795,7 +795,7 @@ client.on('message', async message => {
       message.channel.send(`${message.author.username} Has Lost`)
       db.set(`health_${message.author.id}`, 0)
     }else {message.channel.send(`You Took ${damagehealth} Damage And Now Have ${health - damagehealth} Health Left`)
-    db.subtract(`health_${message.author.id}`, damagehealth)
+    db.set(`health_${message.author.id}`, health - damagehealth)
    }break;
     case 'gamble':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
