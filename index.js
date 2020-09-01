@@ -967,6 +967,7 @@ client.on('message', async message => {
       }
       break;
     case 'covid':
+      if (!args[1]) return message.channel.send("Location Not Specified")
       if (args[1].toLowerCase() === 'world') {
         const data = await covid.all()
         const worldcoronavirus = new Discord.MessageEmbed()
