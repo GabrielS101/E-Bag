@@ -989,6 +989,7 @@ client.on('message', async message => {
         var countrydata = await covid.countries({
           country: countrycovid
         })
+        if (countrydata = undefined) return message.channel.send("Covid-19 Information On Location Is Unavailable Or Location Does Not Exist")
         const countrycoronavirus = new Discord.MessageEmbed()
         .setTitle(`${countrycovid[1]} Covid-19 Data`)
         .setDescription("Data May Vary From Other Sources")
