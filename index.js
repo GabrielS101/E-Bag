@@ -1085,6 +1085,7 @@ client.on('message', async message => {
         db.subtract(`money_${message.author.id}`, 100)
      break;
     case 'meme':
+      if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
       var user = message.author
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
       const subReddits = ["dankmeme",
