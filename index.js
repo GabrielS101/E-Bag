@@ -1098,12 +1098,7 @@ client.on('message', async message => {
       const random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
       if (!img) return message.channel.send("Image Not Properly Loaded. Please Try Again")
-      const meme = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle(`From /r/${random}`)
-      .setImage(img)
-      .setURL(`https://reddit.com/r/${random}`)
-      message.channel.send(meme)
+      message.channel.send(img)
     break;
     case 'reddit':
     const chosensubreddit = args[1]
