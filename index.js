@@ -1106,7 +1106,7 @@ client.on('message', async message => {
       message.channel.send(meme)
     break;
     case 'reddit':
-    const chosensubreddit = args[1]
+    const chosensubreddit = args[1] && args[2]
     if (!chosensubreddit) return message.channel.send("Subreddit Not Specified Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
     const chosenimg = await randomPuppy(chosensubreddit);
     if (!chosenimg) return message.channel.send("SubReddit Not Found")
