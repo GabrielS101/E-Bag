@@ -1097,7 +1097,7 @@ client.on('message', async message => {
         "PewdiepieSubmissions"]
       const random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
-      if (!img) return message.channel.send("Meme Not Properly Loaded. Please Try Again")
+      if (!img) return message.channel.send("Image Not Properly Loaded. Please Try Again")
       const meme = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setTitle(`From /r/${random}`)
@@ -1107,7 +1107,7 @@ client.on('message', async message => {
     break;
     case 'reddit':
     const chosensubreddit = args[1]
-    if (!chosensubreddit) return message.channel.send("Subreddit Not Specified")
+    if (!chosensubreddit) return message.channel.send("Subreddit Not Specified Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
     const chosenimg = await randomPuppy(chosensubreddit);
     if (!chosenimg) return message.channel.send("SubReddit Not Found")
     const chosenmeme = new Discord.MessageEmbed()
