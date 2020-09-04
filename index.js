@@ -1105,7 +1105,7 @@ client.on('message', async message => {
     if (!chosensubreddit) return message.channel.send("Subreddit Not Specified")
     const chosenimg = await randomPuppy(chosensubreddit);
     if (!chosenimg) return message.channel.send("SubReddit Not Found Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
-    message.channel.send(chosenimg)
+    message.channel.send(`${chosenimg}`)
     break;
     case 'info':
       var user = message.mentions.users.first() || message.author
