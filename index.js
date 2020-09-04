@@ -1102,15 +1102,10 @@ client.on('message', async message => {
     break;
     case 'reddit':
     const chosensubreddit = args[1]
-    if (!chosensubreddit) return message.channel.send("Subreddit Not Specified Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
+    if (!chosensubreddit) return message.channel.send("Subreddit Not Specified")
     const chosenimg = await randomPuppy(chosensubreddit);
-    if (!chosenimg) return message.channel.send("SubReddit Not Found")
-    const chosenmeme = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setTitle(`From /r/${chosensubreddit}`)
-    .setImage(chosenimg)
-    .setURL(`https://reddit.com/r/${chosensubreddit}`)
-    message.channel.send(chosenmeme)
+    if (!chosenimg) return message.channel.send("SubReddit Not Found Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
+    message.channel.send(chosenimg)
     break;
     case 'info':
       var user = message.mentions.users.first() || message.author
