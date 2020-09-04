@@ -1098,14 +1098,14 @@ client.on('message', async message => {
       const random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
       if (!img) return message.channel.send("Image Not Properly Loaded. Please Try Again")
-      message.channel.send(img)
+      message.channel.send(`${img}`)
     break;
     case 'reddit':
     const chosensubreddit = args[1]
     if (!chosensubreddit) return message.channel.send("Subreddit Not Specified")
     const chosenimg = await randomPuppy(chosensubreddit);
     if (!chosenimg) return message.channel.send("SubReddit Not Found Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
-    message.channel.send(chosenimg)
+    message.channel.send(`${chosenimg}`)
     break;
     case 'info':
       var user = message.mentions.users.first() || message.author
