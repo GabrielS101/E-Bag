@@ -753,11 +753,10 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case 'eval':
-    if (message.author.id === "340100783901245441"||message.author.id === '736099696623353858') {
-    message.channel.send(eval)
-    }else {return message.channel.send("You Can Not Use This Command")
-    }break;
+    case 'off':
+    if (message.author.id === "340100783901245441"||message.author.id === '736099696623353858') return message.channel.send("You Can Not Use This Command")
+    process.off
+    break;
     case 'reset':
     if (!args[1]) return message.channel.send("Thing To Reset Not Specified")
     if (args[1].toLowerCase() == 'health') {
