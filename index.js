@@ -754,7 +754,7 @@ client.on('message', async message => {
   switch (args[0].toLowerCase()) {
     
     case 'loan':
-    var debt = db.fetch(`debt_${money.author.id}`)
+    var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
     if (money == null) money = 0
     if (debt == null) debt = 0
@@ -768,6 +768,7 @@ client.on('message', async message => {
     break;
     case 'repay':
     var repayamount = args[1]
+    if (!repayamount) return message.channel.send("Amount To Repay Not Specified")
     if (isNaN(repayamount)) return message.channel.send("Amount You Want To Repay Must Be A Number")
     var debt = db.fetch(`debt_${money.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
