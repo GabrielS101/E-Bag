@@ -760,7 +760,7 @@ client.on('message', async message => {
     if (debt == null) debt = 0
     if (debt !== 0) return message.channel.send(`Your Request For A Loan Has Been Denied Because You Are ${debt} Dollars In Debt. You Can Repay Your Debts By Doing E-Repay`)
     var wantedloan = args[1]
-    if (!wantedloan) return message.channel.send("Amount You Want Loaned Not Specified")
+    if (!wantedloan) return message.channel.send("Amount You Want Loaned To You Not Specified")
     if (isNaN(wantedloan)) return message.channel.send("Amount You Want Loaned To You Must Be A Number")
     db.add(`money_${message.author.id}`, wantedloan)
     db.add(`debt_${message.author.id}`, wantedloan)
@@ -792,7 +792,7 @@ client.on('message', async message => {
     message.channel.send(`Your Health Has Been Set Back To ${normalhealth}`)
     }break;
     case 'debt':
-    var debt = db.fetch(`debt_${money.author.id}`)
+    var debt = db.fetch(`debt_${message.author.id}`)
     if (debt == null) debt = 0
     if (debt == 0) return message.channel.send("You Have No Debt To Repay")
     if (debt == 1) return message.channel.send(`You Are ${debt} Dollar In Debt`)
