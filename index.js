@@ -30,7 +30,7 @@ client.on('ready', () => {
 
 client.login(process.env.token);
 
-const PREFIX = ["e-", "E-"]
+const PREFIX = "e-" || "E-"
 
 const Emperor = new Discord.MessageEmbed()
       .setTitle('Emperor')
