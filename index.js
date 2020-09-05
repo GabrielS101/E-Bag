@@ -753,6 +753,33 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
+    case 'loan':
+    var debt = db.fetch(`debt_${money.author.id}`)
+    var money = db.fetch(`money_${message.author.id}`)
+    if (money == null) money = 0
+    if (debt == null) debt = 0
+    if (debt !== 0) return message.channel.send(`Your Request For A Loan Has Been Denied Because You Are ${debt} Dollars In Debt. You Can Repay Your Debts By Doing E-Repay`)
+    var wantedloan = args[1]
+    if (!wantedloan) return message.channel.send("Amount You Want Loaned Not Specified")
+    if (isNaN(wantedloan)) return message.channel.send("Amount You Want Loaned To You Must Be A Number")
+    db.add(`money_${message.author.id}`, wantedloan)
+    db.add(`debt_${message.author.id}`, wantedloan)
+    message.channel.send(`Your Request For A Loan Has Been Accepted. ${wantedloan} Dollars Have Been Added To Your Balance And Your Debt Has Increased By ${wantedloan} Dollars`)
+    break;
+    case 'repay':
+    var repayamount = args[1]
+    if (isNaN(repayamount)) return message.channel.send("Amount You Want To Repay Must Be A Number")
+    var debt = db.fetch(`debt_${money.author.id}`)
+    var money = db.fetch(`money_${message.author.id}`)
+    if (money == null) money = 0
+    if (debt == null) debt = 0
+    if (debt == 0) return message.channel.send("You Don't Have A Debt To Repay")
+    if (repayamount > money) return message.channel.send("You Don't Have That Much To Repay")
+    if (repayamount > debt) return message.channel.send(`Your Debt Is Not That Big. You Only Owe ${debt} Dollars`)
+    db.subtract(`money_${message.author.id}`, repayamount)
+    db.subtract(`debt_${message.author.id}`, repayamount)
+    message.channel.send(`You Have Repayed ${repayamount} Dollars And Are Now ${debt} Dollars In Debt`)
+    break;
     case 'reset':
     if (!args[1]) return message.channel.send("Thing To Reset Not Specified")
     if (args[1].toLowerCase() == 'health') {
@@ -763,6 +790,13 @@ client.on('message', async message => {
     db.set(`health_${message.author.id}`, normalhealth)
     message.channel.send(`Your Health Has Been Set Back To ${normalhealth}`)
     }break;
+    case 'debt':
+    var debt = db.fetch(`debt_${money.author.id}`)
+    if (debt == null) debt = 0
+    if (debt == 0) return message.channel.send("You Have No Debt To Repay")
+    if (debt == 1) return message.channel.send(`You Are ${debt} Dollar In Debt`)
+    message.channel.send(`You Are ${debt} Dollars In Debt.`)
+    break;
     case 'health':
     var user = message.mentions.users.first()||message.author
     var health = db.fetch(`health_${user.id}`)
