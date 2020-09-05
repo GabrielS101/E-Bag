@@ -779,7 +779,7 @@ client.on('message', async message => {
     if (repayamount > debt) return message.channel.send(`Your Debt Is Not That Big. You Only Owe ${debt} Dollars`)
     db.subtract(`money_${message.author.id}`, repayamount)
     db.subtract(`debt_${message.author.id}`, repayamount)
-    message.channel.send(`You Have Repayed ${repayamount} Dollars And Are Now ${debt} Dollars In Debt`)
+    message.channel.send(`You Have Repayed ${repayamount} Dollars And Are Now ${debt - repayamount} Dollars In Debt`)
     break;
     case 'reset':
     if (!args[1]) return message.channel.send("Thing To Reset Not Specified")
