@@ -946,7 +946,7 @@ client.on('message', async message => {
           message.channel.send(working)
           db.add(`money_${message.author.id}`, amountearned)
           db.set(`worked_${message.author.id}`, Date.now())
-        }}break;
+      }}break;
     case `get`:
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Get Money")
       let wantedamount = (args[1])
