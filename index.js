@@ -1075,7 +1075,7 @@ client.on('message', async message => {
         .addField("Cases In Critical Condition", countrydata.critical)
         .addField("Recovered", countrydata.recovered)
         message.channel.send(countrycoronavirusbutlowercase)
-      }break;
+    }break;
     case 'arrow':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
