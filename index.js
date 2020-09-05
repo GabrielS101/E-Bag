@@ -761,7 +761,7 @@ client.on('message', async message => {
     if (items === null) normalhealth = 0
     if (items == 'Whitesnake') normalhealth = 700
     db.set(`health_${message.author.id}`, normalhealth)
-    message.channel.send("Your Health Has Been Set Back To 0")
+    message.channel.send(`Your Health Has Been Set Back To ${normalhealth}`)
     }break;
     case 'health':
     var user = message.mentions.users.first()||message.author
