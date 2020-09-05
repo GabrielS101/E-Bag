@@ -792,7 +792,8 @@ client.on('message', async message => {
     message.channel.send(`Your Health Has Been Set Back To ${normalhealth}`)
     }break;
     case 'debt':
-    var debt = db.fetch(`debt_${message.author.id}`)
+    var user = message.mentions.users.first()||message.author
+    var debt = db.fetch(`debt_${user.id}`)
     if (debt == null) debt = 0
     if (debt == 0) return message.channel.send("You Have No Debt To Repay")
     if (debt == 1) return message.channel.send(`You Are ${debt} Dollar In Debt`)
