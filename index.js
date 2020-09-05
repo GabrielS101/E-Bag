@@ -988,7 +988,7 @@ client.on('message', async message => {
               db.subtract(`money_${message.author.id}`, unwantedamount)
             }}}} else {
         message.channel.send("You Can Not Use This Command")
-      }break;
+    }break;
     case 'give':
       var user = message.author
       var otheruser = message.mentions.users.first()
