@@ -769,6 +769,24 @@ client.on('message', async message => {
     if (health === null) health = 0
     message.channel.send(`${user.username} Has ${health} Health Left`)
     break;
+    case 'stand':
+    var user = message.mentions.users.first()||message.author
+    var items = db.get(user.id, {
+      items: []})
+    if (items === null) items = "No Stand"
+    const currentstand = new Discord.MessageEmbed()
+    .setTitle(`${user.username}'s Stand`)
+    .setDescription(items, user.displayAvatarURL())
+    message.channel.send(currentstand)
+    break;
+    case 'balance':
+    var user = message.mentions.users.first()||message.author
+    var money = db.fetch(`money_${user.id}`)
+    if (money === null) money = 0
+    if (money === 1) {
+      message.channel.send(`${user.username} Has ${money} Dollar In Their Balance`)
+    }else message.channel.send(`${user.username} Has ${money} Dollars In Their Balance`)
+    break;
     case 'set':
     if (args[1].toLowerCase() == 'health') {
     var totalhealth = args[2]
