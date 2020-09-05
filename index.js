@@ -1019,7 +1019,7 @@ client.on('message', async message => {
           }
         }
       }
-      break;
+    break;
     case 'covid':
     if (!args[1]) return message.channel.send("Location Not Specified")
       if (args[1].toLowerCase() === 'world') {
