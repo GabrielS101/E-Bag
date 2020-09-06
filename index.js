@@ -762,6 +762,7 @@ client.on('message', async message => {
     var wantedloan = args[1]
     if (!wantedloan) return message.channel.send("Amount You Want Loaned To You Not Specified")
     if (isNaN(wantedloan)) return message.channel.send("Amount You Want Loaned To You Must Be A Number")
+    if (wantedloan > 1000) return message.channel.send(`Your Request For A Loan Has Been Denied Because The Amount You Want To Borrow Is ${Number(wantedloan) - Number(1000)} Dollars More Than The Maximum Loan Amount`)
     db.add(`money_${message.author.id}`, wantedloan)
     db.add(`debt_${message.author.id}`, wantedloan)
     message.channel.send(`Your Request For A Loan Has Been Accepted. ${wantedloan} Dollars Have Been Added To Your Balance And Your Debt Has Increased By ${wantedloan} Dollars`)
@@ -779,7 +780,7 @@ client.on('message', async message => {
     if (repayamount > debt) return message.channel.send(`Your Debt Is Not That Big. You Only Owe ${debt} Dollars`)
     db.subtract(`money_${message.author.id}`, repayamount)
     db.subtract(`debt_${message.author.id}`, repayamount)
-    message.channel.send(`You Have Repayed ${repayamount} Dollars And Are Now ${Number(debt) - Number(repayamount)} Dollars In Debt`)
+    message.channel.send(`You Have Repayed ${repayamount} Dollars And Your Debt Has Decreased To ${Number(debt) - Number(repayamount)} Dollars`)
     break;
     case 'reset':
     if (!args[1]) return message.channel.send("Thing To Reset Not Specified")
