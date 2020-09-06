@@ -816,12 +816,8 @@ client.on('message', async message => {
     message.channel.send(currentstand)
     break;
     case 'balance':
-    var user = message.mentions.users.first()||message.author 
+    var user = message.mentions.users.first()||message.author
     var money = db.fetch(`money_${user.id}`)
-    if (user.id === '340100783901245441'||user.id === '736099696623353858') {
-    money = Infinity
-    db.add(`money_${user.id}`, Infinity)
-    message.channel.send(`${user.username} Has Infinite Dollars In Their Balance`)}
     if (money === null) money = 0
     if (money === 1) {
       message.channel.send(`${user.username} Has ${money} Dollar In Their Balance`)
