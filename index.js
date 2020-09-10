@@ -887,7 +887,7 @@ client.on('message', async message => {
         .setTitle(`The Gamble Did Not Pay Off`)
         .setAuthor(`${message.author.username} Lost`, message.author.displayAvatarURL())
         .setDescription(`${bet} Dollars Have Been Subtracted From Your Balance`)
-        .setFooter("You Can Chech Your Balance By Doing e-Info")
+        .setFooter("You Can Chech Your Balance By Doing e-Balance")
         .setColor("RED")
         message.channel.send(loseamount)
         db.subtract(`money_${message.author.id}`, bet)
