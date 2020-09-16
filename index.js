@@ -1147,6 +1147,7 @@ client.on('message', async message => {
         "dankmemes",
         "meme",
         "memes",
+        "arabfunny",
         "pyrocynical",
         "ShitPostCrusaders",
         "PewdiepieSubmissions"]
