@@ -773,7 +773,7 @@ client.on('message', async message => {
       if (hentai === null) hentai = 0
       if (nothentai === null) nothentai = 0
       db.add(`nothentai_${message.author.id}`, 1)
-      message.channel.send(`Hentai - ${hentai}. Not Hentai - ${Number(nothentai) + Number (1)}`)
+      message.channel.send(`Hentai - ${hentai}. Not Hentai - ${Number(nothentai) + Number(1)}`)
     }else break;
   }else break;
     break;
