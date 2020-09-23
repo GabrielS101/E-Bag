@@ -765,7 +765,7 @@ client.on('message', async message => {
     }else break;
     break;
     case 'not':
-    if (args[1] == 'hentai'){
+    if (args[1].toLowerCase() == 'hentai'){
     var user = message.author
     var hentai = db.fetch(`hentai_${user.id}`)
     var nothentai = db.fetch(`nothentai_${user.id}`)
