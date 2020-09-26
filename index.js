@@ -1194,6 +1194,7 @@ client.on('message', async message => {
     if (!chosensubreddit) return message.channel.send("Subreddit Not Specified")
     const chosenimg = await randomPuppy(chosensubreddit);
     if (!chosenimg) return message.channel.send("SubReddit Not Found Or Image Not Properly Loaded. Please Try Again If This Is The First Time This Subreddit Did Not Work")
+    if (message.channel.isNsfw() !== true && img.isNsfw() == true) return message.channel.send("NSFW Images Can Only Be Sent In NSFW Channels")
     message.channel.send(`${chosenimg}`)
     break;
     case 'info':
