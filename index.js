@@ -1156,6 +1156,7 @@ client.on('message', async message => {
       message.channel.send(`${img}`)
     break;
     case 'reddit':
+    if (Discord.Channel.nsfw !== true) return message.channel.send("To Avoid Posting Nsfw Images In Non Nsfw Channels, This Command Will Currently Only Work In Nsfw Channels")
     const chosensubreddit = args[1]
     if (!chosensubreddit) return message.channel.send("Subreddit Not Specified")
     const chosenimg = await randomPuppy(chosensubreddit);
