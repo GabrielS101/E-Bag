@@ -753,40 +753,6 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case 'hentai':
-    var user = message.author
-    var hentai = db.fetch(`hentai_${user.id}`)
-    var nothentai = db.fetch(`nothentai_${user.id}`)
-    if (user.id === "340100783901245441"||user.id === '736099696623353858') {
-      if (hentai === null) hentai = 0
-      if (nothentai === null) nothentai = 0
-      db.add(`hentai_${message.author.id}`, 1)
-      message.channel.send(`Hentai - ${Number(hentai) + Number(1)}. Not Hentai - ${nothentai}`)
-    }else break;
-    break;
-    case 'not':
-    if (args[1].toLowerCase() == 'hentai'){
-    var user = message.author
-    var hentai = db.fetch(`hentai_${user.id}`)
-    var nothentai = db.fetch(`nothentai_${user.id}`)
-    if (user.id === "340100783901245441"||user.id === '736099696623353858') {
-      if (hentai === null) hentai = 0
-      if (nothentai === null) nothentai = 0
-      db.add(`nothentai_${message.author.id}`, 1)
-      message.channel.send(`Hentai - ${hentai}. Not Hentai - ${Number(nothentai) + Number(1)}`)
-    }else break;
-  }else break;
-    break;
-    case 'current':
-    var user = message.author
-    var hentai = db.fetch(`hentai_${user.id}`)
-    var nothentai = db.fetch(`nothentai_${user.id}`)
-    if (user.id === "340100783901245441"||user.id === '736099696623353858') {
-      if (hentai === null) hentai = 0
-      if (nothentai === null) nothentai = 0
-    message.channel.send(`Hentai - ${hentai}. Not Hentai - ${nothentai}`)
-    }else break;
-    break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
