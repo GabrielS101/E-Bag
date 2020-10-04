@@ -1150,7 +1150,7 @@ client.on('message', async message => {
       const skeletonmeme = new Discord.MessageEmbed()
       .setTitle(`From r/skeletons`)
       .setImage(skeletonsimg)
-      .setURL("https://reddit.com/skeletons")
+      .setURL("https://www.reddit.com/r/skeletons/")
       message.channel.send(skeletonmeme)
     break;
     case 'meme':
