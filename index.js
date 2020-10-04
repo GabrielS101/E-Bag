@@ -1139,6 +1139,16 @@ client.on('message', async message => {
          db.delete(message.author.id, items)
         db.subtract(`money_${message.author.id}`, 100)
      break;
+     case 'skeleton':
+      if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
+      var user = message.author
+      if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
+      const skeletonssubReddits = ["skeletons"]
+      const skeletonsrandom = subReddits[Math.floor(Math.random() * subReddits.length)];
+      const skeletonsimg = await randomPuppy(skeletonsrandom);
+      if (!skeletonsimg) return message.channel.send("Image Not Properly Loaded. Please Try Again")
+      message.channel.send(`${skeletonsimg}`)
+    break;
     case 'meme':
       if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
       var user = message.author
