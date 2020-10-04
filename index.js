@@ -1147,7 +1147,7 @@ client.on('message', async message => {
       const skeletonsrandom = skeletonssubReddits[Math.floor(Math.random() * skeletonssubReddits.length)];
       const skeletonsimg = await randomPuppy(skeletonsrandom);
       if (!skeletonsimg) return message.channel.send("Image Not Properly Loaded. Please Try Again")
-      message.channel.send(`${skeletonsimg}`)
+      message.channel.send(skeletonsimg)
     break;
     case 'meme':
       if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
