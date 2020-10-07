@@ -1139,6 +1139,10 @@ client.on('message', async message => {
          db.delete(message.author.id, items)
         db.subtract(`money_${message.author.id}`, 100)
      break;
+     case 'test':
+    member.id == 340100783901245441
+    message.member.id("test")
+    break;
      case 'skeleton':
       if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
       var user = message.author
