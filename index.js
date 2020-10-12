@@ -750,10 +750,7 @@ client.on('message', async message => {
   var serverQueue = queue.get(message.guild.id)
   const searchString = args.slice(1).join(' ')
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
-  const voiceChannel = message.member.voice.channel
-  const permissions = voiceChannel.permissionsFor(message.client.user)
-  const songInfo = await ytdl.getInfo(args[1])
-
+  
   switch (args[0].toLowerCase()) {
     
     case 'loan':
@@ -1310,6 +1307,7 @@ client.on('message', async message => {
       message.channel.send(MrPresident);
       break;
     case 'ocean':
+      if (message.author.id == '347461124582801408') return message.channel.send("Nah Bitch")
       if (args[1].toLowerCase() === 'man') {
         message.channel.send(OceanMan);
       }break;
