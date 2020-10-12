@@ -19,6 +19,6 @@
     "quick.db": "^7.1.1",
     "random-puppy": "^1.1.0",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^3.2.2"
+    "ytdl-core": "^3.3.0"
   }
 }

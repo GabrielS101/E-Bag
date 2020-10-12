@@ -17,6 +17,7 @@ const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const { join } = require('path');
 const { ifError } = require('assert');
+const ytdl = require('ytdl-core');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
@@ -750,9 +751,36 @@ client.on('message', async message => {
   var serverQueue = queue.get(message.guild.id)
   const searchString = args.slice(1).join(' ')
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
+  const voiceChannel = message.member.voice.channel
+  const permissions = voiceChannel.permissionsFor(message.client.user)
 
   switch (args[0].toLowerCase()) {
     
+    case 'play':
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
+    if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
+
+    try{
+      var connection = await voiceChannel.join()
+    } catch(error) {
+      console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
+      return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+    }
+
+    const dispatcher = connection.play(ytdl(args[1]))
+    .on('finish', () => {
+      voiceChannel.leave()
+    })
+    .on('error', error => {
+      console.log(error)
+    })
+    dispatcher.setVolumeLogarithmic(5 / 5)
+    break;
+    case 'stop':
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    voiceChannel.leave()
+    break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
