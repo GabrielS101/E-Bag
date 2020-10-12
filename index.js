@@ -768,7 +768,7 @@ client.on('message', async message => {
     if (!serverQueue){
       const queueConstruct = {
         textChannel: message.channel,
-        voiceChannel: voice.channel,
+        voiceChannel: voiceChannel,
         connection: null,
         songs: [],
         volume: 5,
