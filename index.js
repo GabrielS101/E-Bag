@@ -1139,6 +1139,9 @@ client.on('message', async message => {
          db.delete(message.author.id, items)
         db.subtract(`money_${message.author.id}`, 100)
      break;
+     case 'help':
+      message.channel.send("My Bitch Ass Owner Didnt Make A Help Command Yet")
+     break;
      case 'meme':
       if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
       var user = message.author
