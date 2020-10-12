@@ -1307,6 +1307,7 @@ client.on('message', async message => {
       message.channel.send(MrPresident);
       break;
     case 'ocean':
+      if (message.author.id == '347461124582801408') return message.channel.send("Nah Bitch")
       if (args[1].toLowerCase() === 'man') {
         message.channel.send(OceanMan);
       }break;
