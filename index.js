@@ -754,8 +754,8 @@ client.on('message', async message => {
   const permissions = voiceChannel.permissionsFor(message.client.user)
   const songInfo = await ytdl.getInfo(args[1])
   const song = {
-    title: songInfo.title,
-    url: songInfo.video_url
+    title: songInfo.videoDetails.title,
+    url: songInfo.videoDetails.video_url
   }
 
   switch (args[0].toLowerCase()) {
