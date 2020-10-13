@@ -747,6 +747,8 @@ client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
 
+  const serverQueue = queue.get(message.guild.id)
+
   if(message.content.startsWith(`${PREFIX}play`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     const voiceChannel = message.member.voice.channel
@@ -755,28 +757,76 @@ client.on('message', async message => {
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
 
-    try{
-      var connection = await voiceChannel.join()
-    } catch(error) {
-      console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
-      return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+    const songInfo = await ytdl.getInfo(args[1])
+    const song = {
+      title: songInfo.title,
+      url: songInfo.video_url
     }
 
-    const dispatcher = connection.play(ytdl(args[1]))
+    if(!serverQueue) {
+      const queueConstruct = {
+        textChannel: message.channel,
+        voiceChannel: voiceChannel,
+        connection: null,
+        songs = [],
+        volume: 5,
+        playing: true
+      }
+      queue.set(message.guild.id, queueConstruct)
+
+      queueConstruct.songs.push(song)
+
+      try{
+        var connection = await voiceChannel.join()
+        queueConstruct.connection = connection
+        play(message.guild, queueConstruct.songs[0])
+      } catch(error) {
+        console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
+        queue.delete(message.guild.id)
+        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+      }
+    }else {
+      serverQueue.songs.push(song)
+      return message.channel.send(`${song.title} Has Been Added To The Queue`)
+    }
+    return undefined
+
+  }else if(message.content.startsWith(`${PREFIX}stop`)) {
+    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
+    if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    serverQueue.songs = []
+    serverQueue.connection.dispatcher.end()
+    message.channel.send("Music Has Been Stopped")
+    return undefined
+  }else if(message.content.startsWith(`${PREFIX}skip`)) {
+    if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Skip Songs")
+    if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    serverQueue.connection.dispatcher.end()
+    message.channel.send("Song Has Been Skipped")
+    return undefined
+  }
+  
+  function play(guild, song) {
+    const serverQueue = queue.get(guild.id)
+
+    if(!song) {
+      serverQueue.voiceChannel.leave()
+      queue.delete(guild.id)
+      return
+    }
+
+    const dispatcher = serverQueue.connection.play(ytdl(song.url))
     .on('finish', () => {
-      voiceChannel.leave()
+      serverQueue.songs.shift()
+      play(guild, serverQueue.songs[0])
     })
     .on('error', error => {
       console.log(error)
     })
-    dispatcher.setVolumeLogarithmic(5 / 5)
-  }else if(message.content.startsWith(`${PREFIX}stop`)) {
-    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
-    if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
-    message.member.voice.channel.leave()
-    return undefined
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
   }
-  
+
   switch (args[0].toLowerCase()) {
     
     case 'loan':
