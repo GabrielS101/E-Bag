@@ -745,6 +745,8 @@ const Whitesnake = new Discord.MessageEmbed()
 
 client.on('message', async message => {
 
+  let args = message.content.slice(PREFIX.length).split(" ");
+  
   const voiceChannel = message.member.voice.channel
   const permissions = voiceChannel.permissionsFor(message.client.user)
 
@@ -775,8 +777,6 @@ client.on('message', async message => {
     voiceChannel.leave()
     return undefined
   }
-
-  let args = message.content.slice(PREFIX.length).split(" ");
   
   switch (args[0].toLowerCase()) {
     
