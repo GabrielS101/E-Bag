@@ -1577,6 +1577,7 @@ client.on('message',
     }
   })
 
+  client.on('message', async message => {
   if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     const voiceChannel = message.member.voice.channel
@@ -1731,3 +1732,4 @@ ${serverQueue.songs[0].title}
     })
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
     serverQueue.textChannel.send(`Started Playing ${song.title}`)}
+  })
