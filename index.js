@@ -763,7 +763,7 @@ client.on('message', async message => {
       const videos = await playList.getVideos()
       for (const video of Object.values(videos)) {
         const video2 = await youtube.getVideoByID(video.id)
-        await handleVideo(video2, message, voiceChannel, true)
+        await handleVideo(video2, message, voiceChannel, playList = true)
       }
       message.channel.send(`Playlist ${playList.title} Has Been Added To The Queue`)
       return undefined
@@ -898,6 +898,7 @@ ${serverQueue.songs[0].title}
 
     serverQueue.textChannel.send(`Started Playing ${song.title}`)
   
+client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
@@ -1635,7 +1636,7 @@ ${serverQueue.songs[0].title}
       }else message.channel.send('I Miss You Too Mommy')
       break;
 
-    }}
+    }})}
 })
 
 client.on('message',
