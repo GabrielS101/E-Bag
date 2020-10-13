@@ -756,7 +756,7 @@ client.on('message', async message => {
     const permissions = voiceChannel.permissionsFor(message.client.user)
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
-    if(url.match(/^http:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?$/)) {
+    if(url.match('/^http:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?$/')) {
       const playList = await youtube.getPlaylist(url)
       const videos = await playList.getVideos()
       for (const video of Object.values(videos)) {
