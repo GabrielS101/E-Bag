@@ -18,7 +18,7 @@ const YouTube = require('simple-youtube-api');
 const { join } = require('path');
 const { ifError } = require('assert');
 const queue = new Map()
-const youtube = new YouTube(AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y)
+const youtube = new YouTube('AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y')
  
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
