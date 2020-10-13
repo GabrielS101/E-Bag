@@ -749,11 +749,6 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
-    case 'restart':
-    if (message.author.id !== "340100783901245441"&&message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
-    message.channel.send("Restarted")
-    process.off()
-    break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
@@ -1685,6 +1680,11 @@ ${serverQueue.songs[0].title}
       serverQueue.connection.dispatcher.resume()
       message.channel.send("Music Has Been Resumed")
       return undefined
+    }else if(message.content.startsWith(`${PREFIX}loop`)) {
+      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Loop The Music")
+      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+      serverQueue.loop = !serverQueue.loop
+      return message.channel.send(`Loop Is Now ${serverQueue.loop ? `Enabled` : `Disabled`}`)
     }
     return undefined
   async function handleVideo(video, message, voiceChannel, playList = false) {
@@ -1701,7 +1701,9 @@ ${serverQueue.songs[0].title}
         connection: null,
         songs: [],
         volume: 5,
-        playing: true
+        playing: true,
+        loop: false,
+
       }
       queue.set(message.guild.id, queueConstruct)
       queueConstruct.songs.push(song)
@@ -1730,7 +1732,7 @@ ${serverQueue.songs[0].title}
     }
     const dispatcher = serverQueue.connection.play(ytdl(song.url))
     .on('finish', () => {
-      serverQueue.songs.shift()
+      if(!serverQueue.loop) serverQueue.songs.shift()
       play(guild, serverQueue.songs[0])
     })
     .on('error', error => {
