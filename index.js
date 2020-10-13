@@ -904,6 +904,8 @@ ${serverQueue.songs[0].title}
     })
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
     serverQueue.textChannel.send(`Started Playing ${song.title}`)
+  
+  client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
@@ -1058,7 +1060,7 @@ ${serverQueue.songs[0].title}
     }break;
     case 'daily':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Daily Reward")
-      let daily = db.fetch(`daily_${message.author.id}`);
+      let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
       let amount = 100
       if (daily != null && timeout - (Date.now() - daily) > 0) {
@@ -1642,6 +1644,10 @@ ${serverQueue.songs[0].title}
       break;
   }
 }
+)
+}
+}
+)
 
 client.on('message',
   msg=> {
@@ -1731,4 +1737,3 @@ client.on('message',
       msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
   })
-})
