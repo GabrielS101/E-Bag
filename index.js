@@ -885,7 +885,7 @@ ${serverQueue.songs[0].title}
       queue.delete(guild.id)
       return
     }
-
+  
     const dispatcher = serverQueue.connection.play(ytdl(song.url))
     .on('finish', () => {
       serverQueue.songs.shift()
@@ -897,7 +897,7 @@ ${serverQueue.songs[0].title}
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
 
     serverQueue.textChannel.send(`Started Playing ${song.title}`)
-  }
+  
 
   switch (args[0].toLowerCase()) {
     
@@ -1634,7 +1634,7 @@ ${serverQueue.songs[0].title}
       if (args[1].toLowerCase() != 'you') { message.channel.send("Full Name Of Command Not Specified")
       }else message.channel.send('I Miss You Too Mommy')
       break;
-  }
+  }}
 })
 
 client.on('message',
