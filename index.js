@@ -772,7 +772,7 @@ client.on('message', async message => {
       } catch {
           try {
           var videos = await youtube.searchVideos(searchString, 10)
-          var index = 10
+          var index = 0
           message.channel.send(`
 __**Song Selection**__
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}        
@@ -782,7 +782,7 @@ Please Choose A Song Between 1-10
           try {
             var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
               max: 1,
-              time: 3000,
+              time: 30000,
               errors: ['time']
             })
           }catch {
