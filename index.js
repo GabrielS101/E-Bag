@@ -768,16 +768,16 @@ client.on('message', async message => {
       return undefined
     }else {
       try {
-        var video = await youtube.getVideoByID(url)
+        var video = await youtube.getVideo(url)
       } catch {
           try {
           var videos = await youtube.searchVideos(searchString, 10)
           var index = 10
           message.channel.send(`
 __**Song Selection**__
-${videos.map(video2 => `**${++index} -** ${video2.title}`).join('/n')}        
+${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}        
 
-Please Choose A Song Ranging From 1-10
+Please Choose A Song Between 1-10
           `)
           try {
             var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
