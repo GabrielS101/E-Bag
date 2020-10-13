@@ -756,46 +756,26 @@ client.on('message', async message => {
     const permissions = voiceChannel.permissionsFor(message.client.user)
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
-    try {
-      var video = await youtube.getVideoByID(url)
-    } catch {
-        try {
-        var videos = await youtube.searchVideos(searchString, 1)
-        var video = await youtube.getVideoByID(videos[0].id)
-      }catch {
-        return message.channel.send("No Search Results Found")
-      }
-    }
-    const song = {
-      id: video.id,
-      title: video.title,
-      url: `https://youtube.com/watch?v=${video.id}`
-    }
-    if(!serverQueue) {
-      const queueConstruct = {
-        textChannel: message.channel,
-        voiceChannel: voiceChannel,
-        connection: null,
-        songs: [],
-        volume: 5,
-        playing: true
-      }
-      queue.set(message.guild.id, queueConstruct)
-      queueConstruct.songs.push(song)
-      try{
-        var connection = await voiceChannel.join()
-        queueConstruct.connection = connection
-        play(message.guild, queueConstruct.songs[0])
-      } catch(error) {
-        console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
-        queue.delete(message.guild.id)
-        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+    if(url.match(/^http:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=\w+)(?:\S+)?$/)) {
+      const playList = await youtube.getPlaylist(url)
+      const videos = await playList.getVideos()
+      for (const video of Object.values(videos)) {
+        const video2 = await youtube.getVideoByID(video.id)
+        await handleVideo(video2, message, voiceChannel, true)
       }
     }else {
-      serverQueue.songs.push(song)
-      return message.channel.send(`${song.title} Has Been Added To The Queue`)
+      try {
+        var video = await youtube.getVideoByID(url)
+      } catch {
+          try {
+          var videos = await youtube.searchVideos(searchString, 1)
+          var video = await youtube.getVideoByID(videos[0].id)
+        }catch {
+          return message.channel.send("No Search Results Found")
+        }
+      }
+      return handleVideo(video, message, voiceChannel)
     }
-    return undefined
   }else if(message.content.toLowerCase().startsWith(`${PREFIX}stop`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
@@ -852,6 +832,41 @@ ${serverQueue.songs[0].title}
       message.channel.send("Music Has Been Resumed")
       return undefined
     }
+    return undefined
+  async function handleVideo(video, message, voiceChannel, playList = false) {
+    const serverQueue = queue.get(message.guild.id)
+    const song = {
+      id: video.id,
+      title: video.title,
+      url: `https://youtube.com/watch?v=${video.id}`
+    }
+    if(!serverQueue) {
+      const queueConstruct = {
+        textChannel: message.channel,
+        voiceChannel: voiceChannel,
+        connection: null,
+        songs: [],
+        volume: 5,
+        playing: true
+      }
+      queue.set(message.guild.id, queueConstruct)
+      queueConstruct.songs.push(song)
+      try{
+        var connection = await voiceChannel.join()
+        queueConstruct.connection = connection
+        play(message.guild, queueConstruct.songs[0])
+      } catch(error) {
+        console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
+        queue.delete(message.guild.id)
+        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+      }
+    }else {
+      serverQueue.songs.push(song)
+      if(playList) return undefined
+      else return message.channel.send(`${song.title} Has Been Added To The Queue`)
+    }
+    return undefined
+  }
   function play(guild, song) {
     const serverQueue = queue.get(guild.id)
     if(!song) {
