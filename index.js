@@ -749,7 +749,7 @@ client.on('message', async message => {
   const permissions = voiceChannel.permissionsFor(message.client.user)
 
   if(message.content.startsWith(`${PREFIX}play`)) {
-    if(message.author.bot = true) return message.channel.send("Bots Cannot Use This Command")
+    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
@@ -770,7 +770,7 @@ client.on('message', async message => {
     })
     dispatcher.setVolumeLogarithmic(5 / 5)
   }else if(message.content.startsWith(`${PREFIX}stop`)) {
-    if(message.author.bot = true) return message.channel.send("Bots Cannot Use This Command")
+    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     voiceChannel.leave()
     return undefined
