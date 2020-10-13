@@ -20,7 +20,7 @@ const { ifError } = require('assert');
 const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
-
+ 
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
   client.user.setActivity('On PC 2', {
@@ -746,6 +746,10 @@ const Whitesnake = new Discord.MessageEmbed()
 client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
+
+  var serverQueue = queue.get(message.guild.id)
+  const searchString = args.slice(1).join(' ')
+  const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
   
   switch (args[0].toLowerCase()) {
     
