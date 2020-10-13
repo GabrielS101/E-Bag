@@ -1575,6 +1575,7 @@ client.on('message',
   })
 
   client.on('message', async message => {
+    let args = message.content.slice(PREFIX.length).split(" ");
     const searchString = args.slice(1).join(' ')
     const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
     const serverQueue = queue.get(message.guild.id)
