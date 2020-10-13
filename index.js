@@ -17,6 +17,7 @@ const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const { join } = require('path');
 const { ifError } = require('assert');
+const { time } = require('console');
 const queue = new Map()
 const youtube = new YouTube('AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y')
  
@@ -770,8 +771,25 @@ client.on('message', async message => {
         var video = await youtube.getVideoByID(url)
       } catch {
           try {
-          var videos = await youtube.searchVideos(searchString, 1)
-          var video = await youtube.getVideoByID(videos[0].id)
+          var videos = await youtube.searchVideos(searchString, 10)
+          var index = 10
+          message.channel.send(`
+__**Song Selection**__
+${videos.map(video2 => `**${++index} -** ${video2.title}`).join('/n')}        
+
+Please Choose A Song Ranging From 1-10
+          `)
+          try {
+            var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
+              max: 1,
+              time: 3000,
+              errors: ['time']
+            })
+          }catch {
+            message.channel.send("No Valid Responses Was Provided")
+          }
+          const videoIndex = parseInt(response.first().content)
+          var video = await youtube.getVideoByID(videos[videoIndex - 1].id)
         }catch {
           return message.channel.send("No Search Results Found")
         }
