@@ -821,6 +821,7 @@ client.on('message', async message => {
     if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
     if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
     if(isNaN(args[1])) return message.channel.send("Can Only Change Volume To A Number")
+    if(Number(args[1]) > Number(5)) return message.channel.send("The Volume Does Not Go Higher Than 5")
     serverQueue.volume = args[1]
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
     message.channel.send(`Volume Has Been Set To ${args[1]}`)
@@ -836,7 +837,8 @@ client.on('message', async message => {
 __**Song Queue**__
 ${serverQueue.songs.map(song => `${song.title}`).join('\n')}
 
-__**Now Playing**__ ${serverQueue.songs[0].title}
+__**Now Playing**__ 
+${serverQueue.songs[0].title}
       `, { split: true })
       return undefined
     }else if(message.content.toLowerCase().startsWith(`${PREFIX}pause`)) {
