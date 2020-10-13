@@ -751,11 +751,12 @@ client.on('message', async message => {
   const searchString = args.slice(1).join(' ')
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
   
+  
   switch (args[0].toLowerCase()) {
     
     case 'test':
     let userid = "340100783901245441"
-    author.userid.send("Ooga Booga")
+    message.userid.send("Ooga Booga")
     break;
     case 'restart':
     if (message.author.id !== "340100783901245441"||message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
