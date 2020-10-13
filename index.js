@@ -745,6 +745,8 @@ const Whitesnake = new Discord.MessageEmbed()
 
 client.on('message', async message => {
 
+  const voiceChannel = message.member.voice.channel
+
   let args = message.content.slice(PREFIX.length).split(" ");
   
   switch (args[0].toLowerCase()) {
