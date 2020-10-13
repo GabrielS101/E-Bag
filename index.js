@@ -777,7 +777,7 @@ client.on('message', async message => {
 __**Song Selection**__
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}        
 
-Please Choose A Song Between 1-10
+Please Choose A Song Between 1-10 In The Next 30 Seconds
           `)
           try {
             var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
