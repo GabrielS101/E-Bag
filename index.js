@@ -750,163 +750,6 @@ client.on('message', async message => {
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
   const serverQueue = queue.get(message.guild.id)
 
-  if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
-    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
-    const voiceChannel = message.member.voice.channel
-    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
-    const permissions = voiceChannel.permissionsFor(message.client.user)
-    if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
-    if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
-    if(url.match('https://www.youtube.com/playlist')) {
-      const playList = await youtube.getPlaylist(url)
-      const videos = await playList.getVideos()
-      for (const video of Object.values(videos)) {
-        const video2 = await youtube.getVideoByID(video.id)
-        await handleVideo(video2, message, voiceChannel, true)
-      }
-      message.channel.send(`Playlist ${playList.title} Has Been Added To The Queue`)
-      return undefined
-    }else {
-      try {
-        var video = await youtube.getVideo(url)
-      } catch {
-          try {
-          var videos = await youtube.searchVideos(searchString, 10)
-          var index = 0
-          message.channel.send(`
-__**Song Selection**__
-${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}        
-
-Please Choose A Song Between 1-10 In The Next 30 Seconds
-          `)
-          try {
-            var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
-              max: 1,
-              time: 30000,
-              errors: ['time']
-            })
-          }catch {
-            message.channel.send("No Valid Responses Was Provided")
-          }
-          const videoIndex = parseInt(response.first().content)
-          var video = await youtube.getVideoByID(videos[videoIndex - 1].id)
-        }catch {
-          return message.channel.send("No Search Results Found")
-        }
-      }
-      return handleVideo(video, message, voiceChannel)
-    }
-  }else if(message.content.toLowerCase().startsWith(`${PREFIX}stop`)) {
-    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
-    if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
-    if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-    serverQueue.songs = []
-    serverQueue.connection.dispatcher.end()
-    message.channel.send("Music Has Been Stopped")
-    return undefined
-  }else if(message.content.toLowerCase().startsWith(`${PREFIX}skip`)) {
-    if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Skip Songs")
-    if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-    serverQueue.connection.dispatcher.end()
-    message.channel.send("Song Has Been Skipped")
-    return undefined
-  }else if(message.content.toLowerCase().startsWith(`${PREFIX}volume`)) {
-    if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Change The Volume")
-    if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-    if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
-    if(isNaN(args[1])) return message.channel.send("Can Only Change Volume To A Number")
-    if(Number(args[1]) > Number(5)) return message.channel.send("The Volume Does Not Go Higher Than 5")
-    serverQueue.volume = args[1]
-    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
-    message.channel.send(`Volume Has Been Set To ${args[1]}`)
-    return undefined
-  }else if(message.content.toLowerCase().startsWith(`${PREFIX}now`)) {
-    if(args[1] == 'playing') {
-      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-      message.channel.send(`Now Playing ${serverQueue.songs[0].title}`)
-      return undefined
-    }}else if(message.content.toLowerCase().startsWith(`${PREFIX}queue`)) {
-      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-      message.channel.send(`
-__**Song Queue**__
-${serverQueue.songs.map(song => `${song.title}`).join('\n')}
-
-__**Now Playing**__ 
-${serverQueue.songs[0].title}
-      `, { split: true })
-      return undefined
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}pause`)) {
-      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Pause The Music")
-      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-      if(!serverQueue.playing) return message.channel.send("The Music Is Already Paused")
-      serverQueue.playing = false
-      serverQueue.connection.dispatcher.pause()
-      message.channel.send("Music Has Been Paused")
-      return undefined
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}resume`)) {
-      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Resume The Music")
-      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-      if(serverQueue.playing) return message.channel.send("The Music Is Not Paused")
-      serverQueue.playing = true
-      serverQueue.connection.dispatcher.resume()
-      message.channel.send("Music Has Been Resumed")
-      return undefined
-    }
-    return undefined
-  async function handleVideo(video, message, voiceChannel, playList = false) {
-    const serverQueue = queue.get(message.guild.id)
-    const song = {
-      id: video.id,
-      title: video.title,
-      url: `https://youtube.com/watch?v=${video.id}`
-    }
-    if(!serverQueue) {
-      const queueConstruct = {
-        textChannel: message.channel,
-        voiceChannel: voiceChannel,
-        connection: null,
-        songs: [],
-        volume: 5,
-        playing: true
-      }
-      queue.set(message.guild.id, queueConstruct)
-      queueConstruct.songs.push(song)
-      try{
-        var connection = await voiceChannel.join()
-        queueConstruct.connection = connection
-        play(message.guild, queueConstruct.songs[0])
-      } catch(error) {
-        console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
-        queue.delete(message.guild.id)
-        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
-      }
-    }else {
-      serverQueue.songs.push(song)
-      if(playList) return undefined
-      else return message.channel.send(`${song.title} Has Been Added To The Queue`)
-    }
-    return undefined
-  }
-  function play(guild, song) {
-    const serverQueue = queue.get(guild.id)
-    if(!song) {
-      serverQueue.voiceChannel.leave()
-      queue.delete(guild.id)
-      return
-    }
-    const dispatcher = serverQueue.connection.play(ytdl(song.url))
-    .on('finish', () => {
-      serverQueue.songs.shift()
-      play(guild, serverQueue.songs[0])
-    })
-    .on('error', error => {
-      console.log(error)
-    })
-    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
-    serverQueue.textChannel.send(`Started Playing ${song.title}`)
-  
-  client.on('message', async message => {
-
   switch (args[0].toLowerCase()) {
     
     case 'loan':
@@ -1643,11 +1486,7 @@ ${serverQueue.songs[0].title}
       }else message.channel.send('I Miss You Too Mommy')
       break;
   }
-}
-)
-}
-}
-)
+})
 
 client.on('message',
   msg=> {
@@ -1737,3 +1576,158 @@ client.on('message',
       msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
   })
+
+  if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
+    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
+    const voiceChannel = message.member.voice.channel
+    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    const permissions = voiceChannel.permissionsFor(message.client.user)
+    if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
+    if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
+    if(url.match('https://www.youtube.com/playlist')) {
+      const playList = await youtube.getPlaylist(url)
+      const videos = await playList.getVideos()
+      for (const video of Object.values(videos)) {
+        const video2 = await youtube.getVideoByID(video.id)
+        await handleVideo(video2, message, voiceChannel, true)
+      }
+      message.channel.send(`Playlist ${playList.title} Has Been Added To The Queue`)
+      return undefined
+    }else {
+      try {
+        var video = await youtube.getVideo(url)
+      } catch {
+          try {
+          var videos = await youtube.searchVideos(searchString, 10)
+          var index = 0
+          message.channel.send(`
+__**Song Selection**__
+${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}        
+
+Please Choose A Song Between 1-10 In The Next 30 Seconds
+          `)
+          try {
+            var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
+              max: 1,
+              time: 30000,
+              errors: ['time']
+            })
+          }catch {
+            message.channel.send("No Valid Responses Was Provided")
+          }
+          const videoIndex = parseInt(response.first().content)
+          var video = await youtube.getVideoByID(videos[videoIndex - 1].id)
+        }catch {
+          return message.channel.send("No Search Results Found")
+        }
+      }
+      return handleVideo(video, message, voiceChannel)
+    }
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}stop`)) {
+    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
+    if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    serverQueue.songs = []
+    serverQueue.connection.dispatcher.end()
+    message.channel.send("Music Has Been Stopped")
+    return undefined
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}skip`)) {
+    if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Skip Songs")
+    if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    serverQueue.connection.dispatcher.end()
+    message.channel.send("Song Has Been Skipped")
+    return undefined
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}volume`)) {
+    if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Change The Volume")
+    if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+    if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
+    if(isNaN(args[1])) return message.channel.send("Can Only Change Volume To A Number")
+    if(Number(args[1]) > Number(5)) return message.channel.send("The Volume Does Not Go Higher Than 5")
+    serverQueue.volume = args[1]
+    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
+    message.channel.send(`Volume Has Been Set To ${args[1]}`)
+    return undefined
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}now`)) {
+    if(args[1] == 'playing') {
+      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+      message.channel.send(`Now Playing ${serverQueue.songs[0].title}`)
+      return undefined
+    }}else if(message.content.toLowerCase().startsWith(`${PREFIX}queue`)) {
+      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+      message.channel.send(`
+__**Song Queue**__
+${serverQueue.songs.map(song => `${song.title}`).join('\n')}
+
+__**Now Playing**__ 
+${serverQueue.songs[0].title}
+      `, { split: true })
+      return undefined
+    }else if(message.content.toLowerCase().startsWith(`${PREFIX}pause`)) {
+      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Pause The Music")
+      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+      if(!serverQueue.playing) return message.channel.send("The Music Is Already Paused")
+      serverQueue.playing = false
+      serverQueue.connection.dispatcher.pause()
+      message.channel.send("Music Has Been Paused")
+      return undefined
+    }else if(message.content.toLowerCase().startsWith(`${PREFIX}resume`)) {
+      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Resume The Music")
+      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+      if(serverQueue.playing) return message.channel.send("The Music Is Not Paused")
+      serverQueue.playing = true
+      serverQueue.connection.dispatcher.resume()
+      message.channel.send("Music Has Been Resumed")
+      return undefined
+    }
+    return undefined
+  async function handleVideo(video, message, voiceChannel, playList = false) {
+    const serverQueue = queue.get(message.guild.id)
+    const song = {
+      id: video.id,
+      title: video.title,
+      url: `https://youtube.com/watch?v=${video.id}`
+    }
+    if(!serverQueue) {
+      const queueConstruct = {
+        textChannel: message.channel,
+        voiceChannel: voiceChannel,
+        connection: null,
+        songs: [],
+        volume: 5,
+        playing: true
+      }
+      queue.set(message.guild.id, queueConstruct)
+      queueConstruct.songs.push(song)
+      try{
+        var connection = await voiceChannel.join()
+        queueConstruct.connection = connection
+        play(message.guild, queueConstruct.songs[0])
+      } catch(error) {
+        console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
+        queue.delete(message.guild.id)
+        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+      }
+    }else {
+      serverQueue.songs.push(song)
+      if(playList) return undefined
+      else return message.channel.send(`${song.title} Has Been Added To The Queue`)
+    }
+    return undefined
+  }
+  function play(guild, song) {
+    const serverQueue = queue.get(guild.id)
+    if(!song) {
+      serverQueue.voiceChannel.leave()
+      queue.delete(guild.id)
+      return
+    }
+    const dispatcher = serverQueue.connection.play(ytdl(song.url))
+    .on('finish', () => {
+      serverQueue.songs.shift()
+      play(guild, serverQueue.songs[0])
+    })
+    .on('error', error => {
+      console.log(error)
+    })
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
+    serverQueue.textChannel.send(`Started Playing ${song.title}`)}
