@@ -748,11 +748,8 @@ client.on('message', async message => {
   const voiceChannel = message.member.voice.channel
   const permissions = voiceChannel.permissionsFor(message.client.user)
 
-  let args = message.content.slice(PREFIX.length).split(" ");
-  
-  switch (args[0].toLowerCase()) {
-    
-    case 'play':
+  if(message.content.startsWith(`${PREFIX}play`)) {
+    if(message.author.bot = true) return message.channel.send("Bots Cannot Use This Command")
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
@@ -772,11 +769,17 @@ client.on('message', async message => {
       console.log(error)
     })
     dispatcher.setVolumeLogarithmic(5 / 5)
-    break;
-    case 'stop':
+  }else if(message.content.startsWith(`${PREFIX}stop`)) {
+    if(message.author.bot = true) return message.channel.send("Bots Cannot Use This Command")
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     voiceChannel.leave()
-    break;
+    return undefined
+  }
+
+  let args = message.content.slice(PREFIX.length).split(" ");
+  
+  switch (args[0].toLowerCase()) {
+    
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
