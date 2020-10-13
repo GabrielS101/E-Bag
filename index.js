@@ -772,7 +772,7 @@ client.on('message', async message => {
     dispatcher.setVolumeLogarithmic(5 / 5)
   }else if(message.content.startsWith(`${PREFIX}stop`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
-    if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     voiceChannel.leave()
     return undefined
   }
