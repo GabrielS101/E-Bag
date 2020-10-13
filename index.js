@@ -904,8 +904,6 @@ ${serverQueue.songs[0].title}
     })
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
     serverQueue.textChannel.send(`Started Playing ${song.title}`)
-  
-  client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
@@ -1644,10 +1642,6 @@ ${serverQueue.songs[0].title}
       break;
   }
 }
-)
-}
-}
-)
 
 client.on('message',
   msg=> {
@@ -1737,3 +1731,4 @@ client.on('message',
       msg.channel.send('Shut the fuck up Giorno before i make you drink more of my piss');
     }
   })
+})
