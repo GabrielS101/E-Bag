@@ -760,7 +760,7 @@ client.on('message', async message => {
     try {
       var video = await youtube.getVideoByID(url)
     } catch {
-      try {
+        try {
         var videos = await youtube.searchVideos(searchString, 1)
         var video = await youtube.getVideoByID(videos[0].id)
       }catch {
@@ -831,7 +831,7 @@ client.on('message', async message => {
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       message.channel.send(`Now Playing ${serverQueue.songs[0].title}`)
       return undefined
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}queue`)) {
+    }}else if(message.content.toLowerCase().startsWith(`${PREFIX}queue`)) {
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       message.channel.send(`
 __**Song Queue**__
@@ -857,7 +857,6 @@ __**Now Playing**__ ${serverQueue.songs[0].title}
       message.channel.send("Music Has Been Resumed")
       return undefined
     }
-  }
   
   function play(guild, song) {
     const serverQueue = queue.get(guild.id)
@@ -878,7 +877,7 @@ __**Now Playing**__ ${serverQueue.songs[0].title}
     })
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
 
-    serverQueue.textChannel.send(`Start Playing: ${song.title}`)
+    serverQueue.textChannel.send(`Started Playing ${song.title}`)
   }
 
   switch (args[0].toLowerCase()) {
