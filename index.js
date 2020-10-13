@@ -768,7 +768,7 @@ client.on('message', async message => {
         textChannel: message.channel,
         voiceChannel: voiceChannel,
         connection: null,
-        songs = [],
+        songs: [],
         volume: 5,
         playing: true
       }
