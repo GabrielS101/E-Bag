@@ -1658,7 +1658,7 @@ Please Choose A Song Between 1-10 In The Next 30 Seconds
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       message.channel.send(`
 __**Song Queue**__
-${serverQueue.songs.map(song => `${song.title}`).join('\n')}
+${serverQueue.songs.map(song => song.title).join('\n')}
 
 __**Now Playing**__ 
 ${serverQueue.songs[0].title}
