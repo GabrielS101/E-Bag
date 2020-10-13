@@ -768,7 +768,6 @@ client.on('message', async message => {
       }
     }
 
-    const songInfo = await ytdl.getInfo(args[1])
     const song = {
       id: video.id,
       title: video.title,
