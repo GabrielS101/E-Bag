@@ -746,7 +746,8 @@ const Whitesnake = new Discord.MessageEmbed()
 client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
-
+  const searchString = args.slice(1).join(' ')
+  const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
   const serverQueue = queue.get(message.guild.id)
 
   if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
@@ -757,10 +758,22 @@ client.on('message', async message => {
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
 
+    try {
+      var video = await youtube.getVideoByID(url)
+    } catch {
+      try {
+        var videos = await youtube.searchVideos(searchString, 1)
+        var video = await youtube.getVideoByID(videos[0].id)
+      }catch {
+        return message.channel.send("No Search Results Found")
+      }
+    }
+
     const songInfo = await ytdl.getInfo(args[1])
     const song = {
-      title: Util.escapeMarkdown(songInfo.title),
-      url: songInfo.videoDetails.video_url
+      id: video.id,
+      title: video.title,
+      url: `https://youtube.com/watch?v=${video.id}`
     }
 
     if(!serverQueue) {
