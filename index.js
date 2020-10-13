@@ -746,9 +746,6 @@ const Whitesnake = new Discord.MessageEmbed()
 client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
-  const searchString = args.slice(1).join(' ')
-  const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
-  const serverQueue = queue.get(message.guild.id)
 
   switch (args[0].toLowerCase()) {
     
@@ -1578,6 +1575,9 @@ client.on('message',
   })
 
   client.on('message', async message => {
+    const searchString = args.slice(1).join(' ')
+    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
+    const serverQueue = queue.get(message.guild.id)
   if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     const voiceChannel = message.member.voice.channel
