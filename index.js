@@ -21,7 +21,7 @@ const queue = new Map()
 const youtubeapi = 'AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y'
 const youtube = new YouTube(youtubeapi)
 const MusicClient = require("discord-music-core")
-    const musicPlayer = new MusicClient("Youtube Api key")
+    const musicPlayer = new MusicClient('AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y')
     musicPlayer.play(message, searchArray) // Searches for and add the searched results to the queue.
     musicPlayer.playTop(message, searchArray) // Searches for and add the searched results to the top of the queue.
     musicPlayer.stop(message) // Stop the music, which includes clearing the queue.
