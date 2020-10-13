@@ -746,37 +746,37 @@ const Whitesnake = new Discord.MessageEmbed()
 client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
-  if(message.content.startsWith(`${PREFIX}play`)) {
-    if(message.author.bot = true) return undefined
-    const voiceChannel = message.member.voice.channel
-    if(!voiceChannel) return message.channel.send("You Must Be In A Voice Channel To Play Music")
-    const permissions = voiceChannel.permissionsFor(message.client.user)
-    if(!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join This Voice Channel")
-    if(!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In This Voice Channel")
-
-    try {
-      var connection = await voiceChannel.join()
-    }catch (error) {
-      console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
-      return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
-    }
-    const dispatcher = connection.play(ytdl(args[1]))
-    .on('finish', () => {
-      voiceChannel.leave()
-    })
-    .on('error', error => {
-      console.log(error)
-    })
-    dispatcher.setVolumeLogarithmic(5 / 5)
-  }else if(message.content.startsWith(`${PREFIX}stop`)) {
-    if(message.author.bot = true) return undefined
-    if(!message.member.voice.channel) return message.channel.send("You Must Be In A Voice Channel To Stop The Music")
-    message.member.voice.channel.leave()
-    return undefined
-  }
   
   switch (args[0].toLowerCase()) {
     
+    case 'play':
+      if(message.author.bot = true) return undefined
+      const voiceChannel = message.member.voice.channel
+      if(!voiceChannel) return message.channel.send("You Must Be In A Voice Channel To Play Music")
+      const permissions = voiceChannel.permissionsFor(message.client.user)
+      if(!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join This Voice Channel")
+      if(!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In This Voice Channel")
+  
+      try {
+        var connection = await voiceChannel.join()
+      }catch (error) {
+        console.log(`There Was An Error Connecting To The Voice Channel: ${error}`)
+        return message.channel.send(`There Was An Error Connecting To The Voice Channel: ${error}`)
+      }
+      const dispatcher = connection.play(ytdl(args[1]))
+      .on('finish', () => {
+        voiceChannel.leave()
+      })
+      .on('error', error => {
+        console.log(error)
+      })
+      dispatcher.setVolumeLogarithmic(5 / 5)
+    break;
+    case 'stop':
+      if(message.author.bot = true) return undefined
+      if(!message.member.voice.channel) return message.channel.send("You Must Be In A Voice Channel To Stop The Music")
+      message.member.voice.channel.leave()
+    break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
