@@ -753,12 +753,8 @@ client.on('message', async message => {
   
   switch (args[0].toLowerCase()) {
     
-    case 'test':
-    let userid = "340100783901245441"
-    message.userid.send("Ooga Booga")
-    break;
     case 'restart':
-    if (message.author.id !== "340100783901245441"||message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
+    if (message.author.id !== "340100783901245441"&&message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
     process.exit();
     break;
     case 'loan':
