@@ -1,6 +1,6 @@
 {
   "name": "ebag",
-  "version": "1.9.0",
+  "version": "2.0.0",
   "description": "Is Part Of A Jojo's Bizzare Adventure Dice Game",
   "main": "index.js",
   "scripts": {
