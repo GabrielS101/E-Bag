@@ -746,13 +746,12 @@ const Whitesnake = new Discord.MessageEmbed()
 client.on('message', async message => {
 
   let args = message.content.slice(PREFIX.length).split(" ");
-  
-  const voiceChannel = message.member.voice.channel
-  const permissions = voiceChannel.permissionsFor(message.client.user)
 
   if(message.content.startsWith(`${PREFIX}play`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
+    const voiceChannel = message.member.voice.channel
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
+    const permissions = voiceChannel.permissionsFor(message.client.user)
     if (!permissions.has('CONNECT')) return message.channel.send("I Do Not Have Permission To Join The Voice Channel")
     if (!permissions.has('SPEAK')) return message.channel.send("I Do Not Have Permission To Speak In The Voice Channel")
 
