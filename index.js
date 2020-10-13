@@ -751,7 +751,6 @@ client.on('message', async message => {
   const searchString = args.slice(1).join(' ')
   const url = args[1] ? args[1].replace(/<(.+)>/g, '$1'): ''
   
-  
   switch (args[0].toLowerCase()) {
     
     case 'test':
