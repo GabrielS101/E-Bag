@@ -1052,7 +1052,7 @@ ${serverQueue.songs[0].title}
     }break;
     case 'daily':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Daily Reward")
-      let daily = await db.fetch(`daily_${message.author.id}`);
+      let daily = db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
       let amount = 100
       if (daily != null && timeout - (Date.now() - daily) > 0) {
@@ -1634,8 +1634,8 @@ ${serverQueue.songs[0].title}
       if (args[1].toLowerCase() != 'you') { message.channel.send("Full Name Of Command Not Specified")
       }else message.channel.send('I Miss You Too Mommy')
       break;
-  }}
-})
+      }} 
+  })
 
 client.on('message',
   msg=> {
