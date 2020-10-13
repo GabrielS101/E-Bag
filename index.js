@@ -905,6 +905,7 @@ ${serverQueue.songs[0].title}
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
     serverQueue.textChannel.send(`Started Playing ${song.title}`)
   
+  client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
@@ -1642,7 +1643,11 @@ ${serverQueue.songs[0].title}
       }else message.channel.send('I Miss You Too Mommy')
       break;
   }
-}})
+}
+)
+}
+}
+)
 
 client.on('message',
   msg=> {
