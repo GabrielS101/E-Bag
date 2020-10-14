@@ -1604,7 +1604,7 @@ client.on('message',
           var index = 0
           message.channel.send(`
 __**Song Selection**__
-${videos.map(video2 => `**${++index} -** ${video2.title} **-** (${Math.floor(Number(video2.durationSeconds) / Number(360))} Hours ${Number(Math.floor((Number(video2.durationSeconds) / Number(60))) - Number(Math.floor(Number(video2.durationSeconds) / Number(360))))} Minutes ${Math.floor(Number(video2.durationSeconds) - Number(Number(Math.floor((Number(video2.durationSeconds) / Number(60))) - Number(Math.floor(Number(video2.durationSeconds) / Number(360))))))} Seconds)`.replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"')).join('\n')}        
+${videos.map(video2 => `**${++index} -** ${video2.title} **-** ${new Date(video2.durationSeconds * 1000).toISOString().substr(11, 8)}`.replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"')).join('\n')}        
 
 Please Choose A Song Between 1-5 In The Next 30 Seconds
           `)
