@@ -749,6 +749,10 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
+    case 'restart':
+    if (message.author.id !== "340100783901245441"||message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
+    process.off()
+    break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
