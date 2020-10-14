@@ -754,7 +754,6 @@ client.on('message', async message => {
     if (message.author.id !== "340100783901245441"&&message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
     message.channel.send("Restarted")
     client.off()
-    message.channel.send("Restarted")
     break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
