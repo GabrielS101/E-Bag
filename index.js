@@ -18,6 +18,7 @@ const YouTube = require('simple-youtube-api');
 const { join } = require('path');
 const { ifError } = require('assert');
 const { time } = require('console');
+const { off } = require('process');
 const queue = new Map()
 const youtube = new YouTube('AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y')
  
@@ -752,7 +753,8 @@ client.on('message', async message => {
     case 'restart':
     if (message.author.id !== "340100783901245441"&&message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
     message.channel.send("Restarted")
-    process.off()
+    client.off()
+    message.channel.send("Restarted")
     break;
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
