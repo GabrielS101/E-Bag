@@ -1600,7 +1600,7 @@ client.on('message',
         var video = await youtube.getVideo(url)
       } catch {
           try {
-          var videos = await youtube.searchVideos(searchString, 50)
+          var videos = await youtube.searchVideos(searchString, 5)
           var index = 0
           message.channel.send(`
 __**Song Selection**__
