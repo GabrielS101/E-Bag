@@ -1604,7 +1604,7 @@ client.on('message',
           var index = 0
           message.channel.send(`
 __**Song Selection**__
-${videos.map(video2 => `**${++index} -** ${video2.title} **-** ${new Date(video2.durationSeconds * 1000).toISOString().substr(11, 8)}`.replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"')).join('\n')}        
+${videos.map(video2 => `**${++index} -** ${video2.title} **-** ${new Date(Number(video2.durationSeconds) * Number(1000)).toISOString().substr(11, 8)}`.replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"')).join('\n')}        
 
 Please Choose A Song Between 1-5 In The Next 30 Seconds
           `)
