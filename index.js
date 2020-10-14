@@ -20,7 +20,7 @@ const { ifError } = require('assert');
 const { time } = require('console');
 const { off } = require('process');
 const queue = new Map()
-const youtube = new YouTube('AIzaSyAnytlLK8QRGlBepUpsIxzfqS5TO298v4Y')
+const youtube = new YouTube('AIzaSyC1eobYrce-47-9qnGOY7uJqP7hsQEMjWU')
  
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
