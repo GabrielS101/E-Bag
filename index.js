@@ -992,8 +992,7 @@ client.on('message', async message => {
       var user = message.author
       var otheruser = message.mentions.users.first()
       if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Give Money")
-      if (otheruser.bot == true)
-        return message.reply('Can Not Give To A Bot');
+      if (otheruser.bot == true) return message.reply('Can Not Give To A Bot');
       if (otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
       var money = db.fetch(`money_${user.id}`)
       if (!otheruser) {
