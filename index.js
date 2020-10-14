@@ -20,7 +20,7 @@ const { ifError } = require('assert');
 const { time } = require('console');
 const { off } = require('process');
 const queue = new Map()
-const youtube = new YouTube('AIzaSyC1eobYrce-47-9qnGOY7uJqP7hsQEMjWU')
+const youtube = new YouTube('AIzaSyC1eobYrce-47-9qnGOY7uJqP7hsQEMjWU', 'AIzaSyAI5VdDlpMHthq9SlvR6jHeU9BCEFpy7eQ', 'AIzaSyDdfb_M90gDtZUygChBPgakWcZtICdLlxk', 'AIzaSyBWwtl15YHYmKqrZodSpKnTt8y7DwALbLE', 'AIzaSyAVqPxbMP_2wJfl8yebz-NwlwdEPzns_nw')
  
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
