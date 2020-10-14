@@ -20,7 +20,7 @@ const { ifError } = require('assert');
 const { time } = require('console');
 const { off } = require('process');
 const queue = new Map()
-const youtube = new YouTube('AIzaSyC1eobYrce-47-9qnGOY7uJqP7hsQEMjWU', 'AIzaSyAI5VdDlpMHthq9SlvR6jHeU9BCEFpy7eQ', 'AIzaSyDdfb_M90gDtZUygChBPgakWcZtICdLlxk', 'AIzaSyBWwtl15YHYmKqrZodSpKnTt8y7DwALbLE', 'AIzaSyAVqPxbMP_2wJfl8yebz-NwlwdEPzns_nw')
+const youtube = new YouTube('AIzaSyC1eobYrce-47-9qnGOY7uJqP7hsQEMjWU')
  
 client.on('ready', () => {
   console.log('E-Bag Is Now Online');
@@ -1600,16 +1600,16 @@ client.on('message',
         var video = await youtube.getVideo(url)
       } catch {
           try {
-          var videos = await youtube.searchVideos(searchString, 10)
+          var videos = await youtube.searchVideos(searchString, 5)
           var index = 0
           message.channel.send(`
 __**Song Selection**__
 ${videos.map(video2 => `**${++index} -** ${video2.title}`.replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"').replace("&#39;", "'").replace('&quot;', '"')).join('\n')}        
 
-Please Choose A Song Between 1-10 In The Next 30 Seconds
+Please Choose A Song Between 1-5 In The Next 30 Seconds
           `)
           try {
-            var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, {
+            var response = await message.channel.awaitMessages(msg => msg.content > 0 && msg.content < 6, {
               max: 1,
               time: 30000,
               errors: ['time']
