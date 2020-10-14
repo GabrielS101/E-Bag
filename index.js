@@ -1646,6 +1646,7 @@ Please Choose A Song Between 1-10 In The Next 30 Seconds
     if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
     if(isNaN(args[1])) return message.channel.send("Can Only Change Volume To A Number")
     if(Number(args[1]) > Number(5)) return message.channel.send("The Volume Does Not Go Higher Than 5")
+    if(Number(args[1]) < Number(0)) return message.channel.send("The Volume Does Not Go Lower Than 0")
     serverQueue.volume = args[1]
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
     message.channel.send(`Volume Has Been Set To ${args[1]}`)
