@@ -1145,10 +1145,7 @@ client.on('message', async message => {
       const subReddits = ["dankmeme",
         "dankmemes",
         "meme",
-        "memes",
-        "pyrocynical",
-        "ShitPostCrusaders",
-        "PewdiepieSubmissions"]
+        "memes"]
       const random = subReddits[Math.floor(Math.random() * subReddits.length)];
       const img = await randomPuppy(random);
       if (!img) return message.channel.send("Image Not Properly Loaded. Please Try Again")
