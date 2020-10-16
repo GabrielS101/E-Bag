@@ -1640,9 +1640,7 @@ Please Choose A Song Between 1-5 In The Next 30 Seconds
     if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Change The Volume")
     if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
     if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
-    if(args[1] == 'earrape'&&(message.author.id == '340100783901245441' || message.author.id == '736099696623353858')) {
-      serverQueue.volume = 50
-    }else if(isNaN(args[1])) return message.channel.send("Can Only Change Volume To A Number")
+    if(isNaN(args[1])) return message.channel.send("Can Only Change Volume To A Number")
     if(Number(args[1]) > Number(5)) return message.channel.send("The Volume Does Not Go Higher Than 5")
     if(Number(args[1]) < Number(0)) return message.channel.send("The Volume Does Not Go Lower Than 0")
     serverQueue.volume = args[1]
