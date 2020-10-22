@@ -1662,7 +1662,7 @@ __**Now Playing**__
 ${serverQueue.songs[0].title}
       `, { split: true })
       return undefined
-    }else if(!args[1] && message.content.toLowerCase().startsWith(`${PREFIX}p`)||message.content.toLowerCase().startsWith(`${PREFIX}pause`)) {
+    }else if(message.content.toLowerCase().startsWith(`${PREFIX}pause`||`${PREFIX}pa`)) {
       if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Pause The Music")
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       if(!serverQueue.playing) return message.channel.send("The Music Is Already Paused")
