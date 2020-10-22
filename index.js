@@ -1576,7 +1576,7 @@ client.on('message',
     const searchString = args.slice(1).join(' ')
     const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
     const serverQueue = queue.get(message.guild.id)
-  if(message.content.toLowerCase().startsWith(`${PREFIX}play`||`${PREFIX}p`)) {
+  if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     const voiceChannel = message.member.voice.channel
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
@@ -1622,7 +1622,7 @@ Please Choose A Song Between 1-5 In The Next 30 Seconds
       }
       return handleVideo(video, message, voiceChannel)
     }
-  }else if(message.content.toLowerCase().startsWith(`${PREFIX}stop`||`${PREFIX}s`)) {
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}stop`)) {
     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
     if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
@@ -1636,7 +1636,7 @@ Please Choose A Song Between 1-5 In The Next 30 Seconds
     serverQueue.connection.dispatcher.end()
     message.channel.send("Song Has Been Skipped")
     return undefined
-  }else if(message.content.toLowerCase().startsWith(`${PREFIX}volume`||`${PREFIX}v`)) {
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}volume`)) {
     if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Change The Volume")
     if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
     if(!args[1]) return message.channel.send(`The Volume Is ${serverQueue.volume}`)
@@ -1647,11 +1647,12 @@ Please Choose A Song Between 1-5 In The Next 30 Seconds
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
     message.channel.send(`Volume Has Been Set To ${args[1]}`)
     return undefined
-  }else if(message.content.toLowerCase().startsWith((`${PREFIX}now` && args[1] == 'playing')||`${PREFIX}np`)) {
+  }else if(message.content.toLowerCase().startsWith(`${PREFIX}now`)) {
+    if(args[1] == 'playing') {
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       message.channel.send(`Now Playing ${serverQueue.songs[0].title}`)
       return undefined
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}queue`||`${PREFIX}q`)) {
+    }}else if(message.content.toLowerCase().startsWith(`${PREFIX}queue`)) {
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       var index = 0
       message.channel.send(`
@@ -1662,7 +1663,7 @@ __**Now Playing**__
 ${serverQueue.songs[0].title}
       `, { split: true })
       return undefined
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}pause`||`${PREFIX}pa`)) {
+    }else if(message.content.toLowerCase().startsWith(`${PREFIX}pause`)) {
       if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Pause The Music")
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       if(!serverQueue.playing) return message.channel.send("The Music Is Already Paused")
@@ -1670,7 +1671,7 @@ ${serverQueue.songs[0].title}
       serverQueue.connection.dispatcher.pause()
       message.channel.send("Music Has Been Paused")
       return undefined
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}resume`||`${PREFIX}r`)) {
+    }else if(message.content.toLowerCase().startsWith(`${PREFIX}resume`)) {
       if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Resume The Music")
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       if(serverQueue.playing) return message.channel.send("The Music Is Not Paused")
@@ -1678,7 +1679,7 @@ ${serverQueue.songs[0].title}
       serverQueue.connection.dispatcher.resume()
       message.channel.send("Music Has Been Resumed")
       return undefined
-    }else if(message.content.startsWith(`${PREFIX}loop`||`${PREFIX}l`)) {
+    }else if(message.content.startsWith(`${PREFIX}loop`)) {
       if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Loop The Music")
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       serverQueue.loop = !serverQueue.loop
