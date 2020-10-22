@@ -1735,7 +1735,8 @@ ${serverQueue.songs[0].title}
       play(guild, serverQueue.songs[0])
     })
     .on('error', error => {
-      console.log(error)
+      if (error == 'input stream: Error parsing info: Unexpected token ) in JSON at position 0') { message.channel.send("This Song Is Too Old To Play. Please choose a different song")
+    }else console.log(error)
     })
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
     serverQueue.textChannel.send(`Started Playing ${song.title}`)}
