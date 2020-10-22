@@ -752,6 +752,7 @@ client.on('message', async message => {
     
     case 'restart':
     if (message.author.id !== "340100783901245441" && message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
+    console.log("Restart Command Was Used")
     message.channel.send("Restarting. Please Wait 10 Seconds. A Message Will Not Be Sent When The Restart Is Finished")
     process.exit(1);
     case 'loan':
