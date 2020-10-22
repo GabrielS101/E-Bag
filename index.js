@@ -750,6 +750,10 @@ client.on('message', async message => {
 
   switch (args[0].toLowerCase()) {
     
+    case 'restart':
+    if (message.author.id !== "340100783901245441" && message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
+    message.channel.send("Restarting. Please Wait 10 Seconds. A Message Will Not Be Sent When The Restart Is Finished")
+    client.off()
     case 'loan':
     var debt = db.fetch(`debt_${message.author.id}`)
     var money = db.fetch(`money_${message.author.id}`)
@@ -1648,7 +1652,7 @@ Please Choose A Song Between 1-5 In The Next 30 Seconds
     message.channel.send(`Volume Has Been Set To ${args[1]}`)
     return undefined
   }else if(message.content.toLowerCase().startsWith(`${PREFIX}now`)) {
-    if(args[1] == 'playing') {
+    if(args[1].toLowerCase() == 'playing') {
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       message.channel.send(`Now Playing ${serverQueue.songs[0].title}`)
       return undefined
