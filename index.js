@@ -13,6 +13,7 @@ const {
 const db = require('quick.db');
 const parsems = require('parse-ms');
 const ytdl = require('ytdl-core');
+const opus = require('opusscript');
 const ffmpeg = require('ffmpeg');
 const YouTube = require('simple-youtube-api');
 const { join } = require('path');
