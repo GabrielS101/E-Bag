@@ -1684,6 +1684,12 @@ ${serverQueue.songs[0].title}
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       serverQueue.loop = !serverQueue.loop
       return message.channel.send(`Loop Is Now ${serverQueue.loop ? `Enabled` : `Disabled`}`)
+    }else if(message.content.toLowerCase().startsWith(`${PREFIX}earrape`)) {
+      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Loop The Music")
+      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
+      if (message.author.id !== "340100783901245441"&&message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
+      dispatcher.setVolumeLogarithmic(25 / 5)
+      return message.channel.send("Earrape Has Been Activated")
     }
     return undefined
   async function handleVideo(video, message, voiceChannel, playList = false) {
