@@ -903,19 +903,19 @@ client.on('message', async message => {
     case 'hourly':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Hourly Reward")
       let hourly = await db.fetch(`hourly_${message.author.id}`);
-      let timeout = 3600000
-      let amount = 10
-      if (hourly != null && timeout - (Date.now() - hourly) > 0) {
-        let time = parsems(timeout - (Date.now() - hourly));
-        message.channel.send(`You Already Claimed Your Hourly Reward. Next Reward Availible In ${time.minutes} Minutes, And ${time.seconds} Seconds`)
+      let hourtimeout = 3600000
+      let houramount = 10
+      if (hourly != null && hourtimeout - (Date.now() - hourly) > 0) {
+        let hourtime = parsems(hourtimeout - (Date.now() - hourly));
+        message.channel.send(`You Already Claimed Your Hourly Reward. Next Reward Availible In ${hourtime.minutes} Minutes, And ${hourtime.seconds} Seconds`)
       } else {
         let hourlyreward = new Discord.MessageEmbed()
         .setAuthor("Hourly", message.author.displayAvatarURL)
         .setColor("GREEN")
         .setDescription("Hourly Rewards")
-        .addField("Collected", amount)
+        .addField("Collected", houramount)
         message.channel.send(hourlyreward)
-        db.add(`money_${message.author.id}`, amount)
+        db.add(`money_${message.author.id}`, houramount)
         db.add(`daily_${message.author.id}`, Date.now())
        }break;
     case 'daily':
