@@ -916,7 +916,7 @@ client.on('message', async message => {
         .addField("Collected", houramount)
         message.channel.send(hourlyreward)
         db.add(`money_${message.author.id}`, houramount)
-        db.add(`daily_${message.author.id}`, Date.now())
+        db.add(`hourly_${message.author.id}`, Date.now())
        }break;
     case 'daily':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Daily Reward")
