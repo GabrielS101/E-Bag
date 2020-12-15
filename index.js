@@ -981,7 +981,7 @@ client.on('message', async message => {
             message.channel.send(adminget)
             db.add(`money_${message.author.id}`, wantedamount)
           }}} else {
-        message.channel.send("You Can Not Use This Command")
+        return undefined
     }break;
     case 'remove':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Remove Money")
@@ -1005,7 +1005,7 @@ client.on('message', async message => {
               message.channel.send(adminremove)
               db.subtract(`money_${message.author.id}`, unwantedamount)
             }}}} else {
-        message.channel.send("You Can Not Use This Command")
+        return undefined
     }break;
     case 'give':
       var user = message.author
@@ -1481,21 +1481,21 @@ client.on('message', async message => {
       break;
     case 'bot':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
-      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase() != 'invite') { message.channel.send("Full Name Of Command Not Specified")
+      if (!args[1]) return undefined
+      if (args[1].toLowerCase() != 'invite') { return undefined
       }else message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
     case 'server':
      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
-     if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-     if (args[1].toLowerCase() != 'invite') { message.channel.send("Full Name Of Command Not Specified")
+     if (!args[1]) return undefined
+     if (args[1].toLowerCase() != 'invite') { return undefined
      }else message.channel.send('https://discord.gg/6ueb6Yy')
       break;
       case 'miss':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
       if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
-      if (!args[1]) return message.channel.send("Full Name Of Command Not Specified")
-      if (args[1].toLowerCase() != 'you') { message.channel.send("Full Name Of Command Not Specified")
+      if (!args[1]) return undefined
+      if (args[1].toLowerCase() != 'you') { return undefined
       }else message.channel.send('I Miss You Too Mommy')
       break;
   }
@@ -1703,12 +1703,6 @@ ${serverQueue.songs[0].title}
       if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
       serverQueue.loop = !serverQueue.loop
       return message.channel.send(`Loop Is Now ${serverQueue.loop ? `Enabled` : `Disabled`}`)
-    }else if(message.content.toLowerCase().startsWith(`${PREFIX}earrape`)) {
-      if(!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Loop The Music")
-      if(!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
-      if (message.author.id !== "340100783901245441"&&message.author.id !== '736099696623353858') return message.channel.send("You Can Not Use This Command")
-      dispatcher.setVolumeLogarithmic(25 / 5)
-      return message.channel.send("Earrape Has Been Activated")
     }
     return undefined
   async function handleVideo(video, message, voiceChannel, playList = false) {
