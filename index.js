@@ -750,7 +750,7 @@ const SupremeGoku = new Discord.MessageEmbed()
       .addField('Health', '∞.')
       .addField('Punch', '∞.')
       .addField("Pose", "Instantly Win The Fight.")
-      .setImage('https://i.pinimg.com/736x/19/47/79/1947796366bacc32b2afc168c0ef2a7e.jpg')
+      .setImage('https://i.kym-cdn.com/photos/images/newsfeed/001/975/766/e39.png')
       .setColor(0xff0000)
 
 client.on('message', async message => {
