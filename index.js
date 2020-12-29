@@ -744,6 +744,14 @@ const Whitesnake = new Discord.MessageEmbed()
       .setImage('https://i.pinimg.com/originals/75/54/f1/7554f1083f8c38f03aba491f50367b31.png')
       .setColor(0xb5b3b3)
       
+const SupremeGoku = new Discord.MessageEmbed()
+      .setTitle('Supreme Goku')
+      .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
+      .addField('Health', '∞.')
+      .addField('Punch', '∞.')
+      .addField("Pose", "Instantly Win The Fight")
+      .setImage('https://i.pinimg.com/736x/19/47/79/1947796366bacc32b2afc168c0ef2a7e.jpg')
+      .setColor(0xff0000)
 
 client.on('message', async message => {
 
@@ -1276,11 +1284,12 @@ client.on('message', async message => {
       if (args[1].toLowerCase() === 'stands') {
         const AdminStands = new Discord.MessageEmbed()
         .setTitle('Admin Stands')
-        .setDescription('4 Total Admin Stands.')
+        .setDescription('5 Total Admin Stands.')
         .addField('1', "Metallica (This Stand Is The Exclusive Property Of <@340100783901245441>).")
         .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@741860257822670879>).")
+        .addField('5', "Supreme Goku (This Stand Is The Exclusive Property Of <@340100783901245441>).")
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
         message.channel.send(AdminStands);
       }break;
@@ -1326,9 +1335,13 @@ client.on('message', async message => {
     case 'thtw':
       message.channel.send(TheHandTheWorld);
       break;
-    case 'Hey':
-      if (args[1].toLowerCase() === 'Ya') {
+    case 'hey':
+      if (args[1].toLowerCase() === 'ya') {
         message.channel.send(HeyYa);
+      }break;
+      case 'supreme':
+      if (args[1].toLowerCase() === 'goku') {
+        message.channel.send(SupremeGoku);
       }break;
     case 'd4c:lt':
       message.channel.send(D4CLT);
