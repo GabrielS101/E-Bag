@@ -749,7 +749,7 @@ const SupremeGoku = new Discord.MessageEmbed()
       .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
       .addField('Health', '∞.')
       .addField('Punch', '∞.')
-      .addField("Pose", "Instantly Win The Fight")
+      .addField("Pose", "Instantly Win The Fight.")
       .setImage('https://i.pinimg.com/736x/19/47/79/1947796366bacc32b2afc168c0ef2a7e.jpg')
       .setColor(0xff0000)
 
