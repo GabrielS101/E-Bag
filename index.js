@@ -817,7 +817,6 @@ client.on('message', async message => {
     var user = message.mentions.users.first()||message.author
     var items = db.get(user.id, {
       items: []})
-    if (user.id === '604317250543026178') items = "Supreme Goku" //RRRR Matey wanted Supreme Goku
     if (items === null) items = "No Stand"
     const currentstand = new Discord.MessageEmbed()
     .setTitle(`${user.username}'s Stand`)
@@ -1106,7 +1105,6 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirusbutlowercase)
     }break;
     case 'arrow':
-      if (message.author.id == '604317250543026178') return message.channel.send("Your Stand Is Supreme Goku. You Don't Need A Second.") //RRRR Matey wanted Supreme Goku
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (150 - money)
