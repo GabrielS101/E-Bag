@@ -752,6 +752,7 @@ const SupremeGoku = new Discord.MessageEmbed()
       .addField("Pose", "Instantly Win The Fight.")
       .setImage('https://i.kym-cdn.com/photos/images/newsfeed/001/975/766/e39.png')
       .setColor(0xff0000)
+      .setFooter("This Stand Is An Admin Exclusive.")
 
 client.on('message', async message => {
 
@@ -1026,6 +1027,9 @@ client.on('message', async message => {
         message.channel.send("Person To Give Money To Not Specified")
       }
       let giveamount = (args[2])
+      if (isNaN(giveamount)) {
+        message.channel.send("Amount To Give Must Be In Number Form")
+      } else {
       var extra = (giveamount - money)
       if (giveamount > money) {
         message.channel.send(`You Dont Have Enough Money To Give. You Went Over By ${extra} Dollars`)
@@ -1044,7 +1048,7 @@ client.on('message', async message => {
           }
         }
       }
-    break;
+    }break;
     case 'covid':
     if (!args[1]) return message.channel.send("Location Not Specified")
       if (args[1].toLowerCase() === 'world') {
