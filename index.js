@@ -743,16 +743,6 @@ const Whitesnake = new Discord.MessageEmbed()
       .addField("Foo Fighters Assist: Plankton Heal", '5 Turn Cooldown - Heal 100 Health.')
       .setImage('https://i.pinimg.com/originals/75/54/f1/7554f1083f8c38f03aba491f50367b31.png')
       .setColor(0xb5b3b3)
-      
-const SupremeGoku = new Discord.MessageEmbed()
-      .setTitle('Supreme Goku')
-      .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
-      .addField('Health', '∞.')
-      .addField('Punch', '∞.')
-      .addField("Pose", "Instantly Win The Fight.")
-      .setImage('https://i.kym-cdn.com/photos/images/newsfeed/001/975/766/e39.png')
-      .setColor(0xff0000)
-      .setFooter("This Stand Is An Admin Exclusive.")
 
 client.on('message', async message => {
 
@@ -1293,7 +1283,6 @@ client.on('message', async message => {
         .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@741860257822670879>).")
-        .addField('5', "Supreme Goku (This Stand Is The Exclusive Property Of <@340100783901245441>).")
         .setFooter('Stands That Are The Exclusive Property Of Someone Can Only Be Used By That Person.')
         message.channel.send(AdminStands);
       }break;
@@ -1342,10 +1331,6 @@ client.on('message', async message => {
     case 'hey':
       if (args[1].toLowerCase() === 'ya') {
         message.channel.send(HeyYa);
-      }break;
-      case 'supreme':
-      if (args[1].toLowerCase() === 'goku') {
-        message.channel.send(SupremeGoku);
       }break;
     case 'd4c:lt':
       message.channel.send(D4CLT);
