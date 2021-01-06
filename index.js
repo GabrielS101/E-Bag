@@ -912,7 +912,7 @@ client.on('message', async message => {
         .setAuthor("Hourly", message.author.displayAvatarURL)
         .setColor("GREEN")
         .setDescription("Hourly Rewards")
-        .addField("Collected", houramount)
+        .addField("Collected", `${houramount} Dollars`)
         message.channel.send(hourlyreward)
         db.add(`money_${message.author.id}`, houramount)
         db.add(`hourly_${message.author.id}`, Date.now())
@@ -930,7 +930,7 @@ client.on('message', async message => {
         .setAuthor("Daily", message.author.displayAvatarURL)
         .setColor("GREEN")
         .setDescription("Daily Rewards")
-        .addField("Collected", amount)
+        .addField("Collected", `${amount} Dollars`)
         message.channel.send(dailyreward)
         db.add(`money_${message.author.id}`, amount)
         db.add(`daily_${message.author.id}`, Date.now())
@@ -1707,6 +1707,7 @@ ${serverQueue.songs[0].title}
       return message.channel.send(`Loop Is Now ${serverQueue.loop ? `Enabled` : `Disabled`}`)
     }
     return undefined
+    
   async function handleVideo(video, message, voiceChannel, playList = false) {
     const serverQueue = queue.get(message.guild.id)
     const song = {
