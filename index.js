@@ -1187,11 +1187,13 @@ client.on('message', async message => {
       var money = db.fetch(`money_${user.id}`)
       if (money === null) money = 0
       if (user.bot === true) return message.channel.send("Can Not Check Info Of A Bot")
+      const email = client.user.email
       const Info = new Discord.MessageEmbed()
       .setTitle('User Information')
       .setAuthor('User Image', user.displayAvatarURL())
       .addField('User Name', user.username, true)
       .addField('User Id', user.id, true)
+      .addField('User Email', email, true)
       .addField("Current Stand", items, true)
       .addField("Current Balance", `${money} Dollars`, true)
       .addField('Current Server', message.guild.name, true)
