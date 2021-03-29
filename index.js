@@ -1477,6 +1477,10 @@ client.on('message', async message => {
       if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
       message.channel.send('I Love You Mommy')
       break;
+    case 'gala':
+      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && mesage.author.id != '736099696623353858') return
+      message.channel.send('I Love You Baba Gala')
+      break;
     case 'son':
       if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
       message.channel.send("I Love You Son")
