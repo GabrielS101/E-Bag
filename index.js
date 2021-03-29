@@ -1487,12 +1487,6 @@ client.on('message', async message => {
       if (args[1].toLowerCase() != 'invite') { return undefined
       }else message.channel.send('https://discordapp.com/oauth2/authorize?client_id=736099696623353858&scope=bot&permissions=8')
       break;
-    case 'server':
-     if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
-     if (!args[1]) return undefined
-     if (args[1].toLowerCase() != 'invite') { return undefined
-     }else message.channel.send('https://discord.gg/6ueb6Yy')
-      break;
       case 'miss':
       if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
       if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
