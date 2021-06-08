@@ -615,7 +615,7 @@ const MrPresident = new Discord.MessageEmbed()
       
 const Metallica = new Discord.MessageEmbed()
       .setTitle('Metallica')
-      .setDescription("This Stand Is The Exclusive Property Of <@340100783901245441>")
+      .setDescription("This Stand Is The Exclusive Property Of <@834484420290805800>")
       .addField('Health', '800.')
       .addField('Nail', '70.')
       .addField("Invisibility", "3 Turn Cooldown - Dodge Your Opponents Next Attack.")
@@ -851,7 +851,7 @@ client.on('message', async message => {
     db.set(`health_${message.author.id}`, Number(health) - Number(damagehealth))
    }break;
     case 'gamble':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Gamble")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Gamble")
       var money = db.fetch(`money_${message.author.id}`)
       const bet = args[1]
       if (!bet) return message.channel.send("Amount To Gamble Not Specified")
@@ -900,7 +900,7 @@ client.on('message', async message => {
         db.add(`money_${message.author.id}`, jackpotbet)
     }break;
     case 'hourly':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Hourly Reward")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Claim A Hourly Reward")
       let hourly = await db.fetch(`hourly_${message.author.id}`);
       let hourtimeout = 3600000
       let houramount = 10
@@ -918,7 +918,7 @@ client.on('message', async message => {
         db.add(`hourly_${message.author.id}`, Date.now())
        }break;
     case 'daily':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Claim A Daily Reward")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Claim A Daily Reward")
       let daily = await db.fetch(`daily_${message.author.id}`);
       let timeout = 86400000
       let amount = 100
@@ -936,7 +936,7 @@ client.on('message', async message => {
         db.add(`daily_${message.author.id}`, Date.now())
        }break;
     case 'work':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Work")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Work")
       {
         let timeoutworked = 3600000
         let worked = db.fetch(`worked_${message.author.id}`)
@@ -965,9 +965,9 @@ client.on('message', async message => {
           db.set(`worked_${message.author.id}`, Date.now())
     }}break;
     case `get`:
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Get Money")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Get Money")
       let wantedamount = (args[1])
-      if (message.author.id === "340100783901245441"||message.author.id === '736099696623353858') {
+      if (message.author.id === "834484420290805800"||message.author.id === '849653683435864115') {
         if (!wantedamount) {
           message.channel.send("Amount To Get Not Specified")
         } else {
@@ -983,11 +983,11 @@ client.on('message', async message => {
         return undefined
     }break;
     case 'remove':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Remove Money")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Remove Money")
       var user = message.author
       var money = db.fetch(`money_${user.id}`)
       let unwantedamount = (args[1])
-      if (message.author.id === "340100783901245441"||message.author.id === '736099696623353858') {
+      if (message.author.id === "834484420290805800"||message.author.id === '849653683435864115') {
         var extra = (unwantedamount - money)
         if (!unwantedamount) {
           message.channel.send("Amount To Get Rid Of Not Specified")
@@ -1009,7 +1009,7 @@ client.on('message', async message => {
     case 'give':
       var user = message.author
       var otheruser = message.mentions.users.first()
-      if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Give Money")
+      if (user.bot === true && user.id != '849653683435864115') return message.channel.send("Bots Can Not Give Money")
       if (otheruser.bot == true) return message.reply('Can Not Give To A Bot');
       if (otheruser.id == message.author.id) return message.reply('Cannot Give To Yourself');
       var money = db.fetch(`money_${user.id}`)
@@ -1095,7 +1095,7 @@ client.on('message', async message => {
         message.channel.send(countrycoronavirusbutlowercase)
     }break;
     case 'arrow':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Arrows")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Buy Arrows")
       var money = db.fetch(`money_${message.author.id}`)
       var extra = (150 - money)
       if (150 > money) return message.channel.send(`You Don't Have Enough To Buy A Stand Arrow. You Need ${extra} More Dollars`)
@@ -1145,7 +1145,7 @@ client.on('message', async message => {
         message.channel.send("You Already Have A Stand")
       }break;
     case 'roka':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Buy Rokas")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Buy Rokas")
         var money = db.fetch(`money_${message.author.id}`)
         var extra = (100 - money)
          if (100 > money) return message.channel.send(`You Don't Have Enough To Buy A Roka. You Need ${extra} More Dollars`)
@@ -1162,7 +1162,7 @@ client.on('message', async message => {
      case 'meme':
       if (args[1]) return message.channel.send("The Command Where You Can Choose The Subreddit Has Been Changed To E-Reddit")
       var user = message.author
-      if (user.bot === true && user.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
+      if (user.bot === true && user.id != '849653683435864115') return message.channel.send("Bots Can Not Use This Command")
       const subReddits = ["dankmeme",
         "dankmemes",
         "meme",
@@ -1279,7 +1279,7 @@ client.on('message', async message => {
         const AdminStands = new Discord.MessageEmbed()
         .setTitle('Admin Stands')
         .setDescription('5 Total Admin Stands.')
-        .addField('1', "Metallica (This Stand Is The Exclusive Property Of <@340100783901245441>).")
+        .addField('1', "Metallica (This Stand Is The Exclusive Property Of <@834484420290805800>).")
         .addField('2', "Mr.President (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('3', "Ocean Man (This Stand Is The Exclusive Property Of <@592471909707546634>).")
         .addField('4', "The Hand: The World (This Stand Is The Exclusive Property Of <@741860257822670879>).")
@@ -1474,26 +1474,26 @@ client.on('message', async message => {
       message.channel.send('Ping')
       break;
     case 'mom':
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
+      if (message.author.id != '588195300737417222' && message.author.id != '834484420290805800' && message.author.id != '849653683435864115') return
       message.channel.send('I Love You Mommy')
       break;
     case 'gala':
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && mesage.author.id != '736099696623353858') return
+      if (message.author.id != '588195300737417222' && message.author.id != '834484420290805800' && mesage.author.id != '849653683435864115') return
       message.channel.send('I Love You Baba Gala')
       break;
     case 'son':
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
+      if (message.author.id != '588195300737417222' && message.author.id != '834484420290805800' && message.author.id != '849653683435864115') return
       message.channel.send("I Love You Son")
       break;
     case 'bot':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Use This Command")
       if (!args[1]) return undefined
       if (args[1].toLowerCase() != 'invite') { return undefined
       }else message.channel.send('https://discord.com/api/oauth2/authorize?client_id=849653683435864115&permissions=8&scope=bot')
       break;
       case 'miss':
-      if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Can Not Use This Command")
-      if (message.author.id != '588195300737417222' && message.author.id != '340100783901245441' && message.author.id != '736099696623353858') return
+      if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Can Not Use This Command")
+      if (message.author.id != '588195300737417222' && message.author.id != '834484420290805800' && message.author.id != '849653683435864115') return
       if (!args[1]) return undefined
       if (args[1].toLowerCase() != 'you') { return undefined
       }else message.channel.send('I Miss You Too Mommy')
@@ -1596,7 +1596,7 @@ client.on('message',
     const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
     const serverQueue = queue.get(message.guild.id)
   if(message.content.toLowerCase().startsWith(`${PREFIX}play`)) {
-    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
+    if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Cannot Use This Command")
     const voiceChannel = message.member.voice.channel
     if (!voiceChannel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     const permissions = voiceChannel.permissionsFor(message.client.user)
@@ -1642,7 +1642,7 @@ Please Choose A Song Between 1-5 In The Next 30 Seconds
       return handleVideo(video, message, voiceChannel)
     }
   }else if(message.content.toLowerCase().startsWith(`${PREFIX}stop`)) {
-    if (message.author.bot === true && message.author.id != '736099696623353858') return message.channel.send("Bots Cannot Use This Command")
+    if (message.author.bot === true && message.author.id != '849653683435864115') return message.channel.send("Bots Cannot Use This Command")
     if (!message.member.voice.channel) return message.channel.send("Must Be In A Voice Channel To Play Music")
     if (!serverQueue) return message.channel.send("There Is Nothing Playing Right Now")
     serverQueue.songs = []
